@@ -1,0 +1,2602 @@
+[
+  {
+    "id": "anime-001",
+    "category": "anime",
+    "sub": "Naruto",
+    "level": 1,
+    "q": "من قائد الفريق 7 في بداية ناروتو؟",
+    "options": [
+      "كاكاشي هاتاكي",
+      "إيروكا أومينو",
+      "أسوما ساروتوبي",
+      "كوريناي يوهي"
+    ],
+    "answer": 0,
+    "explanation": "درّب كاكاشي الفريق المكوّن من ناروتو وساسكي وساكورا.",
+    "hint": "يُخفي أسفل وجهه بقناع.",
+    "source": {
+      "title": "الموقع الرسمي لناروتو",
+      "url": "https://naruto-official.com/en/anime/naruto1",
+      "reference": "Naruto"
+    },
+    "spoiler": false,
+    "tags": [
+      "Naruto"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-002",
+    "category": "anime",
+    "sub": "Naruto",
+    "level": 1,
+    "q": "إلى أي عشيرة ينتمي ساسكي؟",
+    "options": [
+      "الأوتشيها",
+      "الهيوغا",
+      "النارا",
+      "الأكيميتشي"
+    ],
+    "answer": 0,
+    "explanation": "ساسكي من عشيرة الأوتشيها المعروفة بالشارينغان.",
+    "hint": "ترتبط العشيرة بعين حمراء.",
+    "source": {
+      "title": "الموقع الرسمي لناروتو",
+      "url": "https://naruto-official.com/en/anime/naruto1",
+      "reference": "Naruto"
+    },
+    "spoiler": false,
+    "tags": [
+      "Naruto"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-003",
+    "category": "anime",
+    "sub": "Naruto",
+    "level": 2,
+    "q": "ما اسم القرية التي ينتمي إليها ناروتو؟",
+    "options": [
+      "كونوها",
+      "سونا",
+      "كيري",
+      "كومو"
+    ],
+    "answer": 0,
+    "explanation": "كونوها هي قرية الورق المخفية.",
+    "hint": "رمزها على عصابات الرأس يشبه ورقة.",
+    "source": {
+      "title": "الموقع الرسمي لناروتو",
+      "url": "https://naruto-official.com/en/anime/naruto1",
+      "reference": "Naruto"
+    },
+    "spoiler": false,
+    "tags": [
+      "Naruto"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-004",
+    "category": "anime",
+    "sub": "Naruto Shippuden",
+    "level": 2,
+    "q": "من المعلّم الذي درّب ناروتو على الراسينغان؟",
+    "options": [
+      "جيرايا",
+      "أوروتشيمارو",
+      "مايت غاي",
+      "إيبيسو"
+    ],
+    "answer": 0,
+    "explanation": "تعلّم ناروتو الراسينغان على يد جيرايا.",
+    "hint": "أحد النينجا الأسطوريين الثلاثة.",
+    "source": {
+      "title": "ناروتو الرسمي: مراجعة أحداث شيبودن",
+      "url": "https://naruto-official.com/en/news/01_1308",
+      "reference": "Naruto Shippuden"
+    },
+    "spoiler": false,
+    "tags": [
+      "Naruto Shippuden"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-005",
+    "category": "anime",
+    "sub": "Naruto Shippuden",
+    "level": 3,
+    "q": "أي منظمة تتخذ السحب الحمراء رمزًا على عباءاتها؟",
+    "options": [
+      "الأكاتسكي",
+      "الأنبو",
+      "الأوتو",
+      "الشرطة العسكرية"
+    ],
+    "answer": 0,
+    "explanation": "تتميز عباءات الأكاتسكي السوداء بالسحب الحمراء.",
+    "hint": "تضم أعضاء من قرى متعددة.",
+    "source": {
+      "title": "ناروتو الرسمي: مراجعة أحداث شيبودن",
+      "url": "https://naruto-official.com/en/news/01_1308",
+      "reference": "Naruto Shippuden"
+    },
+    "spoiler": false,
+    "tags": [
+      "Naruto Shippuden"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-006",
+    "category": "anime",
+    "sub": "Naruto Shippuden",
+    "level": 4,
+    "q": "من طوّر تقنية إيدو تينسي أصلًا؟",
+    "options": [
+      "توبيراما سينجو",
+      "هاشيراما سينجو",
+      "ميناتو ناميكازي",
+      "هيروزن ساروتوبي"
+    ],
+    "answer": 0,
+    "explanation": "ابتكر الهوكاغي الثاني توبيراما تقنية الإحياء المحظورة.",
+    "hint": "ابحث بين الهوكاغي الأوائل.",
+    "source": {
+      "title": "ناروتو الرسمي: مراجعة أحداث شيبودن",
+      "url": "https://naruto-official.com/en/news/01_1308",
+      "reference": "ناروتو: تقنية استدعاء تناسخ العالم غير النقي؛ ابتكرها الهوكاغي الثاني"
+    },
+    "spoiler": true,
+    "tags": [
+      "Naruto Shippuden"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-007",
+    "category": "anime",
+    "sub": "One Piece",
+    "level": 1,
+    "q": "من قبطان قراصنة قبعة القش؟",
+    "options": [
+      "مونكي دي لوفي",
+      "رورونوا زورو",
+      "ترافالغار لاو",
+      "شانكس"
+    ],
+    "answer": 0,
+    "explanation": "لوفي مؤسس طاقم قبعة القش وقبطانه.",
+    "hint": "يحلم بالعثور على الكنز العظيم.",
+    "source": {
+      "title": "ون بيس: موسوعة الشخصيات الرسمية",
+      "url": "https://one-piece.com/character/",
+      "reference": "One Piece"
+    },
+    "spoiler": false,
+    "tags": [
+      "One Piece"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-008",
+    "category": "anime",
+    "sub": "One Piece",
+    "level": 1,
+    "q": "من طبّاخ طاقم قبعة القش؟",
+    "options": [
+      "سانجي",
+      "أوسوب",
+      "فرانكي",
+      "بروك"
+    ],
+    "answer": 0,
+    "explanation": "سانجي طبّاخ الطاقم ويشتهر بالقتال بركلاته.",
+    "hint": "عمل في مطعم باراتي.",
+    "source": {
+      "title": "ون بيس: موسوعة الشخصيات الرسمية",
+      "url": "https://one-piece.com/character/",
+      "reference": "One Piece"
+    },
+    "spoiler": false,
+    "tags": [
+      "One Piece"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-009",
+    "category": "anime",
+    "sub": "One Piece",
+    "level": 2,
+    "q": "كم سيفًا يستخدم زورو في أسلوبه الأشهر؟",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "1"
+    ],
+    "answer": 0,
+    "explanation": "يعتمد أسلوب سانتوريو على ثلاثة سيوف.",
+    "hint": "يحمل أحد السيوف بفمه.",
+    "source": {
+      "title": "ون بيس: زورو",
+      "url": "https://one-piece.com/character/zoro/index.html",
+      "reference": "أسلوب السيوف الثلاثة"
+    },
+    "spoiler": false,
+    "tags": [
+      "One Piece"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-010",
+    "category": "anime",
+    "sub": "One Piece",
+    "level": 2,
+    "q": "ما وظيفة نامي الأساسية في الطاقم؟",
+    "options": [
+      "ملاحة السفينة",
+      "علاج المصابين",
+      "عزف الموسيقى",
+      "بناء السفن"
+    ],
+    "answer": 0,
+    "explanation": "نامي هي ملاحة طاقم قبعة القش.",
+    "hint": "ترتبط مهارتها بالطقس والخرائط.",
+    "source": {
+      "title": "ون بيس: نامي",
+      "url": "https://one-piece.com/character/nami/index.html",
+      "reference": "ملاحة طاقم قبعة القش"
+    },
+    "spoiler": false,
+    "tags": [
+      "One Piece"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-011",
+    "category": "anime",
+    "sub": "One Piece",
+    "level": 3,
+    "q": "ما اسم سفينة قبعة القش الأولى ذات رأس الخروف؟",
+    "options": [
+      "غوينغ ميري",
+      "ثاوزند ساني",
+      "موبي ديك",
+      "أورو جاكسون"
+    ],
+    "answer": 0,
+    "explanation": "غوينغ ميري سبقت ثاوزند ساني في رحلة الطاقم.",
+    "hint": "اسمها الثاني مرتبط بصانعها.",
+    "source": {
+      "title": "ون بيس: موسوعة الشخصيات الرسمية",
+      "url": "https://one-piece.com/character/",
+      "reference": "One Piece"
+    },
+    "spoiler": false,
+    "tags": [
+      "One Piece"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-012",
+    "category": "anime",
+    "sub": "One Piece",
+    "level": 4,
+    "q": "ما اسم السيف الذي ورثه زورو من كوينا؟",
+    "options": [
+      "وادو إيتشيمونجي",
+      "إنما",
+      "شوسوي",
+      "سانداي كيتيتسو"
+    ],
+    "answer": 0,
+    "explanation": "وادو إيتشيمونجي هو سيف كوينا الذي يحتفظ به زورو.",
+    "hint": "غمده أبيض.",
+    "source": {
+      "title": "ون بيس: زورو",
+      "url": "https://one-piece.com/character/zoro/index.html",
+      "reference": "ون بيس: ماضي زورو وكوينا، الحلقة 19"
+    },
+    "spoiler": false,
+    "tags": [
+      "One Piece"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-013",
+    "category": "anime",
+    "sub": "Dragon Ball",
+    "level": 1,
+    "q": "كم كرة تنين تُجمع عادة لاستدعاء شينرون على الأرض؟",
+    "options": [
+      "7",
+      "5",
+      "9",
+      "12"
+    ],
+    "answer": 0,
+    "explanation": "تُجمع كرات التنين الأرضية السبع لاستدعاء شينرون.",
+    "hint": "لكل كرة عدد مختلف من النجوم.",
+    "source": {
+      "title": "الموقع الرسمي لدراغون بول",
+      "url": "https://en.dragon-ball-official.com/",
+      "reference": "Dragon Ball"
+    },
+    "spoiler": false,
+    "tags": [
+      "Dragon Ball"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-014",
+    "category": "anime",
+    "sub": "Dragon Ball",
+    "level": 2,
+    "q": "ما التقنية الشهيرة التي تعلّمها غوكو من روشي؟",
+    "options": [
+      "كامي هامي ها",
+      "راسينغان",
+      "غيتسوغا تينشو",
+      "غومو غومو"
+    ],
+    "answer": 0,
+    "explanation": "كامي هامي ها موجة طاقة ابتكرها المعلّم روشي.",
+    "hint": "تُطلق من الكفّين.",
+    "source": {
+      "title": "الموقع الرسمي لدراغون بول",
+      "url": "https://en.dragon-ball-official.com/",
+      "reference": "Dragon Ball"
+    },
+    "spoiler": false,
+    "tags": [
+      "Dragon Ball"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-015",
+    "category": "anime",
+    "sub": "Dragon Ball",
+    "level": 3,
+    "q": "إلى أي شعب فضائي ينتمي بيكولو؟",
+    "options": [
+      "الناميكيون",
+      "السايان",
+      "التسوفل",
+      "الفريزا"
+    ],
+    "answer": 0,
+    "explanation": "بيكولو من الناميكيين ذوي البشرة الخضراء.",
+    "hint": "شعبه مرتبط أيضًا بكرات التنين.",
+    "source": {
+      "title": "الموقع الرسمي لدراغون بول",
+      "url": "https://en.dragon-ball-official.com/",
+      "reference": "Dragon Ball"
+    },
+    "spoiler": true,
+    "tags": [
+      "Dragon Ball"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-016",
+    "category": "anime",
+    "sub": "Dragon Ball",
+    "level": 2,
+    "q": "من يندمج مع غوكو لتكوين غوجيتا؟",
+    "options": [
+      "فيجيتا",
+      "غوهان",
+      "ترانكس",
+      "غوتين"
+    ],
+    "answer": 0,
+    "explanation": "غوجيتا ناتج رقصة الاندماج بين غوكو وفيجيتا.",
+    "hint": "يحمل لقب أمير السايان.",
+    "source": {
+      "title": "الموقع الرسمي لدراغون بول",
+      "url": "https://en.dragon-ball-official.com/",
+      "reference": "Dragon Ball"
+    },
+    "spoiler": true,
+    "tags": [
+      "Dragon Ball"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-017",
+    "category": "anime",
+    "sub": "Bleach",
+    "level": 1,
+    "q": "من بطل بليتش الذي يصبح شينيغامي بديلًا؟",
+    "options": [
+      "إيتشيغو كوروساكي",
+      "رينجي أباراي",
+      "أوريو إيشيدا",
+      "بياكويا كوتشيكي"
+    ],
+    "answer": 0,
+    "explanation": "إيتشيغو طالب المدرسة الذي يكتسب قوى الشينيغامي.",
+    "hint": "شعره برتقالي.",
+    "source": {
+      "title": "شونن جمب: قصة بليتش",
+      "url": "https://www.shonenjump.com/xmedia/bleach/story/",
+      "reference": "Bleach"
+    },
+    "spoiler": false,
+    "tags": [
+      "Bleach"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-018",
+    "category": "anime",
+    "sub": "Bleach",
+    "level": 2,
+    "q": "من نقلت قوى الشينيغامي إلى إيتشيغو في البداية؟",
+    "options": [
+      "روكيا كوتشيكي",
+      "أوريهيمي إينوي",
+      "رانغيكو ماتسوموتو",
+      "سوي فون"
+    ],
+    "answer": 0,
+    "explanation": "تنقل روكيا قواها إليه أثناء مواجهة هولو.",
+    "hint": "تنتمي إلى عائلة كوتشيكي.",
+    "source": {
+      "title": "شونن جمب: قصة بليتش",
+      "url": "https://www.shonenjump.com/xmedia/bleach/story/",
+      "reference": "Bleach"
+    },
+    "spoiler": false,
+    "tags": [
+      "Bleach"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-019",
+    "category": "anime",
+    "sub": "Bleach",
+    "level": 3,
+    "q": "ما اسم سيف إيتشيغو الرئيسي؟",
+    "options": [
+      "زانغيتسو",
+      "سينبونزاكورا",
+      "سودي نو شيرايوكي",
+      "هيورينمارو"
+    ],
+    "answer": 0,
+    "explanation": "يحمل زانباكتو إيتشيغو اسم زانغيتسو.",
+    "hint": "يرتبط الاسم بالقمر.",
+    "source": {
+      "title": "بليتش: الناشر الرسمي",
+      "url": "https://www.viz.com/bleach",
+      "reference": "Bleach"
+    },
+    "spoiler": false,
+    "tags": [
+      "Bleach"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-020",
+    "category": "anime",
+    "sub": "Bleach",
+    "level": 4,
+    "q": "أي قائد فرقة يستخدم هيورينمارو؟",
+    "options": [
+      "توشيرو هيتسوغايا",
+      "كينباتشي زاراكي",
+      "شونسوي كيوراكو",
+      "ساجين كومامورا"
+    ],
+    "answer": 0,
+    "explanation": "هيورينمارو سيف توشيرو ذو القدرات الجليدية.",
+    "hint": "من أصغر القادة عمرًا.",
+    "source": {
+      "title": "بليتش: توشيرو هيتسوغايا",
+      "url": "https://bleach-anime.com/en/character/?chara=69",
+      "reference": "توشيرو هيتسوغايا وزانباكتو هيورينمارو"
+    },
+    "spoiler": false,
+    "tags": [
+      "Bleach"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-021",
+    "category": "anime",
+    "sub": "Attack on Titan",
+    "level": 1,
+    "q": "ما اسم بطل هجوم العمالقة الذي ينضم إلى فيلق الاستطلاع؟",
+    "options": [
+      "إيرين ييغر",
+      "لايت ياغامي",
+      "إدوارد إلريك",
+      "تانجيرو كامادو"
+    ],
+    "answer": 0,
+    "explanation": "إيرين ييغر من الشخصيات المحورية في العمل.",
+    "hint": "نشأ مع ميكاسا وأرمين.",
+    "source": {
+      "title": "هجوم العمالقة: الشخصيات",
+      "url": "https://shingeki.tv/season1/character/",
+      "reference": "Attack on Titan"
+    },
+    "spoiler": false,
+    "tags": [
+      "Attack on Titan"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-022",
+    "category": "anime",
+    "sub": "Attack on Titan",
+    "level": 2,
+    "q": "أي فيلق يحمل شارة «أجنحة الحرية»؟",
+    "options": [
+      "فيلق الاستطلاع",
+      "الشرطة العسكرية",
+      "فيلق الحامية",
+      "فيلق التدريب"
+    ],
+    "answer": 0,
+    "explanation": "أجنحة الحرية هي شارة فيلق الاستطلاع.",
+    "hint": "تخرج وحداته إلى ما وراء الأسوار.",
+    "source": {
+      "title": "هجوم العمالقة: الشخصيات",
+      "url": "https://shingeki.tv/season1/character/",
+      "reference": "Attack on Titan"
+    },
+    "spoiler": false,
+    "tags": [
+      "Attack on Titan"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-023",
+    "category": "anime",
+    "sub": "Attack on Titan",
+    "level": 3,
+    "q": "ما اسم السور الخارجي بين الأسوار الثلاثة الأصلية؟",
+    "options": [
+      "ماريا",
+      "روز",
+      "سينا",
+      "تروست"
+    ],
+    "answer": 0,
+    "explanation": "ماريا هو الخارجي، ثم روز، ثم سينا.",
+    "hint": "سقط جزء منه في بداية القصة.",
+    "source": {
+      "title": "هجوم العمالقة: الشخصيات",
+      "url": "https://shingeki.tv/season1/character/",
+      "reference": "Attack on Titan"
+    },
+    "spoiler": false,
+    "tags": [
+      "Attack on Titan"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-024",
+    "category": "anime",
+    "sub": "Attack on Titan",
+    "level": 4,
+    "q": "من قائد فيلق الاستطلاع عند انضمام إيرين إليه؟",
+    "options": [
+      "إروين سميث",
+      "كيث شاديس",
+      "دوت بيكسيس",
+      "داريوس زاكلي"
+    ],
+    "answer": 0,
+    "explanation": "قاد إروين سميث الفيلق في تلك المرحلة.",
+    "hint": "تشتهر خطبه برفع معنويات الجنود.",
+    "source": {
+      "title": "هجوم العمالقة: الشخصيات",
+      "url": "https://shingeki.tv/season1/character/",
+      "reference": "Attack on Titan"
+    },
+    "spoiler": false,
+    "tags": [
+      "Attack on Titan"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-025",
+    "category": "anime",
+    "sub": "Demon Slayer",
+    "level": 1,
+    "q": "ما صلة نيزوكو بتانجيرو؟",
+    "options": [
+      "أخته الصغرى",
+      "معلمته",
+      "ابنته",
+      "عمته"
+    ],
+    "answer": 0,
+    "explanation": "نيزوكو كامادو أخت تانجيرو الصغرى.",
+    "hint": "ينتميان إلى الأسرة نفسها.",
+    "source": {
+      "title": "قاتل الشياطين: الشخصيات الرسمية",
+      "url": "https://demonslayer-anime.com/risshihen/character/",
+      "reference": "Demon Slayer"
+    },
+    "spoiler": false,
+    "tags": [
+      "Demon Slayer"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-026",
+    "category": "anime",
+    "sub": "Demon Slayer",
+    "level": 2,
+    "q": "أي شخصية ترتدي قناع رأس خنزير بري؟",
+    "options": [
+      "إينوسكي هاشيبيرا",
+      "زينيتسو أغاتسوما",
+      "غيو توميوكا",
+      "كيوجورو رينغوكو"
+    ],
+    "answer": 0,
+    "explanation": "يرتدي إينوسكي رأس خنزير بري ويقاتل بسيفين.",
+    "hint": "أسلوبه يسمى تنفّس الوحش.",
+    "source": {
+      "title": "قاتل الشياطين: الشخصيات الرسمية",
+      "url": "https://demonslayer-anime.com/risshihen/character/",
+      "reference": "Demon Slayer"
+    },
+    "spoiler": false,
+    "tags": [
+      "Demon Slayer"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-027",
+    "category": "anime",
+    "sub": "Demon Slayer",
+    "level": 3,
+    "q": "ما أسلوب التنفّس الذي يستخدمه زينيتسو؟",
+    "options": [
+      "تنفّس الرعد",
+      "تنفّس الضباب",
+      "تنفّس الحجر",
+      "تنفّس الحب"
+    ],
+    "answer": 0,
+    "explanation": "يركز زينيتسو على الشكل الأول من تنفّس الرعد.",
+    "hint": "حركته سريعة كالبرق.",
+    "source": {
+      "title": "قاتل الشياطين: الشخصيات الرسمية",
+      "url": "https://demonslayer-anime.com/risshihen/character/",
+      "reference": "Demon Slayer"
+    },
+    "spoiler": false,
+    "tags": [
+      "Demon Slayer"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-028",
+    "category": "anime",
+    "sub": "Demon Slayer",
+    "level": 2,
+    "q": "من هاشيرا الحشرات التي تعتمد على السموم؟",
+    "options": [
+      "شينوبو كوتشو",
+      "ميتسوري كانروجي",
+      "كاناو تسويوري",
+      "أوي كانزاكي"
+    ],
+    "answer": 0,
+    "explanation": "شينوبو هاشيرا الحشرات وتستخدم سمًّا مضادًا للشياطين.",
+    "hint": "ترتبط ملابسها بزخرفة الفراشات.",
+    "source": {
+      "title": "قاتل الشياطين: الهاشيرا",
+      "url": "https://demonslayer-anime.com/hta/character/",
+      "reference": "Demon Slayer"
+    },
+    "spoiler": false,
+    "tags": [
+      "Demon Slayer"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-029",
+    "category": "anime",
+    "sub": "Jujutsu Kaisen",
+    "level": 1,
+    "q": "من معلّم يوجي وميغومي ونوبارا؟",
+    "options": [
+      "ساتورو غوجو",
+      "كينتو نانامي",
+      "ماساتشي ياغا",
+      "أوي تودو"
+    ],
+    "answer": 0,
+    "explanation": "غوجو يدرّس الطلاب الثلاثة في مدرسة طوكيو للجوجوتسو.",
+    "hint": "يضع غطاءً على عينيه غالبًا.",
+    "source": {
+      "title": "جوجوتسو كايسن: الشخصيات الرسمية",
+      "url": "https://jujutsukaisen.jp/character/index_1st.php",
+      "reference": "Jujutsu Kaisen"
+    },
+    "spoiler": false,
+    "tags": [
+      "Jujutsu Kaisen"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-030",
+    "category": "anime",
+    "sub": "Jujutsu Kaisen",
+    "level": 2,
+    "q": "أي أداة تستخدمها نوبارا مع المسامير في القتال؟",
+    "options": [
+      "مطرقة",
+      "رمح",
+      "مروحة",
+      "منجل"
+    ],
+    "answer": 0,
+    "explanation": "تستخدم نوبارا المطرقة والمسامير ضمن تقنيتها.",
+    "hint": "أداة معتادة في أعمال النجارة.",
+    "source": {
+      "title": "جوجوتسو كايسن: الشخصيات الرسمية",
+      "url": "https://jujutsukaisen.jp/character/index_1st.php",
+      "reference": "Jujutsu Kaisen"
+    },
+    "spoiler": false,
+    "tags": [
+      "Jujutsu Kaisen"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-031",
+    "category": "anime",
+    "sub": "Jujutsu Kaisen",
+    "level": 3,
+    "q": "ما اسم تقنية ميغومي الموروثة التي تستدعي الشيكغامي؟",
+    "options": [
+      "تقنية الظلال العشرة",
+      "الخطاب الملعون",
+      "التلاعب بالدم",
+      "اللامحدود"
+    ],
+    "answer": 0,
+    "explanation": "يستدعي ميغومي الشيكغامي من الظلال بهذه التقنية.",
+    "hint": "تظهر منها كلاب إلهية.",
+    "source": {
+      "title": "جوجوتسو كايسن: الشخصيات الرسمية",
+      "url": "https://jujutsukaisen.jp/character/index_1st.php",
+      "reference": "Jujutsu Kaisen"
+    },
+    "spoiler": false,
+    "tags": [
+      "Jujutsu Kaisen"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-032",
+    "category": "anime",
+    "sub": "Jujutsu Kaisen",
+    "level": 4,
+    "q": "إلى أي عشيرة تنتمي ماكي وماي؟",
+    "options": [
+      "زينين",
+      "كامو",
+      "غوجو",
+      "إينوماكي"
+    ],
+    "answer": 0,
+    "explanation": "ماكي وماي توأمتان من عشيرة زينين.",
+    "hint": "ترتبط العشيرة بتقنية الظلال العشرة.",
+    "source": {
+      "title": "جوجوتسو كايسن: الشخصيات الرسمية",
+      "url": "https://jujutsukaisen.jp/character/index_1st.php",
+      "reference": "Jujutsu Kaisen"
+    },
+    "spoiler": true,
+    "tags": [
+      "Jujutsu Kaisen"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-033",
+    "category": "anime",
+    "sub": "Hunter x Hunter",
+    "level": 1,
+    "q": "ما اسم صديق غون المنتمي إلى عائلة زولديك؟",
+    "options": [
+      "كيلوا",
+      "كورابيكا",
+      "ليوريو",
+      "هيسوكا"
+    ],
+    "answer": 0,
+    "explanation": "كيلوا زولديك صديق غون ورفيقه في الرحلة.",
+    "hint": "شعره أبيض.",
+    "source": {
+      "title": "الناشر الرسمي: هنتر × هنتر",
+      "url": "https://www.viz.com/hunter-x-hunter",
+      "reference": "Hunter x Hunter"
+    },
+    "spoiler": false,
+    "tags": [
+      "Hunter x Hunter"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-034",
+    "category": "anime",
+    "sub": "Hunter x Hunter",
+    "level": 2,
+    "q": "ما اسم نظام الطاقة القتالي في هنتر × هنتر؟",
+    "options": [
+      "النين",
+      "التشاكرَا",
+      "الريآتسو",
+      "الكي"
+    ],
+    "answer": 0,
+    "explanation": "النين هو نظام استخدام الهالة في العمل.",
+    "hint": "تشمل أساسياته تن وزتسو ورن وهاتسو.",
+    "source": {
+      "title": "الناشر الرسمي: هنتر × هنتر",
+      "url": "https://www.viz.com/hunter-x-hunter",
+      "reference": "Hunter x Hunter"
+    },
+    "spoiler": false,
+    "tags": [
+      "Hunter x Hunter"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-035",
+    "category": "anime",
+    "sub": "Hunter x Hunter",
+    "level": 3,
+    "q": "ما السلاح الذي يشتهر به كورابيكا بعد تعلم النين؟",
+    "options": [
+      "السلاسل",
+      "سيفان",
+      "قوس",
+      "مطرقة"
+    ],
+    "answer": 0,
+    "explanation": "يُشكّل كورابيكا سلاسل بقدرات مختلفة.",
+    "hint": "يربطه بأصابعه.",
+    "source": {
+      "title": "الناشر الرسمي: هنتر × هنتر",
+      "url": "https://www.viz.com/hunter-x-hunter",
+      "reference": "Hunter x Hunter"
+    },
+    "spoiler": true,
+    "tags": [
+      "Hunter x Hunter"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-036",
+    "category": "anime",
+    "sub": "Hunter x Hunter",
+    "level": 4,
+    "q": "ما اسم اللعبة التي يدخلها غون وكيلوا للتدرب والبحث؟",
+    "options": [
+      "غريد آيلاند",
+      "غونغي",
+      "دودجبول",
+      "ميتئور سيتي"
+    ],
+    "answer": 0,
+    "explanation": "غريد آيلاند لعبة تتفاعل مع النين.",
+    "hint": "يعتمد تقدمها على جمع بطاقات.",
+    "source": {
+      "title": "الناشر الرسمي: هنتر × هنتر، المجلد 4 من الأنمي",
+      "url": "https://www.viz.com/anime/tv-show/hunter-x-hunter-video/video-unit/63",
+      "reference": "قوس غريد آيلاند"
+    },
+    "spoiler": true,
+    "tags": [
+      "Hunter x Hunter"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-037",
+    "category": "anime",
+    "sub": "Death Note",
+    "level": 1,
+    "q": "من يجد مذكرة الموت في بداية القصة؟",
+    "options": [
+      "لايت ياغامي",
+      "إل",
+      "نير",
+      "ميلو"
+    ],
+    "answer": 0,
+    "explanation": "يعثر لايت ياغامي على المذكرة ويبدأ استخدامها.",
+    "hint": "طالب متفوق دراسيًا.",
+    "source": {
+      "title": "الناشر الرسمي: مذكرة الموت",
+      "url": "https://www.viz.com/death-note",
+      "reference": "Death Note"
+    },
+    "spoiler": false,
+    "tags": [
+      "Death Note"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-038",
+    "category": "anime",
+    "sub": "Death Note",
+    "level": 1,
+    "q": "ما الحرف الذي يُعرف به المحقق المنافس للايت؟",
+    "options": [
+      "L",
+      "K",
+      "M",
+      "R"
+    ],
+    "answer": 0,
+    "explanation": "يستخدم المحقق العبقري الاسم المستعار L.",
+    "hint": "أحد حروف الأبجدية اللاتينية.",
+    "source": {
+      "title": "الناشر الرسمي: مذكرة الموت",
+      "url": "https://www.viz.com/death-note",
+      "reference": "Death Note"
+    },
+    "spoiler": false,
+    "tags": [
+      "Death Note"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-039",
+    "category": "anime",
+    "sub": "Death Note",
+    "level": 3,
+    "q": "ما الطعام الذي يحب ريوك تناوله؟",
+    "options": [
+      "التفاح",
+      "الموز",
+      "الأرز",
+      "الجزر"
+    ],
+    "answer": 0,
+    "explanation": "تظهر محبة ريوك للتفاح في القصة.",
+    "hint": "فاكهة تظهر باللون الأحمر كثيرًا في العمل.",
+    "source": {
+      "title": "الناشر الرسمي: مذكرة الموت",
+      "url": "https://www.viz.com/death-note",
+      "reference": "Death Note"
+    },
+    "spoiler": false,
+    "tags": [
+      "Death Note"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-040",
+    "category": "anime",
+    "sub": "Death Note",
+    "level": 2,
+    "q": "ما المطلوب مع الاسم لكي تؤثر المذكرة في الشخص المقصود؟",
+    "options": [
+      "تصوّر وجهه",
+      "معرفة طوله",
+      "معرفة عنوانه",
+      "معرفة فصيلة دمه"
+    ],
+    "answer": 0,
+    "explanation": "تتطلب القاعدة الأولى تصور الوجه عند كتابة الاسم.",
+    "hint": "يمنع إصابة شخص آخر يحمل الاسم نفسه.",
+    "source": {
+      "title": "الناشر الرسمي: مذكرة الموت",
+      "url": "https://www.viz.com/death-note",
+      "reference": "Death Note"
+    },
+    "spoiler": false,
+    "tags": [
+      "Death Note"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-041",
+    "category": "anime",
+    "sub": "Solo Leveling",
+    "level": 1,
+    "q": "من بطل سولو ليفلينغ؟",
+    "options": [
+      "سونغ جين وو",
+      "يو جين هو",
+      "وو جين تشول",
+      "غو غون هي"
+    ],
+    "answer": 0,
+    "explanation": "سونغ جين وو هو الصياد الذي تتبعه القصة.",
+    "hint": "يبدأ بوصفه صيادًا ضعيفًا.",
+    "source": {
+      "title": "سولو ليفلينغ لدى كرانشي رول",
+      "url": "https://www.crunchyroll.com/series/GDKHZEJ0K/solo-leveling",
+      "reference": "Solo Leveling"
+    },
+    "spoiler": false,
+    "tags": [
+      "Solo Leveling"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-042",
+    "category": "anime",
+    "sub": "Solo Leveling",
+    "level": 2,
+    "q": "ما رتبة جين وو في بداية القصة؟",
+    "options": [
+      "E",
+      "S",
+      "A",
+      "B"
+    ],
+    "answer": 0,
+    "explanation": "يبدأ جين وو صيادًا من الرتبة E.",
+    "hint": "أدنى رتبة شائعة في تصنيف الصيادين.",
+    "source": {
+      "title": "سولو ليفلينغ لدى كرانشي رول",
+      "url": "https://www.crunchyroll.com/series/GDKHZEJ0K/solo-leveling",
+      "reference": "Solo Leveling"
+    },
+    "spoiler": false,
+    "tags": [
+      "Solo Leveling"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-043",
+    "category": "anime",
+    "sub": "Solo Leveling",
+    "level": 3,
+    "q": "ما اسم الفارس ذي الدرع الأحمر الذي يصير من ظلال جين وو؟",
+    "options": [
+      "إيغريس",
+      "بيرو",
+      "تانك",
+      "آيرون"
+    ],
+    "answer": 0,
+    "explanation": "إيغريس فارس مدرع يصبح من أبرز جنود الظل.",
+    "hint": "يواجهه في مهمة تغيير الوظيفة.",
+    "source": {
+      "title": "سولو ليفلينغ لدى كرانشي رول",
+      "url": "https://www.crunchyroll.com/series/GDKHZEJ0K/solo-leveling",
+      "reference": "Solo Leveling"
+    },
+    "spoiler": true,
+    "tags": [
+      "Solo Leveling"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-044",
+    "category": "anime",
+    "sub": "Solo Leveling",
+    "level": 2,
+    "q": "ما الاسم الذي يُطلَق على الواجهة التي تتيح لجين وو اكتساب المستويات؟",
+    "options": [
+      "النظام",
+      "الأكاتسكي",
+      "النين",
+      "الهولو"
+    ],
+    "answer": 0,
+    "explanation": "يتيح النظام لجين وو مهام ومكافآت وزيادة مستواه.",
+    "hint": "يشبه واجهة ألعاب تقمص الأدوار.",
+    "source": {
+      "title": "سولو ليفلينغ لدى كرانشي رول",
+      "url": "https://www.crunchyroll.com/series/GDKHZEJ0K/solo-leveling",
+      "reference": "Solo Leveling"
+    },
+    "spoiler": true,
+    "tags": [
+      "Solo Leveling"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-045",
+    "category": "anime",
+    "sub": "Fullmetal Alchemist",
+    "level": 1,
+    "q": "ما اسم شقيق إدوارد إلريك؟",
+    "options": [
+      "ألفونس",
+      "روي",
+      "مايس",
+      "أليكس"
+    ],
+    "answer": 0,
+    "explanation": "ألفونس إلريك هو شقيق إدوارد الأصغر.",
+    "hint": "ترتبط روحه بدرع.",
+    "source": {
+      "title": "الخيميائي الفولاذي: الشخصيات الرسمية",
+      "url": "https://www.hagaren.jp/character/",
+      "reference": "Fullmetal Alchemist"
+    },
+    "spoiler": false,
+    "tags": [
+      "Fullmetal Alchemist"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-046",
+    "category": "anime",
+    "sub": "Fullmetal Alchemist",
+    "level": 2,
+    "q": "ما المبدأ الأساسي للخيمياء في القصة؟",
+    "options": [
+      "التبادل المتكافئ",
+      "الطاقة المجانية",
+      "النسخ غير المحدود",
+      "السفر الزمني"
+    ],
+    "answer": 0,
+    "explanation": "يجب تقديم مقابل للحصول على شيء بالخيمياء.",
+    "hint": "لا تحصل على شيء من دون مقابل.",
+    "source": {
+      "title": "الخيميائي الفولاذي: الشخصيات الرسمية",
+      "url": "https://www.hagaren.jp/character/",
+      "reference": "Fullmetal Alchemist"
+    },
+    "spoiler": false,
+    "tags": [
+      "Fullmetal Alchemist"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-047",
+    "category": "anime",
+    "sub": "Fullmetal Alchemist",
+    "level": 2,
+    "q": "من تصلح أطراف إدوارد الآلية؟",
+    "options": [
+      "وينري روكبيل",
+      "ريزا هوك آي",
+      "أوليفييه أرمسترونغ",
+      "ماريا روس"
+    ],
+    "answer": 0,
+    "explanation": "وينري متخصصة في الأطراف الآلية.",
+    "hint": "صديقة طفولته وبارعة في الميكانيكا.",
+    "source": {
+      "title": "الخيميائي الفولاذي: الشخصيات الرسمية",
+      "url": "https://www.hagaren.jp/character/",
+      "reference": "Fullmetal Alchemist"
+    },
+    "spoiler": false,
+    "tags": [
+      "Fullmetal Alchemist"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-048",
+    "category": "anime",
+    "sub": "Fullmetal Alchemist",
+    "level": 3,
+    "q": "بأي لقب يُعرف روي موستانغ؟",
+    "options": [
+      "خيميائي اللهب",
+      "خيميائي الجليد",
+      "خيميائي الفولاذ",
+      "خيميائي الدم"
+    ],
+    "answer": 0,
+    "explanation": "روي موستانغ هو خيميائي اللهب.",
+    "hint": "يستخدم قفازات تُنتج شرارة.",
+    "source": {
+      "title": "الخيميائي الفولاذي: الشخصيات الرسمية",
+      "url": "https://www.hagaren.jp/character/",
+      "reference": "Fullmetal Alchemist"
+    },
+    "spoiler": false,
+    "tags": [
+      "Fullmetal Alchemist"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-049",
+    "category": "anime",
+    "sub": "Fullmetal Alchemist",
+    "level": 3,
+    "q": "ما اسم الدولة الرئيسية في أحداث Brotherhood؟",
+    "options": [
+      "أميستريس",
+      "شينغ",
+      "دراخما",
+      "كريتا"
+    ],
+    "answer": 0,
+    "explanation": "أميستريس هي الدولة التي يخدم جيشها خيميائيو الدولة.",
+    "hint": "عاصمتها سنترال.",
+    "source": {
+      "title": "الخيميائي الفولاذي: الشخصيات الرسمية",
+      "url": "https://www.hagaren.jp/character/",
+      "reference": "Fullmetal Alchemist"
+    },
+    "spoiler": false,
+    "tags": [
+      "Fullmetal Alchemist"
+    ],
+    "version": 1
+  },
+  {
+    "id": "anime-050",
+    "category": "anime",
+    "sub": "Fullmetal Alchemist",
+    "level": 2,
+    "q": "في Brotherhood، من درّبت إدوارد وألفونس على الخيمياء؟",
+    "options": [
+      "إيزومي كيرتس",
+      "فان هوهنهايم",
+      "شو تاكر",
+      "تيم ماركو"
+    ],
+    "answer": 0,
+    "explanation": "إيزومي كيرتس هي معلّمة الأخوين في الخيمياء.",
+    "hint": "تصف نفسها بربة منزل.",
+    "source": {
+      "title": "الخيميائي الفولاذي: الشخصيات الرسمية",
+      "url": "https://www.hagaren.jp/character/",
+      "reference": "Fullmetal Alchemist"
+    },
+    "spoiler": false,
+    "tags": [
+      "Fullmetal Alchemist"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-001",
+    "category": "games",
+    "sub": "Mario",
+    "level": 1,
+    "q": "ما اسم شقيق ماريو صاحب الملابس الخضراء؟",
+    "options": [
+      "لويجي",
+      "واريو",
+      "تود",
+      "باوزر"
+    ],
+    "answer": 0,
+    "explanation": "لويجي هو شقيق ماريو الأصغر.",
+    "hint": "الحرف على قبعته L.",
+    "source": {
+      "title": "نينتندو: شخصيات سوبر ماريو",
+      "url": "https://mario.nintendo.com/ca/characters/",
+      "reference": "Mario"
+    },
+    "spoiler": false,
+    "tags": [
+      "Mario"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-002",
+    "category": "games",
+    "sub": "Mario",
+    "level": 1,
+    "q": "من الأميرة المرتبطة بمملكة الفطر؟",
+    "options": [
+      "بيتش",
+      "زيلدا",
+      "ساموس",
+      "لوسينا"
+    ],
+    "answer": 0,
+    "explanation": "تعيش الأميرة بيتش في مملكة الفطر.",
+    "hint": "فستانها وردي غالبًا.",
+    "source": {
+      "title": "نينتندو: شخصيات سوبر ماريو",
+      "url": "https://mario.nintendo.com/ca/characters/",
+      "reference": "Mario"
+    },
+    "spoiler": false,
+    "tags": [
+      "Mario"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-003",
+    "category": "games",
+    "sub": "Mario",
+    "level": 2,
+    "q": "من الخصم المتكرر لماريو وقائد الكوبا؟",
+    "options": [
+      "باوزر",
+      "دونكي كونغ",
+      "كيربي",
+      "فالكو"
+    ],
+    "answer": 0,
+    "explanation": "باوزر ملك الكوبا وخصم متكرر لماريو.",
+    "hint": "يشبه سلحفاة ضخمة ذات أشواك.",
+    "source": {
+      "title": "نينتندو: شخصيات سوبر ماريو",
+      "url": "https://mario.nintendo.com/ca/characters/",
+      "reference": "Mario"
+    },
+    "spoiler": false,
+    "tags": [
+      "Mario"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-004",
+    "category": "games",
+    "sub": "Mario",
+    "level": 3,
+    "q": "ما قدرة زهرة النار لماريو في الألعاب الكلاسيكية؟",
+    "options": [
+      "إطلاق كرات نارية",
+      "الطيران بلا حدود",
+      "الاختفاء الدائم",
+      "إيقاف الزمن"
+    ],
+    "answer": 0,
+    "explanation": "تمنح زهرة النار ماريو القدرة على إطلاق كرات نارية.",
+    "hint": "اسم العنصر يصف القوة.",
+    "source": {
+      "title": "نينتندو: شخصيات سوبر ماريو",
+      "url": "https://mario.nintendo.com/ca/characters/",
+      "reference": "Mario"
+    },
+    "spoiler": false,
+    "tags": [
+      "Mario"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-005",
+    "category": "games",
+    "sub": "The Legend of Zelda",
+    "level": 1,
+    "q": "ما اسم البطل الذي يتحكم به اللاعب عادة في سلسلة زيلدا؟",
+    "options": [
+      "لينك",
+      "غانوندورف",
+      "تود",
+      "سيفيروث"
+    ],
+    "answer": 0,
+    "explanation": "لينك هو البطل القابل للعب في معظم الأجزاء.",
+    "hint": "يحمل السيف والدرع.",
+    "source": {
+      "title": "نينتندو: عالم زيلدا",
+      "url": "https://zelda.nintendo.com/",
+      "reference": "The Legend of Zelda"
+    },
+    "spoiler": false,
+    "tags": [
+      "The Legend of Zelda"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-006",
+    "category": "games",
+    "sub": "The Legend of Zelda",
+    "level": 2,
+    "q": "ما اسم المملكة الرئيسية في ألعاب زيلدا؟",
+    "options": [
+      "هايرول",
+      "ميدغار",
+      "راكون سيتي",
+      "مملكة الفطر"
+    ],
+    "answer": 0,
+    "explanation": "هايرول هي المملكة المركزية في السلسلة.",
+    "hint": "ترتبط بالأميرة زيلدا.",
+    "source": {
+      "title": "نينتندو: عالم زيلدا",
+      "url": "https://zelda.nintendo.com/",
+      "reference": "The Legend of Zelda"
+    },
+    "spoiler": false,
+    "tags": [
+      "The Legend of Zelda"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-007",
+    "category": "games",
+    "sub": "The Legend of Zelda",
+    "level": 3,
+    "q": "ما اسم السيف الأسطوري المعروف بسيف طرد الشر؟",
+    "options": [
+      "ماستر سورد",
+      "باستر سورد",
+      "كيوس بليدز",
+      "غن بليد"
+    ],
+    "answer": 0,
+    "explanation": "ماستر سورد سلاح متكرر للينك.",
+    "hint": "يرتبط غالبًا بقاعدة حجرية.",
+    "source": {
+      "title": "نينتندو: عالم زيلدا",
+      "url": "https://zelda.nintendo.com/",
+      "reference": "The Legend of Zelda"
+    },
+    "spoiler": false,
+    "tags": [
+      "The Legend of Zelda"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-008",
+    "category": "games",
+    "sub": "The Legend of Zelda",
+    "level": 2,
+    "q": "ما آلة الموسيقى الأساسية في Ocarina of Time؟",
+    "options": [
+      "الأوكارينا",
+      "الكمان",
+      "البيانو",
+      "البوق"
+    ],
+    "answer": 0,
+    "explanation": "يعزف لينك ألحانًا على الأوكارينا.",
+    "hint": "اسمها جزء من عنوان اللعبة.",
+    "source": {
+      "title": "نينتندو: عالم زيلدا",
+      "url": "https://zelda.nintendo.com/",
+      "reference": "The Legend of Zelda"
+    },
+    "spoiler": false,
+    "tags": [
+      "The Legend of Zelda"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-009",
+    "category": "games",
+    "sub": "Pokémon",
+    "level": 1,
+    "q": "إلى أي نوع ينتمي بيكاتشو؟",
+    "options": [
+      "الكهربائي",
+      "المائي",
+      "الناري",
+      "الجليدي"
+    ],
+    "answer": 0,
+    "explanation": "بيكاتشو بوكيمون من النوع الكهربائي.",
+    "hint": "تظهر شرارات من خديه.",
+    "source": {
+      "title": "بوكيمون: الموسوعة الرسمية",
+      "url": "https://www.pokemon.com/us/pokedex",
+      "reference": "Pokémon"
+    },
+    "spoiler": false,
+    "tags": [
+      "Pokémon"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-010",
+    "category": "games",
+    "sub": "Pokémon",
+    "level": 2,
+    "q": "أي بوكيمون يحمل الرقم 1 في الموسوعة الوطنية؟",
+    "options": [
+      "بولباسور",
+      "بيكاتشو",
+      "تشارمندر",
+      "سكويرتل"
+    ],
+    "answer": 0,
+    "explanation": "بولباسور صاحب الرقم 1 في الموسوعة الوطنية.",
+    "hint": "أحد خيارات البداية في كانتو.",
+    "source": {
+      "title": "بوكيمون: الموسوعة الرسمية",
+      "url": "https://www.pokemon.com/us/pokedex",
+      "reference": "Pokémon"
+    },
+    "spoiler": false,
+    "tags": [
+      "Pokémon"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-011",
+    "category": "games",
+    "sub": "Pokémon",
+    "level": 3,
+    "q": "في Pokémon Red وBlue، أي نوع يتفوق هجوميًا على النوع المائي؟",
+    "options": [
+      "العشبي",
+      "الناري",
+      "الصخري",
+      "الأرضي"
+    ],
+    "answer": 0,
+    "explanation": "هجمات النوع العشبي فعالة جدًا ضد النوع المائي.",
+    "hint": "منه بوكيمون يحمل نباتًا على ظهره.",
+    "source": {
+      "title": "بوكيمون: الموسوعة الرسمية",
+      "url": "https://www.pokemon.com/us/pokedex",
+      "reference": "Pokémon"
+    },
+    "spoiler": false,
+    "tags": [
+      "Pokémon"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-012",
+    "category": "games",
+    "sub": "Pokémon",
+    "level": 4,
+    "q": "ما المنطقة التي تبدأ فيها ألعاب Pokémon Red وBlue؟",
+    "options": [
+      "كانتو",
+      "جوتو",
+      "هوين",
+      "سينوه"
+    ],
+    "answer": 0,
+    "explanation": "تدور ألعاب الجيل الأول في منطقة كانتو.",
+    "hint": "تقع فيها مدينة باليت.",
+    "source": {
+      "title": "بوكيمون: الموسوعة الرسمية",
+      "url": "https://www.pokemon.com/us/pokedex",
+      "reference": "Pokémon"
+    },
+    "spoiler": false,
+    "tags": [
+      "Pokémon"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-013",
+    "category": "games",
+    "sub": "Resident Evil",
+    "level": 1,
+    "q": "ما الشركة الخيالية المرتبطة بتجارب الأسلحة الحيوية في ريزدنت إيفل؟",
+    "options": [
+      "أمبريلا",
+      "شينرا",
+      "أبسترغو",
+      "أبيرتشر"
+    ],
+    "answer": 0,
+    "explanation": "أمبريلا شركة محورية في خلفية الكوارث الحيوية.",
+    "hint": "اسمها الإنجليزي يعني مظلة.",
+    "source": {
+      "title": "كابكوم: بوابة ريزدنت إيفل",
+      "url": "https://game.capcom.com/residentevil/en/",
+      "reference": "Resident Evil"
+    },
+    "spoiler": false,
+    "tags": [
+      "Resident Evil"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-014",
+    "category": "games",
+    "sub": "Resident Evil",
+    "level": 2,
+    "q": "في أي مدينة تقع أحداث Resident Evil 2؟",
+    "options": [
+      "راكون سيتي",
+      "سايلنت هيل",
+      "ميدغار",
+      "لوس سانتوس"
+    ],
+    "answer": 0,
+    "explanation": "تدور أحداث الجزء الثاني خلال كارثة راكون سيتي.",
+    "hint": "تضم مركز شرطة شهيرًا في اللعبة.",
+    "source": {
+      "title": "كابكوم: بوابة ريزدنت إيفل",
+      "url": "https://game.capcom.com/residentevil/en/",
+      "reference": "Resident Evil"
+    },
+    "spoiler": false,
+    "tags": [
+      "Resident Evil"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-015",
+    "category": "games",
+    "sub": "Resident Evil",
+    "level": 3,
+    "q": "من الشرطي المبتدئ الذي يشارك كلير بطولة Resident Evil 2؟",
+    "options": [
+      "ليون كينيدي",
+      "كريس ريدفيلد",
+      "ألبرت ويسكر",
+      "كارلوس أوليفيرا"
+    ],
+    "answer": 0,
+    "explanation": "ليون يبدأ خدمته بالشرطة أثناء أحداث الكارثة.",
+    "hint": "ظهر أيضًا بطلًا للجزء الرابع.",
+    "source": {
+      "title": "كابكوم فرنسا: ريزدنت إيفل 2",
+      "url": "https://www.capcomfrance.fr/jeu/resident-evil-2/",
+      "reference": "Resident Evil"
+    },
+    "spoiler": false,
+    "tags": [
+      "Resident Evil"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-016",
+    "category": "games",
+    "sub": "Resident Evil",
+    "level": 4,
+    "q": "ما اسم ابنة الرئيس التي ينقذها ليون في Resident Evil 4؟",
+    "options": [
+      "آشلي غراهام",
+      "شيري بيركين",
+      "روز وينترز",
+      "مويرا بيرتون"
+    ],
+    "answer": 0,
+    "explanation": "مهمة ليون في الجزء الرابع هي إنقاذ آشلي.",
+    "hint": "ترافقه في أجزاء من الرحلة.",
+    "source": {
+      "title": "كابكوم: بوابة ريزدنت إيفل",
+      "url": "https://game.capcom.com/residentevil/en/",
+      "reference": "Resident Evil"
+    },
+    "spoiler": false,
+    "tags": [
+      "Resident Evil"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-017",
+    "category": "games",
+    "sub": "God of War",
+    "level": 1,
+    "q": "من بطل سلسلة God of War؟",
+    "options": [
+      "كريتوس",
+      "دانتي",
+      "ألتير",
+      "ناثان دريك"
+    ],
+    "answer": 0,
+    "explanation": "كريتوس محارب من إسبرطة وبطل السلسلة.",
+    "hint": "تظهر على جسده علامة حمراء.",
+    "source": {
+      "title": "بلايستيشن: غاد أوف وور",
+      "url": "https://www.playstation.com/en-us/god-of-war/",
+      "reference": "God of War"
+    },
+    "spoiler": false,
+    "tags": [
+      "God of War"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-018",
+    "category": "games",
+    "sub": "God of War",
+    "level": 2,
+    "q": "ما اسم ابن كريتوس المرافق له في لعبة 2018؟",
+    "options": [
+      "أتريوس",
+      "ديموس",
+      "بالدر",
+      "ماغني"
+    ],
+    "answer": 0,
+    "explanation": "يرافق أتريوس أباه كريتوس في الرحلة.",
+    "hint": "يستخدم قوسًا في القتال.",
+    "source": {
+      "title": "بلايستيشن: غاد أوف وور",
+      "url": "https://www.playstation.com/en-us/god-of-war/",
+      "reference": "God of War"
+    },
+    "spoiler": false,
+    "tags": [
+      "God of War"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-019",
+    "category": "games",
+    "sub": "God of War",
+    "level": 3,
+    "q": "ما السلاح الذي يرميه كريتوس ويستدعيه إلى يده في إصدار 2018؟",
+    "options": [
+      "فأس ليفاياثان",
+      "مطرقة ميولنير",
+      "سيف ماستر",
+      "رمح غونغنير"
+    ],
+    "answer": 0,
+    "explanation": "فأس ليفاياثان سلاح أساسي يمكن رميه واستدعاؤه.",
+    "hint": "يرتبط بقوة الجليد.",
+    "source": {
+      "title": "بلايستيشن: غاد أوف وور",
+      "url": "https://www.playstation.com/en-us/god-of-war/",
+      "reference": "God of War"
+    },
+    "spoiler": false,
+    "tags": [
+      "God of War"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-020",
+    "category": "games",
+    "sub": "God of War",
+    "level": 4,
+    "q": "على أي جهاز صدر أول God of War عام 2005؟",
+    "options": [
+      "PlayStation 2",
+      "PlayStation 3",
+      "Xbox 360",
+      "Nintendo 64"
+    ],
+    "answer": 0,
+    "explanation": "بدأت السلسلة عام 2005 على بلايستيشن 2.",
+    "hint": "ينتمي إلى جيل سبق بلايستيشن 3.",
+    "source": {
+      "title": "بلايستيشن: غاد أوف وور",
+      "url": "https://www.playstation.com/en-us/god-of-war/",
+      "reference": "God of War"
+    },
+    "spoiler": false,
+    "tags": [
+      "God of War"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-021",
+    "category": "games",
+    "sub": "Final Fantasy",
+    "level": 1,
+    "q": "من بطل Final Fantasy VII الشهير بالسيف الضخم؟",
+    "options": [
+      "كلاود سترايف",
+      "سكوال ليونهارت",
+      "تيدوس",
+      "نوكتيس"
+    ],
+    "answer": 0,
+    "explanation": "كلاود سترايف من أبرز أبطال الجزء السابع.",
+    "hint": "شعره أشقر ومدبب.",
+    "source": {
+      "title": "سكوير إنيكس: فاينل فانتسي",
+      "url": "https://www.finalfantasy.com/",
+      "reference": "Final Fantasy"
+    },
+    "spoiler": false,
+    "tags": [
+      "Final Fantasy"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-022",
+    "category": "games",
+    "sub": "Final Fantasy",
+    "level": 2,
+    "q": "ما المدينة الصناعية الكبرى في بداية Final Fantasy VII؟",
+    "options": [
+      "ميدغار",
+      "زاناركاند",
+      "بالامب",
+      "ألتيسيا"
+    ],
+    "answer": 0,
+    "explanation": "تبدأ مغامرة الجزء السابع في ميدغار.",
+    "hint": "تديرها شركة شينرا.",
+    "source": {
+      "title": "سكوير إنيكس: فاينل فانتسي",
+      "url": "https://www.finalfantasy.com/",
+      "reference": "Final Fantasy"
+    },
+    "spoiler": false,
+    "tags": [
+      "Final Fantasy"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-023",
+    "category": "games",
+    "sub": "Final Fantasy",
+    "level": 3,
+    "q": "ما الطيور الصفراء المستخدمة للركوب في فاينل فانتسي؟",
+    "options": [
+      "تشوكوبو",
+      "موغل",
+      "تونبيري",
+      "كاكتوار"
+    ],
+    "answer": 0,
+    "explanation": "التشوكوبو طيور متكررة في عالم السلسلة.",
+    "hint": "اسمها يبدأ بمقطع «تشو».",
+    "source": {
+      "title": "سكوير إنيكس: فاينل فانتسي",
+      "url": "https://www.finalfantasy.com/",
+      "reference": "Final Fantasy"
+    },
+    "spoiler": false,
+    "tags": [
+      "Final Fantasy"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-024",
+    "category": "games",
+    "sub": "Final Fantasy",
+    "level": 4,
+    "q": "ما نظام الكرات التي تمنح السحر والقدرات في Final Fantasy VII؟",
+    "options": [
+      "الماتيريا",
+      "السفير غريد",
+      "الجَنْكشن",
+      "البارادايم"
+    ],
+    "answer": 0,
+    "explanation": "تُركّب الماتيريا في الأسلحة والدروع لمنح قدرات.",
+    "hint": "تعتمد آليته على بلورات ملونة.",
+    "source": {
+      "title": "سكوير إنيكس: فاينل فانتسي",
+      "url": "https://www.finalfantasy.com/",
+      "reference": "Final Fantasy"
+    },
+    "spoiler": false,
+    "tags": [
+      "Final Fantasy"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-025",
+    "category": "games",
+    "sub": "Dynasty Warriors",
+    "level": 1,
+    "q": "في أي بلد تدور الأحداث المستلهمة منها سلسلة Dynasty Warriors؟",
+    "options": [
+      "الصين",
+      "اليابان",
+      "الهند",
+      "اليونان"
+    ],
+    "answer": 0,
+    "explanation": "تستلهم السلسلة صراعات الممالك الثلاث في الصين.",
+    "hint": "ترتبط بليو باي وتساو تساو وسون جيان.",
+    "source": {
+      "title": "كوي تيكمو: أوريجنز",
+      "url": "https://www.koeitecmoamerica.com/dw_origins/us/",
+      "reference": "Dynasty Warriors"
+    },
+    "spoiler": false,
+    "tags": [
+      "Dynasty Warriors"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-026",
+    "category": "games",
+    "sub": "Dynasty Warriors",
+    "level": 2,
+    "q": "ما فريق تطوير سلسلة Dynasty Warriors؟",
+    "options": [
+      "Omega Force",
+      "Naughty Dog",
+      "Game Freak",
+      "id Software"
+    ],
+    "answer": 0,
+    "explanation": "أوميغا فورس فريق تطوير السلسلة لدى كوي تيكمو.",
+    "hint": "يجمع اسمه رمزًا يونانيًا وكلمة تعني قوة.",
+    "source": {
+      "title": "كوي تيكمو: إعلان إطلاق أوريجنز",
+      "url": "https://www.koeitecmoamerica.com/news/outnumbered-but-never-outfought-a-new-hero-rises-as-dynasty-warriors-origins-brings-its-massive-three-kingdoms-battles-home-to-consoles-and-pc-today/",
+      "reference": "Dynasty Warriors"
+    },
+    "spoiler": false,
+    "tags": [
+      "Dynasty Warriors"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-027",
+    "category": "games",
+    "sub": "Dynasty Warriors",
+    "level": 3,
+    "q": "ما الفصيل المرتبط بتساو تساو في تقاليد الممالك الثلاث بالسلسلة؟",
+    "options": [
+      "وي",
+      "وو",
+      "شو",
+      "جين"
+    ],
+    "answer": 0,
+    "explanation": "تساو تساو من أبرز قادة معسكر وي في السلسلة.",
+    "hint": "يمثل غالبًا باللون الأزرق.",
+    "source": {
+      "title": "كوي تيكمو: مجموعة شخصيات وي",
+      "url": "https://www.koeitecmoamerica.com/warriors_abyss/us/dlc.html",
+      "reference": "Dynasty Warriors"
+    },
+    "spoiler": false,
+    "tags": [
+      "Dynasty Warriors"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-028",
+    "category": "games",
+    "sub": "Dynasty Warriors",
+    "level": 4,
+    "q": "أي تمرد يبدأ منه مسار قصة Dynasty Warriors: Origins؟",
+    "options": [
+      "تمرد العمائم الصفراء",
+      "تمرد أن لوشان",
+      "تمرد الملاكمين",
+      "تمرد تايبينغ"
+    ],
+    "answer": 0,
+    "explanation": "تبدأ القصة بتمرد العمائم الصفراء وتصل إلى تشيبي.",
+    "hint": "يرتبط بلون لباس على الرأس.",
+    "source": {
+      "title": "كوي تيكمو: داينستي ووريورز أوريجنز",
+      "url": "https://www.koeitecmoamerica.com/dw_origins/us/about/",
+      "reference": "Dynasty Warriors"
+    },
+    "spoiler": false,
+    "tags": [
+      "Dynasty Warriors"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-029",
+    "category": "games",
+    "sub": "PlayStation",
+    "level": 1,
+    "q": "أي شركة تقف وراء أجهزة بلايستيشن؟",
+    "options": [
+      "سوني",
+      "نينتندو",
+      "سيغا",
+      "مايكروسوفت"
+    ],
+    "answer": 0,
+    "explanation": "بلايستيشن علامة ألعاب تابعة لسوني.",
+    "hint": "شركة يابانية معروفة بالإلكترونيات.",
+    "source": {
+      "title": "بلايستيشن: تاريخ الأجهزة",
+      "url": "https://www.playstation.com/en-us/playstation-history/",
+      "reference": "PlayStation"
+    },
+    "spoiler": false,
+    "tags": [
+      "PlayStation"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-030",
+    "category": "games",
+    "sub": "PlayStation",
+    "level": 2,
+    "q": "في أي سنة صدر بلايستيشن الأول في اليابان؟",
+    "options": [
+      "1994",
+      "1988",
+      "2000",
+      "2006"
+    ],
+    "answer": 0,
+    "explanation": "صدر الجهاز في اليابان يوم 3 ديسمبر 1994.",
+    "hint": "سبق إطلاقه الغربي عام 1995 بعام.",
+    "source": {
+      "title": "بلايستيشن: الجهاز الأصلي",
+      "url": "https://www.playstation.com/en-us/playstation-history/1994-ps-one/",
+      "reference": "PlayStation"
+    },
+    "spoiler": false,
+    "tags": [
+      "PlayStation"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-031",
+    "category": "games",
+    "sub": "PlayStation",
+    "level": 3,
+    "q": "ما وحدة التحكم الأساسية لجهاز PlayStation 5؟",
+    "options": [
+      "DualSense",
+      "DualShock 2",
+      "Joy-Con",
+      "Wii Remote"
+    ],
+    "answer": 0,
+    "explanation": "دوإل سينس هي وحدة تحكم بلايستيشن 5 الأساسية.",
+    "hint": "يشير اسمها إلى الإحساس.",
+    "source": {
+      "title": "بلايستيشن: دوإل سينس",
+      "url": "https://www.playstation.com/en-us/accessories/dualsense-wireless-controller/",
+      "reference": "PlayStation"
+    },
+    "spoiler": false,
+    "tags": [
+      "PlayStation"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-032",
+    "category": "games",
+    "sub": "PlayStation",
+    "level": 2,
+    "q": "ما نوع الأقراص الذي استخدمه بلايستيشن الأصلي؟",
+    "options": [
+      "CD-ROM",
+      "Blu-ray",
+      "HD DVD",
+      "UMD"
+    ],
+    "answer": 0,
+    "explanation": "اعتمد بلايستيشن الأصلي على الأقراص المدمجة.",
+    "hint": "سبق أقراص DVD في الأجهزة اللاحقة.",
+    "source": {
+      "title": "بلايستيشن: الجهاز الأصلي",
+      "url": "https://www.playstation.com/en-us/playstation-history/1994-ps-one/",
+      "reference": "PlayStation"
+    },
+    "spoiler": false,
+    "tags": [
+      "PlayStation"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-033",
+    "category": "games",
+    "sub": "Nintendo",
+    "level": 1,
+    "q": "أي جهاز نينتندو يضم وحدتي Joy-Con قابلتين للفصل في نسخته الأصلية؟",
+    "options": [
+      "Nintendo Switch",
+      "Nintendo 64",
+      "GameCube",
+      "Wii U"
+    ],
+    "answer": 0,
+    "explanation": "يتضمن سويتش الأصلي وحدتي جوي كون قابلتين للفصل.",
+    "hint": "صدر أول مرة عام 2017.",
+    "source": {
+      "title": "نينتندو: سويتش",
+      "url": "https://www.nintendo.com/us/gaming-systems/switch/",
+      "reference": "Nintendo"
+    },
+    "spoiler": false,
+    "tags": [
+      "Nintendo"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-034",
+    "category": "games",
+    "sub": "Nintendo",
+    "level": 2,
+    "q": "من بطلة سلسلة Metroid؟",
+    "options": [
+      "ساموس آران",
+      "زيلدا",
+      "بيتش",
+      "بايونيتا"
+    ],
+    "answer": 0,
+    "explanation": "ساموس آران صائدة جوائز وبطلة ميترويد.",
+    "hint": "ترتدي بذلة طاقة مميزة.",
+    "source": {
+      "title": "نينتندو: ميترويد",
+      "url": "https://metroid.nintendo.com/",
+      "reference": "Nintendo"
+    },
+    "spoiler": false,
+    "tags": [
+      "Nintendo"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-035",
+    "category": "games",
+    "sub": "Nintendo",
+    "level": 3,
+    "q": "أي لعبة نينتندو تقاتل فيها الفرق بتغطية الساحة بالحبر؟",
+    "options": [
+      "Splatoon",
+      "Pikmin",
+      "Star Fox",
+      "F-Zero"
+    ],
+    "answer": 0,
+    "explanation": "سبلاتون تعتمد على الحبر لتغطية الأرض.",
+    "hint": "تتحول شخصياتها إلى كائنات شبيهة بالحبار.",
+    "source": {
+      "title": "نينتندو: سبلاتون",
+      "url": "https://splatoon.nintendo.com/",
+      "reference": "Nintendo"
+    },
+    "spoiler": false,
+    "tags": [
+      "Nintendo"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-036",
+    "category": "games",
+    "sub": "Nintendo",
+    "level": 4,
+    "q": "في أي سنة أطلقت نينتندو جهاز Game Boy الأصلي في اليابان؟",
+    "options": [
+      "1989",
+      "1983",
+      "1996",
+      "2001"
+    ],
+    "answer": 0,
+    "explanation": "أُطلق غيم بوي في اليابان عام 1989.",
+    "hint": "ينتمي إلى أواخر الثمانينيات.",
+    "source": {
+      "title": "نينتندو: تاريخ الشركة",
+      "url": "https://www.nintendo.com/en-gb/Corporate/Nintendo-History/Nintendo-History-625945.html",
+      "reference": "Nintendo"
+    },
+    "spoiler": false,
+    "tags": [
+      "Nintendo"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-037",
+    "category": "games",
+    "sub": "ألعاب الحاسوب",
+    "level": 1,
+    "q": "في أي لعبة تبني عالمًا من الكتل وتواجه كريبر؟",
+    "options": [
+      "Minecraft",
+      "Portal",
+      "Doom",
+      "Civilization"
+    ],
+    "answer": 0,
+    "explanation": "ماينكرافت تتيح البناء والاستكشاف في عالم من الكتل.",
+    "hint": "يجمع اسمها التعدين والصناعة بالإنجليزية.",
+    "source": {
+      "title": "ماينكرافت: نبذة رسمية",
+      "url": "https://www.minecraft.net/en-us/about-minecraft",
+      "reference": "ألعاب الحاسوب"
+    },
+    "spoiler": false,
+    "tags": [
+      "ألعاب الحاسوب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-038",
+    "category": "games",
+    "sub": "ألعاب الحاسوب",
+    "level": 2,
+    "q": "أي شركة طورت Half-Life وأطلقت منصة Steam؟",
+    "options": [
+      "Valve",
+      "Blizzard",
+      "Epic Games",
+      "Rockstar Games"
+    ],
+    "answer": 0,
+    "explanation": "فالف مطور هاف لايف والمسؤولة عن ستيم.",
+    "hint": "اسمها الإنجليزي يعني صمامًا.",
+    "source": {
+      "title": "فالف: نبذة رسمية",
+      "url": "https://www.valvesoftware.com/en/about",
+      "reference": "ألعاب الحاسوب"
+    },
+    "spoiler": false,
+    "tags": [
+      "ألعاب الحاسوب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-039",
+    "category": "games",
+    "sub": "ألعاب الحاسوب",
+    "level": 3,
+    "q": "ما الأداة الأساسية لحل الألغاز في Portal؟",
+    "options": [
+      "جهاز إنشاء البوابات",
+      "معول البناء",
+      "عصا الصيد",
+      "مقود الطيران"
+    ],
+    "answer": 0,
+    "explanation": "ينشئ اللاعب بوابتين مترابطتين لتجاوز الألغاز.",
+    "hint": "يصف اسم اللعبة فكرتها.",
+    "source": {
+      "title": "فالف: بورتال",
+      "url": "https://store.steampowered.com/app/400/Portal/",
+      "reference": "ألعاب الحاسوب"
+    },
+    "spoiler": false,
+    "tags": [
+      "ألعاب الحاسوب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-040",
+    "category": "games",
+    "sub": "ألعاب الحاسوب",
+    "level": 4,
+    "q": "من مؤلف الأغنية الافتتاحية للعبة Civilization IV «Baba Yetu»، الفائزة بغرامي عام 2011؟",
+    "options": [
+      "كريستوفر تين",
+      "نوبوو أويماتسو",
+      "كوجي كوندو",
+      "جيسبر كيد"
+    ],
+    "answer": 0,
+    "explanation": "ألّف كريستوفر تين «Baba Yetu» للجزء الرابع.",
+    "hint": "له ألبوم Calling All Dawns.",
+    "source": {
+      "title": "كريستوفر تين: بابا يتو",
+      "url": "https://www.grammy.com/awards/categories/best-instrumental-arrangement-accompanying-vocalists/2011/",
+      "reference": "ألعاب الحاسوب"
+    },
+    "spoiler": false,
+    "tags": [
+      "ألعاب الحاسوب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-041",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 1,
+    "q": "ما اسم القنفذ الأزرق المرتبط بسيغا؟",
+    "options": [
+      "سونيك",
+      "كراش",
+      "سبايرو",
+      "رايمان"
+    ],
+    "answer": 0,
+    "explanation": "سونيك شخصية سيغا المعروفة بالسرعة.",
+    "hint": "يرتدي حذاءين أحمرين.",
+    "source": {
+      "title": "سيغا: سونيك",
+      "url": "https://sonic.sega.jp/SonicChannel/character/sonic.html",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-042",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 2,
+    "q": "أي لعبة كلاسيكية تجمع نقاطًا في متاهة وتتجنب الأشباح؟",
+    "options": [
+      "Pac-Man",
+      "Tetris",
+      "Pong",
+      "Space Invaders"
+    ],
+    "answer": 0,
+    "explanation": "باك مان يتنقل في متاهة مليئة بالنقاط والأشباح.",
+    "hint": "بطلها دائري أصفر.",
+    "source": {
+      "title": "بانداي نامكو: باك مان",
+      "url": "https://pacman.com/en/",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-043",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 2,
+    "q": "أي لعبة ترتب فيها قطعًا من أربعة مربعات لإكمال الصفوف؟",
+    "options": [
+      "Tetris",
+      "Pong",
+      "Asteroids",
+      "Breakout"
+    ],
+    "answer": 0,
+    "explanation": "تتريس تستخدم قطع التترومينو لإكمال الصفوف.",
+    "hint": "اسم القطعة مرتبط بالعدد أربعة.",
+    "source": {
+      "title": "تتريس: نبذة رسمية",
+      "url": "https://tetris.com/about-us",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-044",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 3,
+    "q": "من ابتكر تتريس عام 1984؟",
+    "options": [
+      "أليكسي باجيتنوف",
+      "شيغيرو مياموتو",
+      "هيديو كوجيما",
+      "جون كارماك"
+    ],
+    "answer": 0,
+    "explanation": "ابتكر أليكسي باجيتنوف تتريس في موسكو.",
+    "hint": "اسمه روسي.",
+    "source": {
+      "title": "تتريس: نبذة رسمية",
+      "url": "https://tetris.com/about-us",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-045",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 3,
+    "q": "ما الاستوديو الذي طوّر ثلاثية Crash Bandicoot الأصلية على بلايستيشن؟",
+    "options": [
+      "Naughty Dog",
+      "Insomniac Games",
+      "Rare",
+      "Bungie"
+    ],
+    "answer": 0,
+    "explanation": "طوّر نوتي دوغ الأجزاء الثلاثة الأصلية لكراش.",
+    "hint": "طوّر لاحقًا سلسلة أنشارتد.",
+    "source": {
+      "title": "نوتي دوغ: تاريخ الاستوديو",
+      "url": "https://www.naughtydog.com/company",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-046",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 2,
+    "q": "أي شركة أصدرت جهاز Dreamcast؟",
+    "options": [
+      "سيغا",
+      "أتاري",
+      "باناسونيك",
+      "سوني"
+    ],
+    "answer": 0,
+    "explanation": "دريمكاست جهاز منزلي أصدرته سيغا.",
+    "hint": "أصدرت سابقًا ميغا درايف وساترن.",
+    "source": {
+      "title": "سيغا: دريمكاست",
+      "url": "https://www.sega.jp/history/hard/dreamcast/",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-047",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 3,
+    "q": "أي استوديو طوّر Doom الأصلي الصادر عام 1993؟",
+    "options": [
+      "id Software",
+      "Valve",
+      "Epic Games",
+      "Bungie"
+    ],
+    "answer": 0,
+    "explanation": "طوّرت آي دي سوفتوير دوم الأصلي.",
+    "hint": "شارك جون كارماك في تأسيسه.",
+    "source": {
+      "title": "آي دي سوفتوير",
+      "url": "https://www.idsoftware.com/",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-048",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 2,
+    "q": "ما اسم لعبة القتال التي تضم ريو وتشون لي؟",
+    "options": [
+      "Street Fighter",
+      "Tekken",
+      "Mortal Kombat",
+      "Virtua Fighter"
+    ],
+    "answer": 0,
+    "explanation": "ريو وتشون لي من شخصيات ستريت فايتر.",
+    "hint": "تطوّرها كابكوم.",
+    "source": {
+      "title": "ستريت فايتر: الموقع الرسمي",
+      "url": "https://www.streetfighter.com/",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-049",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 3,
+    "q": "أي لعبة أركيد كلاسيكية تعتمد على مضربين وكرة منقطّة؟",
+    "options": [
+      "Pong",
+      "Asteroids",
+      "Frogger",
+      "Galaga"
+    ],
+    "answer": 0,
+    "explanation": "بونغ محاكاة مبسطة لتنس الطاولة.",
+    "hint": "ظهرت لدى أتاري عام 1972.",
+    "source": {
+      "title": "أتاري: بونغ",
+      "url": "https://atari.com/products/pong",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  },
+  {
+    "id": "games-050",
+    "category": "games",
+    "sub": "تاريخ الألعاب",
+    "level": 2,
+    "q": "من بطل لعبة Metal Gear Solid الأصلية الصادرة عام 1998؟",
+    "options": [
+      "سوليد سنيك",
+      "سام فيشر",
+      "ليون كينيدي",
+      "غوردون فريمان"
+    ],
+    "answer": 0,
+    "explanation": "سوليد سنيك بطل لعبة ميتال غير سوليد الأصلية.",
+    "hint": "يتسلل إلى منشأة شادو موسيس.",
+    "source": {
+      "title": "كونامي: ميتال غير",
+      "url": "https://www.konami.com/mg/",
+      "reference": "تاريخ الألعاب"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ الألعاب"
+    ],
+    "version": 1
+  }
+]

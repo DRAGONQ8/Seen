@@ -1,0 +1,2617 @@
+[
+  {
+    "id": "football-001",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 1,
+    "q": "أي منتخب أحرز كأس العالم للرجال 2022؟",
+    "options": [
+      "الأرجنتين",
+      "فرنسا",
+      "البرازيل",
+      "ألمانيا"
+    ],
+    "answer": 0,
+    "explanation": "توجت الأرجنتين بعد فوزها على فرنسا بركلات الترجيح في نهائي لوسيل.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/member-associations/france/articles/world-cup-qatar-2022-tournament-review-argentina-messi-mbappe-morocco-croatia-japan",
+      "reference": "مراجعة بطولة قطر 2022"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "منتخب من أمريكا الجنوبية، يرتدي القميص السماوي والأبيض."
+  },
+  {
+    "id": "football-002",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 2,
+    "q": "أين أقيمت النسخة الأولى من كأس العالم للرجال عام 1930؟",
+    "options": [
+      "الأوروغواي",
+      "إيطاليا",
+      "فرنسا",
+      "البرازيل"
+    ],
+    "answer": 0,
+    "explanation": "استضافت الأوروغواي أول بطولة، وأقيم النهائي في مونتيفيديو.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/de/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+      "reference": "بطولة الأوروغواي 1930"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "عاصمتها مونتيفيديو."
+  },
+  {
+    "id": "football-003",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 2,
+    "q": "من حصل على الحذاء الذهبي لهداف كأس العالم 2022؟",
+    "options": [
+      "كيليان مبابي",
+      "ليونيل ميسي",
+      "أوليفييه جيرو",
+      "جوليان ألفاريز"
+    ],
+    "answer": 0,
+    "explanation": "سجل مبابي 8 أهداف في البطولة، بينها ثلاثة في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/member-associations/france/articles/top-goalscorers-leading-marksmen-golden-boot-fifa-world-cup-qatar-2022",
+      "reference": "الحذاء الذهبي في قطر 2022"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "مهاجم فرنسي."
+  },
+  {
+    "id": "football-004",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 2,
+    "q": "من اللاعب الذي فاز بكأس العالم للرجال في أعوام 1958 و1962 و1970؟",
+    "options": [
+      "بيليه",
+      "دييغو مارادونا",
+      "فرانز بيكنباور",
+      "زين الدين زيدان"
+    ],
+    "answer": 0,
+    "explanation": "كان بيليه ضمن تشكيلات البرازيل المتوجة في البطولات الثلاث.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/de/mens/worldcup/articles/world-cup-champions-1930-1978-uruguay-italy-germany-brazil-england-argentina",
+      "reference": "البرازيل في بطولات 1958 و1962 و1970"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "اشتهر بلقب الملك في كرة القدم البرازيلية."
+  },
+  {
+    "id": "football-005",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 3,
+    "q": "حتى نهاية كأس العالم 2022، من كان الهداف التاريخي لنهائيات كأس العالم للرجال برصيد 16 هدفًا؟",
+    "options": [
+      "ميروسلاف كلوزه",
+      "رونالدو نازاريو",
+      "غيرد مولر",
+      "جوست فونتين"
+    ],
+    "answer": 0,
+    "explanation": "بلغ كلوزه 16 هدفًا في نهائيات 2002 و2006 و2010 و2014.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/articles/top-goalscorer-every-shirt-number",
+      "reference": "الإحصاءات محددة بنهاية قطر 2022"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "مهاجم ألماني شارك في أربع نسخ من البطولة."
+  },
+  {
+    "id": "football-006",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 2,
+    "q": "من سجل هدف الفوز لإسبانيا في نهائي كأس العالم 2010؟",
+    "options": [
+      "أندريس إنييستا",
+      "دافيد فيا",
+      "تشافي هيرنانديز",
+      "فرناندو توريس"
+    ],
+    "answer": 0,
+    "explanation": "سجل إنييستا في الوقت الإضافي أمام هولندا، لتنتهي المباراة 1-0.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1982-2026-italy-argentina-germany-brazil-france-spain",
+      "reference": "نهائي جنوب أفريقيا 2010"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "لاعب وسط اشتهر مع برشلونة."
+  },
+  {
+    "id": "football-007",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 2,
+    "q": "ما الدولتان اللتان استضافتا كأس العالم للرجال 2002 معًا؟",
+    "options": [
+      "كوريا الجنوبية واليابان",
+      "الصين واليابان",
+      "كوريا الجنوبية والصين",
+      "اليابان وتايلاند"
+    ],
+    "answer": 0,
+    "explanation": "كانت بطولة 2002 أول نسخة يستضيفها بلدان معًا.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1982-2026-italy-argentina-germany-brazil-france-spain",
+      "reference": "بطولة كوريا واليابان 2002"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "بلدان في شرق آسيا يفصل بينهما بحر."
+  },
+  {
+    "id": "football-008",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 1,
+    "q": "من فاز بكأس العالم للرجال 1998 على أرضه؟",
+    "options": [
+      "فرنسا",
+      "البرازيل",
+      "إيطاليا",
+      "إنجلترا"
+    ],
+    "answer": 0,
+    "explanation": "فازت فرنسا على البرازيل 3-0 في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-champions-1982-2026-italy-argentina-germany-brazil-france-spain",
+      "reference": "نهائي فرنسا 1998"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "منتخب يلقب بالديوك."
+  },
+  {
+    "id": "football-009",
+    "category": "football",
+    "sub": "كرة القدم النسائية",
+    "level": 2,
+    "q": "أي منتخب فاز بكأس العالم للسيدات 2019؟",
+    "options": [
+      "الولايات المتحدة",
+      "هولندا",
+      "ألمانيا",
+      "اليابان"
+    ],
+    "answer": 0,
+    "explanation": "تغلبت الولايات المتحدة على هولندا 2-0 في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/tournaments/womens/womensworldcup/france2019",
+      "reference": "نهائي فرنسا 2019 للسيدات"
+    },
+    "spoiler": false,
+    "tags": [
+      "كرة القدم النسائية"
+    ],
+    "version": 1,
+    "hint": "منتخب من أمريكا الشمالية."
+  },
+  {
+    "id": "football-010",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 2,
+    "q": "إلى أي دور وصل المغرب في كأس العالم للرجال 2022؟",
+    "options": [
+      "نصف النهائي",
+      "ربع النهائي",
+      "دور 16",
+      "النهائي"
+    ],
+    "answer": 0,
+    "explanation": "أصبح المغرب أول منتخب أفريقي يصل إلى نصف نهائي كأس العالم للرجال.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/member-associations/france/articles/world-cup-qatar-2022-tournament-review-argentina-messi-mbappe-morocco-croatia-japan",
+      "reference": "مسيرة المغرب في قطر 2022"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "لعب مباراة تحديد المركز الثالث بعد ذلك."
+  },
+  {
+    "id": "football-011",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 1,
+    "q": "أي منتخب هزمته السعودية 2-1 في افتتاح مشوارها بكأس العالم 2022؟",
+    "options": [
+      "الأرجنتين",
+      "المكسيك",
+      "بولندا",
+      "فرنسا"
+    ],
+    "answer": 0,
+    "explanation": "سجل صالح الشهري وسالم الدوسري هدفي السعودية في المباراة.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/member-associations/france/articles/world-cup-qatar-2022-tournament-review-argentina-messi-mbappe-morocco-croatia-japan",
+      "reference": "دور مجموعات قطر 2022"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "أصبح هذا المنتخب بطل النسخة نفسها."
+  },
+  {
+    "id": "football-012",
+    "category": "football",
+    "sub": "كأس العالم",
+    "level": 4,
+    "q": "من درب إنجلترا عند فوزها بكأس العالم 1966؟",
+    "options": [
+      "ألف رامسي",
+      "بوبي روبسون",
+      "براين كلوف",
+      "دون ريفي"
+    ],
+    "answer": 0,
+    "explanation": "قاد ألف رامسي إنجلترا إلى لقبها في بطولة 1966.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.thefa.com/england/mens-seniors/history",
+      "reference": "تاريخ منتخب إنجلترا: 1966"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس العالم"
+    ],
+    "version": 1,
+    "hint": "ارتبط اسمه بعبارة المنتخب بلا أجنحة تقليدية."
+  },
+  {
+    "id": "football-013",
+    "category": "football",
+    "sub": "دوري أبطال أوروبا",
+    "level": 1,
+    "q": "أي ناد فاز بدوري أبطال أوروبا للرجال في موسم 2022/23؟",
+    "options": [
+      "مانشستر سيتي",
+      "إنتر ميلان",
+      "ريال مدريد",
+      "بايرن ميونخ"
+    ],
+    "answer": 0,
+    "explanation": "هزم مانشستر سيتي إنتر ميلان 1-0 في نهائي إسطنبول.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefachampionsleague/history/",
+      "reference": "موسم 2022/23"
+    },
+    "spoiler": false,
+    "tags": [
+      "دوري أبطال أوروبا"
+    ],
+    "version": 1,
+    "hint": "قاد الفريق المدرب بيب غوارديولا."
+  },
+  {
+    "id": "football-014",
+    "category": "football",
+    "sub": "دوري أبطال أوروبا",
+    "level": 1,
+    "q": "من فاز بنهائي دوري أبطال أوروبا للرجال 2024 أمام بوروسيا دورتموند؟",
+    "options": [
+      "ريال مدريد",
+      "برشلونة",
+      "ليفربول",
+      "باريس سان جيرمان"
+    ],
+    "answer": 0,
+    "explanation": "انتصر ريال مدريد 2-0 في ويمبلي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefachampionsleague/match/2039970--dortmund-vs-real-madrid/",
+      "reference": "نهائي موسم 2023/24"
+    },
+    "spoiler": false,
+    "tags": [
+      "دوري أبطال أوروبا"
+    ],
+    "version": 1,
+    "hint": "فريق إسباني يشتهر بالقميص الأبيض."
+  },
+  {
+    "id": "football-015",
+    "category": "football",
+    "sub": "دوري أبطال أوروبا",
+    "level": 2,
+    "q": "من كان خصم ليفربول في نهائي إسطنبول الشهير عام 2005؟",
+    "options": [
+      "ميلان",
+      "يوفنتوس",
+      "برشلونة",
+      "بايرن ميونخ"
+    ],
+    "answer": 0,
+    "explanation": "عاد ليفربول بعد التأخر 3-0، ثم فاز بركلات الترجيح على ميلان.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefachampionsleague/history/",
+      "reference": "نهائي موسم 2004/05"
+    },
+    "spoiler": false,
+    "tags": [
+      "دوري أبطال أوروبا"
+    ],
+    "version": 1,
+    "hint": "ناد إيطالي يرتدي الأحمر والأسود."
+  },
+  {
+    "id": "football-016",
+    "category": "football",
+    "sub": "دوري أبطال أوروبا",
+    "level": 3,
+    "q": "من درب بورتو عند تتويجه بدوري أبطال أوروبا عام 2004؟",
+    "options": [
+      "جوزيه مورينيو",
+      "كارلو أنشيلوتي",
+      "رافاييل بينيتيز",
+      "أندريه فيلاش بواش"
+    ],
+    "answer": 0,
+    "explanation": "قاد مورينيو بورتو إلى الفوز على موناكو 3-0 في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefachampionsleague/history/",
+      "reference": "نهائي موسم 2003/04"
+    },
+    "spoiler": false,
+    "tags": [
+      "دوري أبطال أوروبا"
+    ],
+    "version": 1,
+    "hint": "مدرب برتغالي انتقل بعد اللقب إلى تشيلسي."
+  },
+  {
+    "id": "football-017",
+    "category": "football",
+    "sub": "الدوري الإنجليزي",
+    "level": 2,
+    "q": "أي فريق أنهى الدوري الإنجليزي الممتاز 2003/04 دون هزيمة؟",
+    "options": [
+      "أرسنال",
+      "مانشستر يونايتد",
+      "تشيلسي",
+      "ليفربول"
+    ],
+    "answer": 0,
+    "explanation": "فاز أرسنال في 26 مباراة وتعادل في 12 دون خسارة.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.arsenal.com/history/club-records/the-unbeaten-record",
+      "reference": "فريق أرسنال: موسم 2003/04"
+    },
+    "spoiler": false,
+    "tags": [
+      "الدوري الإنجليزي"
+    ],
+    "version": 1,
+    "hint": "كان يقوده أرسين فينغر."
+  },
+  {
+    "id": "football-018",
+    "category": "football",
+    "sub": "الدوري الإنجليزي",
+    "level": 3,
+    "q": "من كان مدرب ليستر سيتي عند الفوز بالدوري الإنجليزي الممتاز 2015/16؟",
+    "options": [
+      "كلاوديو رانييري",
+      "روبرتو مانشيني",
+      "أنطونيو كونتي",
+      "ماوريتسيو ساري"
+    ],
+    "answer": 0,
+    "explanation": "قاد الإيطالي رانييري ليستر إلى لقبه التاريخي في موسم 2015/16.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.lcfc.com/history",
+      "reference": "ليستر سيتي: موسم 2015/16"
+    },
+    "spoiler": false,
+    "tags": [
+      "الدوري الإنجليزي"
+    ],
+    "version": 1,
+    "hint": "مدرب إيطالي اشتهر بتجارب عديدة في إنجلترا وإيطاليا."
+  },
+  {
+    "id": "football-019",
+    "category": "football",
+    "sub": "الدوريات الأوروبية",
+    "level": 1,
+    "q": "في أي دولة تقام مسابقة لا ليغا؟",
+    "options": [
+      "إسبانيا",
+      "البرتغال",
+      "إيطاليا",
+      "فرنسا"
+    ],
+    "answer": 0,
+    "explanation": "لا ليغا هي مسابقة الدرجة الأولى في الدوري الإسباني.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.laliga.com/en-GB",
+      "reference": "الدوري الإسباني"
+    },
+    "spoiler": false,
+    "tags": [
+      "الدوريات الأوروبية"
+    ],
+    "version": 1,
+    "hint": "تضم أندية مثل أتلتيكو مدريد وفالنسيا."
+  },
+  {
+    "id": "football-020",
+    "category": "football",
+    "sub": "الدوريات الأوروبية",
+    "level": 1,
+    "q": "إلى أي دولة ينتمي الدوري المعروف باسم بوندسليغا؟",
+    "options": [
+      "ألمانيا",
+      "فرنسا",
+      "هولندا",
+      "بلجيكا"
+    ],
+    "answer": 0,
+    "explanation": "البوندسليغا هي مسابقة الدرجة الأولى في ألمانيا.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.bundesliga.com/en/bundesliga",
+      "reference": "الدوري الألماني"
+    },
+    "spoiler": false,
+    "tags": [
+      "الدوريات الأوروبية"
+    ],
+    "version": 1,
+    "hint": "من أنديته بايرن ميونخ وبوروسيا دورتموند."
+  },
+  {
+    "id": "football-021",
+    "category": "football",
+    "sub": "الدوريات الأوروبية",
+    "level": 1,
+    "q": "ما الدولة التي ينتمي إليها دوري سيري آ؟",
+    "options": [
+      "إيطاليا",
+      "إسبانيا",
+      "اليونان",
+      "تركيا"
+    ],
+    "answer": 0,
+    "explanation": "سيري آ هو دوري الدرجة الأولى الإيطالي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.legaseriea.it/en",
+      "reference": "الدوري الإيطالي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الدوريات الأوروبية"
+    ],
+    "version": 1,
+    "hint": "من أنديته نابولي وميلان ويوفنتوس."
+  },
+  {
+    "id": "football-022",
+    "category": "football",
+    "sub": "الملاعب",
+    "level": 2,
+    "q": "أي ناد اتخذ كامب نو ملعبًا له عند افتتاحه عام 1957؟",
+    "options": [
+      "برشلونة",
+      "ريال مدريد",
+      "فالنسيا",
+      "إشبيلية"
+    ],
+    "answer": 0,
+    "explanation": "افتتح برشلونة كامب نو في سبتمبر 1957.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fcbarcelona.com/en/club/facilities/spotify-camp-nou/history",
+      "reference": "تاريخ افتتاح كامب نو 1957"
+    },
+    "spoiler": false,
+    "tags": [
+      "الملاعب"
+    ],
+    "version": 1,
+    "hint": "النادي كتالوني."
+  },
+  {
+    "id": "football-023",
+    "category": "football",
+    "sub": "الملاعب",
+    "level": 1,
+    "q": "ما النادي الإنجليزي المرتبط بملعب أنفيلد منذ عام 1892؟",
+    "options": [
+      "ليفربول",
+      "أرسنال",
+      "إيفرتون",
+      "مانشستر سيتي"
+    ],
+    "answer": 0,
+    "explanation": "تأسس ليفربول عام 1892، وأصبح أنفيلد ملعبه.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.liverpoolfc.com/info/anfield",
+      "reference": "تاريخ أنفيلد"
+    },
+    "spoiler": false,
+    "tags": [
+      "الملاعب"
+    ],
+    "version": 1,
+    "hint": "يشتهر نشيده بعبارة لن تسير وحدك."
+  },
+  {
+    "id": "football-024",
+    "category": "football",
+    "sub": "الملاعب",
+    "level": 1,
+    "q": "أي نادٍ افتتح ملعب أولد ترافورد عام 1910؟",
+    "options": [
+      "مانشستر يونايتد",
+      "تشيلسي",
+      "نيوكاسل يونايتد",
+      "إيفرتون"
+    ],
+    "answer": 0,
+    "explanation": "افتتح أولد ترافورد ملعبًا لمانشستر يونايتد عام 1910.",
+    "source": {
+      "title": "الموقع الرسمي لمانشستر يونايتد",
+      "url": "https://ir.manutd.com/company-information/history.aspx",
+      "reference": "تاريخ النادي؛ افتتاح أولد ترافورد في 19 فبراير 1910"
+    },
+    "spoiler": false,
+    "tags": [
+      "الملاعب"
+    ],
+    "version": 1,
+    "hint": "لقبه الشياطين الحمر."
+  },
+  {
+    "id": "football-025",
+    "category": "football",
+    "sub": "الديربيات",
+    "level": 2,
+    "q": "ما الناديان اللذان يخوضان ديربي مدينة ميلانو؟",
+    "options": [
+      "ميلان وإنتر",
+      "روما ولاتسيو",
+      "يوفنتوس وتورينو",
+      "جنوى وسامبدوريا"
+    ],
+    "answer": 0,
+    "explanation": "ديربي ميلانو يجمع ميلان وإنتر، ويعرف أيضًا بديربي الغضب.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.inter.it/en/news/inter-ac-milan-origins-heroes-records-guide-derby",
+      "reference": "تاريخ ديربي ميلانو"
+    },
+    "spoiler": false,
+    "tags": [
+      "الديربيات"
+    ],
+    "version": 1,
+    "hint": "يشتركان في ملعب سان سيرو، المعروف أيضًا باسم جوزيبي مياتزا."
+  },
+  {
+    "id": "football-026",
+    "category": "football",
+    "sub": "دوري أبطال أوروبا",
+    "level": 3,
+    "q": "من سجل هدف الفوز لمانشستر يونايتد في نهائي دوري أبطال أوروبا 1999؟",
+    "options": [
+      "أولي غونار سولشاير",
+      "ديفيد بيكهام",
+      "رايان غيغز",
+      "آندي كول"
+    ],
+    "answer": 0,
+    "explanation": "سجل سولشاير الهدف الثاني في الوقت بدل الضائع بعد هدف تعادل شيرينغهام.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefachampionsleague/history/",
+      "reference": "نهائي موسم 1998/99"
+    },
+    "spoiler": false,
+    "tags": [
+      "دوري أبطال أوروبا"
+    ],
+    "version": 1,
+    "hint": "مهاجم نرويجي دخل بديلًا."
+  },
+  {
+    "id": "football-027",
+    "category": "football",
+    "sub": "بطولة أمم أوروبا",
+    "level": 2,
+    "q": "من فاز ببطولة أمم أوروبا للرجال 2004؟",
+    "options": [
+      "اليونان",
+      "البرتغال",
+      "التشيك",
+      "هولندا"
+    ],
+    "answer": 0,
+    "explanation": "تغلبت اليونان على البرتغال المضيفة 1-0 في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefaeuro/history/",
+      "reference": "بطولة البرتغال 2004"
+    },
+    "spoiler": false,
+    "tags": [
+      "بطولة أمم أوروبا"
+    ],
+    "version": 1,
+    "hint": "منتخب قاده المدرب الألماني أوتو ريهاجل."
+  },
+  {
+    "id": "football-028",
+    "category": "football",
+    "sub": "بطولة أمم أوروبا",
+    "level": 3,
+    "q": "من سجل هدف البرتغال الوحيد في نهائي أمم أوروبا 2016؟",
+    "options": [
+      "إيدير",
+      "كريستيانو رونالدو",
+      "ناني",
+      "ريكاردو كواريسما"
+    ],
+    "answer": 0,
+    "explanation": "سجل إيدير في الوقت الإضافي أمام فرنسا.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefaeuro/history/",
+      "reference": "نهائي فرنسا 2016"
+    },
+    "spoiler": false,
+    "tags": [
+      "بطولة أمم أوروبا"
+    ],
+    "version": 1,
+    "hint": "دخل إلى المباراة بديلًا، ولم يكن رونالدو على الملعب عند الهدف."
+  },
+  {
+    "id": "football-029",
+    "category": "football",
+    "sub": "بطولة أمم أوروبا",
+    "level": 2,
+    "q": "أي منتخب فاز بأمم أوروبا للرجال 2024؟",
+    "options": [
+      "إسبانيا",
+      "إنجلترا",
+      "ألمانيا",
+      "فرنسا"
+    ],
+    "answer": 0,
+    "explanation": "فازت إسبانيا على إنجلترا 2-1 في نهائي برلين.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefaeuro/history/",
+      "reference": "نهائي ألمانيا 2024"
+    },
+    "spoiler": false,
+    "tags": [
+      "بطولة أمم أوروبا"
+    ],
+    "version": 1,
+    "hint": "منتخب يلقب بلا روخا."
+  },
+  {
+    "id": "football-030",
+    "category": "football",
+    "sub": "الجوائز الفردية",
+    "level": 4,
+    "q": "إلى أي بلد ينتمي جورج ويا، الفائز بالكرة الذهبية عام 1995؟",
+    "options": [
+      "ليبيريا",
+      "الكاميرون",
+      "غانا",
+      "نيجيريا"
+    ],
+    "answer": 0,
+    "explanation": "جورج ويا لاعب ليبيري، وأصبح أول أفريقي يفوز بالكرة الذهبية.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://weah.emansion.gov.lr/senior-management/president",
+      "reference": "جورج ويا: الكرة الذهبية 1995"
+    },
+    "spoiler": false,
+    "tags": [
+      "الجوائز الفردية"
+    ],
+    "version": 1,
+    "hint": "عاصمة بلده مونروفيا."
+  },
+  {
+    "id": "football-031",
+    "category": "football",
+    "sub": "دوري أبطال أوروبا",
+    "level": 4,
+    "q": "أي ناد واجه ريال مدريد في نهائي أول كأس أوروبية عام 1956؟",
+    "options": [
+      "ستاد ريمس",
+      "بنفيكا",
+      "ميلان",
+      "فيورنتينا"
+    ],
+    "answer": 0,
+    "explanation": "فاز ريال مدريد على ستاد ريمس الفرنسي 4-3 في نهائي باريس.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefachampionsleague/history/",
+      "reference": "نهائي موسم 1955/56"
+    },
+    "spoiler": false,
+    "tags": [
+      "دوري أبطال أوروبا"
+    ],
+    "version": 1,
+    "hint": "ناد فرنسي، وواجه ريال مدريد مرة أخرى في نهائي 1959."
+  },
+  {
+    "id": "football-032",
+    "category": "football",
+    "sub": "بطولة أمم أوروبا",
+    "level": 3,
+    "q": "أي منتخب فاز بأمم أوروبا 1992 بعد دخوله البطولة بدل يوغوسلافيا؟",
+    "options": [
+      "الدنمارك",
+      "السويد",
+      "النرويج",
+      "فنلندا"
+    ],
+    "answer": 0,
+    "explanation": "فازت الدنمارك على ألمانيا 2-0 في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.uefa.com/uefaeuro/history/",
+      "reference": "بطولة السويد 1992"
+    },
+    "spoiler": false,
+    "tags": [
+      "بطولة أمم أوروبا"
+    ],
+    "version": 1,
+    "hint": "من نجومه الحارس بيتر شمايكل."
+  },
+  {
+    "id": "football-033",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 1,
+    "q": "كم لاعبًا يبدأ بهم كل فريق مباراة كرة قدم رسمية مكتملة العدد؟",
+    "options": [
+      "11",
+      "10",
+      "12",
+      "9"
+    ],
+    "answer": 0,
+    "explanation": "يتكون كل فريق من 11 لاعبًا كحد أقصى، أحدهم حارس مرمى.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/the-players/",
+      "reference": "قانون 3، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "احسب حارس المرمى ضمن العدد."
+  },
+  {
+    "id": "football-034",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 1,
+    "q": "ما مدة الوقت الأصلي لمباراة كرة القدم للكبار، دون الوقت بدل الضائع؟",
+    "options": [
+      "90 دقيقة",
+      "60 دقيقة",
+      "80 دقيقة",
+      "100 دقيقة"
+    ],
+    "answer": 0,
+    "explanation": "تتكون المباراة من شوطين، مدة كل منهما 45 دقيقة.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/the-duration-of-the-match/",
+      "reference": "قانون 7، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "تتكون من شوطين متساويين، كل منهما 45 دقيقة."
+  },
+  {
+    "id": "football-035",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 2,
+    "q": "كم تبعد علامة ركلة الجزاء عن منتصف خط المرمى بالمتر؟",
+    "options": [
+      "11 مترًا",
+      "9 أمتار",
+      "10 أمتار",
+      "12 مترًا"
+    ],
+    "answer": 0,
+    "explanation": "تقع علامة ركلة الجزاء على بعد 11 مترًا من منتصف المرمى.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/the-field-of-play/",
+      "reference": "قانون 1، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "تعادل المسافة 12 ياردة تقريبًا."
+  },
+  {
+    "id": "football-036",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 3,
+    "q": "ما الحد الأدنى لعدد لاعبي الفريق الذي يسمح باستمرار مباراة رسمية وفق قانون 3؟",
+    "options": [
+      "7",
+      "6",
+      "8",
+      "9"
+    ],
+    "answer": 0,
+    "explanation": "لا يجوز بدء المباراة أو استمرارها إذا كان لدى أحد الفريقين أقل من 7 لاعبين.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/the-players/",
+      "reference": "قانون 3، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "أقل بأربعة لاعبين من العدد الكامل."
+  },
+  {
+    "id": "football-037",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 3,
+    "q": "أي استئناف مما يلي لا يحتسب التسلل عند استلام الكرة مباشرة منه؟",
+    "options": [
+      "رمية تماس",
+      "ركلة حرة مباشرة",
+      "ركلة حرة غير مباشرة",
+      "تمريرة حارس بقدمه أثناء اللعب"
+    ],
+    "answer": 0,
+    "explanation": "لا توجد مخالفة تسلل عند استلام الكرة مباشرة من رمية تماس أو ركلة مرمى أو ركلة ركنية.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/offside/",
+      "reference": "قانون 11، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "ينفذ اللاعب هذا الاستئناف بيديه."
+  },
+  {
+    "id": "football-038",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 4,
+    "q": "ما المسافة القانونية بين القائمين من الداخل في مرمى كرة القدم للكبار؟",
+    "options": [
+      "7.32 متر",
+      "6.50 متر",
+      "8.00 أمتار",
+      "7.00 أمتار"
+    ],
+    "answer": 0,
+    "explanation": "عرض المرمى من الداخل 7.32 متر، وارتفاعه 2.44 متر.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/the-field-of-play/",
+      "reference": "قانون 1، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "تساوي 8 ياردات."
+  },
+  {
+    "id": "football-039",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 2,
+    "q": "متى تعد الكرة خارج اللعب بسبب عبورها خط التماس؟",
+    "options": [
+      "عندما تعبر الكرة بكاملها الخط",
+      "عندما يلامس مركز الكرة الخط",
+      "عندما يعبر نصف الكرة الخط",
+      "عندما يعبر قدم اللاعب الخط"
+    ],
+    "answer": 0,
+    "explanation": "يجب أن تتجاوز الكرة بكاملها الخط، سواء على الأرض أو في الهواء.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/the-ball-in-and-out-of-play/",
+      "reference": "قانون 9، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "موضع اللاعب لا يحدد وحده خروج الكرة."
+  },
+  {
+    "id": "football-040",
+    "category": "football",
+    "sub": "قوانين اللعبة",
+    "level": 1,
+    "q": "ما العقوبة المترتبة على حصول اللاعب على إنذار ثان في المباراة نفسها؟",
+    "options": [
+      "الطرد",
+      "ركلة جزاء تلقائية",
+      "تجميد اللاعب 5 دقائق",
+      "إلغاء هدف فريقه"
+    ],
+    "answer": 0,
+    "explanation": "الإنذار الثاني في المباراة يستوجب إشهار البطاقة الحمراء والطرد.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.theifab.com/laws/2025-26/fouls-and-misconduct/",
+      "reference": "قانون 12، نسخة 2025/26"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين اللعبة"
+    ],
+    "version": 1,
+    "hint": "تتغير البطاقة من الأصفر إلى لون آخر."
+  },
+  {
+    "id": "football-041",
+    "category": "football",
+    "sub": "الكرة الكويتية",
+    "level": 2,
+    "q": "أي منتخب أحرز كأس آسيا للرجال 1980؟",
+    "options": [
+      "الكويت",
+      "كوريا الجنوبية",
+      "إيران",
+      "السعودية"
+    ],
+    "answer": 0,
+    "explanation": "فازت الكويت على كوريا الجنوبية 3-0 في نهائي البطولة التي استضافتها.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.the-afc.com/en/more/news/moments_and_milestone_when_kuwait_ruled_asia.html",
+      "reference": "نهائي كأس آسيا 1980"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكرة الكويتية"
+    ],
+    "version": 1,
+    "hint": "يلقب بالأزرق."
+  },
+  {
+    "id": "football-042",
+    "category": "football",
+    "sub": "الكرة الكويتية",
+    "level": 2,
+    "q": "في أي دولة خاض منتخب الكويت نهائيات كأس العالم 1982؟",
+    "options": [
+      "إسبانيا",
+      "المكسيك",
+      "إيطاليا",
+      "الأرجنتين"
+    ],
+    "answer": 0,
+    "explanation": "شارك الكويت في نهائيات إسبانيا 1982 ضمن مجموعة إنجلترا وفرنسا وتشيكوسلوفاكيا.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.the-afc.com/en/more/photo/kuwait_at_1982_wc.html",
+      "reference": "مشاركة الكويت في كأس العالم 1982"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكرة الكويتية"
+    ],
+    "version": 1,
+    "hint": "بلد أوروبي عاصمته مدريد."
+  },
+  {
+    "id": "football-043",
+    "category": "football",
+    "sub": "كأس الخليج",
+    "level": 3,
+    "q": "ما الدولة التي استضافت أول بطولة لكأس الخليج عام 1970؟",
+    "options": [
+      "البحرين",
+      "الكويت",
+      "السعودية",
+      "قطر"
+    ],
+    "answer": 0,
+    "explanation": "أقيمت البطولة الأولى في البحرين بمشاركة أربعة منتخبات.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://agcff.com/en/about-gulf-cup/",
+      "reference": "النسخة الأولى عام 1970"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس الخليج"
+    ],
+    "version": 1,
+    "hint": "عاصمتها المنامة."
+  },
+  {
+    "id": "football-044",
+    "category": "football",
+    "sub": "كأس الخليج",
+    "level": 4,
+    "q": "حتى نهاية عام 2024، من كان الهداف التاريخي لكأس الخليج برصيد 18 هدفًا؟",
+    "options": [
+      "جاسم يعقوب",
+      "فيصل الدخيل",
+      "ماجد عبدالله",
+      "حسين سعيد"
+    ],
+    "answer": 0,
+    "explanation": "سجل الكويتي جاسم يعقوب أهدافه في نسخ 1972 و1974 و1976.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://qna.org.qa/en/news/news-details?date=15%2F12%2F2024&id=0019-gulf-cup-kuwait-dominates-with-historical-records-despite-long-absence-from-wining-titles",
+      "reference": "وكالة الأنباء القطرية، 15 ديسمبر 2024"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس الخليج"
+    ],
+    "version": 1,
+    "hint": "نجم كويتي اشتهر بلقب المرعب."
+  },
+  {
+    "id": "football-045",
+    "category": "football",
+    "sub": "الكرة السعودية",
+    "level": 4,
+    "q": "أين أقيمت كأس آسيا 1984 التي أحرزت فيها السعودية أول ألقابها القارية؟",
+    "options": [
+      "سنغافورة",
+      "قطر",
+      "الإمارات",
+      "اليابان"
+    ],
+    "answer": 0,
+    "explanation": "فازت السعودية على الصين 2-0 في نهائي نسخة سنغافورة 1984.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.the-afc.com/en/national/afc_asian_cup/news/west_asia_takes_charge.html",
+      "reference": "كأس آسيا 1984"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكرة السعودية"
+    ],
+    "version": 1,
+    "hint": "دولة مدينة في جنوب شرق آسيا."
+  },
+  {
+    "id": "football-046",
+    "category": "football",
+    "sub": "الكرة الخليجية",
+    "level": 3,
+    "q": "أي منتخب واجه قطر في نهائي كأس آسيا 2019؟",
+    "options": [
+      "اليابان",
+      "كوريا الجنوبية",
+      "أستراليا",
+      "إيران"
+    ],
+    "answer": 0,
+    "explanation": "فازت قطر على اليابان 3-1 لتحرز أول ألقابها في كأس آسيا.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.the-afc.com/en/national/afc_asian_cup/news/qatar_clinch_historic_title.html",
+      "reference": "نهائي الإمارات 2019"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكرة الخليجية"
+    ],
+    "version": 1,
+    "hint": "منتخب يلقب بالساموراي الأزرق."
+  },
+  {
+    "id": "football-047",
+    "category": "football",
+    "sub": "كأس الخليج",
+    "level": 3,
+    "q": "أي منتخب فاز بكأس الخليج 2007 التي استضافتها الإمارات؟",
+    "options": [
+      "الإمارات",
+      "عمان",
+      "السعودية",
+      "الكويت"
+    ],
+    "answer": 0,
+    "explanation": "حصدت الإمارات لقبها الأول بالفوز على عمان 1-0 في النهائي.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://agcff.com/en/about-gulf-cup/",
+      "reference": "خليجي 18 عام 2007"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس الخليج"
+    ],
+    "version": 1,
+    "hint": "أحرز البلد المضيف اللقب."
+  },
+  {
+    "id": "football-048",
+    "category": "football",
+    "sub": "كأس الخليج",
+    "level": 3,
+    "q": "في أي عام أحرزت عمان أول لقب لها في كأس الخليج؟",
+    "options": [
+      "2009",
+      "2004",
+      "2007",
+      "2013"
+    ],
+    "answer": 0,
+    "explanation": "فازت عمان على السعودية بركلات الترجيح في نهائي خليجي 19 على أرضها.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://agcff.com/en/about-gulf-cup/",
+      "reference": "خليجي 19 عام 2009"
+    },
+    "spoiler": false,
+    "tags": [
+      "كأس الخليج"
+    ],
+    "version": 1,
+    "hint": "جاء التتويج بعد خسارة نهائيي 2004 و2007."
+  },
+  {
+    "id": "football-049",
+    "category": "football",
+    "sub": "الأندية الآسيوية",
+    "level": 3,
+    "q": "من واجه الهلال السعودي في نهائي دوري أبطال آسيا 2021؟",
+    "options": [
+      "بوهانغ ستيلرز",
+      "أوراوا ريد دايموندز",
+      "جونبوك هيونداي",
+      "أولسان هيونداي"
+    ],
+    "answer": 0,
+    "explanation": "تغلب الهلال على بوهانغ ستيلرز الكوري الجنوبي 2-0.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.the-afc.com/en/club/afc_champions_league/news/report_al_hilal_sfc_ksa_v_fc_pohang_steelers_kor.html",
+      "reference": "نهائي دوري أبطال آسيا 2021"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأندية الآسيوية"
+    ],
+    "version": 1,
+    "hint": "ناد كوري جنوبي اسمه مرتبط بصناعة الفولاذ."
+  },
+  {
+    "id": "football-050",
+    "category": "football",
+    "sub": "الكرة السعودية",
+    "level": 4,
+    "q": "من سجل هدف السعودية الشهير بانطلاقة فردية أمام بلجيكا في كأس العالم 1994؟",
+    "options": [
+      "سعيد العويران",
+      "سامي الجابر",
+      "فؤاد أنور",
+      "يوسف الثنيان"
+    ],
+    "answer": 0,
+    "explanation": "سجل سعيد العويران هدف المباراة الوحيد في دور المجموعات.",
+    "source": {
+      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/1994",
+      "reference": "السعودية وبلجيكا، 29 يونيو 1994"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكرة السعودية"
+    ],
+    "version": 1,
+    "hint": "كان يلعب لنادي الشباب السعودي."
+  },
+  {
+    "id": "geo-001",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "إلى أي دولة ينتمي هذا العلم الذي يحمل شبه منحرف أسود عند السارية؟",
+    "options": [
+      "الكويت",
+      "العراق",
+      "فلسطين",
+      "الأردن"
+    ],
+    "answer": 0,
+    "explanation": "يتكون العلم من أشرطة أخضر وأبيض وأحمر وشبه منحرف أسود عند السارية.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/kuwait/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-kuwait"
+  },
+  {
+    "id": "geo-002",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 2,
+    "q": "ما الدولة التي يرمز إليها هذا العلم العنابي ذو الحافة المسننة؟",
+    "options": [
+      "قطر",
+      "البحرين",
+      "الكويت",
+      "عمان"
+    ],
+    "answer": 0,
+    "explanation": "يتميز علم قطر بلونه العنابي وتسعة رؤوس بيضاء في الحافة المسننة.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/qatar/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-qatar"
+  },
+  {
+    "id": "geo-003",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "لأي دولة يعود هذا العلم ذو الشريط الأحمر الرأسي والأشرطة الثلاثة الأفقية؟",
+    "options": [
+      "الإمارات",
+      "الأردن",
+      "الكويت",
+      "فلسطين"
+    ],
+    "answer": 0,
+    "explanation": "يحمل علم الإمارات شريطًا أحمر رأسيًا وأشرطة أفقية أخضر وأبيض وأسود.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/united-arab-emirates/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-uae"
+  },
+  {
+    "id": "geo-004",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 2,
+    "q": "ما الدولة صاحبة هذا العلم الأحمر والأبيض ذي المثلثات الخمسة؟",
+    "options": [
+      "البحرين",
+      "قطر",
+      "الإمارات",
+      "عمان"
+    ],
+    "answer": 0,
+    "explanation": "يتألف علم البحرين من الأحمر والأبيض مع خمسة مثلثات في الحافة المسننة.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/bahrain/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-bahrain"
+  },
+  {
+    "id": "geo-005",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "إلى أي دولة يشير هذا العلم ذو الدائرة الحمراء على خلفية بيضاء؟",
+    "options": [
+      "اليابان",
+      "الصين",
+      "كوريا الجنوبية",
+      "بنغلادش"
+    ],
+    "answer": 0,
+    "explanation": "تتوسط العلم الياباني دائرة حمراء على أرضية بيضاء.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/japan/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-japan"
+  },
+  {
+    "id": "geo-006",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "ما الدولة التي يمثلها هذا العلم ذو الأشرطة الرأسية الأزرق والأبيض والأحمر؟",
+    "options": [
+      "فرنسا",
+      "هولندا",
+      "روسيا",
+      "لوكسمبورغ"
+    ],
+    "answer": 0,
+    "explanation": "ألوان علم فرنسا رأسية: أزرق ثم أبيض ثم أحمر من جهة السارية.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/france/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-france"
+  },
+  {
+    "id": "geo-007",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "لأي دولة يعود هذا العلم المكون من الأخضر والأبيض والأحمر في أشرطة رأسية بلا شعار؟",
+    "options": [
+      "إيطاليا",
+      "المجر",
+      "المكسيك",
+      "بلغاريا"
+    ],
+    "answer": 0,
+    "explanation": "يتكون علم إيطاليا من أخضر وأبيض وأحمر في ثلاثة أشرطة رأسية دون شعار.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/italy/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-italy"
+  },
+  {
+    "id": "geo-008",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "ما الدولة صاحبة العلم ذي الأشرطة الأفقية الأسود والأحمر والذهبي؟",
+    "options": [
+      "ألمانيا",
+      "بلجيكا",
+      "إسبانيا",
+      "أوغندا"
+    ],
+    "answer": 0,
+    "explanation": "يحمل علم ألمانيا أشرطة أفقية أسود وأحمر وذهبي.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/germany/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-germany"
+  },
+  {
+    "id": "geo-009",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "أي دولة يمثلها العلم الأحمر الذي يحمل هلالًا ونجمة باللون الأبيض؟",
+    "options": [
+      "تركيا",
+      "تونس",
+      "الجزائر",
+      "أذربيجان"
+    ],
+    "answer": 0,
+    "explanation": "يحمل علم تركيا هلالًا ونجمة بيضاء على أرضية حمراء.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/turkey/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-turkey"
+  },
+  {
+    "id": "geo-010",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "إلى أي دولة ينتمي هذا العلم الأحمر ذو النجمة الخماسية الخضراء؟",
+    "options": [
+      "المغرب",
+      "تونس",
+      "السنغال",
+      "الكاميرون"
+    ],
+    "answer": 0,
+    "explanation": "تتوسط علم المغرب الأحمر نجمة خماسية خضراء.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/morocco/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-morocco"
+  },
+  {
+    "id": "geo-011",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 2,
+    "q": "ما الدولة التي يرمز إليها هذا العلم المقسوم إلى أخضر وأبيض مع هلال ونجمة حمراء؟",
+    "options": [
+      "الجزائر",
+      "تونس",
+      "باكستان",
+      "موريتانيا"
+    ],
+    "answer": 0,
+    "explanation": "يتكون علم الجزائر من نصفين أخضر وأبيض مع هلال ونجمة باللون الأحمر.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/algeria/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-algeria"
+  },
+  {
+    "id": "geo-012",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 2,
+    "q": "لأي دولة يعود هذا العلم الذي يحمل نجمة بيضاء سباعية داخل مثلث أحمر؟",
+    "options": [
+      "الأردن",
+      "فلسطين",
+      "السودان",
+      "الكويت"
+    ],
+    "answer": 0,
+    "explanation": "يتميز علم الأردن بنجمة بيضاء سباعية داخل المثلث الأحمر.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/jordan/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-jordan"
+  },
+  {
+    "id": "geo-013",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 2,
+    "q": "ما الدولة التي يمثلها العلم ذو المثلث الأحمر والأشرطة الأسود والأبيض والأخضر بلا نجمة؟",
+    "options": [
+      "فلسطين",
+      "الأردن",
+      "السودان",
+      "الإمارات"
+    ],
+    "answer": 0,
+    "explanation": "يحمل علم فلسطين مثلثًا أحمر وأشرطة أفقية أسود وأبيض وأخضر، بلا نجمة.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/west-bank/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-palestine"
+  },
+  {
+    "id": "geo-014",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 1,
+    "q": "أي دولة يمثلها هذا العلم الذي تتوسطه شجرة أرز؟",
+    "options": [
+      "لبنان",
+      "كندا",
+      "النمسا",
+      "الدنمارك"
+    ],
+    "answer": 0,
+    "explanation": "تتوسط علم لبنان أرزة خضراء على شريط أبيض بين شريطين أحمرين.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/lebanon/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-lebanon"
+  },
+  {
+    "id": "geo-015",
+    "category": "geo",
+    "sub": "الأعلام",
+    "level": 2,
+    "q": "ما الدولة التي يرمز إليها علم الاتحاد الظاهر في الصورة؟",
+    "options": [
+      "المملكة المتحدة",
+      "أستراليا",
+      "نيوزيلندا",
+      "آيسلندا"
+    ],
+    "answer": 0,
+    "explanation": "يجمع علم الاتحاد صلبان القديسين جورج وأندراوس وباتريك.",
+    "source": {
+      "title": "كتاب حقائق العالم: وصف العلم",
+      "url": "https://www.cia.gov/the-world-factbook/about/archives/2023/countries/united-kingdom/",
+      "reference": "وصف هندسي للعلم؛ الرسم المضمن أصلي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأعلام"
+    ],
+    "version": 1,
+    "hint": "قارن اتجاه الأشرطة والرموز وحدود الألوان.",
+    "image": "flag-uk"
+  },
+  {
+    "id": "geo-016",
+    "category": "geo",
+    "sub": "العواصم",
+    "level": 1,
+    "q": "ما عاصمة أستراليا؟",
+    "options": [
+      "كانبرا",
+      "سيدني",
+      "ملبورن",
+      "بيرث"
+    ],
+    "answer": 0,
+    "explanation": "كانبرا هي العاصمة الاتحادية؛ أما سيدني فهي أكبر مدن البلاد.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.australia.gov.au/about-australia/our-country",
+      "reference": "عاصمة أستراليا"
+    },
+    "spoiler": false,
+    "tags": [
+      "العواصم"
+    ],
+    "version": 1,
+    "hint": "مدينة داخلية تقع بين سيدني وملبورن."
+  },
+  {
+    "id": "geo-017",
+    "category": "geo",
+    "sub": "العواصم",
+    "level": 2,
+    "q": "ما عاصمة البرازيل منذ عام 1960؟",
+    "options": [
+      "برازيليا",
+      "ريو دي جانيرو",
+      "ساو باولو",
+      "سلفادور"
+    ],
+    "answer": 0,
+    "explanation": "انتقلت العاصمة من ريو دي جانيرو إلى مدينة برازيليا المخططة عام 1960.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://whc.unesco.org/en/list/445",
+      "reference": "مدينة برازيليا المدرجة على قائمة التراث العالمي"
+    },
+    "spoiler": false,
+    "tags": [
+      "العواصم"
+    ],
+    "version": 1,
+    "hint": "مدينة مخططة في داخل البلاد وليست على الساحل."
+  },
+  {
+    "id": "geo-018",
+    "category": "geo",
+    "sub": "العواصم",
+    "level": 2,
+    "q": "ما عاصمة كندا؟",
+    "options": [
+      "أوتاوا",
+      "تورونتو",
+      "فانكوفر",
+      "مونتريال"
+    ],
+    "answer": 0,
+    "explanation": "أوتاوا هي العاصمة الكندية وتقع في مقاطعة أونتاريو.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.canada.ca/en/canadian-heritage/services/visitor-information/about.html",
+      "reference": "العاصمة الوطنية لكندا"
+    },
+    "spoiler": false,
+    "tags": [
+      "العواصم"
+    ],
+    "version": 1,
+    "hint": "تقع على نهر يحمل اسمها."
+  },
+  {
+    "id": "geo-019",
+    "category": "geo",
+    "sub": "العواصم",
+    "level": 2,
+    "q": "ما عاصمة نيجيريا الاتحادية منذ عام 1991؟",
+    "options": [
+      "أبوجا",
+      "لاغوس",
+      "كانو",
+      "إبادان"
+    ],
+    "answer": 0,
+    "explanation": "أصبحت أبوجا العاصمة بدلًا من لاغوس في ديسمبر 1991.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.fcta.gov.ng/",
+      "reference": "إدارة إقليم العاصمة الاتحادية لنيجيريا"
+    },
+    "spoiler": false,
+    "tags": [
+      "العواصم"
+    ],
+    "version": 1,
+    "hint": "مدينة بنيت لتكون عاصمة في وسط البلاد."
+  },
+  {
+    "id": "geo-020",
+    "category": "geo",
+    "sub": "العواصم",
+    "level": 3,
+    "q": "ما العاصمة السياسية لتنزانيا؟",
+    "options": [
+      "دودوما",
+      "دار السلام",
+      "أروشا",
+      "موانزا"
+    ],
+    "answer": 0,
+    "explanation": "دودوما هي العاصمة، بينما تعد دار السلام مركزًا اقتصاديًا رئيسيًا.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.tanzania.go.tz/",
+      "reference": "بوابة حكومة تنزانيا"
+    },
+    "spoiler": false,
+    "tags": [
+      "العواصم"
+    ],
+    "version": 1,
+    "hint": "ليست المدينة الساحلية الكبرى على المحيط الهندي."
+  },
+  {
+    "id": "geo-021",
+    "category": "geo",
+    "sub": "العواصم",
+    "level": 3,
+    "q": "ما عاصمة كازاخستان وفق الاسم المستعاد عام 2022؟",
+    "options": [
+      "أستانا",
+      "ألماتي",
+      "طشقند",
+      "بشكيك"
+    ],
+    "answer": 0,
+    "explanation": "أعيد اسم أستانا عام 2022 بعد أن سميت نور سلطان منذ عام 2019.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.gov.kz/memleket/entities/astana?lang=en",
+      "reference": "مدينة أستانا؛ إعادة التسمية في 2022"
+    },
+    "spoiler": false,
+    "tags": [
+      "العواصم"
+    ],
+    "version": 1,
+    "hint": "كانت تعرف قبل 1998 باسم أكمولا."
+  },
+  {
+    "id": "geo-022",
+    "category": "geo",
+    "sub": "جغرافيا طبيعية",
+    "level": 1,
+    "q": "ما أكبر محيط على الأرض من حيث المساحة؟",
+    "options": [
+      "المحيط الهادئ",
+      "المحيط الأطلسي",
+      "المحيط الهندي",
+      "المحيط المتجمد الشمالي"
+    ],
+    "answer": 0,
+    "explanation": "يغطي المحيط الهادئ مساحة أكبر من أي حوض محيطي آخر.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://oceanservice.noaa.gov/facts/biggestocean.html",
+      "reference": "الإدارة الوطنية للمحيطات والغلاف الجوي: أكبر محيط"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا طبيعية"
+    ],
+    "version": 1,
+    "hint": "يفصل بين آسيا والأمريكتين."
+  },
+  {
+    "id": "geo-023",
+    "category": "geo",
+    "sub": "جغرافيا طبيعية",
+    "level": 2,
+    "q": "ما أعلى جبل في العالم من حيث الارتفاع فوق مستوى سطح البحر؟",
+    "options": [
+      "إيفرست",
+      "كي 2",
+      "كانغشينجونغا",
+      "لوتسي"
+    ],
+    "answer": 0,
+    "explanation": "إيفرست في جبال الهيمالايا هو الأعلى فوق مستوى سطح البحر.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Mount-Everest",
+      "reference": "ارتفاع إيفرست فوق مستوى البحر"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا طبيعية"
+    ],
+    "version": 1,
+    "hint": "يقع على الحدود بين نيبال والصين."
+  },
+  {
+    "id": "geo-024",
+    "category": "geo",
+    "sub": "جغرافيا طبيعية",
+    "level": 3,
+    "q": "ما أعلى قمة جبلية خارج قارة آسيا؟",
+    "options": [
+      "أكونكاغوا",
+      "كليمنجارو",
+      "دينالي",
+      "إلبروس"
+    ],
+    "answer": 0,
+    "explanation": "أكونكاغوا في الأرجنتين هي أعلى قمم الأنديز وأعلى قمة خارج آسيا.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.mendoza.gov.ar/prensa/el-gobierno-de-mendoza-lanzo-un-dossier-sobre-el-parque-provincial-aconcagua/",
+      "reference": "أكونكاغوا في الأرجنتين"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا طبيعية"
+    ],
+    "version": 1,
+    "hint": "تقع في سلسلة جبال الأنديز."
+  },
+  {
+    "id": "geo-025",
+    "category": "geo",
+    "sub": "المياه الداخلية",
+    "level": 3,
+    "q": "ما أكبر مسطح مائي داخلي مغلق من حيث المساحة؟",
+    "options": [
+      "بحر قزوين",
+      "بحيرة سوبيريور",
+      "بحيرة فيكتوريا",
+      "بحيرة بايكال"
+    ],
+    "answer": 0,
+    "explanation": "بحر قزوين حوض مغلق لا يتصل مباشرة بالمحيطات، وهو أكبر المسطحات المائية الداخلية مساحة.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Caspian-Sea",
+      "reference": "بحر قزوين: الموقع والمساحة"
+    },
+    "spoiler": false,
+    "tags": [
+      "المياه الداخلية"
+    ],
+    "version": 1,
+    "hint": "تطل عليه إيران وروسيا وكازاخستان وغيرها."
+  },
+  {
+    "id": "geo-026",
+    "category": "geo",
+    "sub": "الأنهار",
+    "level": 2,
+    "q": "في أي بحر يصب نهر الدانوب؟",
+    "options": [
+      "البحر الأسود",
+      "البحر المتوسط",
+      "بحر البلطيق",
+      "بحر الشمال"
+    ],
+    "answer": 0,
+    "explanation": "يصل الدانوب إلى البحر الأسود عبر دلتا تقع أساسًا في رومانيا وأوكرانيا.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://whc.unesco.org/en/list/588",
+      "reference": "دلتا الدانوب"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأنهار"
+    ],
+    "version": 1,
+    "hint": "تقع دلتا النهر في شرق أوروبا."
+  },
+  {
+    "id": "geo-027",
+    "category": "geo",
+    "sub": "الأنهار",
+    "level": 2,
+    "q": "ما النهر الذي يمر في مدينة القاهرة؟",
+    "options": [
+      "النيل",
+      "الفرات",
+      "دجلة",
+      "الأردن"
+    ],
+    "answer": 0,
+    "explanation": "تقع القاهرة على ضفتي نهر النيل في مصر.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Cairo",
+      "reference": "الموقع الجغرافي للقاهرة"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأنهار"
+    ],
+    "version": 1,
+    "hint": "يرتبط بتسمية مصر هبة هذا النهر."
+  },
+  {
+    "id": "geo-028",
+    "category": "geo",
+    "sub": "المضائق",
+    "level": 3,
+    "q": "أي مضيق يربط البحر الأحمر بخليج عدن؟",
+    "options": [
+      "باب المندب",
+      "هرمز",
+      "جبل طارق",
+      "ملقا"
+    ],
+    "answer": 0,
+    "explanation": "يقع باب المندب بين جنوب غرب شبه الجزيرة العربية والقرن الأفريقي.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Bab-El-Mandeb-Strait",
+      "reference": "مضيق باب المندب"
+    },
+    "spoiler": false,
+    "tags": [
+      "المضائق"
+    ],
+    "version": 1,
+    "hint": "تطل عليه اليمن من الجانب الآسيوي."
+  },
+  {
+    "id": "geo-029",
+    "category": "geo",
+    "sub": "المضائق",
+    "level": 2,
+    "q": "ما المضيق الذي يصل الخليج العربي بخليج عمان؟",
+    "options": [
+      "هرمز",
+      "البوسفور",
+      "باب المندب",
+      "الدردنيل"
+    ],
+    "answer": 0,
+    "explanation": "يقع مضيق هرمز بين إيران وشبه جزيرة مسندم.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Strait-of-Hormuz",
+      "reference": "مضيق هرمز"
+    },
+    "spoiler": false,
+    "tags": [
+      "المضائق"
+    ],
+    "version": 1,
+    "hint": "تحاذيه شبه جزيرة مسندم العمانية."
+  },
+  {
+    "id": "geo-030",
+    "category": "geo",
+    "sub": "المضائق",
+    "level": 3,
+    "q": "أي ممر مائي يفصل جزيرة مدغشقر عن البر الأفريقي؟",
+    "options": [
+      "قناة موزمبيق",
+      "مضيق ملقا",
+      "قناة السويس",
+      "مضيق بيرنغ"
+    ],
+    "answer": 0,
+    "explanation": "تقع قناة موزمبيق في المحيط الهندي بين مدغشقر وموزمبيق.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Mozambique-Channel",
+      "reference": "قناة موزمبيق"
+    },
+    "spoiler": false,
+    "tags": [
+      "المضائق"
+    ],
+    "version": 1,
+    "hint": "يحمل اسم دولة أفريقية تطل عليه."
+  },
+  {
+    "id": "geo-031",
+    "category": "geo",
+    "sub": "المضائق",
+    "level": 3,
+    "q": "ما المضيق الذي يفصل آسيا عن أمريكا الشمالية؟",
+    "options": [
+      "بيرنغ",
+      "ماجلان",
+      "جبل طارق",
+      "توريس"
+    ],
+    "answer": 0,
+    "explanation": "يفصل مضيق بيرنغ بين ألاسكا وشبه جزيرة تشوكوتكا الروسية.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Bering-Strait",
+      "reference": "مضيق بيرنغ"
+    },
+    "spoiler": false,
+    "tags": [
+      "المضائق"
+    ],
+    "version": 1,
+    "hint": "يمتد بين روسيا وألاسكا."
+  },
+  {
+    "id": "geo-032",
+    "category": "geo",
+    "sub": "جغرافيا الكويت",
+    "level": 1,
+    "q": "ما أكبر جزيرة كويتية من حيث المساحة؟",
+    "options": [
+      "بوبيان",
+      "فيلكا",
+      "وربة",
+      "كبر"
+    ],
+    "answer": 0,
+    "explanation": "بوبيان هي أكبر جزر الكويت وتقع في شمال شرق البلاد.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://e.gov.kw/sites/kgoArabic/Pages/Visitors/AboutKuwait/KuwaitAtaGlaneTopography.aspx",
+      "reference": "البوابة الرسمية: جزر الكويت"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الكويت"
+    ],
+    "version": 1,
+    "hint": "تقع في شمال شرق دولة الكويت."
+  },
+  {
+    "id": "geo-033",
+    "category": "geo",
+    "sub": "جغرافيا الكويت",
+    "level": 2,
+    "q": "ما الحافة الجغرافية التي تطل على الساحل الشمالي لجون الكويت؟",
+    "options": [
+      "جال الزور",
+      "جبال الحجر",
+      "جبل حفيت",
+      "طويق"
+    ],
+    "answer": 0,
+    "explanation": "تطل حافة جال الزور على الساحل الشمالي لجون الكويت.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://e.gov.kw/sites/kgoArabic/Pages/Visitors/AboutKuwait/KuwaitAtaGlaneTopography.aspx",
+      "reference": "البوابة الرسمية: تضاريس الكويت"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الكويت"
+    ],
+    "version": 1,
+    "hint": "هي حافة كويتية، وليست سلسلة جبلية في دولة مجاورة."
+  },
+  {
+    "id": "geo-034",
+    "category": "geo",
+    "sub": "جغرافيا الكويت",
+    "level": 3,
+    "q": "أي واد يسير مع جانب من الحدود الغربية للكويت؟",
+    "options": [
+      "وادي الباطن",
+      "وادي الدواسر",
+      "وادي حنيفة",
+      "وادي الرمة"
+    ],
+    "answer": 0,
+    "explanation": "يعد وادي الباطن من أبرز أودية الكويت ويسير مع حدودها الغربية.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://e.gov.kw/sites/kgoArabic/Pages/Visitors/AboutKuwait/KuwaitAtaGlaneTopography.aspx",
+      "reference": "البوابة الرسمية: تضاريس الكويت"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الكويت"
+    ],
+    "version": 1,
+    "hint": "يمتد أيضًا في مناطق من العراق والسعودية."
+  },
+  {
+    "id": "geo-035",
+    "category": "geo",
+    "sub": "جغرافيا الكويت",
+    "level": 3,
+    "q": "أي جزيرة كويتية تقع إلى الجنوب الشرقي من فيلكا بنحو 4 كيلومترات؟",
+    "options": [
+      "عوهة",
+      "وربة",
+      "بوبيان",
+      "أم المرادم"
+    ],
+    "answer": 0,
+    "explanation": "تقع عوهة قرب فيلكا، على مسافة نحو 4 كيلومترات إلى الجنوب الشرقي منها.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://e.gov.kw/sites/kgoArabic/Pages/Visitors/AboutKuwait/KuwaitAtaGlaneTopography.aspx",
+      "reference": "البوابة الرسمية: جزيرة عوهة"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الكويت"
+    ],
+    "version": 1,
+    "hint": "جزيرة صغيرة قريبة من فيلكا، واسمها من أربعة أحرف."
+  },
+  {
+    "id": "geo-036",
+    "category": "geo",
+    "sub": "جغرافيا الكويت",
+    "level": 4,
+    "q": "ما آخر الجزر الكويتية من ناحية الجنوب وفق وصف البوابة الرسمية؟",
+    "options": [
+      "أم المرادم",
+      "أم النمل",
+      "مسكان",
+      "وربة"
+    ],
+    "answer": 0,
+    "explanation": "تقع أم المرادم في أقصى جنوب الحدود البحرية الكويتية مع السعودية.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://e.gov.kw/sites/kgoArabic/Pages/Visitors/AboutKuwait/KuwaitAtaGlaneTopography.aspx",
+      "reference": "البوابة الرسمية: جزيرة أم المرادم"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الكويت"
+    ],
+    "version": 1,
+    "hint": "يرتبط اسمها بطائر المردم."
+  },
+  {
+    "id": "geo-037",
+    "category": "geo",
+    "sub": "جغرافيا الخليج",
+    "level": 2,
+    "q": "في أي دولة يقع الجبل الأخضر التابع لسلسلة جبال الحجر؟",
+    "options": [
+      "عمان",
+      "البحرين",
+      "الكويت",
+      "قطر"
+    ],
+    "answer": 0,
+    "explanation": "الجبل الأخضر جزء من جبال الحجر في سلطنة عمان.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://experienceoman.om/",
+      "reference": "السياحة العمانية: الجبل الأخضر"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الخليج"
+    ],
+    "version": 1,
+    "hint": "تضم الدولة أيضًا الجبل المسمى شمس."
+  },
+  {
+    "id": "geo-038",
+    "category": "geo",
+    "sub": "جغرافيا الخليج",
+    "level": 3,
+    "q": "إلى أي دولة تتبع محافظة مسندم عند مدخل الخليج العربي؟",
+    "options": [
+      "عمان",
+      "الإمارات",
+      "قطر",
+      "البحرين"
+    ],
+    "answer": 0,
+    "explanation": "مسندم محافظة عمانية يفصل معظم أراضي الإمارات بينها وبين بقية السلطنة.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://experienceoman.om/",
+      "reference": "محافظة مسندم"
+    },
+    "spoiler": false,
+    "tags": [
+      "جغرافيا الخليج"
+    ],
+    "version": 1,
+    "hint": "تشرف على الجانب الجنوبي من مضيق هرمز."
+  },
+  {
+    "id": "geo-039",
+    "category": "geo",
+    "sub": "المعالم",
+    "level": 1,
+    "q": "في أي دولة تقع مدينة البتراء الأثرية؟",
+    "options": [
+      "الأردن",
+      "مصر",
+      "العراق",
+      "لبنان"
+    ],
+    "answer": 0,
+    "explanation": "تقع البتراء في جنوب الأردن، وتشتهر بواجهاتها المنحوتة في الصخر.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://whc.unesco.org/en/list/326",
+      "reference": "موقع البتراء في قائمة اليونسكو"
+    },
+    "spoiler": false,
+    "tags": [
+      "المعالم"
+    ],
+    "version": 1,
+    "hint": "تلقب بالمدينة الوردية."
+  },
+  {
+    "id": "geo-040",
+    "category": "geo",
+    "sub": "المعالم",
+    "level": 2,
+    "q": "في أي دولة يقع موقع ماتشو بيتشو؟",
+    "options": [
+      "بيرو",
+      "بوليفيا",
+      "المكسيك",
+      "تشيلي"
+    ],
+    "answer": 0,
+    "explanation": "يقع موقع ماتشو بيتشو في جبال الأنديز ببيرو، ويرتبط بحضارة الإنكا.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://whc.unesco.org/en/list/274",
+      "reference": "موقع ماتشو بيتشو في قائمة اليونسكو"
+    },
+    "spoiler": false,
+    "tags": [
+      "المعالم"
+    ],
+    "version": 1,
+    "hint": "دولة في أمريكا الجنوبية عاصمتها ليما."
+  },
+  {
+    "id": "geo-041",
+    "category": "geo",
+    "sub": "المعالم",
+    "level": 2,
+    "q": "في أي مدينة هندية يقع تاج محل؟",
+    "options": [
+      "أغرا",
+      "نيودلهي",
+      "مومباي",
+      "جايبور"
+    ],
+    "answer": 0,
+    "explanation": "يقع تاج محل في أغرا على ضفة نهر يامونا.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://whc.unesco.org/en/list/252",
+      "reference": "تاج محل في قائمة اليونسكو"
+    },
+    "spoiler": false,
+    "tags": [
+      "المعالم"
+    ],
+    "version": 1,
+    "hint": "مدينة على ضفة يامونا، وكانت مركزًا للحكم المغولي."
+  },
+  {
+    "id": "geo-042",
+    "category": "geo",
+    "sub": "المعالم",
+    "level": 2,
+    "q": "في أي قارة تقع صحراء أتاكاما؟",
+    "options": [
+      "أمريكا الجنوبية",
+      "أفريقيا",
+      "آسيا",
+      "أستراليا"
+    ],
+    "answer": 0,
+    "explanation": "تقع أتاكاما أساسًا في شمال تشيلي، وهي من أكثر صحارى العالم جفافًا.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Atacama-Desert",
+      "reference": "صحراء أتاكاما"
+    },
+    "spoiler": false,
+    "tags": [
+      "المعالم"
+    ],
+    "version": 1,
+    "hint": "تمتد قرب ساحل تشيلي على المحيط الهادئ."
+  },
+  {
+    "id": "geo-043",
+    "category": "geo",
+    "sub": "الإحداثيات",
+    "level": 3,
+    "q": "ما خط العرض الذي يقسم الأرض إلى نصفيها الشمالي والجنوبي؟",
+    "options": [
+      "خط الاستواء",
+      "مدار السرطان",
+      "مدار الجدي",
+      "الدائرة القطبية الشمالية"
+    ],
+    "answer": 0,
+    "explanation": "خط الاستواء هو خط العرض 0 درجة.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Equator",
+      "reference": "خط الاستواء"
+    },
+    "spoiler": false,
+    "tags": [
+      "الإحداثيات"
+    ],
+    "version": 1,
+    "hint": "تكون درجته 0."
+  },
+  {
+    "id": "geo-044",
+    "category": "geo",
+    "sub": "الإحداثيات",
+    "level": 3,
+    "q": "ما خط الطول المرجعي الذي درجته 0؟",
+    "options": [
+      "خط غرينتش",
+      "خط التاريخ الدولي",
+      "مدار السرطان",
+      "خط الاستواء"
+    ],
+    "answer": 0,
+    "explanation": "يمثل خط الزوال الرئيسي المار بغرينتش خط الطول المرجعي 0.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.rmg.co.uk/stories/time/what-prime-meridian-why-it-greenwich",
+      "reference": "المتاحف الملكية في غرينتش: خط الزوال الرئيسي"
+    },
+    "spoiler": false,
+    "tags": [
+      "الإحداثيات"
+    ],
+    "version": 1,
+    "hint": "يمر عبر مرصد تاريخي في لندن."
+  },
+  {
+    "id": "geo-045",
+    "category": "geo",
+    "sub": "المحيطات",
+    "level": 4,
+    "q": "في أي خندق تقع نقطة تشالنجر ديب، أعمق موضع معروف في المحيط؟",
+    "options": [
+      "خندق ماريانا",
+      "خندق تونغا",
+      "خندق بورتوريكو",
+      "خندق بيرو وتشيلي"
+    ],
+    "answer": 0,
+    "explanation": "تقع تشالنجر ديب في الطرف الجنوبي من خندق ماريانا بغرب المحيط الهادئ.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://oceanservice.noaa.gov/facts/oceandepth.html",
+      "reference": "الإدارة الوطنية للمحيطات والغلاف الجوي: عمق المحيط"
+    },
+    "spoiler": false,
+    "tags": [
+      "المحيطات"
+    ],
+    "version": 1,
+    "hint": "يقع غرب المحيط الهادئ قرب غوام."
+  },
+  {
+    "id": "geo-046",
+    "category": "geo",
+    "sub": "الجزر",
+    "level": 4,
+    "q": "إلى أي دولة تتبع جزر الأزور في المحيط الأطلسي؟",
+    "options": [
+      "البرتغال",
+      "إسبانيا",
+      "المغرب",
+      "فرنسا"
+    ],
+    "answer": 0,
+    "explanation": "الأزور إقليم ذاتي الحكم تابع للبرتغال في شمال الأطلسي.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.azores.gov.pt/",
+      "reference": "حكومة إقليم الأزور"
+    },
+    "spoiler": false,
+    "tags": [
+      "الجزر"
+    ],
+    "version": 1,
+    "hint": "هي الدولة نفسها التي تتبع لها ماديرا."
+  },
+  {
+    "id": "geo-047",
+    "category": "geo",
+    "sub": "الجزر",
+    "level": 4,
+    "q": "في أي محيط تقع جزر كيرغولين؟",
+    "options": [
+      "المحيط الهندي",
+      "المحيط الأطلسي",
+      "المحيط الهادئ",
+      "المحيط المتجمد الشمالي"
+    ],
+    "answer": 0,
+    "explanation": "تقع كيرغولين في جنوب المحيط الهندي، وتتبع الأراضي الفرنسية الجنوبية والقطبية.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://taaf.fr/collectivites/presentation-des-territoires/les-iles-australes/",
+      "reference": "الأراضي الفرنسية الجنوبية والقطبية: كيرغولين"
+    },
+    "spoiler": false,
+    "tags": [
+      "الجزر"
+    ],
+    "version": 1,
+    "hint": "تقع جنوب المحيط الذي تطل عليه الهند."
+  },
+  {
+    "id": "geo-048",
+    "category": "geo",
+    "sub": "الدول الحبيسة",
+    "level": 4,
+    "q": "أي دولة من الآتية حبيسة مزدوجة، أي أن جميع جيرانها دول حبيسة أيضًا؟",
+    "options": [
+      "أوزبكستان",
+      "كازاخستان",
+      "منغوليا",
+      "بوليفيا"
+    ],
+    "answer": 0,
+    "explanation": "أوزبكستان وليختنشتاين هما الدولتان الحبيستان المزدوجتان؛ كل جيران أوزبكستان بلا سواحل محيطية.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Uzbekistan",
+      "reference": "الموقع الجغرافي لأوزبكستان"
+    },
+    "spoiler": false,
+    "tags": [
+      "الدول الحبيسة"
+    ],
+    "version": 1,
+    "hint": "عاصمتها طشقند."
+  },
+  {
+    "id": "geo-049",
+    "category": "geo",
+    "sub": "الأنهار",
+    "level": 4,
+    "q": "في أي بحر يصب نهر الفولغا؟",
+    "options": [
+      "بحر قزوين",
+      "البحر الأسود",
+      "بحر البلطيق",
+      "بحر بارنتس"
+    ],
+    "answer": 0,
+    "explanation": "ينتهي الفولغا في بحر قزوين عبر دلتا واسعة قرب أستراخان.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Volga-River",
+      "reference": "مصب نهر الفولغا"
+    },
+    "spoiler": false,
+    "tags": [
+      "الأنهار"
+    ],
+    "version": 1,
+    "hint": "هو بحر داخلي مغلق لا يتصل مباشرة بالمحيطات."
+  },
+  {
+    "id": "geo-050",
+    "category": "geo",
+    "sub": "السلاسل الجبلية",
+    "level": 3,
+    "q": "ما السلسلة الجبلية التي تمتد على طول الساحل الغربي لأمريكا الجنوبية؟",
+    "options": [
+      "الأنديز",
+      "الألب",
+      "الأطلس",
+      "الروكي"
+    ],
+    "answer": 0,
+    "explanation": "تمتد الأنديز عبر عدة دول في غرب أمريكا الجنوبية.",
+    "source": {
+      "title": "مرجع جغرافي",
+      "url": "https://www.britannica.com/place/Andes-Mountains",
+      "reference": "جبال الأنديز"
+    },
+    "spoiler": false,
+    "tags": [
+      "السلاسل الجبلية"
+    ],
+    "version": 1,
+    "hint": "تضم قممًا في تشيلي والأرجنتين وبيرو."
+  }
+]
