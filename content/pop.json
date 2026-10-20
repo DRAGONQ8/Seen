@@ -2,7 +2,7 @@
   {
     "id": "anime-001",
     "category": "anime",
-    "sub": "Naruto",
+    "sub": "ناروتو",
     "level": 1,
     "q": "من قائد الفريق 7 في بداية ناروتو؟",
     "options": [
@@ -21,15 +21,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Naruto"
+      "ناروتو"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "originalTitle": "Naruto",
+    "subcategory": "ناروتو",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-002",
     "category": "anime",
-    "sub": "Naruto",
+    "sub": "ناروتو",
     "level": 1,
     "q": "إلى أي عشيرة ينتمي ساسكي؟",
     "options": [
@@ -48,15 +58,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Naruto"
+      "ناروتو"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "originalTitle": "Naruto",
+    "subcategory": "ناروتو",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-003",
     "category": "anime",
-    "sub": "Naruto",
+    "sub": "ناروتو",
     "level": 2,
     "q": "ما اسم القرية التي ينتمي إليها ناروتو؟",
     "options": [
@@ -75,15 +95,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Naruto"
+      "ناروتو"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "originalTitle": "Naruto",
+    "subcategory": "ناروتو",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-004",
     "category": "anime",
-    "sub": "Naruto Shippuden",
+    "sub": "ناروتو شيبودن",
     "level": 2,
     "q": "من المعلّم الذي درّب ناروتو على الراسينغان؟",
     "options": [
@@ -100,17 +130,27 @@
       "url": "https://naruto-official.com/en/news/01_1308",
       "reference": "Naruto Shippuden"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Naruto Shippuden"
+      "ناروتو شيبودن"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 2,
+    "originalTitle": "Naruto Shippuden",
+    "subcategory": "ناروتو شيبودن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-005",
     "category": "anime",
-    "sub": "Naruto Shippuden",
+    "sub": "ناروتو شيبودن",
     "level": 3,
     "q": "أي منظمة تتخذ السحب الحمراء رمزًا على عباءاتها؟",
     "options": [
@@ -129,15 +169,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Naruto Shippuden"
+      "ناروتو شيبودن"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 1,
+    "originalTitle": "Naruto Shippuden",
+    "subcategory": "ناروتو شيبودن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-006",
     "category": "anime",
-    "sub": "Naruto Shippuden",
+    "sub": "ناروتو شيبودن",
     "level": 4,
     "q": "من طوّر تقنية إيدو تينسي أصلًا؟",
     "options": [
@@ -156,15 +206,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Naruto Shippuden"
+      "ناروتو شيبودن"
     ],
     "version": 1,
-    "points": 600
+    "points": 600,
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 2,
+    "originalTitle": "Naruto Shippuden",
+    "subcategory": "ناروتو شيبودن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-007",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 1,
     "q": "من قبطان قراصنة قبعة القش؟",
     "options": [
@@ -183,15 +243,25 @@
     },
     "spoiler": false,
     "tags": [
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-008",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 1,
     "q": "من طبّاخ طاقم قبعة القش؟",
     "options": [
@@ -210,15 +280,25 @@
     },
     "spoiler": false,
     "tags": [
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-009",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 2,
     "q": "كم سيفًا يستخدم زورو في أسلوبه الأشهر؟",
     "options": [
@@ -237,15 +317,25 @@
     },
     "spoiler": false,
     "tags": [
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-010",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 2,
     "q": "ما وظيفة نامي الأساسية في الطاقم؟",
     "options": [
@@ -264,15 +354,25 @@
     },
     "spoiler": false,
     "tags": [
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-011",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 3,
     "q": "ما اسم سفينة قبعة القش الأولى ذات رأس الخروف؟",
     "options": [
@@ -291,15 +391,25 @@
     },
     "spoiler": false,
     "tags": [
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-012",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 4,
     "q": "ما اسم السيف الذي ورثه زورو من كوينا؟",
     "options": [
@@ -316,17 +426,27 @@
       "url": "https://one-piece.com/character/zoro/index.html",
       "reference": "ون بيس: ماضي زورو وكوينا، الحلقة 19"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
-    "points": 600
+    "points": 600,
+    "franchiseId": "one-piece",
+    "spoilerLevel": 2,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-013",
     "category": "anime",
-    "sub": "Dragon Ball",
+    "sub": "دراغون بول",
     "level": 1,
     "q": "كم كرة تنين تُجمع عادة لاستدعاء شينرون على الأرض؟",
     "options": [
@@ -345,15 +465,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Dragon Ball"
+      "دراغون بول"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 1,
+    "originalTitle": "Dragon Ball",
+    "subcategory": "دراغون بول",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-014",
     "category": "anime",
-    "sub": "Dragon Ball",
+    "sub": "دراغون بول",
     "level": 2,
     "q": "ما التقنية الشهيرة التي تعلّمها غوكو من روشي؟",
     "options": [
@@ -372,15 +502,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Dragon Ball"
+      "دراغون بول"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 1,
+    "originalTitle": "Dragon Ball",
+    "subcategory": "دراغون بول",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-015",
     "category": "anime",
-    "sub": "Dragon Ball",
+    "sub": "دراغون بول",
     "level": 3,
     "q": "إلى أي شعب فضائي ينتمي بيكولو؟",
     "options": [
@@ -399,15 +539,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Dragon Ball"
+      "دراغون بول"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 2,
+    "originalTitle": "Dragon Ball",
+    "subcategory": "دراغون بول",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-016",
     "category": "anime",
-    "sub": "Dragon Ball",
+    "sub": "دراغون بول",
     "level": 2,
     "q": "من يندمج مع غوكو لتكوين غوجيتا؟",
     "options": [
@@ -426,15 +576,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Dragon Ball"
+      "دراغون بول"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 2,
+    "originalTitle": "Dragon Ball",
+    "subcategory": "دراغون بول",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-017",
     "category": "anime",
-    "sub": "Bleach",
+    "sub": "بليتش",
     "level": 1,
     "q": "من بطل بليتش الذي يصبح شينيغامي بديلًا؟",
     "options": [
@@ -453,15 +613,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Bleach"
+      "بليتش"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "bleach",
+    "spoilerLevel": 1,
+    "originalTitle": "Bleach",
+    "subcategory": "بليتش",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-018",
     "category": "anime",
-    "sub": "Bleach",
+    "sub": "بليتش",
     "level": 2,
     "q": "من نقلت قوى الشينيغامي إلى إيتشيغو في البداية؟",
     "options": [
@@ -480,15 +650,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Bleach"
+      "بليتش"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "bleach",
+    "spoilerLevel": 1,
+    "originalTitle": "Bleach",
+    "subcategory": "بليتش",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-019",
     "category": "anime",
-    "sub": "Bleach",
+    "sub": "بليتش",
     "level": 3,
     "q": "ما اسم سيف إيتشيغو الرئيسي؟",
     "options": [
@@ -505,17 +685,27 @@
       "url": "https://www.viz.com/bleach",
       "reference": "Bleach"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Bleach"
+      "بليتش"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "bleach",
+    "spoilerLevel": 2,
+    "originalTitle": "Bleach",
+    "subcategory": "بليتش",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-020",
     "category": "anime",
-    "sub": "Bleach",
+    "sub": "بليتش",
     "level": 4,
     "q": "أي قائد فرقة يستخدم هيورينمارو؟",
     "options": [
@@ -532,17 +722,27 @@
       "url": "https://bleach-anime.com/en/character/?chara=69",
       "reference": "توشيرو هيتسوغايا وزانباكتو هيورينمارو"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Bleach"
+      "بليتش"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "bleach",
+    "spoilerLevel": 2,
+    "originalTitle": "Bleach",
+    "subcategory": "بليتش",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-021",
     "category": "anime",
-    "sub": "Attack on Titan",
+    "sub": "هجوم العمالقة",
     "level": 1,
     "q": "ما اسم بطل هجوم العمالقة الذي ينضم إلى فيلق الاستطلاع؟",
     "options": [
@@ -559,17 +759,27 @@
       "url": "https://shingeki.tv/season1/character/",
       "reference": "Attack on Titan"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Attack on Titan"
+      "هجوم العمالقة"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 2,
+    "originalTitle": "Attack on Titan",
+    "subcategory": "هجوم العمالقة",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-022",
     "category": "anime",
-    "sub": "Attack on Titan",
+    "sub": "هجوم العمالقة",
     "level": 2,
     "q": "أي فيلق يحمل شارة «أجنحة الحرية»؟",
     "options": [
@@ -588,15 +798,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Attack on Titan"
+      "هجوم العمالقة"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 1,
+    "originalTitle": "Attack on Titan",
+    "subcategory": "هجوم العمالقة",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-023",
     "category": "anime",
-    "sub": "Attack on Titan",
+    "sub": "هجوم العمالقة",
     "level": 3,
     "q": "ما اسم السور الخارجي بين الأسوار الثلاثة الأصلية؟",
     "options": [
@@ -615,15 +835,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Attack on Titan"
+      "هجوم العمالقة"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 1,
+    "originalTitle": "Attack on Titan",
+    "subcategory": "هجوم العمالقة",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-024",
     "category": "anime",
-    "sub": "Attack on Titan",
+    "sub": "هجوم العمالقة",
     "level": 4,
     "q": "من قائد فيلق الاستطلاع عند انضمام إيرين إليه؟",
     "options": [
@@ -640,17 +870,27 @@
       "url": "https://shingeki.tv/season1/character/",
       "reference": "Attack on Titan"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Attack on Titan"
+      "هجوم العمالقة"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 2,
+    "originalTitle": "Attack on Titan",
+    "subcategory": "هجوم العمالقة",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-025",
     "category": "anime",
-    "sub": "Demon Slayer",
+    "sub": "قاتل الشياطين",
     "level": 1,
     "q": "ما صلة نيزوكو بتانجيرو؟",
     "options": [
@@ -669,15 +909,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Demon Slayer"
+      "قاتل الشياطين"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "originalTitle": "Demon Slayer",
+    "subcategory": "قاتل الشياطين",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-026",
     "category": "anime",
-    "sub": "Demon Slayer",
+    "sub": "قاتل الشياطين",
     "level": 2,
     "q": "أي شخصية ترتدي قناع رأس خنزير بري؟",
     "options": [
@@ -696,15 +946,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Demon Slayer"
+      "قاتل الشياطين"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "originalTitle": "Demon Slayer",
+    "subcategory": "قاتل الشياطين",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-027",
     "category": "anime",
-    "sub": "Demon Slayer",
+    "sub": "قاتل الشياطين",
     "level": 3,
     "q": "ما أسلوب التنفّس الذي يستخدمه زينيتسو؟",
     "options": [
@@ -723,15 +983,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Demon Slayer"
+      "قاتل الشياطين"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "originalTitle": "Demon Slayer",
+    "subcategory": "قاتل الشياطين",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-028",
     "category": "anime",
-    "sub": "Demon Slayer",
+    "sub": "قاتل الشياطين",
     "level": 2,
     "q": "من هاشيرا الحشرات التي تعتمد على السموم؟",
     "options": [
@@ -748,17 +1018,27 @@
       "url": "https://demonslayer-anime.com/hta/character/",
       "reference": "Demon Slayer"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Demon Slayer"
+      "قاتل الشياطين"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 2,
+    "originalTitle": "Demon Slayer",
+    "subcategory": "قاتل الشياطين",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-029",
     "category": "anime",
-    "sub": "Jujutsu Kaisen",
+    "sub": "جوجوتسو كايسن",
     "level": 1,
     "q": "من معلّم يوجي وميغومي ونوبارا؟",
     "options": [
@@ -777,15 +1057,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Jujutsu Kaisen"
+      "جوجوتسو كايسن"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 1,
+    "originalTitle": "Jujutsu Kaisen",
+    "subcategory": "جوجوتسو كايسن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-030",
     "category": "anime",
-    "sub": "Jujutsu Kaisen",
+    "sub": "جوجوتسو كايسن",
     "level": 2,
     "q": "أي أداة تستخدمها نوبارا مع المسامير في القتال؟",
     "options": [
@@ -804,15 +1094,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Jujutsu Kaisen"
+      "جوجوتسو كايسن"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 1,
+    "originalTitle": "Jujutsu Kaisen",
+    "subcategory": "جوجوتسو كايسن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-031",
     "category": "anime",
-    "sub": "Jujutsu Kaisen",
+    "sub": "جوجوتسو كايسن",
     "level": 3,
     "q": "ما اسم تقنية ميغومي الموروثة التي تستدعي الشيكغامي؟",
     "options": [
@@ -829,17 +1129,27 @@
       "url": "https://jujutsukaisen.jp/character/index_1st.php",
       "reference": "Jujutsu Kaisen"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Jujutsu Kaisen"
+      "جوجوتسو كايسن"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 2,
+    "originalTitle": "Jujutsu Kaisen",
+    "subcategory": "جوجوتسو كايسن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-032",
     "category": "anime",
-    "sub": "Jujutsu Kaisen",
+    "sub": "جوجوتسو كايسن",
     "level": 4,
     "q": "إلى أي عشيرة تنتمي ماكي وماي؟",
     "options": [
@@ -858,15 +1168,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Jujutsu Kaisen"
+      "جوجوتسو كايسن"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 2,
+    "originalTitle": "Jujutsu Kaisen",
+    "subcategory": "جوجوتسو كايسن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-033",
     "category": "anime",
-    "sub": "Hunter x Hunter",
+    "sub": "هنتر × هنتر",
     "level": 1,
     "q": "ما اسم صديق غون المنتمي إلى عائلة زولديك؟",
     "options": [
@@ -885,15 +1205,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Hunter x Hunter"
+      "هنتر × هنتر"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 1,
+    "originalTitle": "Hunter x Hunter",
+    "subcategory": "هنتر × هنتر",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-034",
     "category": "anime",
-    "sub": "Hunter x Hunter",
+    "sub": "هنتر × هنتر",
     "level": 2,
     "q": "ما اسم نظام الطاقة القتالي في هنتر × هنتر؟",
     "options": [
@@ -912,15 +1242,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Hunter x Hunter"
+      "هنتر × هنتر"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 1,
+    "originalTitle": "Hunter x Hunter",
+    "subcategory": "هنتر × هنتر",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-035",
     "category": "anime",
-    "sub": "Hunter x Hunter",
+    "sub": "هنتر × هنتر",
     "level": 3,
     "q": "ما السلاح الذي يشتهر به كورابيكا بعد تعلم النين؟",
     "options": [
@@ -939,15 +1279,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Hunter x Hunter"
+      "هنتر × هنتر"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 2,
+    "originalTitle": "Hunter x Hunter",
+    "subcategory": "هنتر × هنتر",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-036",
     "category": "anime",
-    "sub": "Hunter x Hunter",
+    "sub": "هنتر × هنتر",
     "level": 4,
     "q": "ما اسم اللعبة التي يدخلها غون وكيلوا للتدرب والبحث؟",
     "options": [
@@ -966,15 +1316,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Hunter x Hunter"
+      "هنتر × هنتر"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 2,
+    "originalTitle": "Hunter x Hunter",
+    "subcategory": "هنتر × هنتر",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-037",
     "category": "anime",
-    "sub": "Death Note",
+    "sub": "مذكرة الموت",
     "level": 1,
     "q": "من يجد مذكرة الموت في بداية القصة؟",
     "options": [
@@ -993,15 +1353,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Death Note"
+      "مذكرة الموت"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "originalTitle": "Death Note",
+    "subcategory": "مذكرة الموت",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-038",
     "category": "anime",
-    "sub": "Death Note",
+    "sub": "مذكرة الموت",
     "level": 1,
     "q": "ما الحرف الذي يُعرف به المحقق المنافس للايت؟",
     "options": [
@@ -1020,15 +1390,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Death Note"
+      "مذكرة الموت"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "originalTitle": "Death Note",
+    "subcategory": "مذكرة الموت",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-039",
     "category": "anime",
-    "sub": "Death Note",
+    "sub": "مذكرة الموت",
     "level": 3,
     "q": "ما الطعام الذي يحب ريوك تناوله؟",
     "options": [
@@ -1047,15 +1427,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Death Note"
+      "مذكرة الموت"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "originalTitle": "Death Note",
+    "subcategory": "مذكرة الموت",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-040",
     "category": "anime",
-    "sub": "Death Note",
+    "sub": "مذكرة الموت",
     "level": 2,
     "q": "ما المطلوب مع الاسم لكي تؤثر المذكرة في الشخص المقصود؟",
     "options": [
@@ -1074,15 +1464,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Death Note"
+      "مذكرة الموت"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "originalTitle": "Death Note",
+    "subcategory": "مذكرة الموت",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-041",
     "category": "anime",
-    "sub": "Solo Leveling",
+    "sub": "سولو ليفلينغ",
     "level": 1,
     "q": "من بطل سولو ليفلينغ؟",
     "options": [
@@ -1101,15 +1501,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Solo Leveling"
+      "سولو ليفلينغ"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 1,
+    "originalTitle": "Solo Leveling",
+    "subcategory": "سولو ليفلينغ",
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-042",
     "category": "anime",
-    "sub": "Solo Leveling",
+    "sub": "سولو ليفلينغ",
     "level": 2,
     "q": "ما رتبة جين وو في بداية القصة؟",
     "options": [
@@ -1128,15 +1538,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Solo Leveling"
+      "سولو ليفلينغ"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 1,
+    "originalTitle": "Solo Leveling",
+    "subcategory": "سولو ليفلينغ",
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-043",
     "category": "anime",
-    "sub": "Solo Leveling",
+    "sub": "سولو ليفلينغ",
     "level": 3,
     "q": "ما اسم الفارس ذي الدرع الأحمر الذي يصير من ظلال جين وو؟",
     "options": [
@@ -1155,15 +1575,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Solo Leveling"
+      "سولو ليفلينغ"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 2,
+    "originalTitle": "Solo Leveling",
+    "subcategory": "سولو ليفلينغ",
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-044",
     "category": "anime",
-    "sub": "Solo Leveling",
+    "sub": "سولو ليفلينغ",
     "level": 2,
     "q": "ما الاسم الذي يُطلَق على الواجهة التي تتيح لجين وو اكتساب المستويات؟",
     "options": [
@@ -1182,15 +1612,25 @@
     },
     "spoiler": true,
     "tags": [
-      "Solo Leveling"
+      "سولو ليفلينغ"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 2,
+    "originalTitle": "Solo Leveling",
+    "subcategory": "سولو ليفلينغ",
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-045",
     "category": "anime",
-    "sub": "Fullmetal Alchemist",
+    "sub": "الخيميائي الفولاذي",
     "level": 1,
     "q": "ما اسم شقيق إدوارد إلريك؟",
     "options": [
@@ -1209,15 +1649,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Fullmetal Alchemist"
+      "الخيميائي الفولاذي"
     ],
     "version": 1,
-    "points": 200
+    "points": 200,
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "originalTitle": "Fullmetal Alchemist",
+    "subcategory": "الخيميائي الفولاذي",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-046",
     "category": "anime",
-    "sub": "Fullmetal Alchemist",
+    "sub": "الخيميائي الفولاذي",
     "level": 2,
     "q": "ما المبدأ الأساسي للخيمياء في القصة؟",
     "options": [
@@ -1236,15 +1686,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Fullmetal Alchemist"
+      "الخيميائي الفولاذي"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "originalTitle": "Fullmetal Alchemist",
+    "subcategory": "الخيميائي الفولاذي",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-047",
     "category": "anime",
-    "sub": "Fullmetal Alchemist",
+    "sub": "الخيميائي الفولاذي",
     "level": 2,
     "q": "من تصلح أطراف إدوارد الآلية؟",
     "options": [
@@ -1263,15 +1723,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Fullmetal Alchemist"
+      "الخيميائي الفولاذي"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "originalTitle": "Fullmetal Alchemist",
+    "subcategory": "الخيميائي الفولاذي",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-048",
     "category": "anime",
-    "sub": "Fullmetal Alchemist",
+    "sub": "الخيميائي الفولاذي",
     "level": 3,
     "q": "بأي لقب يُعرف روي موستانغ؟",
     "options": [
@@ -1290,15 +1760,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Fullmetal Alchemist"
+      "الخيميائي الفولاذي"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "originalTitle": "Fullmetal Alchemist",
+    "subcategory": "الخيميائي الفولاذي",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-049",
     "category": "anime",
-    "sub": "Fullmetal Alchemist",
+    "sub": "الخيميائي الفولاذي",
     "level": 3,
     "q": "ما اسم الدولة الرئيسية في أحداث Brotherhood؟",
     "options": [
@@ -1317,15 +1797,25 @@
     },
     "spoiler": false,
     "tags": [
-      "Fullmetal Alchemist"
+      "الخيميائي الفولاذي"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "originalTitle": "Fullmetal Alchemist",
+    "subcategory": "الخيميائي الفولاذي",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "anime-050",
     "category": "anime",
-    "sub": "Fullmetal Alchemist",
+    "sub": "الخيميائي الفولاذي",
     "level": 2,
     "q": "في Brotherhood، من درّبت إدوارد وألفونس على الخيمياء؟",
     "options": [
@@ -1342,12 +1832,22 @@
       "url": "https://www.hagaren.jp/character/",
       "reference": "Fullmetal Alchemist"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
-      "Fullmetal Alchemist"
+      "الخيميائي الفولاذي"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 2,
+    "originalTitle": "Fullmetal Alchemist",
+    "subcategory": "الخيميائي الفولاذي",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
+    }
   },
   {
     "id": "games-001",

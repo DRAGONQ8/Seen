@@ -2,7 +2,7 @@
   {
     "id": "exp-anime-001",
     "category": "anime",
-    "sub": "Naruto Shippuden",
+    "sub": "ناروتو شيبودن",
     "level": 2,
     "points": 400,
     "q": "ما اسم تقنية الانتقال الآني التي اشتهر بها ميناتو ناميكازي؟",
@@ -26,10 +26,10 @@
       "url": "https://naruto-official.com/en/news/01_1709",
       "reference": "قاعدة بيانات بوروتو: تقنية الهيرايشين"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "Naruto Shippuden"
+      "ناروتو شيبودن"
     ],
     "version": 1,
     "type": "text",
@@ -38,12 +38,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 2,
+    "originalTitle": "Naruto Shippuden",
+    "subcategory": "ناروتو شيبودن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-002",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 2,
     "points": 400,
     "q": "ما اسم الجزيرة التي نشأت فيها عالمة الآثار نيكو روبين؟",
@@ -64,10 +74,10 @@
       "url": "https://one-piece.com/character/robin/",
       "reference": "ملف نيكو روبين: الموطن الأصلي"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
     "type": "text",
@@ -76,12 +86,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "one-piece",
+    "spoilerLevel": 2,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-003",
     "category": "anime",
-    "sub": "Dragon Ball",
+    "sub": "دراغون بول",
     "level": 2,
     "points": 400,
     "q": "ما اسم تقنية بيكولو المعروفة بالإنجليزية باسم Special Beam Cannon؟",
@@ -102,10 +122,10 @@
       "url": "https://en.dragon-ball-official.com/news/01_210.html",
       "reference": "مقال تقنيات الملك بيكولو وبيكولو"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "Dragon Ball"
+      "دراغون بول"
     ],
     "version": 1,
     "type": "text",
@@ -114,12 +134,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 2,
+    "originalTitle": "Dragon Ball",
+    "subcategory": "دراغون بول",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-004",
     "category": "anime",
-    "sub": "Bleach",
+    "sub": "بليتش",
     "level": 3,
     "points": 600,
     "q": "من مؤسس معهد البحث والتطوير وأول رئيس له في مجتمع الأرواح؟",
@@ -142,10 +172,10 @@
       "url": "https://www.bleach-bravesouls.com/en/character/novel_urahara.html",
       "reference": "ملف كيسكي أوراهارا"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "Bleach"
+      "بليتش"
     ],
     "version": 1,
     "type": "text",
@@ -154,12 +184,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "bleach",
+    "spoilerLevel": 2,
+    "originalTitle": "Bleach",
+    "subcategory": "بليتش",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-005",
     "category": "anime",
-    "sub": "Demon Slayer",
+    "sub": "قاتل الشياطين",
     "level": 1,
     "points": 200,
     "q": "أي نوع من الهاشيرا هو كيوجورو رينغوكو؟",
@@ -185,7 +225,7 @@
     "spoiler": false,
     "tags": [
       "توسعة الفريقين",
-      "Demon Slayer"
+      "قاتل الشياطين"
     ],
     "version": 1,
     "type": "text",
@@ -194,12 +234,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "originalTitle": "Demon Slayer",
+    "subcategory": "قاتل الشياطين",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-006",
     "category": "anime",
-    "sub": "Death Note",
+    "sub": "مذكرة الموت",
     "level": 2,
     "points": 400,
     "q": "ما اسم الشينيغامي التي أعطت ميسا أماني مذكرة الموت ورافقتها؟",
@@ -223,7 +273,7 @@
     "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "Death Note"
+      "مذكرة الموت"
     ],
     "version": 1,
     "type": "text",
@@ -232,12 +282,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "death-note",
+    "spoilerLevel": 2,
+    "originalTitle": "Death Note",
+    "subcategory": "مذكرة الموت",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-007",
     "category": "anime",
-    "sub": "One Piece",
+    "sub": "ون بيس",
     "level": 1,
     "points": 200,
     "q": "من موسيقي طاقم قبعة القش المعروف بلقب ملك السول؟",
@@ -258,10 +318,10 @@
       "url": "https://www.bandainamcoent.com/news/one-piece-odyssey-straw-hat-crew",
       "reference": "التعريف بطاقم قبعة القش: بروك"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "One Piece"
+      "ون بيس"
     ],
     "version": 1,
     "type": "text",
@@ -270,12 +330,22 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "one-piece",
+    "spoilerLevel": 2,
+    "originalTitle": "One Piece",
+    "subcategory": "ون بيس",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {
     "id": "exp-anime-008",
     "category": "anime",
-    "sub": "Jujutsu Kaisen",
+    "sub": "جوجوتسو كايسن",
     "level": 3,
     "points": 400,
     "q": "ما اسم التقنية الموروثة التي يستخدمها ساتورو غوجو من عائلته؟",
@@ -298,10 +368,10 @@
       "url": "https://jujutsukaisen.jp/character/category6.php",
       "reference": "ملف غوجو ساتورو في أحداث الماضي"
     },
-    "spoiler": false,
+    "spoiler": true,
     "tags": [
       "توسعة الفريقين",
-      "Jujutsu Kaisen"
+      "جوجوتسو كايسن"
     ],
     "version": 1,
     "type": "text",
@@ -310,6 +380,16 @@
       "status": "source-checked",
       "checkedAt": "2026-10-20",
       "note": "قورنت المعلومة بالنص المتاح في المرجع المشار إليه أثناء إعداد هذا السؤال؛ مراجعة تحريرية وليست اعتمادًا تخصصيًا مستقلًا."
+    },
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 2,
+    "originalTitle": "Jujutsu Kaisen",
+    "subcategory": "جوجوتسو كايسن",
+    "sourceMedia": "manga",
+    "contentCutoff": null,
+    "spoilerReview": {
+      "status": "editorial",
+      "notes": "تصنيف تحريري محافظ لحماية الحرق في المحتوى السابق؛ لا يمثل إعادة تحقق من صحة المعلومة أو تدقيقًا مستقلًا لموعد آخر بث للأنمي. لم تُضف مطالبة تحقق مصدري جديدة."
     }
   },
   {

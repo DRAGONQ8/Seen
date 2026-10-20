@@ -702,3 +702,44 @@ html[data-team-motion="none"] .team-page *,
 html[data-team-motion="none"] .team-page *::before,
 html[data-team-motion="none"] .team-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 html[data-team-motion="none"] .confetti { display: none !important; }
+/* V3 setup, presenter and event-derived results. */
+.preset-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px; }
+.preset-grid .team-choice { min-height:112px;padding:15px; }
+.saved-presets { align-items:center; }
+.saved-presets select { flex:1 1 180px;min-width:0; }
+.anime-settings { padding:16px;margin-top:12px; }
+.anime-settings > summary { display:flex;justify-content:space-between;gap:12px;cursor:pointer;min-height:44px;align-items:center; }
+.anime-settings > summary span { font-size:.72rem;color:var(--muted); }
+.anime-franchises { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-block:12px; }
+.anime-franchise { min-width:0;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface); }
+.anime-franchise .team-toggle { padding:0;margin-bottom:9px;min-height:44px; }
+.anime-franchise select { width:100%;min-height:44px; }
+.anime-franchise > small { display:block;margin-top:5px; }
+.recovery-notice { border-color:var(--gold); }
+.result-stats-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-block:12px; }
+.result-team-stats dl { margin:0;display:grid;gap:8px; }
+.result-team-stats dl > div,.result-category-stats p { display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0;padding-block:7px;border-bottom:1px solid var(--line); }
+.result-team-stats dt { color:var(--muted);font-size:.8rem; }
+.result-team-stats dd { margin:0;font-weight:700;flex-shrink:0;font-variant-numeric:tabular-nums; }
+.result-category-stats strong { font-size:.77rem; }
+.presenter-view .match-question-text { font-size:clamp(1.3rem,2.5vw,2.15rem);line-height:1.9; }
+.presenter-view .match-question-panel { border-color:color-mix(in srgb,var(--gold) 35%,var(--line)); }
+.score-changed .score-value { animation:score-rise 400ms ease-out; }
+@keyframes score-rise { from{transform:translateY(4px);color:var(--gold);}to{transform:translateY(0);} }
+@media(max-width:600px) {
+  .preset-grid { grid-template-columns:1fr; }
+  .preset-grid .team-choice { min-height:80px;align-items:flex-start;text-align:start;padding:12px 15px; }
+  .anime-franchises,.result-stats-grid { grid-template-columns:1fr; }
+  .anime-settings { padding:12px; }
+  .presenter-view .match-question-panel { padding:15px; }
+  .presenter-view .match-question-text { font-size:1.25rem; }
+  .presenter-view .match-toolbar h1 { font-size:1rem; }
+  .presenter-view .question-actions { display:grid;grid-template-columns:1fr; }
+  .presenter-view .question-actions .btn { width:100%;min-height:48px;white-space:normal; }
+  .result-category-stats p { flex-wrap:wrap;gap:4px 12px; }
+}
+@media(prefers-reduced-motion:reduce) { .score-changed .score-value { animation:none; } }
+
+.team-introduction { display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 22px;padding:12px;margin-bottom:12px;border:1px solid color-mix(in srgb,var(--gold) 30%,var(--line));border-radius:14px;background:linear-gradient(105deg,rgba(85,185,243,.08),rgba(196,155,255,.07),rgba(234,197,126,.09));text-align:center; }
+.team-introduction > span { font-size:.72rem;color:var(--muted); }
+.team-introduction strong { overflow-wrap:anywhere; }

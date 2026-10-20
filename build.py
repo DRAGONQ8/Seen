@@ -5,18 +5,16 @@ Run: python build.py. Only Python's standard library is required.
 import base64
 import html
 import json
+import re
 from pathlib import Path
+from content_tools import audit, load_bank, script_json
 
 ROOT = Path(__file__).resolve().parent
-bank = [q for path in sorted((ROOT / 'content').glob('*.json'))
-        for q in json.loads(path.read_text())]
+bank = load_bank(ROOT)
 assert len(bank) >= 400, 'Preserve the original question release.'
-for q in bank:
-    q.setdefault('points', 200 if q['level'] == 1 else 400 if q['level'] == 2 else 600)
-    q.setdefault('correctAnswer', q['options'][q['answer']])
-    q.setdefault('acceptedAnswers', [])
-    q.setdefault('type', 'image' if q.get('image') else 'text')
-    q.setdefault('verification', {'status': 'editorial', 'note': 'مراجعة تحريرية؛ لا ادعاء بتدقيق بحثي مستقل لكل معلومة'})
+report = audit(bank)
+if report['errors']:
+    raise ValueError('\n'.join(report['errors']))
 assert len({q['id'] for q in bank}) == len(bank)
 assert len({q['q'] for q in bank}) == len(bank)
 font = base64.b64encode((ROOT / 'assets/NotoSansArabic-Regular.ttf').read_bytes()).decode()
@@ -24,11 +22,12 @@ license_text = (ROOT / 'assets/OFL.txt').read_text()
 css = "@font-face{font-family:SeenArabic;font-style:normal;font-weight:400;font-display:swap;src:url(data:font/ttf;base64," + font + ") format('truetype')}\n"
 css += (ROOT / 'ui.css').read_text() + '\n' + (ROOT / 'team-ui.css').read_text()
 css += '\n:root{--font:SeenArabic,"Noto Sans Arabic",Tahoma,sans-serif}\n'
-script = ('const QUESTION_BANK=' + json.dumps(bank, ensure_ascii=False, separators=(',', ':')) + ';\n'
-          + 'const FONT_LICENSE=' + json.dumps(license_text, ensure_ascii=False) + ';\n'
+script = ('const QUESTION_BANK=' + script_json(bank) + ';\n'
+          + 'const FONT_LICENSE=' + script_json(license_text) + ';\n'
           + (ROOT / 'graphics.js').read_text() + '\n' + (ROOT / 'media-v2.js').read_text() + '\n' + (ROOT / 'team-engine.js').read_text() + '\n' + (ROOT / 'app.js').read_text() + '\n' + (ROOT / 'team-ui.js').read_text())
 # Prevent a future content edit from escaping its inline script context.
-script = script.replace('</script', '<\\/script').replace('<!--', '<\\!--')
+script = re.sub(r'</script', lambda m: '<\\/' + m.group()[2:], script, flags=re.IGNORECASE)
+script = script.replace('<!--', '<\\!--')
 page = f'''<!doctype html>
 <html lang="ar" dir="rtl" data-theme="dark" data-motion="subtle">
 <head>
@@ -60,5 +59,8 @@ page = f'''<!doctype html>
 <script>{script}</script>
 </body>
 </html>'''
-(ROOT / 'index.html').write_text(page)
+output = ROOT / 'index.html'
+temporary = ROOT / 'index.html.tmp'
+temporary.write_text(page, encoding='utf-8')
+temporary.replace(output)
 print(f'Built index.html: {len(bank)} questions, {len(page.encode()):,} bytes; all fonts, images and logic embedded.')

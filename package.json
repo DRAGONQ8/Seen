@@ -1,0 +1,26 @@
+{
+  "name": "seen",
+  "version": "3.0.0",
+  "description": "Seen Game Khaled offline Arabic trivia — development tests only",
+  "scripts": {
+    "build": "python build.py",
+    "test:unit": "python -m unittest discover -s tests -p \"test_*.py\" && node tests/team-engine.spec.cjs && node tests/team-content.spec.cjs && node tests/solo-v3.spec.cjs && node tests/v3-media.spec.cjs",
+    "test:browser": "node tests/game.spec.cjs && node tests/reliability.spec.cjs && node tests/team-browser.spec.cjs && node tests/team-content.spec.cjs --browser",
+    "test:a11y": "SEEN_AXE_PATH=./node_modules/axe-core/axe.min.js node tests/accessibility.spec.cjs && SEEN_AXE_PATH=./node_modules/axe-core/axe.min.js node tests/team-accessibility.spec.cjs",
+    "test": "python build.py && node tests/run.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DRAGONQ8/Seen.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DRAGONQ8/Seen/issues"
+  },
+  "homepage": "https://github.com/DRAGONQ8/Seen#readme",
+  "devDependencies": {
+    "axe-core": "^4.10.3",
+    "playwright": "^1.58.2"
+  },
+  "private": true
+}

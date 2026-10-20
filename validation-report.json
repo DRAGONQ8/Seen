@@ -1,0 +1,207 @@
+{
+  "project": "سين جيم خالد",
+  "release": "V3",
+  "checkedAt": "2026-10-20",
+  "baselineCommit": "caacb6df2ed2fcffbc95f0e2482e1719c9076e59",
+  "content": {
+    "questions": 648,
+    "images": 63,
+    "categories": {
+      "anime": 106,
+      "arabia": 75,
+      "football": 92,
+      "games": 68,
+      "geo": 85,
+      "islamic": 74,
+      "prophets": 74,
+      "seerah": 74
+    },
+    "points": {
+      "200": 262,
+      "400": 258,
+      "600": 128
+    },
+    "verification": {
+      "disputed": 5,
+      "editorial": 400,
+      "pending": 88,
+      "source-checked": 155
+    },
+    "errors": [],
+    "reviewCandidates": [
+      {
+        "type": "possible-semantic-duplicate",
+        "questions": [
+          "seerah-008",
+          "seerah-040"
+        ]
+      }
+    ],
+    "originalQuestions": 488,
+    "addedQuestions": 160,
+    "addedByCategory": {
+      "prophets": 16,
+      "seerah": 16,
+      "arabia": 16,
+      "islamic": 16,
+      "anime": 48,
+      "football": 32,
+      "geo": 8,
+      "games": 8
+    },
+    "originalVisualQuestions": 39,
+    "addedVisualQuestions": 24,
+    "visualByCategory": {
+      "islamic": 4,
+      "anime": 8,
+      "football": 8,
+      "geo": 36,
+      "games": 6,
+      "arabia": 1
+    },
+    "newVerification": {
+      "source-checked": 155,
+      "disputed": 5
+    },
+    "reviewNotes": [
+      "مرشح التشابه seerah-008 وseerah-040 سؤالان قديمان مختلفان: عمر البعثة وعمر الوفاة.",
+      "حُفظت ادعاءات التحقق القديمة في historicalVerification دون إعادة اعتمادها بمجرد وجود رابط."
+    ]
+  },
+  "validation": {
+    "command": "npm test",
+    "suitesPassed": 15,
+    "suitesFailed": 0,
+    "uniqueChecksPassed": 388,
+    "executionsPassedIncludingRepeatedSourceChecks": 414,
+    "checksFailed": 0,
+    "checksSkipped": 0,
+    "suites": [
+      {
+        "command": "python -m unittest discover -s tests -p test_*.py",
+        "passed": 5,
+        "failed": 0
+      },
+      {
+        "command": "node tests/team-engine.spec.cjs",
+        "passed": 62,
+        "failed": 0
+      },
+      {
+        "command": "node tests/team-content.spec.cjs",
+        "passed": 21,
+        "failed": 0
+      },
+      {
+        "command": "node tests/solo-v3.spec.cjs",
+        "passed": 14,
+        "failed": 0
+      },
+      {
+        "command": "node tests/v3-media.spec.cjs",
+        "passed": 5,
+        "failed": 0
+      },
+      {
+        "command": "node tests/game.spec.cjs",
+        "passed": 26,
+        "failed": 0
+      },
+      {
+        "command": "node tests/reliability.spec.cjs",
+        "passed": 11,
+        "failed": 0
+      },
+      {
+        "command": "node tests/team-browser.spec.cjs",
+        "passed": 30,
+        "failed": 0
+      },
+      {
+        "command": "node tests/solo-v3-browser.spec.cjs",
+        "passed": 8,
+        "failed": 0
+      },
+      {
+        "command": "node tests/v3-team-ui.spec.cjs",
+        "passed": 8,
+        "failed": 0
+      },
+      {
+        "command": "node tests/v3-build-browser.spec.cjs",
+        "passed": 14,
+        "failed": 0
+      },
+      {
+        "command": "node tests/accessibility.spec.cjs",
+        "passed": 60,
+        "failed": 0
+      },
+      {
+        "command": "node tests/team-accessibility.spec.cjs",
+        "passed": 115,
+        "failed": 0
+      },
+      {
+        "command": "node tests/team-content.spec.cjs --browser",
+        "passed": 29,
+        "failed": 0
+      },
+      {
+        "command": "node tests/v3-media.spec.cjs --browser",
+        "passed": 6,
+        "failed": 0
+      }
+    ],
+    "browsers": "Chromium touch and viewport emulation; no physical Samsung hardware",
+    "viewports": [
+      [
+        412,
+        915
+      ],
+      [
+        915,
+        412
+      ],
+      [
+        1024,
+        1536
+      ],
+      [
+        1536,
+        1024
+      ],
+      [
+        320,
+        780
+      ]
+    ],
+    "textScalingPercent": [
+      100,
+      130
+    ],
+    "axeCore": "4.10.3",
+    "wcagDetectedViolations": 0,
+    "teamContrastIncompleteRuleInstances": 80,
+    "contrastNotes": "نتائج التباين غير المحسومة آليًا ترتبط بالتدرجات والزخارف والرموز القصيرة؛ حُسنت ألوان المظهر الفاتح وحُسبت حدود تباين محافظة. ليست شهادة امتثال WCAG شاملة.",
+    "coldOfflineStartup": "Passed from local HTML bytes with network disabled before startup",
+    "localFileNavigation": "Managed Chromium blocks file:// navigation; not claimed as executed",
+    "uncaughtRuntimeErrors": 0,
+    "externalRuntimeRequests": 0
+  },
+  "artifact": {
+    "file": "index.html",
+    "bytes": 2465671,
+    "sha256": "cb8637e433186687839ad634d9fccf2b3fbc243fc979f0588c05bdda35cf3b7c",
+    "consecutiveBuildsIdentical": true,
+    "mandatoryBuildDependencies": "Python standard library only",
+    "runtimeDependencies": "None; CSS/JS/font/questions/media embedded"
+  },
+  "limitations": [
+    "لم تتوفر أجهزة سامسونج فعلية أو اختبار مباشر لـSamsung Internet أو Android 17.",
+    "يوم البيداء مستبعد لعدم التثبت من تحديده؛ لم يُخلط بيوم الهباء.",
+    "حدود المحتوى القديمة غير المفحوصة تبقى غير مؤرخة؛ تصنيف الحرق تحريري محافظ.",
+    "المستوى الثالث للحرق مدعوم؛ لم تُضف أسئلة حصرية لأحداث المانغا في هذه الدفعة.",
+    "لا تتضمن هذه الدفعة أوضاع الكشف المتقدمة أو اللعب عبر الإنترنت أو التطبيق الأصلي، وفق النطاق المؤجل."
+  ]
+}

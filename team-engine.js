@@ -3,7 +3,7 @@
    state after each action. Invalid/stale actions never mutate the supplied state. */
 const TeamEngine = (() => {
   'use strict';
-  const VERSION = 2;
+  const VERSION = 3;
   const VALUES = [200, 400, 600];
   const ASSISTS = ['call', 'twice', 'pit', 'sitout', 'trap', 'time', 'hint', 'double', 'skip', 'second'];
   const STATES = ['BOARD', 'QUESTION_PREVIEW', 'QUESTION_ACTIVE', 'STEAL_OPPORTUNITY', 'ASSISTANCE_ACTIVE', 'ANSWER_REVEAL', 'SCORE_ADJUDICATION', 'TURN_COMPLETE', 'PAUSED', 'MATCH_COMPLETE'];
@@ -11,8 +11,81 @@ const TeamEngine = (() => {
   const clone = value => JSON.parse(JSON.stringify(value));
   const integer = (n, min = 0, max = 1e9) => Number.isInteger(n) && n >= min && n <= max;
   const safeText = (value, max = 60) => typeof value === 'string' && value.length <= max && !/[\u0000-\u001f\u007f]/.test(value);
+  const identifier = (value,max=180) => typeof value === 'string' && value.length > 0 && value.length <= max && /^[a-zA-Z0-9_-]+$/.test(value) && !['__proto__','prototype','constructor'].includes(value);
+  const contentText = (value,max) => typeof value === 'string' && value.length <= max && !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value);
   const cleanText = (value, fallback, max = 32) => String(value || '').replace(/[\u0000-\u001f\u007f<>]/g, '').trim().slice(0, max) || fallback;
   const pointValue = q => VALUES.includes(q.points) ? q.points : q.level === 1 ? 200 : q.level === 2 ? 400 : 600;
+  const FRANCHISES = Object.freeze([
+    ['naruto', 'ناروتو', 'Naruto', 'manga'],
+    ['naruto-shippuden', 'ناروتو شيبودن', 'Naruto Shippuden', 'manga'],
+    ['one-piece', 'ون بيس', 'One Piece', 'manga'],
+    ['dragon-ball', 'دراغون بول', 'Dragon Ball', 'manga'],
+    ['bleach', 'بليتش', 'Bleach', 'manga'],
+    ['hunter-x-hunter', 'هنتر × هنتر', 'Hunter x Hunter', 'manga'],
+    ['attack-on-titan', 'هجوم العمالقة', 'Attack on Titan', 'manga'],
+    ['demon-slayer', 'قاتل الشياطين', 'Demon Slayer', 'manga'],
+    ['jujutsu-kaisen', 'جوجوتسو كايسن', 'Jujutsu Kaisen', 'manga'],
+    ['death-note', 'ديث نوت', 'Death Note', 'manga'],
+    ['solo-leveling', 'سولو ليفلينغ', 'Solo Leveling', 'novel/manhwa'],
+    ['fullmetal-alchemist', 'الخيميائي المعدني الكامل', 'Fullmetal Alchemist', 'manga']
+  ].map(([id, title, originalTitle, sourceMedia]) => Object.freeze({id, title, originalTitle, sourceMedia})));
+  const freezeTree = value => { if (value && typeof value === 'object' && !Object.isFrozen(value)) { Object.values(value).forEach(freezeTree); Object.freeze(value); } return value; };
+  function franchiseId(q) {
+    if (q.franchiseId) return q.franchiseId;
+    return FRANCHISES.find(f => f.originalTitle.toLowerCase() === String(q.sub || '').toLowerCase() || f.title === q.sub)?.id || null;
+  }
+  function isEligible(q, config = {}) {
+    config = config && typeof config === 'object' ? config : {};
+    if (!q || !validAnswerData(q, true) || !validSource(q.source) || !identifier(q.category,64) || q.disabled || q.unavailable || q.available === false || !identifier(q.id,120) || !contentText(q.q, 2000) || !q.q.trim() || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => !contentText(x,500) || !x.trim()) || !integer(q.answer, 0, 3)) return false;
+    if (q.category !== 'anime') return !config.spoilerProtection || !q.spoiler;
+    const id = franchiseId(q), a = config.anime;
+    if (a && (!Array.isArray(a.selected) || !a.levels || typeof a.levels !== 'object' || !id || !a.selected.includes(id))) return false;
+    const permitted = a ? a.levels[id] ?? 1 : config.spoilerProtection === false ? 3 : 1;
+    // Missing or legacy spoiler metadata is treated conservatively; disabling the
+    // old checkbox never overrides an explicitly configured franchise limit.
+    const level = integer(q.spoilerLevel, 1, 3) ? q.spoilerLevel : q.spoiler ? 2 : 1;
+    return level <= permitted;
+  }
+  function eligibleQuestions(bank, config = {}, filter = {}) {
+    if (!Array.isArray(bank)) return [];
+    filter = filter && typeof filter === 'object' ? filter : {};
+    return bank.filter(q => q && (!filter.category || q.category === filter.category) && (!filter.value || pointValue(q) === filter.value) && isEligible(q, config));
+  }
+  function getQuestion(match, id, bank = []) { return match?.questions && Object.hasOwn(match.questions,id) ? match.questions[id] : bank.find(q => q.id === id) || null; }
+  function questionSnapshot(q) {
+    const out = clone(q);
+    // Missing v2-library fields are normalized once; explicit contradictory data
+    // is preserved for validation and must never be silently repaired on restore.
+    if (out.points === undefined) out.points = pointValue(out);
+    if (out.correctAnswer === undefined) out.correctAnswer = out.options?.[out.answer];
+    if (out.acceptedAnswers === undefined) out.acceptedAnswers = clone(out.alternativeAnswers ?? out.alternatives ?? []);
+    return freezeTree(out);
+  }
+  function safeTree(value, depth = 0) {
+    if (depth > 12) return false;
+    if (value === null || typeof value === 'boolean' || typeof value === 'number') return typeof value !== 'number' || Number.isFinite(value);
+    if (typeof value === 'string') return value.length <= 2000000 && !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value) && !/^\s*(?:javascript|vbscript):/i.test(value);
+    if (Array.isArray(value)) return value.length <= 5000 && value.every(v => safeTree(v, depth + 1));
+    return typeof value === 'object' && Object.keys(value).length <= 200 && Object.keys(value).every(k => !['__proto__', 'prototype', 'constructor'].includes(k) && safeTree(value[k], depth + 1));
+  }
+  function validSource(source) {
+    if (!source || !contentText(source.title,500) || !source.title.trim() || !contentText(source.reference,2000) || !source.reference.trim()) return false;
+    if (!source.url) return contentText(source.bibliography,2000) && !!source.bibliography.trim();
+    if (typeof source.url !== 'string' || /[\s\u0000-\u001f\u007f]/u.test(source.url)) return false;
+    try { const url = new URL(source.url); return url.protocol === 'https:' && !!url.hostname && !url.username && !url.password; } catch { return false; }
+  }
+  function validAnswerData(q, legacy = false) {
+    if (!q || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => !contentText(x,500) || !normalizeAnswer(x)) || new Set(q.options.map(normalizeAnswer)).size !== 4 || !integer(q.answer,0,3)) return false;
+    if (!(legacy && q.points === undefined) && !VALUES.includes(q.points)) return false;
+    if (!(legacy && q.correctAnswer === undefined) && q.correctAnswer !== q.options[q.answer]) return false;
+    const aliases = legacy && q.acceptedAnswers === undefined ? q.alternativeAnswers ?? q.alternatives ?? [] : q.acceptedAnswers;
+    if (!Array.isArray(aliases) || aliases.length > 100) return false;
+    const distractors = new Set(q.options.filter((_,i) => i !== q.answer).map(normalizeAnswer));
+    return aliases.every(value => contentText(value,500) && normalizeAnswer(value) && !distractors.has(normalizeAnswer(value)));
+  }
+  function validQuestion(q) {
+    return q && safeTree(q) && validAnswerData(q) && (q.image === undefined || q.image === null || q.image === '' || identifier(q.image,120)) && identifier(q.id,120) && identifier(q.category,64) && validSource(q.source) && contentText(q.q, 2000) && q.q.trim() && Array.isArray(q.options) && q.options.length === 4 && q.options.every(x => contentText(x, 500) && x.trim()) && new Set(q.options.map(normalizeAnswer)).size === 4 && integer(q.answer, 0, 3) && integer(q.level, 1, 4) && contentText(q.explanation || '', 4000);
+  }
   const teamIndex = value => value === 0 || value === 'team-0' ? 0 : value === 1 || value === 'team-1' ? 1 : null;
   const normalizeAnswer = value => String(value ?? '').normalize('NFKC')
     .replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g, '')
@@ -33,7 +106,7 @@ const TeamEngine = (() => {
       mode: 'teams', board: 'compact', answerStyle: 'oral', choiceCount: 4,
       timer: true, duration: 60, steal: true, stealDuration: 10, negative: false,
       bonus: false, sound: true, animations: true, explanations: true, hints: true,
-      spoilerProtection: true, transition: 'auto', starter: '0', assistSlots: 3,
+      spoilerProtection: true, repetition: 'recent', anime: {selected: FRANCHISES.map(f => f.id), levels: Object.fromEntries(FRANCHISES.map(f => [f.id, 1]))}, transition: 'auto', starter: '0', assistSlots: 3,
       assistEnabled: Object.fromEntries(ASSISTS.map(key => [key, true])),
       assistLimits: Object.fromEntries(ASSISTS.map(key => [key, 1])),
       callDuration: 60, callPause: true, trapSuccess: 'responder', pitFailPenalty: false, stealPenalty: false,
@@ -50,6 +123,8 @@ const TeamEngine = (() => {
       if (!allowed.includes(c[key])) errors.push(`خيار ${ {mode:'نوع المباراة',board:'اللوحة',answerStyle:'الإجابة',choiceCount:'عدد الخيارات',transition:'الانتقال',starter:'البداية',trapSuccess:'الفخ'}[key] } غير صالح.`);
     }
     for (const key of ['timer', 'steal', 'negative', 'bonus', 'sound', 'animations', 'explanations', 'hints', 'spoilerProtection', 'callPause', 'pitFailPenalty', 'stealPenalty']) if (typeof c[key] !== 'boolean') errors.push('أحد مفاتيح القواعد غير صالح.');
+    if (c.repetition !== undefined && !['recent', 'unseen', 'all'].includes(c.repetition)) errors.push('سياسة تكرار الأسئلة غير صالحة.');
+    if (c.anime !== undefined && (!c.anime || !Array.isArray(c.anime.selected) || c.anime.selected.length > FRANCHISES.length || new Set(c.anime.selected).size !== c.anime.selected.length || c.anime.selected.some(id => !FRANCHISES.some(f => f.id === id)) || !c.anime.levels || FRANCHISES.some(f => !integer(c.anime.levels[f.id], 1, 3)))) errors.push('اختيار الأنمي أو حدود الحرق غير صالحة.');
     if (!integer(c.duration, 5, 600) || !integer(c.stealDuration, 3, 120) || !integer(c.callDuration, 10, 300)) errors.push('زمن السؤال أو السرقة أو الاتصال خارج النطاق المسموح.');
     if (!integer(c.assistSlots, 0, 5)) errors.push('اختر من 0 إلى 5 مساعدات لكل فريق.');
     if (!c.assistEnabled || !c.assistLimits || ASSISTS.some(k => typeof c.assistEnabled[k] !== 'boolean' || !integer(c.assistLimits[k], 0, 5))) errors.push('إعدادات المساعدات غير صالحة.');
@@ -68,7 +143,7 @@ const TeamEngine = (() => {
     if (Array.isArray(bank) && cats.length === 6) {
       const count = c.board === 'classic' ? 2 : 1;
       for (const cat of cats) for (const value of VALUES) {
-        if (bank.filter(q => !q.disabled && q.category === cat && pointValue(q) === value && (!c.spoilerProtection || !q.spoiler)).length < count) errors.push(`الفئة ${{anime:'الأنمي',football:'كرة القدم',prophets:'قصص الأنبياء',seerah:'السيرة النبوية',arabia:'التاريخ الجاهلي',islamic:'التاريخ الإسلامي',geo:'الجغرافيا',games:'ألعاب الفيديو'}[cat] || 'المحددة'} لا تضم ${count} سؤالًا متاحًا بقيمة ${value} بعد الفلترة.`);
+        if (eligibleQuestions(bank, c, {category:cat, value}).length < count) errors.push(`الفئة ${{anime:'الأنمي',football:'كرة القدم',prophets:'قصص الأنبياء',seerah:'السيرة النبوية',arabia:'التاريخ الجاهلي',islamic:'التاريخ الإسلامي',geo:'الجغرافيا',games:'ألعاب الفيديو'}[cat] || 'المحددة'} لا تضم ${count} سؤالًا متاحًا بقيمة ${value} بعد الفلترة.`);
       }
     }
     return [...new Set(errors)];
@@ -78,7 +153,8 @@ const TeamEngine = (() => {
     for (const key of Object.keys(base)) {
       if (key === 'teams') out.teams = c.teams.map((t, i) => ({ name: cleanText(t.name, base.teams[i].name), color: t.color, avatar: t.avatar, players: t.players.map(n => cleanText(n, 'مشارك')), categories: [...t.categories], assists: [...t.assists] }));
       else if (key === 'assistEnabled' || key === 'assistLimits') out[key] = Object.fromEntries(ASSISTS.map(k => [k, c[key][k]]));
-      else out[key] = c[key];
+      else if (key === 'anime') out[key] = clone(c.anime || base.anime);
+      else out[key] = c[key] === undefined ? clone(base[key]) : c[key];
     }
     return out;
   }
@@ -86,18 +162,32 @@ const TeamEngine = (() => {
     const errors = configErrors(config, bank);
     if (errors.length) throw Error(errors.join(' '));
     const now = options.now ?? Date.now(), seed = Number(options.seed ?? now) >>> 0, rng = rngFor(seed), c = cleanConfig(config), seen = new Set(Array.isArray(options.seen) ? options.seen : Object.keys(options.seen || {}));
-    const categories = c.teams.flatMap(t => t.categories), board = [], taken = new Set();
+    const categories = c.teams.flatMap(t => t.categories), board = [], taken = new Set(), questions = Object.create(null), selectionWarnings = [], usedAnswers = new Set(), usedTopics = new Set();
+    const seenAt = !Array.isArray(options.seen) && options.seen && typeof options.seen === 'object' ? options.seen : {};
+    const recentIds = new Set((options.recentMatches || []).slice(-3).flatMap(m => m.questionIds || m.history?.map(h => h.questionId) || []));
+    for (const [id, at] of Object.entries(seenAt)) if (Number.isFinite(at) && now - at <= 30 * 86400000) recentIds.add(id);
+    // Existing array callers represent previously used questions without dates.
+    if (Array.isArray(options.seen)) options.seen.forEach(id => recentIds.add(id));
     for (const category of categories) for (const value of VALUES) {
-      const qs = shuffle(bank.filter(q => !q.disabled && q.category === category && pointValue(q) === value && (!c.spoilerProtection || !q.spoiler)), rng).sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)));
+      const qs = shuffle(eligibleQuestions(bank, c, {category, value}), rng);
+      if (c.repetition === 'unseen') qs.sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)) || (seenAt[a.id] || 0) - (seenAt[b.id] || 0));
+      else if (c.repetition === 'recent') qs.sort((a, b) => Number(recentIds.has(a.id)) - Number(recentIds.has(b.id)) || (seenAt[a.id] || 0) - (seenAt[b.id] || 0));
+      if (c.repetition === 'recent' && qs.filter(q => !recentIds.has(q.id)).length < (c.board === 'classic' ? 2 : 1)) selectionWarnings.push('أُعيد استخدام أقدم أسئلة متاحة لأن بدائل الأسئلة الحديثة غير كافية؛ بقيت قيود الحرق والفئات مطبّقة.');
       for (let slot = 0; slot < (c.board === 'classic' ? 2 : 1); slot++) {
-        const q = qs.find(q => !taken.has(q.id));
+        const available = qs.filter(q => !taken.has(q.id)), first = available[0];
+        const priority = q => c.repetition === 'recent' ? Number(recentIds.has(q.id)) : c.repetition === 'unseen' ? Number(seen.has(q.id)) : 0;
+        // Preserve recency/oldest priority; diversify equally eligible choices.
+        const peers = first ? available.filter(q => priority(q) === priority(first) && (c.repetition === 'all' || (seenAt[q.id] || 0) === (seenAt[first.id] || 0))) : [];
+        const variety = q => Number(usedAnswers.has(normalizeAnswer(q.options[q.answer]))) * 2 + Number(usedTopics.has(`${q.category}:${q.sub || ''}`));
+        peers.sort((a,b) => variety(a) - variety(b));
+        const q = peers[0];
         if (!q) throw Error('لا تكفي الأسئلة لبناء لوحة بلا تكرار.');
-        taken.add(q.id); board.push({ id: `${category}-${value}-${slot}`, questionId: q.id, category, value, slot, done: false });
+        taken.add(q.id); usedAnswers.add(normalizeAnswer(q.options[q.answer])); usedTopics.add(`${q.category}:${q.sub || ''}`); questions[q.id] = questionSnapshot(q); board.push({ id: `${category}-${value}-${slot}`, questionId: q.id, category, value, slot, done: false });
       }
     }
     const startingTeam = c.starter === 'random' ? Math.floor(rng() * 2) : Number(c.starter);
     return {
-      version: VERSION, id: `match-${now}-${seed}`, state: 'BOARD', config: c, seed, createdAt: now,
+      version: VERSION, timing: {elapsedMs:0,lastActiveAt:now}, questions: freezeTree(questions), selectionWarnings: [...new Set(selectionWarnings)], statisticsVersion: 2, id: `match-${now}-${seed}`, state: 'BOARD', config: c, seed, createdAt: now,
       teams: c.teams.map((t, i) => ({ id: `team-${i}`, name: t.name, color: t.color, avatar: t.avatar, players: [...t.players], score: 0, correct: 0, incorrect: 0, steals: 0, assists: Object.fromEntries(t.assists.map(k => [k, c.assistLimits[k]])), assistHistory: [] })),
       categories, board, turn: startingTeam, startingTeam, current: null,
       transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, winner: null
@@ -105,7 +195,7 @@ const TeamEngine = (() => {
   }
   function reject(s, message) { s.lastError = message; return s; }
   function nextId(s, prefix) { s.serial++; return `${s.id}-${prefix}-${s.serial}`; }
-  function checkpoint(s) { const snap = clone(s); delete snap.undo; s.undo.push(snap); if (s.undo.length > 24) s.undo.shift(); }
+  function checkpoint(s) { const {questions, undo, ...rest} = s; const snap = clone(rest); s.undo.push(snap); if (s.undo.length > 24) s.undo.shift(); }
   function stopClock(c, now) { if (c.deadline !== null) c.remainingMs = Math.max(0, c.deadline - now); c.deadline = null; }
   function startClock(c, duration, enabled, now) { c.remainingMs = duration * 1000; c.timed = enabled; c.timerStarted = true; c.deadline = enabled ? now + c.remainingMs : null; }
   function refreshToken(s) { s.current.token = nextId(s, 'clock'); }
@@ -139,19 +229,20 @@ const TeamEngine = (() => {
   function adjudicate(s, winner, now) {
     const c = s.current, tile = s.board.find(t => t.id === c.tileId);
     if (!tile || tile.done || c.resolved) return reject(s, 'حُسم هذا السؤال بالفعل.');
-    checkpoint(s); const group = nextId(s, 'resolution'), ids = [], earned = winner === null || c.phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (c.doubleTeam === winner ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
-    if (winner !== null && !(c.phase === 'trap' && s.config.trapSuccess === 'none')) ids.push(transaction(s, winner, earned, c.phase === 'steal' && winner !== c.selector ? 'steal' : c.phase === 'trap' ? 'trap-correct' : 'correct', c.doubleTeam === winner ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal', now, group, c.questionId, c.value));
+    checkpoint(s); const group = nextId(s, 'resolution'), ids = [], earned = winner === null || c.phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (c.usedAssists.some(a => a.key === 'double' && a.teamId === winner) ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
+    if (winner !== null && !(c.phase === 'trap' && s.config.trapSuccess === 'none')) ids.push(transaction(s, winner, earned, c.phase === 'steal' && winner !== c.selector ? 'steal' : c.phase === 'trap' ? 'trap-correct' : 'correct', c.usedAssists.some(a => a.key === 'double' && a.teamId === winner) ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal', now, group, c.questionId, c.value));
     if (c.pitTeam !== null && winner === c.pitTeam) ids.push(transaction(s, 1 - c.pitTeam, -c.value, 'pit', 'pit', now, group, c.questionId, c.value));
     if (c.pitTeam !== null && winner !== c.pitTeam && s.config.pitFailPenalty) ids.push(transaction(s, c.pitTeam, -c.value, 'pit-failed', 'pit', now, group, c.questionId, c.value));
     if (c.phase === 'trap' && winner !== c.responder) ids.push(transaction(s, c.responder, -c.value, 'trap-failed', 'trap', now, group, c.questionId, c.value));
     if (c.phase === 'steal' && winner !== c.responder && s.config.stealPenalty) ids.push(transaction(s, c.responder, -c.value, 'steal-failed', 'steal', now, group, c.questionId, c.value));
-    const failed = new Set(c.failedTeams);
-    if (winner === null) { failed.add(c.selector); if (c.phase !== 'first') failed.add(c.responder); }
-    else if (winner !== c.selector) failed.add(c.selector);
+    // Delegation, reveal, skip and clock transitions are not wrong answers.
+    // A team's final host-approved success overrides its earlier rejected attempt.
+    const failed = new Set(c.attempts.filter(a => !['timeout', 'skip', 'delegation'].includes(a.reason)).map(a => a.teamId));
+    if (winner !== null) failed.delete(winner);
     for (const i of failed) if (i !== winner) s.teams[i].incorrect++;
     if (winner !== null) { s.teams[winner].correct++; if (c.phase === 'steal' && winner !== c.selector) s.teams[winner].steals++; }
     tile.done = true; c.resolved = true; c.winner = winner; c.earned = earned; c.transactionIds = ids; c.closed = true;
-    const q = { questionId: c.questionId, tileId: c.tileId, value: c.value, selector: c.selector, responder: c.responder, winner, phase: c.phase, correct: winner !== null, transactionIds: ids, at: now, assists: clone(c.usedAssists) };
+    const q = { attempts: clone(c.attempts), incorrectTeams: [...failed], questionId: c.questionId, tileId: c.tileId, value: c.value, selector: c.selector, responder: c.responder, winner, phase: c.phase, correct: winner !== null, transactionIds: ids, at: now, assists: clone(c.usedAssists) };
     s.history.push(q); s.turn = 1 - c.selector; s.state = 'TURN_COMPLETE';
     s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1;
     return s;
@@ -224,16 +315,18 @@ const TeamEngine = (() => {
   }
   function dispatch(raw, action, bank, now = Date.now()) {
     let s;
-    try { s = clone(raw); } catch { throw Error('حالة المباراة غير قابلة للقراءة.'); }
+    try { const {questions, ...mutable} = raw; s = clone(mutable); s.questions = questions || {}; } catch { throw Error('حالة المباراة غير قابلة للقراءة.'); }
     s.lastError = null; preserveKnowledge(s, now);
+    if (s.timing && s.timing.lastActiveAt !== null && s.state !== 'PAUSED' && s.state !== 'MATCH_COMPLETE' && integer(now, 0, 1e14)) { s.timing.elapsedMs += Math.max(0, now - s.timing.lastActiveAt); s.timing.lastActiveAt = now; }
     if (!action || typeof action.type !== 'string' || !integer(now, 0, 1e14)) return reject(s, 'إجراء المباراة غير صالح.');
-    const c = s.current, q = c ? bank.find(q => q.id === c.questionId) : null;
+    const c = s.current, q = c ? getQuestion(s, c.questionId, bank) : null;
     if (action.type === 'UNDO') {
       if (!s.undo.length) return reject(s, 'لا توجد خطوة قابلة للتراجع.');
-      const undo = s.undo.slice(), restored = undo.pop(); restored.undo = undo; restored.serial = Math.max(s.serial, restored.serial); restored.lastError = null;
+      const undo = s.undo.slice(), restored = undo.pop(); restored.undo = undo; restored.serial = Math.max(s.serial, restored.serial); restored.lastError = null; restored.questions = s.questions; restored.timing = s.timing ? {...s.timing, lastActiveAt:now} : null;
       restored.knownAnswers = [...new Set([...knowledge(s), ...knowledge(restored)])];
       preserveKnowledge(restored, now);
       if (restored.current && PLAY_STATES.includes(restored.state)) { stopClock(restored.current, now); restored.pausedFrom = restored.state; restored.state = 'PAUSED'; }
+      if (restored.timing && ['PAUSED','MATCH_COMPLETE'].includes(restored.state)) restored.timing.lastActiveAt = null;
       return restored;
     }
     if (action.type === 'ADJUST_SCORE') {
@@ -244,13 +337,13 @@ const TeamEngine = (() => {
     }
     if (action.type === 'PAUSE') {
       if (s.state === 'PAUSED' || s.state === 'MATCH_COMPLETE') return s;
-      s.pausedFrom = s.state;
+      s.pausedFrom = s.state; if (s.timing) s.timing.lastActiveAt = null;
       if (c) { stopClock(c, now); if (c.assistance?.deadline !== null && c.assistance) { c.assistance.remainingMs = Math.max(0, c.assistance.deadline - now); c.assistance.deadline = null; } }
       s.state = 'PAUSED'; return s;
     }
     if (action.type === 'RESUME') {
       if (s.state !== 'PAUSED' || !STATES.includes(s.pausedFrom)) return reject(s, 'المباراة ليست متوقفة.');
-      s.state = s.pausedFrom; delete s.pausedFrom;
+      s.state = s.pausedFrom; delete s.pausedFrom; if (s.timing) s.timing.lastActiveAt = now;
       if (c) {
         if (c.timed && c.timerStarted && PLAY_STATES.includes(s.state)) c.deadline = now + c.remainingMs;
         if (s.state === 'ASSISTANCE_ACTIVE' && c.assistance) { c.assistance.deadline = now + c.assistance.remainingMs; if (!c.assistance.pausedMain && c.timed && c.timerStarted) c.deadline = now + c.remainingMs; }
@@ -263,7 +356,8 @@ const TeamEngine = (() => {
       if (s.state !== 'BOARD' || c) return reject(s, 'أكمل السؤال الحالي أولًا.');
       const tile = s.board.find(t => t.id === action.tileId);
       if (!tile || tile.done) return reject(s, 'هذه الخانة غير متاحة.');
-      const question = bank.find(q => q.id === tile.questionId);
+      const question = getQuestion(s, tile.questionId, bank);
+      if (!question) return reject(s, 'تعذر العثور على نسخة السؤال المحفوظة.');
       const rng = rngFor(s.seed + s.serial + tile.value + s.history.length);
       const wrong = shuffle([0, 1, 2, 3].filter(i => i !== question.answer), rng).slice(0, s.config.choiceCount - 1);
       s.current = { tileId: tile.id, questionId: tile.questionId, value: tile.value, selector: s.turn, responder: s.turn, phase: 'first', token: '', deadline: null, remainingMs: s.config.duration * 1000, timed: s.config.timer, timerStarted: false, revealed: false, closed: false, resolved: false, pitTeam: null, doubleTeam: null, twiceTeam: null, secondTeam: null, twice: false, trapTeam: null, attempts: [], failedTeams: [], usedAssists: [], assistance: null, choices: shuffle([question.answer, ...wrong], rng), hint: false, pendingWinner: null, winner: null, earned: 0, transactionIds: [], lastAttemptIncorrect: false, skip: false, sitout: null };
@@ -288,7 +382,13 @@ const TeamEngine = (() => {
     if (isActive(s) && c.timed && c.timerStarted && c.deadline !== null && now >= c.deadline) { failAttempt(s, now, true, 'timeout'); return reject(s, 'انتهى وقت المحاولة.'); }
     if (action.type === 'START_STEAL') {
       if (s.state !== 'STEAL_OPPORTUNITY' || !c || c.timerStarted) return reject(s, 'فرصة السرقة ليست بانتظار البدء.');
-      startClock(c, s.config.stealDuration, s.config.timer, now); refreshToken(s); return s;
+      c.timed = s.config.timer; c.timerStarted = true; c.deadline = c.timed ? now + c.remainingMs : null; refreshToken(s); return s;
+    }
+    if (action.type === 'PASS') {
+      if (!isActive(s)) return reject(s, 'لا توجد محاولة نشطة لتجاوزها.');
+      if (c.phase === 'first' && s.config.steal) beginSteal(s, now);
+      else reveal(s, now, null);
+      return s;
     }
     if (action.type === 'DECLARE_INCORRECT' || action.type === 'STEAL') {
       if (!isActive(s)) return reject(s, 'لا توجد محاولة إجابة نشطة.');
@@ -329,30 +429,61 @@ const TeamEngine = (() => {
     if (action.type === 'NEXT_TURN') {
       if (s.state !== 'TURN_COMPLETE' || !c?.resolved) return reject(s, 'احسم السؤال قبل الانتقال.');
       s.current = null;
-      if (s.board.every(t => t.done)) { s.state = 'MATCH_COMPLETE'; s.completedAt = now; s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; }
+      if (s.board.every(t => t.done)) { s.state = 'MATCH_COMPLETE'; if (s.timing) s.timing.lastActiveAt = null; s.completedAt = now; s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; }
       else s.state = 'BOARD'; return s;
     }
     return reject(s, 'إجراء غير معروف أو غير متاح.');
   }
-  function validateState(raw, bank) {
+  function migrateLegacy(raw, bank) {
+    if (!raw || raw.version !== 2 || !Array.isArray(raw.board)) return null;
+    const out = clone(raw), questions = Object.create(null);
+    for (const tile of out.board) {
+      const q = bank.find(q => q.id === tile.questionId);
+      if (!q || !validQuestion(questionSnapshot(q))) return null;
+      questions[q.id] = questionSnapshot({...q,category:tile.category,points:tile.value});
+    }
+    const upgrade = state => {
+      state.version = VERSION;
+      state.config = {...defaults(), ...state.config};
+      state.config.anime = state.config.anime || {selected: FRANCHISES.map(f => f.id), levels: Object.fromEntries(FRANCHISES.map(f => [f.id, state.config.spoilerProtection ? 1 : 3]))};
+      state.statisticsVersion = 1; state.timing = null;
+      state.selectionWarnings = [];
+      return state;
+    };
+    upgrade(out); out.questions = questions;
+    if (Array.isArray(out.undo)) out.undo.forEach(upgrade);
+    out.migration = {fromVersion:2, note:'حُفظت المباراة وتاريخها. أُنشئت نسخ الأسئلة من المكتبة الحالية؛ لم تتوفر نسخ تاريخية في الإصدار السابق.'};
+    return out;
+  }
+  function restore(raw, bank) {
+    const state = validateState(raw, bank);
+    return state ? {state, error:null, backup:null} : {state:null, error:'تعذر استعادة المباراة بأمان. لم تُحذف النسخة الأصلية؛ صدّر نسخة احتياطية قبل بدء مباراة جديدة. قد يكون ملف الحفظ تالفًا أو أحد أسئلة الإصدار القديم غير متاح.', backup:raw};
+  }
+  function validateState(raw, bank, options = {}) {
     try {
-      if (!raw || raw.version !== VERSION || !Array.isArray(bank) || configErrors(raw.config, null).length || !STATES.includes(raw.state) || !safeText(raw.id, 100) || !integer(raw.seed, 0, 4294967295) || !integer(raw.serial) || !integer(raw.createdAt, 0, 1e14) || !integer(raw.turn, 0, 1)) return null;
-      const c = cleanConfig(raw.config), qmap = new Map(bank.map(q => [q.id, q])), expected = c.board === 'classic' ? 36 : 18;
+      if (!safeTree(raw)) return null;
+      if (raw?.version === 2) { raw = migrateLegacy(raw, bank); if (!raw) return null; }
+      if (!raw || raw.version !== VERSION || !Array.isArray(bank) || configErrors(raw.config, null).length || !STATES.includes(raw.state) || !identifier(raw.id,100) || !integer(raw.seed, 0, 4294967295) || !integer(raw.serial) || !integer(raw.createdAt, 0, 1e14) || !integer(raw.turn, 0, 1)) return null;
+      if (raw.timing !== undefined && raw.timing !== null && (!integer(raw.timing.elapsedMs, 0, 1e14) || (raw.timing.lastActiveAt !== null && !integer(raw.timing.lastActiveAt, 0, 1e14)))) return null;
+      if (![1,2].includes(raw.statisticsVersion) || !Array.isArray(raw.selectionWarnings) || raw.selectionWarnings.length > 10 || raw.selectionWarnings.some(t => !safeText(t,1000))) return null;
+      const c = cleanConfig(raw.config), expected = c.board === 'classic' ? 36 : 18;
+      if (!raw.questions || typeof raw.questions !== 'object' || Array.isArray(raw.questions) || Object.keys(raw.questions).length !== expected || Object.entries(raw.questions).some(([id,q]) => id !== q?.id || !validQuestion(q))) return null;
+      const qmap = new Map(Object.entries(raw.questions));
       if (raw.knownAnswers !== undefined && (!Array.isArray(raw.knownAnswers) || raw.knownAnswers.length > expected || new Set(raw.knownAnswers).size !== raw.knownAnswers.length || raw.knownAnswers.some(id => !raw.board?.some(t => t.questionId === id)))) return null;
       if (!Array.isArray(raw.categories) || JSON.stringify(raw.categories) !== JSON.stringify(c.teams.flatMap(t => t.categories)) || !Array.isArray(raw.board) || raw.board.length !== expected || new Set(raw.board.map(t => t.id)).size !== expected || new Set(raw.board.map(t => t.questionId)).size !== expected) return null;
       for (const cat of raw.categories) for (const value of VALUES) if (raw.board.filter(t => t.category === cat && t.value === value).length !== (c.board === 'classic' ? 2 : 1)) return null;
-      if (raw.board.some(t => !safeText(t.id, 120) || !qmap.has(t.questionId) || qmap.get(t.questionId).category !== t.category || (!raw.board.every(tile => tile.done) && pointValue(qmap.get(t.questionId)) !== t.value) || !integer(t.slot, 0, c.board === 'classic' ? 1 : 0) || typeof t.done !== 'boolean')) return null;
+      if (raw.board.some(t => !identifier(t.id,120) || !qmap.has(t.questionId) || qmap.get(t.questionId).category !== t.category || (!raw.board.every(tile => tile.done) && pointValue(qmap.get(t.questionId)) !== t.value) || !integer(t.slot, 0, c.board === 'classic' ? 1 : 0) || typeof t.done !== 'boolean')) return null;
       if (!Array.isArray(raw.teams) || raw.teams.length !== 2 || !Array.isArray(raw.transactions) || raw.transactions.length > 1000 || !Array.isArray(raw.history) || raw.history.length > expected || !Array.isArray(raw.undo) || raw.undo.length > 24) return null;
       if ((raw.winner !== null && !integer(raw.winner, 0, 1)) || (raw.completedAt !== null && !integer(raw.completedAt, 0, 1e14))) return null;
       const scores = [0, 0], ids = new Set();
       for (const tx of raw.transactions) {
-        if (!tx || !safeText(tx.id, 180) || ids.has(tx.id) || !integer(tx.teamId, 0, 1) || !integer(tx.originalValue, 0, 600) || !safeText(tx.reason, 80) || !safeText(tx.modifier, 160) || !integer(tx.scoreBefore, -1e8, 1e8) || !integer(tx.scoreAfter, c.negative ? -1e8 : 0, 1e8) || scores[tx.teamId] !== tx.scoreBefore || !integer(tx.timestamp, 0, 1e14) || !safeText(tx.groupId, 180) || (tx.questionId !== null && !qmap.has(tx.questionId))) return null;
+        if (!tx || !identifier(tx.id) || ids.has(tx.id) || !integer(tx.teamId, 0, 1) || !integer(tx.originalValue, 0, 600) || !safeText(tx.reason, 80) || !safeText(tx.modifier, 160) || !integer(tx.scoreBefore, -1e8, 1e8) || !integer(tx.scoreAfter, c.negative ? -1e8 : 0, 1e8) || scores[tx.teamId] !== tx.scoreBefore || !integer(tx.timestamp, 0, 1e14) || !identifier(tx.groupId) || (tx.questionId !== null && !qmap.has(tx.questionId))) return null;
         scores[tx.teamId] = tx.scoreAfter; ids.add(tx.id);
       }
       for (let i = 0; i < 2; i++) {
         const t = raw.teams[i];
         if (!t || t.id !== `team-${i}` || t.name !== c.teams[i].name || t.color !== c.teams[i].color || t.avatar !== c.teams[i].avatar || JSON.stringify(t.players) !== JSON.stringify(c.teams[i].players) || t.score !== scores[i] || ['correct', 'incorrect', 'steals'].some(k => !integer(t[k], 0, expected)) || !t.assists || !Array.isArray(t.assistHistory) || t.assistHistory.length > 50 || Object.keys(t.assists).some(k => !c.teams[i].assists.includes(k)) || c.teams[i].assists.some(k => !integer(t.assists[k], 0, c.assistLimits[k]))) return null;
-        for (const a of t.assistHistory) if (!a || !ASSISTS.includes(a.key) || !c.teams[i].assists.includes(a.key) || a.teamId !== i || !raw.board.some(tile => tile.questionId === a.questionId) || !integer(a.at, 0, 1e14) || !safeText(a.id, 180) || (a.participant !== null && !safeText(a.participant, 32))) return null;
+        for (const a of t.assistHistory) if (!a || !ASSISTS.includes(a.key) || !c.teams[i].assists.includes(a.key) || a.teamId !== i || !raw.board.some(tile => tile.questionId === a.questionId) || !integer(a.at, 0, 1e14) || !identifier(a.id) || (a.participant !== null && !safeText(a.participant, 32))) return null;
         for (const key of c.teams[i].assists) if (t.assists[key] + t.assistHistory.filter(a => a.key === key).length !== c.assistLimits[key]) return null;
       }
       const startingTeam = raw.startingTeam ?? (c.starter === '0' ? 0 : c.starter === '1' ? 1 : raw.history[0]?.selector ?? raw.current?.selector ?? raw.turn);
@@ -360,8 +491,19 @@ const TeamEngine = (() => {
       const historyIds = new Set();
       for (const [historyIndex,h] of raw.history.entries()) {
         const tile = raw.board.find(t => t.id === h.tileId);
-        if (h.selector !== (startingTeam ^ historyIndex % 2) || !tile || !tile.done || tile.questionId !== h.questionId || historyIds.has(h.tileId) || !integer(h.selector, 0, 1) || !integer(h.responder, 0, 1) || (h.winner !== null && !integer(h.winner, 0, 1)) || !Array.isArray(h.transactionIds) || h.transactionIds.some(id => !ids.has(id)) || !Array.isArray(h.assists) || h.assists.some(a => !a || !ASSISTS.includes(a.key) || !integer(a.teamId, 0, 1) || !raw.teams[a.teamId].assistHistory.some(record => record.id === a.id)) || !integer(h.at, 0, 1e14) || !['first', 'steal', 'trap'].includes(h.phase)) return null;
+        if (h.value !== tile?.value || h.correct !== (h.winner !== null) || h.selector !== (startingTeam ^ historyIndex % 2) || !tile || !tile.done || tile.questionId !== h.questionId || historyIds.has(h.tileId) || !integer(h.selector, 0, 1) || !integer(h.responder, 0, 1) || (h.winner !== null && !integer(h.winner, 0, 1)) || !Array.isArray(h.transactionIds) || h.transactionIds.some(id => !ids.has(id)) || !Array.isArray(h.assists) || h.assists.some(a => !a || !ASSISTS.includes(a.key) || !integer(a.teamId, 0, 1) || !raw.teams[a.teamId].assistHistory.some(record => record.id === a.id && record.key === a.key && record.questionId === h.questionId)) || !integer(h.at, 0, 1e14) || !['first', 'steal', 'trap'].includes(h.phase)) return null;
         historyIds.add(h.tileId);
+      }
+      if (raw.statisticsVersion === 2) {
+        const correct = [0,0], incorrect = [0,0], steals = [0,0];
+        for (const h of raw.history) {
+          if (!Array.isArray(h.attempts) || h.attempts.length > 8 || h.attempts.some(a => !a || !integer(a.teamId,0,1) || typeof a.correct !== 'boolean' || !safeText(a.reason,32) || !integer(a.at,0,1e14)) || !Array.isArray(h.incorrectTeams)) return null;
+          const failed = [...new Set(h.attempts.filter(a => !['timeout','skip','delegation'].includes(a.reason) && a.teamId !== h.winner).map(a => a.teamId))];
+          if (JSON.stringify(failed) !== JSON.stringify(h.incorrectTeams)) return null;
+          failed.forEach(i => incorrect[i]++);
+          if (h.winner !== null) {correct[h.winner]++; if (h.phase === 'steal' && h.winner !== h.selector) steals[h.winner]++;}
+        }
+        if (raw.teams.some((t,i) => t.correct !== correct[i] || t.incorrect !== incorrect[i] || t.steals !== steals[i])) return null;
       }
       if (raw.board.filter(t => t.done).length !== raw.history.length) return null;
       if (raw.state === 'BOARD' && raw.current !== null || raw.state === 'MATCH_COMPLETE' && (raw.current !== null || raw.board.some(t => !t.done))) return null;
@@ -369,7 +511,7 @@ const TeamEngine = (() => {
       if (raw.current !== null) {
         const a = raw.current, tile = raw.board.find(t => t.id === a.tileId);
         if (!tile || a.questionId !== tile.questionId || a.value !== tile.value || !integer(a.selector, 0, 1) || !integer(a.responder, 0, 1) || !['first', 'steal', 'trap'].includes(a.phase) || !safeText(a.token, 180) || !Array.isArray(a.choices) || a.choices.length !== c.choiceCount || new Set(a.choices).size !== c.choiceCount || a.choices.some(n => !integer(n, 0, 3)) || !a.choices.includes(qmap.get(a.questionId).answer) || !integer(a.remainingMs, 0, 1000000) || (a.deadline !== null && !integer(a.deadline, 0, 1e14)) || ['timed', 'timerStarted', 'revealed', 'closed', 'resolved', 'twice', 'hint', 'lastAttemptIncorrect', 'skip'].some(k => typeof a[k] !== 'boolean')) return null;
-        if (!integer(a.earned) || a.usedAssists?.some(record => !record || !ASSISTS.includes(record.key) || !integer(record.teamId, 0, 1) || !raw.teams[record.teamId].assistHistory.some(item => item.id === record.id))) return null;
+        if (!integer(a.earned) || a.usedAssists?.some(record => !record || !ASSISTS.includes(record.key) || !integer(record.teamId, 0, 1) || !raw.teams[record.teamId].assistHistory.some(item => item.id === record.id && item.key === record.key && item.questionId === a.questionId))) return null;
         if (a.sitout !== null && (!integer(a.sitout.teamId, 0, 1) || !raw.teams[a.sitout.teamId].players.includes(a.sitout.participant))) return null;
         if (['pitTeam', 'doubleTeam', 'twiceTeam', 'secondTeam', 'trapTeam', 'pendingWinner', 'winner'].some(k => a[k] !== null && !integer(a[k], 0, 1))) return null;
         if (!Array.isArray(a.attempts) || a.attempts.length > 8 || a.attempts.some(at => !integer(at.teamId, 0, 1) || typeof at.correct !== 'boolean' || !safeText(at.reason, 32) || !integer(at.at, 0, 1e14) || (at.values !== undefined && (!Array.isArray(at.values) || at.values.length > 2 || at.values.some(v => !(integer(v, 0, 3) || safeText(v, 180)))))) || !Array.isArray(a.failedTeams) || a.failedTeams.some(i => !integer(i, 0, 1)) || !Array.isArray(a.usedAssists) || a.usedAssists.length > 10 || !Array.isArray(a.transactionIds) || a.transactionIds.some(id => !ids.has(id))) return null;
@@ -383,24 +525,24 @@ const TeamEngine = (() => {
         }
         if (effective === 'ASSISTANCE_ACTIVE' && !a.assistance) return null;
       } else if (!['BOARD', 'MATCH_COMPLETE'].includes(raw.state) && !(raw.state === 'PAUSED' && raw.pausedFrom === 'BOARD')) return null;
-      const out = clone(raw); out.config = c; out.startingTeam = startingTeam; out.lastError = null;
+      const {questions, ...mutable} = raw; const out = clone(mutable); out.questions = freezeTree(clone(questions)); out.config = c; out.startingTeam = startingTeam; out.lastError = null;
       out.knownAnswers = knowledge(raw);
       /* Undo snapshots are validated when restored, not accepted as executable state.
          Keep only valid bounded snapshots; nested undo data is discarded. */
       out.undo = [];
       for (const snap of raw.undo) {
         if (!snap || snap.version !== VERSION || snap.id !== raw.id || snap.undo || JSON.stringify(snap.config) !== JSON.stringify(raw.config) || JSON.stringify(snap.board?.map(t => [t.id,t.questionId,t.value])) !== JSON.stringify(raw.board.map(t => [t.id,t.questionId,t.value]))) return null;
-        const checked = validateState({ ...snap, undo: [] }, bank);
+        const checked = validateState({ ...snap, questions:out.questions, undo: [] }, bank, {undoSnapshot:true});
         if (!checked) return null;
-        delete checked.undo; out.undo.push(checked);
+        delete checked.undo; delete checked.questions; out.undo.push(checked);
       }
-      if (out.state !== 'PAUSED' && out.state !== 'MATCH_COMPLETE') {
-        out.pausedFrom = out.state; out.state = 'PAUSED';
+      if (!options.undoSnapshot && out.state !== 'PAUSED' && out.state !== 'MATCH_COMPLETE') {
+        out.pausedFrom = out.state; out.state = 'PAUSED'; if (out.timing) out.timing.lastActiveAt = null;
         if (out.current) { const a = out.current; if (a.deadline !== null) a.remainingMs = Math.max(0, Math.min(a.remainingMs, a.deadline - Date.now())); a.deadline = null; if (a.assistance) { if (a.assistance.deadline !== null) a.assistance.remainingMs = Math.max(0, Math.min(a.assistance.remainingMs, a.assistance.deadline - Date.now())); a.assistance.deadline = null; } }
       }
       return preserveKnowledge(out, Date.now());
     } catch { return null; }
   }
-  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, validateState, normalizeAnswer, pointValue });
+  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, validateState, restore, getQuestion, eligibleQuestions, isEligible, FRANCHISES, normalizeAnswer, pointValue });
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = TeamEngine;

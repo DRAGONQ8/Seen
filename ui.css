@@ -28,10 +28,10 @@ html[data-theme="light"] {
   --panel-raised: #f2f4fb;
   --panel-hover: #e9edf8;
   --text: #18213b;
-  --muted: #59657f;
-  --soft: #62708b;
+  --muted: #4d5971;
+  --soft: #505c74;
   --line: #d8deec;
-  --gold: #8d6011;
+  --gold: #80520b;
   --gold-dark: #9c6e1c;
   --cyan: #087788;
   --purple: #7754b8;
@@ -396,7 +396,7 @@ dialog::backdrop { background: #040714c9; backdrop-filter: blur(5px); }
 .welcome-row .pill .icon { color: var(--success); width: 15px; height: 15px; }
 .hero .pill { font-size: .68rem; color: #f0cb79; padding-block: 3px; margin-bottom: 13px; border-color: #f0cb7930; background: #f0cb7909; }
 .hero .pill .icon { width: 15px; height: 15px; }
-.hero-facts { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; color: #8e9bbd; font-size: .64rem; margin-top: 23px; }
+.hero-facts { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; color: #9aa7c8; font-size: .64rem; margin-top: 23px; }
 .hero-facts b { font-weight: 500; color: #d1d6e5; }
 .hero-facts i { width: 3px; height: 3px; border-radius: 50%; background: #707e9c; }
 .art-label { color: #aa9bc8; font-size: .68rem; margin-top: 5px; }
@@ -857,3 +857,5 @@ html[data-motion="none"] .confetti { display: none; }
   .layout { display: block; }
   #main { padding: 15px; }
 }
+/* Expandable controls remain comfortable at all text scales and viewports. */
+details > summary { min-height:44px; padding-block:8px; box-sizing:border-box; cursor:pointer; }

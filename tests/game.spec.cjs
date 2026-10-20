@@ -157,7 +157,7 @@ async function complete(page, mode) {
     for (const route of ['categories', 'profile', 'settings', 'home']) await nav(page, route);
     await page.locator('[data-action="about"]:visible').click();
     assert(await page.locator('#dialog').isVisible());
-    assert((await page.locator('#dialog').innerText()).includes('900'));
+    assert((await page.locator('#dialog').innerText()).includes(String(await page.evaluate(()=>QUESTION_BANK.length))));
     await page.locator('[data-action="close-dialog"]').first().click();
     await page.screenshot({ path: '/tmp/seen-home-tablet.png', fullPage: true });
     await context.close();
@@ -427,7 +427,7 @@ async function complete(page, mode) {
     await nav(page, 'home');
     await page.evaluate(() => makeSetup('classic'));
     for (const id of ['geo', 'games']) await page.locator(`[data-action="toggle-category"][data-id="${id}"]`).click();
-    await page.locator('#series').selectOption('Solo Leveling');
+    await page.locator('#series').selectOption(await page.evaluate(()=>TeamEngine.FRANCHISES.find(f=>f.id==='naruto-shippuden').title));
     assert(await page.locator('[data-action="start"]').isDisabled());
     assert.equal((await state(page)).session.id, saved);
     await nav(page, 'home');

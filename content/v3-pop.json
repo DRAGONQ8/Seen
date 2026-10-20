@@ -1,0 +1,4566 @@
+[
+  {
+    "id": "v3-p-001",
+    "category": "anime",
+    "sub": "ناروتو",
+    "subcategory": "ناروتو",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "يشير الرسم إلى طبق الرامن المفضل لدى ناروتو. ما اسم المطعم الصغير الشهير الذي يتردد عليه في كونوها؟",
+    "options": [
+      "باراتي",
+      "بوارو",
+      "بولار ستار",
+      "إيتشيراكو"
+    ],
+    "answer": 3,
+    "correctAnswer": "إيتشيراكو",
+    "acceptedAnswers": [
+      "إيتشيراكو رامن",
+      "ايتشيراكو",
+      "Ichiraku"
+    ],
+    "explanation": "إيتشيراكو هو مطعم الرامن المرتبط بناروتو في كونوها؛ الرسم تلميح أصلي للطعام، ولا يمثل صورة رسمية للمطعم.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — مجموعة إيتشيراكو",
+      "url": "https://naruto-official.com/en/news/01_1805",
+      "reference": "Ichiraku Ramen Set"
+    },
+    "spoiler": false,
+    "tags": [
+      "ناروتو",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — مجموعة إيتشيراكو",
+      "referenceUrl": "https://naruto-official.com/en/news/01_1805",
+      "section": "Ichiraku Ramen Set",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a01",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Naruto",
+    "imageAlt": "وعاء حساء مع شعيرية وعيدان طعام، مرسوم بأسلوب رمزي أصلي دون اسم متجر.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a01.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-002",
+    "category": "anime",
+    "sub": "ناروتو",
+    "subcategory": "ناروتو",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من ألّف ورسم مانغا ناروتو الأصلية؟",
+    "options": [
+      "تيتي كوبو",
+      "يوشيهيرو توغاشي",
+      "ماساشي كيشيموتو",
+      "إييتشيرو أودا"
+    ],
+    "answer": 2,
+    "correctAnswer": "ماساشي كيشيموتو",
+    "acceptedAnswers": [
+      "Masashi Kishimoto",
+      "كيشيموتو"
+    ],
+    "explanation": "تسرد صفحة الأنمي الرسمية اسم ماساشي كيشيموتو تحت بند القصة والرسم الأصليين.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — الأنمي الأصلي",
+      "url": "https://naruto-official.com/en/anime/naruto1",
+      "reference": "STAFF AND CAST"
+    },
+    "spoiler": false,
+    "tags": [
+      "ناروتو",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — الأنمي الأصلي",
+      "referenceUrl": "https://naruto-official.com/en/anime/naruto1",
+      "section": "STAFF AND CAST",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto"
+  },
+  {
+    "id": "v3-p-003",
+    "category": "anime",
+    "sub": "ناروتو",
+    "subcategory": "ناروتو",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من تؤدي صوت ناروتو أوزوماكي في النسخة اليابانية الأصلية من الأنمي؟",
+    "options": [
+      "رومي بارك",
+      "جونكو تاكيوتشي",
+      "ماساكو نوزاوا",
+      "مايومي تاناكا"
+    ],
+    "answer": 1,
+    "correctAnswer": "جونكو تاكيوتشي",
+    "acceptedAnswers": [
+      "Junko Takeuchi",
+      "جونكو تاكيؤتشي"
+    ],
+    "explanation": "جونكو تاكيوتشي هي مؤدية صوت ناروتو في اليابانية، كما تؤكد قائمة طاقم الأصوات الرسمية.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — الأنمي الأصلي",
+      "url": "https://naruto-official.com/en/anime/naruto1",
+      "reference": "STAFF AND CAST"
+    },
+    "spoiler": false,
+    "tags": [
+      "ناروتو",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — الأنمي الأصلي",
+      "referenceUrl": "https://naruto-official.com/en/anime/naruto1",
+      "section": "STAFF AND CAST",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto"
+  },
+  {
+    "id": "v3-p-004",
+    "category": "anime",
+    "sub": "ناروتو",
+    "subcategory": "ناروتو",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من المخرج المدرج للمسلسل الأصلي ناروتو في صفحة فريق العمل الرسمية؟",
+    "options": [
+      "هاياتو داتي",
+      "تيتسورو أراكي",
+      "هاروؤ سوتوزاكي",
+      "ياسوهيرو إيري"
+    ],
+    "answer": 0,
+    "correctAnswer": "هاياتو داتي",
+    "acceptedAnswers": [
+      "Hayato Date",
+      "هاياتو داته"
+    ],
+    "explanation": "تذكر صفحة ناروتو الرسمية هاياتو داتي في خانة الإخراج؛ السؤال عن العمل التلفزيوني الأصلي.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — الأنمي الأصلي",
+      "url": "https://naruto-official.com/en/anime/naruto1",
+      "reference": "STAFF AND CAST"
+    },
+    "spoiler": false,
+    "tags": [
+      "ناروتو",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — الأنمي الأصلي",
+      "referenceUrl": "https://naruto-official.com/en/anime/naruto1",
+      "section": "STAFF AND CAST",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto"
+  },
+  {
+    "id": "v3-p-005",
+    "category": "anime",
+    "sub": "ناروتو شيبودن",
+    "subcategory": "ناروتو شيبودن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي طبيعة تشاكرا مركبة اشتهر ياماتو باستخدامها في ناروتو شيبودن؟",
+    "options": [
+      "هيوتون: عنصر الجليد",
+      "يوتون: عنصر الحمم",
+      "جيتون: عنصر المغناطيس",
+      "الموكتون: عنصر الخشب"
+    ],
+    "answer": 3,
+    "correctAnswer": "الموكتون: عنصر الخشب",
+    "acceptedAnswers": [
+      "موكتون",
+      "Mokuton",
+      "عنصر الخشب",
+      "Wood Release"
+    ],
+    "explanation": "تصف المادة الرسمية تقنيات ياماتو بأنها Wood Style؛ موكتون هو الاسم الياباني لعنصر الخشب.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — بطاقات ياماتو",
+      "url": "https://naruto-official.com/en/news/01_1310",
+      "reference": "Wood Style: Four-Pillar Prison Jutsu"
+    },
+    "spoiler": true,
+    "tags": [
+      "ناروتو شيبودن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — بطاقات ياماتو",
+      "referenceUrl": "https://naruto-official.com/en/news/01_1310",
+      "section": "Wood Style: Four-Pillar Prison Jutsu",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto Shippuden"
+  },
+  {
+    "id": "v3-p-006",
+    "category": "anime",
+    "sub": "ناروتو شيبودن",
+    "subcategory": "ناروتو شيبودن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما الكائنات التي تسعى منظمة الأكاتسكي إلى جمعها من حامليها في أحداث ناروتو شيبودن؟",
+    "options": [
+      "كلاب النينجا",
+      "غربان الاستدعاء",
+      "الوحوش المذيّلة",
+      "ضفادع جبل ميوبوكو"
+    ],
+    "answer": 2,
+    "correctAnswer": "الوحوش المذيّلة",
+    "acceptedAnswers": [
+      "البيجو",
+      "Biju",
+      "Tailed Beasts",
+      "الوحوش المذيلة"
+    ],
+    "explanation": "يحدد ملخص شيبودن الرسمي هدف الأكاتسكي في القبض على الوحوش المذيّلة التي يحملها الجينشوريكي.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — ناروتو شيبودن",
+      "url": "https://naruto-official.com/en/anime/naruto2",
+      "reference": "SUMMARY / STAFF AND CAST"
+    },
+    "spoiler": true,
+    "tags": [
+      "ناروتو شيبودن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — ناروتو شيبودن",
+      "referenceUrl": "https://naruto-official.com/en/anime/naruto2",
+      "section": "SUMMARY / STAFF AND CAST",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto Shippuden"
+  },
+  {
+    "id": "v3-p-007",
+    "category": "anime",
+    "sub": "ناروتو شيبودن",
+    "subcategory": "ناروتو شيبودن",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من الملحن الذي تُنسب إليه موسيقى ناروتو شيبودن مع فرقة يايبا في قائمة فريق العمل؟",
+    "options": [
+      "أكيرا سينجو",
+      "ياسوهارو تاكاناشي",
+      "شيرو ساغيسو",
+      "هيرويوكي ساوانو"
+    ],
+    "answer": 1,
+    "correctAnswer": "ياسوهارو تاكاناشي",
+    "acceptedAnswers": [
+      "Yasuharu Takanashi",
+      "تاكاناشي"
+    ],
+    "explanation": "تورد الصفحة الرسمية اسم ياسوهارو تاكاناشي مع يايبا في خانة الموسيقى.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — ناروتو شيبودن",
+      "url": "https://naruto-official.com/en/anime/naruto2",
+      "reference": "SUMMARY / STAFF AND CAST"
+    },
+    "spoiler": false,
+    "tags": [
+      "ناروتو شيبودن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — ناروتو شيبودن",
+      "referenceUrl": "https://naruto-official.com/en/anime/naruto2",
+      "section": "SUMMARY / STAFF AND CAST",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto Shippuden"
+  },
+  {
+    "id": "v3-p-008",
+    "category": "anime",
+    "sub": "ناروتو شيبودن",
+    "subcategory": "ناروتو شيبودن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما لقب غارا بوصفه قائد قرية الرمل عند بداية أحداث ناروتو شيبودن؟",
+    "options": [
+      "كازيكاغي",
+      "رايكاغي",
+      "تسوتشيكاغي",
+      "ميزوكاغي"
+    ],
+    "answer": 0,
+    "correctAnswer": "كازيكاغي",
+    "acceptedAnswers": [
+      "الكازيكاغي",
+      "Kazekage"
+    ],
+    "explanation": "يقدم ملخص شيبودن الرسمي غارا بوصفه كازيكاغي قرية الرمل؛ الألقاب الأخرى تخص قرى مختلفة.",
+    "source": {
+      "title": "موقع ناروتو الرسمي — ناروتو شيبودن",
+      "url": "https://naruto-official.com/en/anime/naruto2",
+      "reference": "SUMMARY / STAFF AND CAST"
+    },
+    "spoiler": true,
+    "tags": [
+      "ناروتو شيبودن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ناروتو الرسمي — ناروتو شيبودن",
+      "referenceUrl": "https://naruto-official.com/en/anime/naruto2",
+      "section": "SUMMARY / STAFF AND CAST",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "naruto-shippuden",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Naruto Shippuden"
+  },
+  {
+    "id": "v3-p-009",
+    "category": "anime",
+    "sub": "ون بيس",
+    "subcategory": "ون بيس",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "في هذا المخطط المبسط لعالم ون بيس، ما اسم المسار البحري الأزرق الذي يحيط بالعالم ويتقاطع مع الريد لاين؟",
+    "options": [
+      "إيست بلو",
+      "الكالم بيلت",
+      "أول بلو",
+      "الغراند لاين"
+    ],
+    "answer": 3,
+    "correctAnswer": "الغراند لاين",
+    "acceptedAnswers": [
+      "Grand Line",
+      "جراند لاين",
+      "غراند لاين"
+    ],
+    "explanation": "الغراند لاين مسار بحري يطوق العالم ويتقاطع مع الحاجز القاري المعروف بالريد لاين؛ الرسم تبسيط أصلي لاتجاه المسارين.",
+    "source": {
+      "title": "موسوعة ون بيس — الغراند لاين",
+      "url": "https://onepiece.fandom.com/wiki/Grand_Line",
+      "reference": "Geography — Calm Belts and Red Line"
+    },
+    "spoiler": false,
+    "tags": [
+      "ون بيس",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موسوعة ون بيس — الغراند لاين",
+      "referenceUrl": "https://onepiece.fandom.com/wiki/Grand_Line",
+      "section": "Geography — Calm Belts and Red Line",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a02",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "One Piece",
+    "imageAlt": "كرة أرضية تخطيطية يلتقي عليها حاجز بري أحمر ومسار بحري أزرق، والسهم يشير إلى الأزرق.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a02.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-010",
+    "category": "anime",
+    "sub": "ون بيس",
+    "subcategory": "ون بيس",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلف ورسام مانغا ون بيس؟",
+    "options": [
+      "أكيرا تورياما",
+      "تيتي كوبو",
+      "إييتشيرو أودا",
+      "ماساشي كيشيموتو"
+    ],
+    "answer": 2,
+    "correctAnswer": "إييتشيرو أودا",
+    "acceptedAnswers": [
+      "Eiichiro Oda",
+      "أودا",
+      "ايشيرو اودا"
+    ],
+    "explanation": "تنسب دار VIZ مانغا ون بيس إلى إييتشيرو أودا.",
+    "source": {
+      "title": "VIZ — ون بيس",
+      "url": "https://www.viz.com/one-piece",
+      "reference": "Created by / About the creator"
+    },
+    "spoiler": false,
+    "tags": [
+      "ون بيس",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — ون بيس",
+      "referenceUrl": "https://www.viz.com/one-piece",
+      "section": "Created by / About the creator",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "One Piece"
+  },
+  {
+    "id": "v3-p-011",
+    "category": "anime",
+    "sub": "ون بيس",
+    "subcategory": "ون بيس",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "ما الوظيفة الأساسية لتوني توني تشوبر ضمن طاقم قبعة القش؟",
+    "options": [
+      "موسيقي الطاقم",
+      "طبيب السفينة",
+      "نجار السفينة",
+      "قناص الطاقم"
+    ],
+    "answer": 1,
+    "correctAnswer": "طبيب السفينة",
+    "acceptedAnswers": [
+      "طبيب",
+      "الطبيب",
+      "Doctor"
+    ],
+    "explanation": "تعرّف صفحة تشوبر الرسمية به بوصفه طبيب طاقم قبعة القش.",
+    "source": {
+      "title": "موقع ون بيس الرسمي — توني توني تشوبر",
+      "url": "https://one-piece.com/character/chopper/index.html",
+      "reference": "麦わらの一味 / 船医 — طبيب الطاقم"
+    },
+    "spoiler": false,
+    "tags": [
+      "ون بيس",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع ون بيس الرسمي — توني توني تشوبر",
+      "referenceUrl": "https://one-piece.com/character/chopper/index.html",
+      "section": "麦わらの一味 / 船医 — طبيب الطاقم",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "One Piece"
+  },
+  {
+    "id": "v3-p-012",
+    "category": "anime",
+    "sub": "ون بيس",
+    "subcategory": "ون بيس",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما اسم الحلزونات المستخدمة كوسائل اتصال هاتفي في عالم ون بيس؟",
+    "options": [
+      "دين دين موشي",
+      "الكاسوجاي",
+      "الهومونكولوس",
+      "الشيكغامي"
+    ],
+    "answer": 0,
+    "correctAnswer": "دين دين موشي",
+    "acceptedAnswers": [
+      "Den Den Mushi",
+      "دندن موشي",
+      "حلزونات الاتصال"
+    ],
+    "explanation": "تسمى حلزونات الاتصال دين دين موشي، وتعرف بالإنجليزية باسم Transponder Snails.",
+    "source": {
+      "title": "Netflix Tudum — دليل عالم ون بيس",
+      "url": "https://www.netflix.com/tudum/articles/one-piece-guide",
+      "reference": "Transponder snails"
+    },
+    "spoiler": false,
+    "tags": [
+      "ون بيس",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "Netflix Tudum — دليل عالم ون بيس",
+      "referenceUrl": "https://www.netflix.com/tudum/articles/one-piece-guide",
+      "section": "Transponder snails",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "one-piece",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "One Piece"
+  },
+  {
+    "id": "v3-p-013",
+    "category": "anime",
+    "sub": "دراغون بول",
+    "subcategory": "دراغون بول",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "يمثل الرسم الكرة ذات الأربع نجوم. ممن ورث غوكو هذه الكرة التذكارية في بداية دراغون بول؟",
+    "options": [
+      "المعلم روشي",
+      "الملك كاي",
+      "الدكتور بريف",
+      "جده غوهان"
+    ],
+    "answer": 3,
+    "correctAnswer": "جده غوهان",
+    "acceptedAnswers": [
+      "الجد غوهان",
+      "Grandpa Gohan",
+      "غوهان الجد"
+    ],
+    "explanation": "تعرّف المادة الرسمية الكرة ذات الأربع نجوم بأنها تذكار من الجد غوهان، الذي ربّى غوكو.",
+    "source": {
+      "title": "موقع دراغون بول الرسمي — أغراض السلسلة 05",
+      "url": "https://en.dragon-ball-official.com/news/01_2821.html",
+      "reference": "Four-Star Ball — keepsake from Grandpa Gohan"
+    },
+    "spoiler": false,
+    "tags": [
+      "دراغون بول",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع دراغون بول الرسمي — أغراض السلسلة 05",
+      "referenceUrl": "https://en.dragon-ball-official.com/news/01_2821.html",
+      "section": "Four-Star Ball — keepsake from Grandpa Gohan",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a03",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Dragon Ball",
+    "imageAlt": "سبع كرات رمزية تحمل نجومًا بأعداد مختلفة، والكرة المحددة في الوسط تحمل أربع نجوم.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a03.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-014",
+    "category": "anime",
+    "sub": "دراغون بول",
+    "subcategory": "دراغون بول",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من ابتكر مانغا دراغون بول الأصلية؟",
+    "options": [
+      "هيرومو أراكاوا",
+      "غوشو أوياما",
+      "أكيرا تورياما",
+      "إييتشيرو أودا"
+    ],
+    "answer": 2,
+    "correctAnswer": "أكيرا تورياما",
+    "acceptedAnswers": [
+      "Akira Toriyama",
+      "تورياما"
+    ],
+    "explanation": "تنسب دار VIZ سلسلة دراغون بول إلى أكيرا تورياما.",
+    "source": {
+      "title": "VIZ — دراغون بول",
+      "url": "https://www.viz.com/dragon-ball",
+      "reference": "Created by Akira Toriyama"
+    },
+    "spoiler": false,
+    "tags": [
+      "دراغون بول",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — دراغون بول",
+      "referenceUrl": "https://www.viz.com/dragon-ball",
+      "section": "Created by Akira Toriyama",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Dragon Ball"
+  },
+  {
+    "id": "v3-p-015",
+    "category": "anime",
+    "sub": "دراغون بول",
+    "subcategory": "دراغون بول",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما اسم الأقراط التي يضعها شخصان في أذنين متعاكستين لإجراء الاندماج في دراغون بول؟",
+    "options": [
+      "أقراط الشينيغامي",
+      "أقراط البوتارا",
+      "أقراط الهانافودا",
+      "أقراط الكايكوكو"
+    ],
+    "answer": 1,
+    "correctAnswer": "أقراط البوتارا",
+    "acceptedAnswers": [
+      "البوتارا",
+      "بوتارا",
+      "Potara"
+    ],
+    "explanation": "أقراط البوتارا وسيلة اندماج في عالم دراغون بول؛ وهي تختلف عن الاندماج بواسطة الرقصة.",
+    "source": {
+      "title": "موسوعة دراغون بول — بوتارا",
+      "url": "https://dragonball.fandom.com/wiki/Potara",
+      "reference": "Usage — Potara Fusion"
+    },
+    "spoiler": true,
+    "tags": [
+      "دراغون بول",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موسوعة دراغون بول — بوتارا",
+      "referenceUrl": "https://dragonball.fandom.com/wiki/Potara",
+      "section": "Usage — Potara Fusion",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Dragon Ball"
+  },
+  {
+    "id": "v3-p-016",
+    "category": "anime",
+    "sub": "دراغون بول",
+    "subcategory": "دراغون بول",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "بأي لغة يجب توجيه الأمنيات إلى بورونغا عند استخدام كرات ناميك الأصلية؟",
+    "options": [
+      "اللغة الناميكية",
+      "لغة السايان",
+      "لغة أهل الأرض",
+      "لغة الكايوشين"
+    ],
+    "answer": 0,
+    "correctAnswer": "اللغة الناميكية",
+    "acceptedAnswers": [
+      "الناميكية",
+      "لغة ناميك",
+      "Namekian"
+    ],
+    "explanation": "تتطلب كرات ناميك الأصلية أن تُقال الأمنيات لبورونغا بلغة الناميكيين، ولذلك يستعين الأبطال بمن يتحدثها.",
+    "source": {
+      "title": "موقع دراغون بول الرسمي — عرض شخصية بورونغا",
+      "url": "https://en.dragon-ball-official.com/news/01_2809.html",
+      "reference": "Abilities / Wishes"
+    },
+    "spoiler": true,
+    "tags": [
+      "دراغون بول",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع دراغون بول الرسمي — عرض شخصية بورونغا",
+      "referenceUrl": "https://en.dragon-ball-official.com/news/01_2809.html",
+      "section": "Abilities / Wishes",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "dragon-ball",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Dragon Ball"
+  },
+  {
+    "id": "v3-p-017",
+    "category": "anime",
+    "sub": "بليتش",
+    "subcategory": "بليتش",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "يمثل الرسم سيفًا مرتبطًا بروح مستخدمه. ما الاسم العام لسيوف الشينيغامي في بليتش؟",
+    "options": [
+      "نيتشيرين",
+      "كوناي",
+      "بوتارا",
+      "زانباكتو"
+    ],
+    "answer": 3,
+    "correctAnswer": "زانباكتو",
+    "acceptedAnswers": [
+      "Zanpakuto",
+      "Zanpakutō",
+      "زانباكتو"
+    ],
+    "explanation": "الزانباكتو هو سلاح الشينيغامي في بليتش؛ الصورة رسم مفاهيمي أصلي وليست تصميم سيف من العمل.",
+    "source": {
+      "title": "موسوعة بليتش — الزانباكتو",
+      "url": "https://bleach.fandom.com/wiki/Zanpakut%C5%8D",
+      "reference": "Introduction — weapon of the Shinigami"
+    },
+    "spoiler": false,
+    "tags": [
+      "بليتش",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موسوعة بليتش — الزانباكتو",
+      "referenceUrl": "https://bleach.fandom.com/wiki/Zanpakut%C5%8D",
+      "section": "Introduction — weapon of the Shinigami",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "bleach",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a04",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Bleach",
+    "imageAlt": "سيف ياباني رمزي مع خطوط ضوء فوق النصل؛ لا يمثل تصميم سلاح شخصية بعينها.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a04.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-018",
+    "category": "anime",
+    "sub": "بليتش",
+    "subcategory": "بليتش",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلف ورسام مانغا بليتش؟",
+    "options": [
+      "تاتسوكي فوجيموتو",
+      "تاكيشي أوباتا",
+      "تيتي كوبو",
+      "غِيغي أكوتامي"
+    ],
+    "answer": 2,
+    "correctAnswer": "تيتي كوبو",
+    "acceptedAnswers": [
+      "Tite Kubo",
+      "تايت كوبو",
+      "كوبو"
+    ],
+    "explanation": "تذكر صفحة فريق العمل الرسمية تيتي كوبو صاحبًا للعمل الأصلي لبليتش.",
+    "source": {
+      "title": "موقع بليتش الرسمي — فريق العمل والأصوات",
+      "url": "https://bleach-anime.com/en/staffcast/",
+      "reference": "Original Work / Music / Ichigo Kurosaki"
+    },
+    "spoiler": false,
+    "tags": [
+      "بليتش",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع بليتش الرسمي — فريق العمل والأصوات",
+      "referenceUrl": "https://bleach-anime.com/en/staffcast/",
+      "section": "Original Work / Music / Ichigo Kurosaki",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "bleach",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Bleach"
+  },
+  {
+    "id": "v3-p-019",
+    "category": "anime",
+    "sub": "بليتش",
+    "subcategory": "بليتش",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من الملحن المدرج في صفحة فريق عمل بليتش: حرب الألف عام الدموية؟",
+    "options": [
+      "يوشيهيسا هيرانو",
+      "شيرو ساغيسو",
+      "ياسوهارو تاكاناشي",
+      "يوكي كاجيورا"
+    ],
+    "answer": 1,
+    "correctAnswer": "شيرو ساغيسو",
+    "acceptedAnswers": [
+      "Shiro Sagisu",
+      "شيرُو ساغيسو",
+      "ساغيسو"
+    ],
+    "explanation": "تُدرج صفحة فريق عمل حرب الألف عام الدموية شيرو ساغيسو في خانة الموسيقى.",
+    "source": {
+      "title": "موقع بليتش الرسمي — فريق العمل والأصوات",
+      "url": "https://bleach-anime.com/en/staffcast/",
+      "reference": "Original Work / Music / Ichigo Kurosaki"
+    },
+    "spoiler": false,
+    "tags": [
+      "بليتش",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع بليتش الرسمي — فريق العمل والأصوات",
+      "referenceUrl": "https://bleach-anime.com/en/staffcast/",
+      "section": "Original Work / Music / Ichigo Kurosaki",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "bleach",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Bleach"
+  },
+  {
+    "id": "v3-p-020",
+    "category": "anime",
+    "sub": "بليتش",
+    "subcategory": "بليتش",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من يؤدي صوت إيتشيغو كوروساكي باليابانية؟",
+    "options": [
+      "ماساكازو موريتا",
+      "نوبوهيكو أوكاموتو",
+      "يوكي كاجي",
+      "هيروشي كاميا"
+    ],
+    "answer": 0,
+    "correctAnswer": "ماساكازو موريتا",
+    "acceptedAnswers": [
+      "Masakazu Morita",
+      "موريتا"
+    ],
+    "explanation": "تذكر قائمة الأصوات الرسمية ماساكازو موريتا مقابل اسم إيتشيغو كوروساكي.",
+    "source": {
+      "title": "موقع بليتش الرسمي — فريق العمل والأصوات",
+      "url": "https://bleach-anime.com/en/staffcast/",
+      "reference": "Original Work / Music / Ichigo Kurosaki"
+    },
+    "spoiler": false,
+    "tags": [
+      "بليتش",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع بليتش الرسمي — فريق العمل والأصوات",
+      "referenceUrl": "https://bleach-anime.com/en/staffcast/",
+      "section": "Original Work / Music / Ichigo Kurosaki",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "bleach",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Bleach"
+  },
+  {
+    "id": "v3-p-021",
+    "category": "anime",
+    "sub": "هنتر × هنتر",
+    "subcategory": "هنتر × هنتر",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "يعرض المخطط خمسة من أنماط النين الستة: التعزيز والإطلاق والتحويل والتجسيد والتلاعب. ما النمط المفقود؟",
+    "options": [
+      "التخاطر",
+      "الاستدعاء",
+      "التطهير",
+      "التخصص"
+    ],
+    "answer": 3,
+    "correctAnswer": "التخصص",
+    "acceptedAnswers": [
+      "Specialization",
+      "التخصصي",
+      "تخصص"
+    ],
+    "explanation": "يسرد معجم الأنمي الرسمي ستة أنماط للنين؛ التخصص يضم القدرات التي لا تندرج في الأنماط الخمسة الأخرى.",
+    "source": {
+      "title": "نيبون تي في — معجم هنتر × هنتر",
+      "url": "https://www.ntv.co.jp/hunterhunter/dictionary/",
+      "reference": "念の系統 / ヒソカの念能力 — أنماط النين وقدرة هيسوكا"
+    },
+    "spoiler": true,
+    "tags": [
+      "هنتر × هنتر",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "نيبون تي في — معجم هنتر × هنتر",
+      "referenceUrl": "https://www.ntv.co.jp/hunterhunter/dictionary/",
+      "section": "念の系統 / ヒソカの念能力 — أنماط النين وقدرة هيسوكا",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a05",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Hunter x Hunter",
+    "imageAlt": "مخطط سداسي لأنواع طاقة خيالية؛ خمس خانات مسماة وخانة سادسة تحمل علامة استفهام.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a05.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-022",
+    "category": "anime",
+    "sub": "هنتر × هنتر",
+    "subcategory": "هنتر × هنتر",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلف مانغا هنتر × هنتر؟",
+    "options": [
+      "هاروئيتشي فوروداتي",
+      "ماساشي كيشيموتو",
+      "يوشيهيرو توغاشي",
+      "تيتي كوبو"
+    ],
+    "answer": 2,
+    "correctAnswer": "يوشيهيرو توغاشي",
+    "acceptedAnswers": [
+      "Yoshihiro Togashi",
+      "توغاشي"
+    ],
+    "explanation": "تعرّف صفحة VIZ يوشيهيرو توغاشي بوصفه مبتكر هنتر × هنتر.",
+    "source": {
+      "title": "VIZ — هنتر × هنتر",
+      "url": "https://www.viz.com/hunter-x-hunter",
+      "reference": "Created by / Story introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "هنتر × هنتر",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — هنتر × هنتر",
+      "referenceUrl": "https://www.viz.com/hunter-x-hunter",
+      "section": "Created by / Story introduction",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Hunter x Hunter"
+  },
+  {
+    "id": "v3-p-023",
+    "category": "anime",
+    "sub": "هنتر × هنتر",
+    "subcategory": "هنتر × هنتر",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "على أي جزيرة يعيش غون قبل أن يبدأ رحلته ليصبح صيادًا؟",
+    "options": [
+      "جزيرة الفجر",
+      "جزيرة الحوت",
+      "جزيرة السماء",
+      "جزيرة الدمى"
+    ],
+    "answer": 1,
+    "correctAnswer": "جزيرة الحوت",
+    "acceptedAnswers": [
+      "Whale Island",
+      "الحوت"
+    ],
+    "explanation": "يعرّف ملخص السلسلة غون بأنه فتى من جزيرة الحوت، ومنها تنطلق رحلته.",
+    "source": {
+      "title": "كرانشي رول — هنتر × هنتر",
+      "url": "https://www.crunchyroll.com/series/GY3VKX1MR/hunter-x-hunter",
+      "reference": "Series synopsis — Whale Island"
+    },
+    "spoiler": false,
+    "tags": [
+      "هنتر × هنتر",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "كرانشي رول — هنتر × هنتر",
+      "referenceUrl": "https://www.crunchyroll.com/series/GY3VKX1MR/hunter-x-hunter",
+      "section": "Series synopsis — Whale Island",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Hunter x Hunter"
+  },
+  {
+    "id": "v3-p-024",
+    "category": "anime",
+    "sub": "هنتر × هنتر",
+    "subcategory": "هنتر × هنتر",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما الخاصيتان اللتان يجمعهما هيسوكا في قدرة «بانجي غام»؟",
+    "options": [
+      "المطاط والعلكة",
+      "الماء والجليد",
+      "النار والدخان",
+      "الزجاج والحديد"
+    ],
+    "answer": 0,
+    "correctAnswer": "المطاط والعلكة",
+    "acceptedAnswers": [
+      "العلكة والمطاط",
+      "Rubber and gum"
+    ],
+    "explanation": "يوضح معجم نيبون تي في أن هيسوكا يحوّل هالته لتجمع خاصيتي المطاط والعلكة.",
+    "source": {
+      "title": "نيبون تي في — معجم هنتر × هنتر",
+      "url": "https://www.ntv.co.jp/hunterhunter/dictionary/",
+      "reference": "念の系統 / ヒソカの念能力 — أنماط النين وقدرة هيسوكا"
+    },
+    "spoiler": true,
+    "tags": [
+      "هنتر × هنتر",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "نيبون تي في — معجم هنتر × هنتر",
+      "referenceUrl": "https://www.ntv.co.jp/hunterhunter/dictionary/",
+      "section": "念の系統 / ヒソカの念能力 — أنماط النين وقدرة هيسوكا",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "hunter-x-hunter",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Hunter x Hunter"
+  },
+  {
+    "id": "v3-p-025",
+    "category": "anime",
+    "sub": "هجوم العمالقة",
+    "subcategory": "هجوم العمالقة",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "يشير الرسم إلى جهاز بخزانات غاز وأسلاك تثبيت. ما اسم معدات التنقل الهوائي التي يستخدمها الجنود في هجوم العمالقة؟",
+    "options": [
+      "دروع السايان",
+      "بدلة الأوتوميل",
+      "معدات الغوص القتالي",
+      "معدات المناورة ثلاثية الأبعاد"
+    ],
+    "answer": 3,
+    "correctAnswer": "معدات المناورة ثلاثية الأبعاد",
+    "acceptedAnswers": [
+      "معدات المناورة",
+      "جهاز المناورة ثلاثية الأبعاد",
+      "ODM gear",
+      "3D Maneuver Gear"
+    ],
+    "explanation": "تتيح معدات المناورة متعددة الاتجاهات للجنود التحرك في الهواء والقتال؛ الصورة مخطط تعليمي أصلي لفكرتها.",
+    "source": {
+      "title": "كوي تيكمو — آلية الحركة في هجوم العمالقة",
+      "url": "https://www.koeitecmoeurope.com/attackontitan/features.html",
+      "reference": "Titan Slaying Action — Omni-Directional Mobility"
+    },
+    "spoiler": false,
+    "tags": [
+      "هجوم العمالقة",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "كوي تيكمو — آلية الحركة في هجوم العمالقة",
+      "referenceUrl": "https://www.koeitecmoeurope.com/attackontitan/features.html",
+      "section": "Titan Slaying Action — Omni-Directional Mobility",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a06",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Attack on Titan",
+    "imageAlt": "مخطط معدات عند الخصر مع بكرات وكابلين يصلان إلى نقطتي تثبيت جانبيتين.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a06.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-026",
+    "category": "anime",
+    "sub": "هجوم العمالقة",
+    "subcategory": "هجوم العمالقة",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلف مانغا هجوم العمالقة؟",
+    "options": [
+      "ناوكي أوراساوا",
+      "تاكيهيكو إينوي",
+      "هاجيمي إيساياما",
+      "هيرومو أراكاوا"
+    ],
+    "answer": 2,
+    "correctAnswer": "هاجيمي إيساياما",
+    "acceptedAnswers": [
+      "Hajime Isayama",
+      "إيساياما",
+      "ايساياما"
+    ],
+    "explanation": "تنسب كودانشا مانغا هجوم العمالقة إلى هاجيمي إيساياما.",
+    "source": {
+      "title": "كودانشا — هجوم العمالقة",
+      "url": "https://kodansha.us/series/attack-on-titan/",
+      "reference": "By Hajime Isayama"
+    },
+    "spoiler": false,
+    "tags": [
+      "هجوم العمالقة",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "كودانشا — هجوم العمالقة",
+      "referenceUrl": "https://kodansha.us/series/attack-on-titan/",
+      "section": "By Hajime Isayama",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Attack on Titan"
+  },
+  {
+    "id": "v3-p-027",
+    "category": "anime",
+    "sub": "هجوم العمالقة",
+    "subcategory": "هجوم العمالقة",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي استوديو تولّى إنتاج الرسوم المتحركة للموسم الأول من هجوم العمالقة؟",
+    "options": [
+      "A-1 Pictures",
+      "ويت ستوديو",
+      "مابا",
+      "يوفوتيبل"
+    ],
+    "answer": 1,
+    "correctAnswer": "ويت ستوديو",
+    "acceptedAnswers": [
+      "WIT Studio",
+      "WIT",
+      "ويت"
+    ],
+    "explanation": "تسرد صفحة الموسم الأول WIT STUDIO في خانة إنتاج الرسوم المتحركة؛ تعاونت Production I.G في الإنتاج.",
+    "source": {
+      "title": "موقع هجوم العمالقة الرسمي — الموسم 1",
+      "url": "https://shingeki.tv/season1/staff/",
+      "reference": "音楽 / アニメーション制作 — الموسيقى والاستوديو"
+    },
+    "spoiler": false,
+    "tags": [
+      "هجوم العمالقة",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع هجوم العمالقة الرسمي — الموسم 1",
+      "referenceUrl": "https://shingeki.tv/season1/staff/",
+      "section": "音楽 / アニメーション制作 — الموسيقى والاستوديو",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Attack on Titan"
+  },
+  {
+    "id": "v3-p-028",
+    "category": "anime",
+    "sub": "هجوم العمالقة",
+    "subcategory": "هجوم العمالقة",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من ألّف موسيقى الموسم الأول من هجوم العمالقة؟",
+    "options": [
+      "هيرويوكي ساوانو",
+      "أكيرا سينجو",
+      "شيرو ساغيسو",
+      "جو هيسايشي"
+    ],
+    "answer": 0,
+    "correctAnswer": "هيرويوكي ساوانو",
+    "acceptedAnswers": [
+      "Hiroyuki Sawano",
+      "ساوانو"
+    ],
+    "explanation": "يُدرج الموقع الرسمي هيرويوكي ساوانو بوصفه ملحن الموسم الأول.",
+    "source": {
+      "title": "موقع هجوم العمالقة الرسمي — الموسم 1",
+      "url": "https://shingeki.tv/season1/staff/",
+      "reference": "音楽 / アニメーション制作 — الموسيقى والاستوديو"
+    },
+    "spoiler": false,
+    "tags": [
+      "هجوم العمالقة",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع هجوم العمالقة الرسمي — الموسم 1",
+      "referenceUrl": "https://shingeki.tv/season1/staff/",
+      "section": "音楽 / アニメーション制作 — الموسيقى والاستوديو",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "attack-on-titan",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Attack on Titan"
+  },
+  {
+    "id": "v3-p-029",
+    "category": "anime",
+    "sub": "قاتل الشياطين",
+    "subcategory": "قاتل الشياطين",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "يشير المخطط إلى خام ورمل حديد يمتصان ضوء الشمس. مم تُصنع سيوف نيتشيرين في قاتل الشياطين؟",
+    "options": [
+      "الفضة والفحم الأبيض",
+      "الذهب والنحاس",
+      "حجر البحر والحديد العادي",
+      "الخام القرمزي ورمل الحديد القرمزي"
+    ],
+    "answer": 3,
+    "correctAnswer": "الخام القرمزي ورمل الحديد القرمزي",
+    "acceptedAnswers": [
+      "Scarlet Crimson Ore and Scarlet Crimson Iron Sand",
+      "الخام القرمزي ورمل الحديد"
+    ],
+    "explanation": "تُصنع نيتشيرين من الخام القرمزي ورمل الحديد القرمزي اللذين يتعرضان للشمس؛ أسماء المواد خيالية ضمن القصة.",
+    "source": {
+      "title": "Den of Geek — ألوان سيوف نيتشيرين",
+      "url": "https://www.denofgeek.com/tv/demon-slayer-sword-colors/",
+      "reference": "Nichirin blades — scarlet crimson ore and iron sand"
+    },
+    "spoiler": true,
+    "tags": [
+      "قاتل الشياطين",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "Den of Geek — ألوان سيوف نيتشيرين",
+      "referenceUrl": "https://www.denofgeek.com/tv/demon-slayer-sword-colors/",
+      "section": "Nichirin blades — scarlet crimson ore and iron sand",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a07",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Demon Slayer",
+    "imageAlt": "شمس فوق قطع خام ورمل أحمر، وأسهم تقود منهما إلى نصل سيف مرسوم بشكل رمزي.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a07.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-030",
+    "category": "anime",
+    "sub": "قاتل الشياطين",
+    "subcategory": "قاتل الشياطين",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلف مانغا قاتل الشياطين: كيميتسو نو يايبا؟",
+    "options": [
+      "تاتسوكي فوجيموتو",
+      "يوكي تاباتا",
+      "كويوهارو غوتوغي",
+      "غِيغي أكوتامي"
+    ],
+    "answer": 2,
+    "correctAnswer": "كويوهارو غوتوغي",
+    "acceptedAnswers": [
+      "Koyoharu Gotouge",
+      "كويوهارو غوتوجي",
+      "غوتوغي"
+    ],
+    "explanation": "تسرد دار VIZ اسم كويوهارو غوتوغي بوصفه مبتكر المانغا الأصلية.",
+    "source": {
+      "title": "VIZ — قاتل الشياطين",
+      "url": "https://www.viz.com/demon-slayer-kimetsu-no-yaiba",
+      "reference": "Created by Koyoharu Gotouge"
+    },
+    "spoiler": false,
+    "tags": [
+      "قاتل الشياطين",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — قاتل الشياطين",
+      "referenceUrl": "https://www.viz.com/demon-slayer-kimetsu-no-yaiba",
+      "section": "Created by Koyoharu Gotouge",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Demon Slayer"
+  },
+  {
+    "id": "v3-p-031",
+    "category": "anime",
+    "sub": "قاتل الشياطين",
+    "subcategory": "قاتل الشياطين",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "في أي حقبة يابانية تقع أحداث قاتل الشياطين بحسب تقديم الأنمي الرسمي؟",
+    "options": [
+      "حقبة ريوا",
+      "حقبة تايشو",
+      "حقبة هييان",
+      "حقبة إيدو"
+    ],
+    "answer": 1,
+    "correctAnswer": "حقبة تايشو",
+    "acceptedAnswers": [
+      "Taisho",
+      "Taishō",
+      "تايشو"
+    ],
+    "explanation": "يبدأ تعريف أنيبلكس الرسمي بالعمل بتحديد حقبة تايشو مسرحًا لأحداث القصة.",
+    "source": {
+      "title": "أنيبلكس أمريكا — تقديم قاتل الشياطين",
+      "url": "https://aniplexusa.com/pdf/PR_040219_DemonSlayer.pdf",
+      "reference": "About Demon Slayer — Taisho Period"
+    },
+    "spoiler": false,
+    "tags": [
+      "قاتل الشياطين",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "أنيبلكس أمريكا — تقديم قاتل الشياطين",
+      "referenceUrl": "https://aniplexusa.com/pdf/PR_040219_DemonSlayer.pdf",
+      "section": "About Demon Slayer — Taisho Period",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Demon Slayer"
+  },
+  {
+    "id": "v3-p-032",
+    "category": "anime",
+    "sub": "قاتل الشياطين",
+    "subcategory": "قاتل الشياطين",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "أي ثنائي مدرج لتأليف موسيقى أنمي قاتل الشياطين: تدريب الهاشيرا؟",
+    "options": [
+      "يوكي كاجيورا وغو شينا",
+      "ساوانو وكينشيرو سويهرو",
+      "ساغيسو وتاكاناشي",
+      "سينجو ويوكو كانو"
+    ],
+    "answer": 0,
+    "correctAnswer": "يوكي كاجيورا وغو شينا",
+    "acceptedAnswers": [
+      "Yuki Kajiura and Go Shiina",
+      "غو شينا ويوكي كاجيورا"
+    ],
+    "explanation": "تذكر قائمة فريق العمل الرسمية يوكي كاجيورا وغو شينا في خانة الموسيقى.",
+    "source": {
+      "title": "موقع قاتل الشياطين الرسمي — تدريب الهاشيرا",
+      "url": "https://demonslayer-anime.com/hta/staffcast/",
+      "reference": "Music — Yuki Kajiura, Go Shiina"
+    },
+    "spoiler": false,
+    "tags": [
+      "قاتل الشياطين",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع قاتل الشياطين الرسمي — تدريب الهاشيرا",
+      "referenceUrl": "https://demonslayer-anime.com/hta/staffcast/",
+      "section": "Music — Yuki Kajiura, Go Shiina",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "demon-slayer",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Demon Slayer"
+  },
+  {
+    "id": "v3-p-033",
+    "category": "anime",
+    "sub": "جوجوتسو كايسن",
+    "subcategory": "جوجوتسو كايسن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "يوضح الرسم أمرًا صوتيًا يُجبر الهدف على التوقف. أي شخصية في جوجوتسو كايسن ترتبط بتقنية «الكلام الملعون»؟",
+    "options": [
+      "أوي تودو",
+      "كينتو نانامي",
+      "ميوا كاسومي",
+      "توغي إينوماكي"
+    ],
+    "answer": 3,
+    "correctAnswer": "توغي إينوماكي",
+    "acceptedAnswers": [
+      "Toge Inumaki",
+      "إينوماكي",
+      "توغي اينوماكي"
+    ],
+    "explanation": "إينوماكي من سلالة مستخدمي الكلام الملعون، ويتجنب الكلام العادي حتى لا يلعن الآخرين دون قصد.",
+    "source": {
+      "title": "موقع جوجوتسو كايسن الرسمي — شخصيات الموسم الأول",
+      "url": "https://jujutsukaisen.jp/character/index_1st.php",
+      "reference": "狗巻 棘 — توغي إينوماكي"
+    },
+    "spoiler": true,
+    "tags": [
+      "جوجوتسو كايسن",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع جوجوتسو كايسن الرسمي — شخصيات الموسم الأول",
+      "referenceUrl": "https://jujutsukaisen.jp/character/index_1st.php",
+      "section": "狗巻 棘 — توغي إينوماكي",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "image": "v3-a08",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "originalTitle": "Jujutsu Kaisen",
+    "imageAlt": "فقاعة كلام بأمر قصير، تخرج منها موجات نحو شخص رمزي ثابت في مكانه.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-a08.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-034",
+    "category": "anime",
+    "sub": "جوجوتسو كايسن",
+    "subcategory": "جوجوتسو كايسن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلف مانغا جوجوتسو كايسن؟",
+    "options": [
+      "أكيرا تورياما",
+      "يوشيهيرو توغاشي",
+      "غِيغي أكوتامي",
+      "تيتي كوبو"
+    ],
+    "answer": 2,
+    "correctAnswer": "غِيغي أكوتامي",
+    "acceptedAnswers": [
+      "Gege Akutami",
+      "غيغي اكوتامي",
+      "غيجي أكوتامي",
+      "أكوتامي"
+    ],
+    "explanation": "تسرد دار VIZ اسم غيغي أكوتامي بوصفه مبتكر جوجوتسو كايسن.",
+    "source": {
+      "title": "VIZ — جوجوتسو كايسن",
+      "url": "https://www.viz.com/jujutsu-kaisen",
+      "reference": "Created by Gege Akutami"
+    },
+    "spoiler": false,
+    "tags": [
+      "جوجوتسو كايسن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — جوجوتسو كايسن",
+      "referenceUrl": "https://www.viz.com/jujutsu-kaisen",
+      "section": "Created by Gege Akutami",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Jujutsu Kaisen"
+  },
+  {
+    "id": "v3-p-035",
+    "category": "anime",
+    "sub": "جوجوتسو كايسن",
+    "subcategory": "جوجوتسو كايسن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي استوديو أنتج الرسوم المتحركة للموسم الأول من جوجوتسو كايسن؟",
+    "options": [
+      "مادهاوس",
+      "مابا",
+      "ويت ستوديو",
+      "بونز"
+    ],
+    "answer": 1,
+    "correctAnswer": "مابا",
+    "acceptedAnswers": [
+      "MAPPA",
+      "مابا ستوديو"
+    ],
+    "explanation": "تسجل صفحة فريق عمل الموسم الأول MAPPA بوصفه استوديو إنتاج الرسوم المتحركة.",
+    "source": {
+      "title": "موقع جوجوتسو كايسن الرسمي — الموسم الأول",
+      "url": "https://jujutsukaisen.jp/staffcast/index_1st.php",
+      "reference": "アニメーション制作 — MAPPA"
+    },
+    "spoiler": false,
+    "tags": [
+      "جوجوتسو كايسن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع جوجوتسو كايسن الرسمي — الموسم الأول",
+      "referenceUrl": "https://jujutsukaisen.jp/staffcast/index_1st.php",
+      "section": "アニメーション制作 — MAPPA",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Jujutsu Kaisen"
+  },
+  {
+    "id": "v3-p-036",
+    "category": "anime",
+    "sub": "جوجوتسو كايسن",
+    "subcategory": "جوجوتسو كايسن",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من الشخصية الرئيسية في فيلم جوجوتسو كايسن 0؟",
+    "options": [
+      "يوتا أوكوتسو",
+      "يوجي إيتادوري",
+      "كينتو نانامي",
+      "أوي تودو"
+    ],
+    "answer": 0,
+    "correctAnswer": "يوتا أوكوتسو",
+    "acceptedAnswers": [
+      "Yuta Okkotsu",
+      "يوتا اوكوتسو",
+      "يوتا"
+    ],
+    "explanation": "يركز الفيلم التمهيدي جوجوتسو كايسن 0 على يوتا أوكوتسو؛ السؤال لا يكشف نتائج أحداثه.",
+    "source": {
+      "title": "موقع فيلم جوجوتسو كايسن 0 الرسمي",
+      "url": "https://jujutsukaisen-movie.jp/character/",
+      "reference": "乙骨憂太 — Yuta Okkotsu"
+    },
+    "spoiler": false,
+    "tags": [
+      "جوجوتسو كايسن",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع فيلم جوجوتسو كايسن 0 الرسمي",
+      "referenceUrl": "https://jujutsukaisen-movie.jp/character/",
+      "section": "乙骨憂太 — Yuta Okkotsu",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "jujutsu-kaisen",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Jujutsu Kaisen"
+  },
+  {
+    "id": "v3-p-037",
+    "category": "anime",
+    "sub": "مذكرة الموت",
+    "subcategory": "مذكرة الموت",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من كاتب قصة مانغا مذكرة الموت؟",
+    "options": [
+      "هيرومو أراكاوا",
+      "ناوكي أوراساوا",
+      "يوشيهيرو توغاشي",
+      "تسوغومي أوبا"
+    ],
+    "answer": 3,
+    "correctAnswer": "تسوغومي أوبا",
+    "acceptedAnswers": [
+      "Tsugumi Ohba",
+      "تسوجومي اوبا",
+      "أوبا"
+    ],
+    "explanation": "تحدد دار VIZ دور تسوغومي أوبا بكتابة القصة ودور تاكيشي أوباتا بالرسم.",
+    "source": {
+      "title": "VIZ — مجموعة مذكرة الموت الكاملة",
+      "url": "https://www.viz.com/manga-books/manga/death-note/product/1768",
+      "reference": "Story by Tsugumi Ohba, Art by Takeshi Obata"
+    },
+    "spoiler": false,
+    "tags": [
+      "مذكرة الموت",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — مجموعة مذكرة الموت الكاملة",
+      "referenceUrl": "https://www.viz.com/manga-books/manga/death-note/product/1768",
+      "section": "Story by Tsugumi Ohba, Art by Takeshi Obata",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Death Note"
+  },
+  {
+    "id": "v3-p-038",
+    "category": "anime",
+    "sub": "مذكرة الموت",
+    "subcategory": "مذكرة الموت",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من رسام مانغا مذكرة الموت؟",
+    "options": [
+      "تاكيهيكو إينوي",
+      "كينتارو ميورا",
+      "تاكيشي أوباتا",
+      "تيتي كوبو"
+    ],
+    "answer": 2,
+    "correctAnswer": "تاكيشي أوباتا",
+    "acceptedAnswers": [
+      "Takeshi Obata",
+      "تاكيشي اوباتا",
+      "أوباتا"
+    ],
+    "explanation": "تنسب صفحة المجموعة الكاملة الرسم إلى تاكيشي أوباتا، بينما القصة لتسوغومي أوبا.",
+    "source": {
+      "title": "VIZ — مجموعة مذكرة الموت الكاملة",
+      "url": "https://www.viz.com/manga-books/manga/death-note/product/1768",
+      "reference": "Story by Tsugumi Ohba, Art by Takeshi Obata"
+    },
+    "spoiler": false,
+    "tags": [
+      "مذكرة الموت",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — مجموعة مذكرة الموت الكاملة",
+      "referenceUrl": "https://www.viz.com/manga-books/manga/death-note/product/1768",
+      "section": "Story by Tsugumi Ohba, Art by Takeshi Obata",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Death Note"
+  },
+  {
+    "id": "v3-p-039",
+    "category": "anime",
+    "sub": "مذكرة الموت",
+    "subcategory": "مذكرة الموت",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "وفق القواعد الأساسية للمذكرة، ما سبب الوفاة الافتراضي إذا كُتب اسم الشخص دون تحديد سبب؟",
+    "options": [
+      "التسمم",
+      "نوبة قلبية",
+      "فقدان الدم",
+      "الغرق"
+    ],
+    "answer": 1,
+    "correctAnswer": "نوبة قلبية",
+    "acceptedAnswers": [
+      "أزمة قلبية",
+      "سكتة قلبية",
+      "Heart attack"
+    ],
+    "explanation": "تنص القواعد الأساسية الخيالية للمذكرة على حدوث نوبة قلبية إذا لم يُحدّد سبب الوفاة.",
+    "source": {
+      "title": "موسوعة مذكرة الموت — قواعد المذكرة",
+      "url": "https://deathnote.fandom.com/wiki/Rules_of_the_Death_Note",
+      "reference": "How to Use It — I"
+    },
+    "spoiler": true,
+    "tags": [
+      "مذكرة الموت",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موسوعة مذكرة الموت — قواعد المذكرة",
+      "referenceUrl": "https://deathnote.fandom.com/wiki/Rules_of_the_Death_Note",
+      "section": "How to Use It — I",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "death-note",
+    "spoilerLevel": 2,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Death Note"
+  },
+  {
+    "id": "v3-p-040",
+    "category": "anime",
+    "sub": "مذكرة الموت",
+    "subcategory": "مذكرة الموت",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من أخرج أنمي مذكرة الموت التلفزيوني الأصلي؟",
+    "options": [
+      "تيتسورو أراكي",
+      "هاياتو داتي",
+      "يوزورو تاتشيكاوا",
+      "شينيتشيرو واتانابي"
+    ],
+    "answer": 0,
+    "correctAnswer": "تيتسورو أراكي",
+    "acceptedAnswers": [
+      "Tetsuro Araki",
+      "Tetsurō Araki",
+      "تتسورو اراكي"
+    ],
+    "explanation": "تُدرج صفحة الاستوديو المنتج مادهاوس تيتسورو أراكي في خانة الإخراج.",
+    "source": {
+      "title": "مادهاوس — إنتاج أنمي مذكرة الموت",
+      "url": "https://madhouse.co.jp/works/tv_deathnote/",
+      "reference": "監督／荒木哲郎 — الإخراج: تيتسورو أراكي"
+    },
+    "spoiler": false,
+    "tags": [
+      "مذكرة الموت",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مادهاوس — إنتاج أنمي مذكرة الموت",
+      "referenceUrl": "https://madhouse.co.jp/works/tv_deathnote/",
+      "section": "監督／荒木哲郎 — الإخراج: تيتسورو أراكي",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "death-note",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Death Note"
+  },
+  {
+    "id": "v3-p-041",
+    "category": "anime",
+    "sub": "سولو ليفلينغ",
+    "subcategory": "سولو ليفلينغ",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من كاتب القصة الأصلية لسولو ليفلينغ؟",
+    "options": [
+      "دوبو",
+      "إس آي يو",
+      "يون إن وان",
+      "تشوغونغ"
+    ],
+    "answer": 3,
+    "correctAnswer": "تشوغونغ",
+    "acceptedAnswers": [
+      "Chugong",
+      "تشوجونج",
+      "تشوغونغ"
+    ],
+    "explanation": "تسجل دار Yen Press اسم Chugong مؤلفًا، مع تمييزه عن رسام الاقتباس المصور دوبو.",
+    "source": {
+      "title": "Yen Press — سولو ليفلينغ المجلد 1 المصور",
+      "url": "https://yenpress.com/titles/9781975319441-solo-leveling-vol-1-comic",
+      "reference": "Author: Chugong / Artist: DUBU (REDICE STUDIO)"
+    },
+    "spoiler": false,
+    "tags": [
+      "سولو ليفلينغ",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "Yen Press — سولو ليفلينغ المجلد 1 المصور",
+      "referenceUrl": "https://yenpress.com/titles/9781975319441-solo-leveling-vol-1-comic",
+      "section": "Author: Chugong / Artist: DUBU (REDICE STUDIO)",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 1,
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Solo Leveling"
+  },
+  {
+    "id": "v3-p-042",
+    "category": "anime",
+    "sub": "سولو ليفلينغ",
+    "subcategory": "سولو ليفلينغ",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "ما الاسم الفني لرسام الاقتباس المصور الأصلي لسولو ليفلينغ من استوديو ريد آيس؟",
+    "options": [
+      "تاكيشي أوباتا",
+      "وون",
+      "دوبو",
+      "بويشي"
+    ],
+    "answer": 2,
+    "correctAnswer": "دوبو",
+    "acceptedAnswers": [
+      "DUBU",
+      "دبو"
+    ],
+    "explanation": "تعتمد طبعة المجلد الأول اسم DUBU من REDICE STUDIO رسامًا للاقتباس المصور.",
+    "source": {
+      "title": "Yen Press — سولو ليفلينغ المجلد 1 المصور",
+      "url": "https://yenpress.com/titles/9781975319441-solo-leveling-vol-1-comic",
+      "reference": "Author: Chugong / Artist: DUBU (REDICE STUDIO)"
+    },
+    "spoiler": false,
+    "tags": [
+      "سولو ليفلينغ",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "Yen Press — سولو ليفلينغ المجلد 1 المصور",
+      "referenceUrl": "https://yenpress.com/titles/9781975319441-solo-leveling-vol-1-comic",
+      "section": "Author: Chugong / Artist: DUBU (REDICE STUDIO)",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 1,
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Solo Leveling"
+  },
+  {
+    "id": "v3-p-043",
+    "category": "anime",
+    "sub": "سولو ليفلينغ",
+    "subcategory": "سولو ليفلينغ",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي استوديو أنتج الموسم الأول من أنمي سولو ليفلينغ؟",
+    "options": [
+      "كيوتو أنيميشن",
+      "A-1 Pictures",
+      "يوفوتيبل",
+      "بونز"
+    ],
+    "answer": 1,
+    "correctAnswer": "A-1 Pictures",
+    "acceptedAnswers": [
+      "ايه ون بيكتشرز",
+      "A1 Pictures",
+      "إيه ون بيكتشرز"
+    ],
+    "explanation": "تعرض صفحة أعمال A-1 Pictures الموسم الأول من سولو ليفلينغ ضمن إنتاجاته.",
+    "source": {
+      "title": "A-1 Pictures — سولو ليفلينغ الموسم الأول",
+      "url": "https://a1p.jp/works/sololeveling-01/",
+      "reference": "制作 / STAFF"
+    },
+    "spoiler": false,
+    "tags": [
+      "سولو ليفلينغ",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "A-1 Pictures — سولو ليفلينغ الموسم الأول",
+      "referenceUrl": "https://a1p.jp/works/sololeveling-01/",
+      "section": "制作 / STAFF",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 1,
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Solo Leveling"
+  },
+  {
+    "id": "v3-p-044",
+    "category": "anime",
+    "sub": "سولو ليفلينغ",
+    "subcategory": "سولو ليفلينغ",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما نوع العمل الأصلي لسولو ليفلينغ قبل اقتباسه إلى قصة مصورة ثم أنمي؟",
+    "options": [
+      "رواية ويب كورية",
+      "لعبة أركيد يابانية",
+      "فيلم رسوم أمريكي",
+      "مسرحية موسيقية"
+    ],
+    "answer": 0,
+    "correctAnswer": "رواية ويب كورية",
+    "acceptedAnswers": [
+      "رواية ويب",
+      "رواية كورية",
+      "Web novel"
+    ],
+    "explanation": "بدأ سولو ليفلينغ رواية كورية لتشوغونغ، ثم اقتُبس إلى عمل مصور؛ تنشر Yen Press نسختي الرواية والقصص المصورة منفصلتين.",
+    "source": {
+      "title": "كرانشي رول — وثائقي صناعة سولو ليفلينغ",
+      "url": "https://www.crunchyroll.com/ko/series/GKEH2G079/the-leveling-of-solo-leveling",
+      "reference": "D&C Media — publisher of the webnovel; transformation from script to illustration"
+    },
+    "spoiler": false,
+    "tags": [
+      "سولو ليفلينغ",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "كرانشي رول — وثائقي صناعة سولو ليفلينغ",
+      "referenceUrl": "https://www.crunchyroll.com/ko/series/GKEH2G079/the-leveling-of-solo-leveling",
+      "section": "D&C Media — publisher of the webnovel; transformation from script to illustration",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "solo-leveling",
+    "spoilerLevel": 1,
+    "sourceMedia": "web-novel / webtoon",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Solo Leveling"
+  },
+  {
+    "id": "v3-p-045",
+    "category": "anime",
+    "sub": "الخيميائي الفولاذي",
+    "subcategory": "الخيميائي الفولاذي",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من مؤلفة مانغا الخيميائي الفولاذي؟",
+    "options": [
+      "كويوهارو غوتوغي",
+      "ناوكو تاكيوتشي",
+      "روميكو تاكاهاشي",
+      "هيرومو أراكاوا"
+    ],
+    "answer": 3,
+    "correctAnswer": "هيرومو أراكاوا",
+    "acceptedAnswers": [
+      "Hiromu Arakawa",
+      "هيرومو اراكاوا",
+      "أراكاوا"
+    ],
+    "explanation": "تنسب دار VIZ مانغا الخيميائي الفولاذي إلى هيرومو أراكاوا.",
+    "source": {
+      "title": "VIZ — الخيميائي الفولاذي",
+      "url": "https://www.viz.com/fullmetal-alchemist",
+      "reference": "Created by / Series introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "الخيميائي الفولاذي",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — الخيميائي الفولاذي",
+      "referenceUrl": "https://www.viz.com/fullmetal-alchemist",
+      "section": "Created by / Series introduction",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Fullmetal Alchemist"
+  },
+  {
+    "id": "v3-p-046",
+    "category": "anime",
+    "sub": "الخيميائي الفولاذي",
+    "subcategory": "الخيميائي الفولاذي",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي استوديو أنتج أنمي الخيميائي الفولاذي: برذرهود؟",
+    "options": [
+      "مادهاوس",
+      "ويت ستوديو",
+      "بونز",
+      "مابا"
+    ],
+    "answer": 2,
+    "correctAnswer": "بونز",
+    "acceptedAnswers": [
+      "BONES",
+      "Bones"
+    ],
+    "explanation": "تذكر قائمة فريق العمل الرسمية BONES بوصفه استوديو إنتاج الرسوم المتحركة.",
+    "source": {
+      "title": "موقع الخيميائي الفولاذي برذرهود الرسمي",
+      "url": "https://fullmetalalchemistusa.com/staffcast/",
+      "reference": "Animation Production by BONES / Music by Akira Senju"
+    },
+    "spoiler": false,
+    "tags": [
+      "الخيميائي الفولاذي",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع الخيميائي الفولاذي برذرهود الرسمي",
+      "referenceUrl": "https://fullmetalalchemistusa.com/staffcast/",
+      "section": "Animation Production by BONES / Music by Akira Senju",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Fullmetal Alchemist"
+  },
+  {
+    "id": "v3-p-047",
+    "category": "anime",
+    "sub": "الخيميائي الفولاذي",
+    "subcategory": "الخيميائي الفولاذي",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "ما الشيء الأسطوري الذي يبحث عنه الأخوان إلريك لاستعادة جسديهما في الخيميائي الفولاذي؟",
+    "options": [
+      "بلورة السايان",
+      "حجر الفلاسفة",
+      "كرة التنين",
+      "فاكهة الشيطان"
+    ],
+    "answer": 1,
+    "correctAnswer": "حجر الفلاسفة",
+    "acceptedAnswers": [
+      "Philosopher's Stone",
+      "حجر الفيلسوف"
+    ],
+    "explanation": "يحدد تقديم السلسلة حجر الفلاسفة غاية لرحلة الأخوين إلريك لاستعادة جسديهما.",
+    "source": {
+      "title": "VIZ — الخيميائي الفولاذي",
+      "url": "https://www.viz.com/fullmetal-alchemist",
+      "reference": "Created by / Series introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "الخيميائي الفولاذي",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "VIZ — الخيميائي الفولاذي",
+      "referenceUrl": "https://www.viz.com/fullmetal-alchemist",
+      "section": "Created by / Series introduction",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Fullmetal Alchemist"
+  },
+  {
+    "id": "v3-p-048",
+    "category": "anime",
+    "sub": "الخيميائي الفولاذي",
+    "subcategory": "الخيميائي الفولاذي",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من ألّف الموسيقى لأنمي الخيميائي الفولاذي: برذرهود؟",
+    "options": [
+      "أكيرا سينجو",
+      "ميتشيرو أوشيما",
+      "هيرويوكي ساوانو",
+      "يوكي كاجيورا"
+    ],
+    "answer": 0,
+    "correctAnswer": "أكيرا سينجو",
+    "acceptedAnswers": [
+      "Akira Senju",
+      "سينجو"
+    ],
+    "explanation": "تسرد صفحة فريق عمل برذرهود أكيرا سينجو ملحنًا؛ ميتشيرو أوشيما مرتبطة باقتباس 2003 المختلف.",
+    "source": {
+      "title": "موقع الخيميائي الفولاذي برذرهود الرسمي",
+      "url": "https://fullmetalalchemistusa.com/staffcast/",
+      "reference": "Animation Production by BONES / Music by Akira Senju"
+    },
+    "spoiler": false,
+    "tags": [
+      "الخيميائي الفولاذي",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "موقع الخيميائي الفولاذي برذرهود الرسمي",
+      "referenceUrl": "https://fullmetalalchemistusa.com/staffcast/",
+      "section": "Animation Production by BONES / Music by Akira Senju",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "franchiseId": "fullmetal-alchemist",
+    "spoilerLevel": 1,
+    "sourceMedia": "manga",
+    "contentCutoff": "2026-10-20",
+    "originalTitle": "Fullmetal Alchemist"
+  },
+  {
+    "id": "v3-p-049",
+    "category": "football",
+    "sub": "تاريخ أمم أوروبا",
+    "subcategory": "تاريخ أمم أوروبا",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدف الفوز لإسبانيا في نهائي أمم أوروبا 1964 أمام الاتحاد السوفيتي؟",
+    "options": [
+      "لويس سواريز ميرامونتيس",
+      "خيسوس ماريا بيريدا",
+      "أمانسيو",
+      "مارسيلينو"
+    ],
+    "answer": 3,
+    "correctAnswer": "مارسيلينو",
+    "acceptedAnswers": [
+      "Marcelino",
+      "مارسيلينو مارتينيز"
+    ],
+    "explanation": "حسم مارسيلينو النهائي برأسية منحت إسبانيا الفوز 2-1 على الاتحاد السوفيتي.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1964",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0eb1003d659d-f9d6903fa836-1000--euro-1964-all-you-need-to-know/",
+      "reference": "Who won EURO 1964? / Where was the final?"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ أمم أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1964",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0eb1003d659d-f9d6903fa836-1000--euro-1964-all-you-need-to-know/",
+      "section": "Who won EURO 1964? / Where was the final?",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-050",
+    "category": "football",
+    "sub": "ملاعب النهائيات",
+    "subcategory": "ملاعب النهائيات",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي ملعب استضاف نهائي أمم أوروبا 1964 الذي فازت فيه إسبانيا على الاتحاد السوفيتي؟",
+    "options": [
+      "واندا ميتروبوليتانو",
+      "ميستايا",
+      "سانتياغو برنابيو",
+      "كامب نو"
+    ],
+    "answer": 2,
+    "correctAnswer": "سانتياغو برنابيو",
+    "acceptedAnswers": [
+      "Santiago Bernabéu",
+      "البرنابيو",
+      "سانتياجو برنابيو"
+    ],
+    "explanation": "أقيم النهائي في ملعب سانتياغو برنابيو في مدريد، وانتهى 2-1 لإسبانيا.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1964",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0eb1003d659d-f9d6903fa836-1000--euro-1964-all-you-need-to-know/",
+      "reference": "Who won EURO 1964? / Where was the final?"
+    },
+    "spoiler": false,
+    "tags": [
+      "ملاعب النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1964",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0eb1003d659d-f9d6903fa836-1000--euro-1964-all-you-need-to-know/",
+      "section": "Who won EURO 1964? / Where was the final?",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-051",
+    "category": "football",
+    "sub": "تاريخ أمم أوروبا",
+    "subcategory": "تاريخ أمم أوروبا",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "أي منتخب واجهته إيطاليا مرتين في نهائي أمم أوروبا 1968 بسبب إعادة المباراة بعد التعادل؟",
+    "options": [
+      "تشيكوسلوفاكيا",
+      "يوغوسلافيا",
+      "الاتحاد السوفيتي",
+      "إنجلترا"
+    ],
+    "answer": 1,
+    "correctAnswer": "يوغوسلافيا",
+    "acceptedAnswers": [
+      "Yugoslavia",
+      "يوجوسلافيا"
+    ],
+    "explanation": "تعادلت إيطاليا ويوغوسلافيا 1-1 في النهائي الأول، ثم فازت إيطاليا 2-0 في الإعادة.",
+    "source": {
+      "title": "UEFA — إيطاليا وبطولة أوروبا 1968",
+      "url": "https://www.uefa.com/uefaeuro/history/news/0253-0d7bd1ace47b-5d248f73b2aa-1000--italy-make-most-of-good-fortune/",
+      "reference": "Semi-final coin toss / Final replay"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ أمم أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — إيطاليا وبطولة أوروبا 1968",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/0253-0d7bd1ace47b-5d248f73b2aa-1000--italy-make-most-of-good-fortune/",
+      "section": "Semi-final coin toss / Final replay",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-052",
+    "category": "football",
+    "sub": "قواعد تاريخية",
+    "subcategory": "قواعد تاريخية",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "كيف حُسم تأهل إيطاليا بعد تعادلها 0-0 مع الاتحاد السوفيتي في نصف نهائي أمم أوروبا 1968؟",
+    "options": [
+      "بقرعة قطعة نقدية",
+      "بركلات الترجيح",
+      "بقاعدة الأهداف خارج الأرض",
+      "بمباراة إعادة"
+    ],
+    "answer": 0,
+    "correctAnswer": "بقرعة قطعة نقدية",
+    "acceptedAnswers": [
+      "قرعة",
+      "رمي قطعة نقدية",
+      "Coin toss"
+    ],
+    "explanation": "لجأ النظام السائد آنذاك إلى قرعة قطعة نقدية بعد التعادل طوال 120 دقيقة؛ الإعادة كانت للنهائي اللاحق.",
+    "source": {
+      "title": "UEFA — إيطاليا وبطولة أوروبا 1968",
+      "url": "https://www.uefa.com/uefaeuro/history/news/0253-0d7bd1ace47b-5d248f73b2aa-1000--italy-make-most-of-good-fortune/",
+      "reference": "Semi-final coin toss / Final replay"
+    },
+    "spoiler": false,
+    "tags": [
+      "قواعد تاريخية",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — إيطاليا وبطولة أوروبا 1968",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/0253-0d7bd1ace47b-5d248f73b2aa-1000--italy-make-most-of-good-fortune/",
+      "section": "Semi-final coin toss / Final replay",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-053",
+    "category": "football",
+    "sub": "تاريخ أمم أوروبا",
+    "subcategory": "تاريخ أمم أوروبا",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "بأي نتيجة فازت ألمانيا الغربية على الاتحاد السوفيتي في نهائي أمم أوروبا 1972؟",
+    "options": [
+      "2-1",
+      "1-0",
+      "4-2",
+      "3-0"
+    ],
+    "answer": 3,
+    "correctAnswer": "3-0",
+    "acceptedAnswers": [
+      "ثلاثة لصفر",
+      "3 مقابل 0"
+    ],
+    "explanation": "سجّل غيرد مولر هدفين وهربرت فيمر هدفًا في فوز ألمانيا الغربية 3-0.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1972",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0eb139f3ef01-43794eaa51bc-1000--euro-1972-all-you-need-to-know/",
+      "reference": "Final / Top scorer"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ أمم أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1972",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0eb139f3ef01-43794eaa51bc-1000--euro-1972-all-you-need-to-know/",
+      "section": "Final / Top scorer",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-054",
+    "category": "football",
+    "sub": "هدافو البطولات",
+    "subcategory": "هدافو البطولات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من كان هداف المرحلة النهائية لأمم أوروبا 1972 برصيد أربعة أهداف؟",
+    "options": [
+      "راينر تسوبيل",
+      "أولي هونيس",
+      "غيرد مولر",
+      "راينر بونهوف"
+    ],
+    "answer": 2,
+    "correctAnswer": "غيرد مولر",
+    "acceptedAnswers": [
+      "Gerd Müller",
+      "Gerd Muller",
+      "جيرد مولر",
+      "مولر"
+    ],
+    "explanation": "أحرز غيرد مولر أربعة أهداف في نهائيات 1972، بواقع هدفين في نصف النهائي وهدفين في النهائي.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1972",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0eb139f3ef01-43794eaa51bc-1000--euro-1972-all-you-need-to-know/",
+      "reference": "Final / Top scorer"
+    },
+    "spoiler": false,
+    "tags": [
+      "هدافو البطولات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1972",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0eb139f3ef01-43794eaa51bc-1000--euro-1972-all-you-need-to-know/",
+      "section": "Final / Top scorer",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-055",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدفي ألمانيا الغربية في نهائي أمم أوروبا 1980 أمام بلجيكا؟",
+    "options": [
+      "بيرند شوستر",
+      "هورست هروبيش",
+      "كارل هاينتس رومينيغه",
+      "كلاوس ألوفس"
+    ],
+    "answer": 1,
+    "correctAnswer": "هورست هروبيش",
+    "acceptedAnswers": [
+      "Horst Hrubesch",
+      "هروبيش",
+      "هورست هروبيش"
+    ],
+    "explanation": "سجّل هورست هروبيش هدفي الفوز 2-1، وكان هدف الحسم برأسية متأخرة.",
+    "source": {
+      "title": "UEFA — نهائي أوروبا 1980",
+      "url": "https://www.uefa.com/uefaeuro/history/news/0253-0d7b30417790-5b9058afc9a7-1000--hrubesch-is-west-germany-s-hero-in-uefaeuro1980-final-again/",
+      "reference": "West Germany 2-1 Belgium — Horst Hrubesch"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — نهائي أوروبا 1980",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/0253-0d7b30417790-5b9058afc9a7-1000--hrubesch-is-west-germany-s-hero-in-uefaeuro1980-final-again/",
+      "section": "West Germany 2-1 Belgium — Horst Hrubesch",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-056",
+    "category": "football",
+    "sub": "هدافو البطولات",
+    "subcategory": "هدافو البطولات",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من أحرز تسعة أهداف في نهائيات أمم أوروبا 1984؟",
+    "options": [
+      "ميشيل بلاتيني",
+      "جان بيير بابان",
+      "تييري هنري",
+      "جان تيغانا"
+    ],
+    "answer": 0,
+    "correctAnswer": "ميشيل بلاتيني",
+    "acceptedAnswers": [
+      "Michel Platini",
+      "بلاتيني"
+    ],
+    "explanation": "قاد ميشيل بلاتيني فرنسا إلى لقب 1984 وأحرز تسعة من أهدافها الأربعة عشر في النهائيات.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1984",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0eb3409cf5d7-59ea269c3fd2-1000--euro-1984-all-you-need-to-know/",
+      "reference": "Michel Platini — nine goals"
+    },
+    "spoiler": false,
+    "tags": [
+      "هدافو البطولات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1984",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0eb3409cf5d7-59ea269c3fd2-1000--euro-1984-all-you-need-to-know/",
+      "section": "Michel Platini — nine goals",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-057",
+    "category": "football",
+    "sub": "المدربون",
+    "subcategory": "المدربون",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من كان مدرب فرنسا عندما أحرزت أمم أوروبا 1984؟",
+    "options": [
+      "إيمي جاكيه",
+      "روجيه لومير",
+      "جيرار هولييه",
+      "ميشيل هيدالغو"
+    ],
+    "answer": 3,
+    "correctAnswer": "ميشيل هيدالغو",
+    "acceptedAnswers": [
+      "Michel Hidalgo",
+      "ميشيل ايدالغو",
+      "هيدالغو"
+    ],
+    "explanation": "تولى ميشيل هيدالغو قيادة المنتخب الفرنسي المتوج على أرضه في 1984.",
+    "source": {
+      "title": "UEFA — فرنسا المتألقة في 1984",
+      "url": "https://www.uefa.com/uefaeuro/history/news/0253-0d7bc6ae8332-462b43181bbe-1000--platini-shines-for-flamboyant-france/",
+      "reference": "Michel Hidalgo and France"
+    },
+    "spoiler": false,
+    "tags": [
+      "المدربون",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — فرنسا المتألقة في 1984",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/0253-0d7bc6ae8332-462b43181bbe-1000--platini-shines-for-flamboyant-france/",
+      "section": "Michel Hidalgo and France",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-058",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من افتتح التسجيل لهولندا في نهائي أمم أوروبا 1988 قبل هدف فان باستن الشهير؟",
+    "options": [
+      "رونالد كومان",
+      "فيم كيفت",
+      "رود خوليت",
+      "فرانك ريكارد"
+    ],
+    "answer": 2,
+    "correctAnswer": "رود خوليت",
+    "acceptedAnswers": [
+      "Ruud Gullit",
+      "رود غوليت",
+      "خوليت",
+      "غوليت"
+    ],
+    "explanation": "افتتح رود خوليت التسجيل برأسية، ثم أضاف ماركو فان باستن الهدف الثاني.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1988",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025b-0ed955722c3e-d9f74ab7998d-1000--euro-1988-all-you-need-to-know/",
+      "reference": "Final — Ruud Gullit / Marco van Basten"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1988",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025b-0ed955722c3e-d9f74ab7998d-1000--euro-1988-all-you-need-to-know/",
+      "section": "Final — Ruud Gullit / Marco van Basten",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-059",
+    "category": "football",
+    "sub": "لحظات كروية",
+    "subcategory": "لحظات كروية",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من سجّل لهولندا الكرة الطائرة من زاوية ضيقة في نهائي أمم أوروبا 1988؟",
+    "options": [
+      "روبن فان بيرسي",
+      "ماركو فان باستن",
+      "دينيس بيرغكامب",
+      "رود فان نيستلروي"
+    ],
+    "answer": 1,
+    "correctAnswer": "ماركو فان باستن",
+    "acceptedAnswers": [
+      "Marco van Basten",
+      "فان باستن"
+    ],
+    "explanation": "أضاف ماركو فان باستن الهدف الثاني لهولندا بكرته الطائرة الشهيرة في النهائي أمام الاتحاد السوفيتي.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 1988",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025b-0ed955722c3e-d9f74ab7998d-1000--euro-1988-all-you-need-to-know/",
+      "reference": "Final — Ruud Gullit / Marco van Basten"
+    },
+    "spoiler": false,
+    "tags": [
+      "لحظات كروية",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 1988",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025b-0ed955722c3e-d9f74ab7998d-1000--euro-1988-all-you-need-to-know/",
+      "section": "Final — Ruud Gullit / Marco van Basten",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-060",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من سجّل الهدف الذهبي الذي حسم نهائي أمم أوروبا 2000 لفرنسا أمام إيطاليا؟",
+    "options": [
+      "دافيد تريزيغيه",
+      "تييري هنري",
+      "زين الدين زيدان",
+      "روبير بيريس"
+    ],
+    "answer": 0,
+    "correctAnswer": "دافيد تريزيغيه",
+    "acceptedAnswers": [
+      "David Trezeguet",
+      "دافيد تريزيجيه",
+      "تريزيغيه",
+      "تريزيجيه"
+    ],
+    "explanation": "سجّل البديل دافيد تريزيغيه هدفًا ذهبيًا في الوقت الإضافي، لتنتهي المباراة 2-1 لفرنسا.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 2000",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0ebed8faf1b4-a5df5bcea199-1000--euro-2000-all-you-need-to-know/",
+      "reference": "Final — Sylvain Wiltord / David Trezeguet"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 2000",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0ebed8faf1b4-a5df5bcea199-1000--euro-2000-all-you-need-to-know/",
+      "section": "Final — Sylvain Wiltord / David Trezeguet",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-061",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدف التعادل المتأخر لفرنسا الذي نقل نهائي أمم أوروبا 2000 إلى الوقت الإضافي؟",
+    "options": [
+      "دافيد تريزيغيه",
+      "كريستوف دوغاري",
+      "باتريك فييرا",
+      "سيلفان ويلتورد"
+    ],
+    "answer": 3,
+    "correctAnswer": "سيلفان ويلتورد",
+    "acceptedAnswers": [
+      "Sylvain Wiltord",
+      "ويلتورد",
+      "سيلفان ويلتور"
+    ],
+    "explanation": "سجّل سيلفان ويلتورد التعادل في الوقت بدل الضائع، ثم حسم تريزيغيه اللقب في الوقت الإضافي.",
+    "source": {
+      "title": "UEFA — بطولة أوروبا 2000",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025a-0ebed8faf1b4-a5df5bcea199-1000--euro-2000-all-you-need-to-know/",
+      "reference": "Final — Sylvain Wiltord / David Trezeguet"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بطولة أوروبا 2000",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025a-0ebed8faf1b4-a5df5bcea199-1000--euro-2000-all-you-need-to-know/",
+      "section": "Final — Sylvain Wiltord / David Trezeguet",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-062",
+    "category": "football",
+    "sub": "تاريخ أمم أوروبا",
+    "subcategory": "تاريخ أمم أوروبا",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "بأي نتيجة فازت إسبانيا على إيطاليا في نهائي أمم أوروبا 2012؟",
+    "options": [
+      "2-0",
+      "1-0",
+      "4-0",
+      "3-1"
+    ],
+    "answer": 2,
+    "correctAnswer": "4-0",
+    "acceptedAnswers": [
+      "أربعة لصفر",
+      "4 مقابل 0"
+    ],
+    "explanation": "أنهت إسبانيا النهائي في كييف بفوز 4-0، بعد أهداف سيلفا وألبا وتوريس وماتا.",
+    "source": {
+      "title": "UEFA — إسبانيا وإيطاليا: نهائي 2012",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025e-0f9049348671-434e86a2cc0f-1000--classics-spain-vs-italy-2012/",
+      "reference": "Spain 4-0 Italy — David Silva opener"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ أمم أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — إسبانيا وإيطاليا: نهائي 2012",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025e-0f9049348671-434e86a2cc0f-1000--classics-spain-vs-italy-2012/",
+      "section": "Spain 4-0 Italy — David Silva opener",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-063",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل الهدف الأول لإسبانيا في نهائي أمم أوروبا 2012 برأسية؟",
+    "options": [
+      "خوان ماتا",
+      "دافيد سيلفا",
+      "جوردي ألبا",
+      "فرناندو توريس"
+    ],
+    "answer": 1,
+    "correctAnswer": "دافيد سيلفا",
+    "acceptedAnswers": [
+      "David Silva",
+      "ديفيد سيلفا",
+      "سيلفا"
+    ],
+    "explanation": "افتتح دافيد سيلفا التسجيل برأسية في الدقيقة 14 إثر تمريرة سيسك فابريغاس.",
+    "source": {
+      "title": "UEFA — إسبانيا وإيطاليا: نهائي 2012",
+      "url": "https://www.uefa.com/uefaeuro/history/news/025e-0f9049348671-434e86a2cc0f-1000--classics-spain-vs-italy-2012/",
+      "reference": "Spain 4-0 Italy — David Silva opener"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — إسبانيا وإيطاليا: نهائي 2012",
+      "referenceUrl": "https://www.uefa.com/uefaeuro/history/news/025e-0f9049348671-434e86a2cc0f-1000--classics-spain-vs-italy-2012/",
+      "section": "Spain 4-0 Italy — David Silva opener",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-064",
+    "category": "football",
+    "sub": "تاريخ كأس أوروبا",
+    "subcategory": "تاريخ كأس أوروبا",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي ناد فاز بالنسخ الخمس الأولى من كأس الأندية الأوروبية البطلة بين 1956 و1960؟",
+    "options": [
+      "ريال مدريد",
+      "بنفيكا",
+      "ميلان",
+      "أياكس"
+    ],
+    "answer": 0,
+    "correctAnswer": "ريال مدريد",
+    "acceptedAnswers": [
+      "Real Madrid",
+      "الريال"
+    ],
+    "explanation": "فاز ريال مدريد بالنسخ الخمس الأولى من كأس أوروبا على التوالي بين 1956 و1960.",
+    "source": {
+      "title": "UEFA — ريال مدريد 1956–1960",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7ff5480c22-d63d36f4632d-1000--the-greatest-teams-of-all-time-real-madrid-1956-60/",
+      "reference": "Five consecutive European Cups"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ كأس أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — ريال مدريد 1956–1960",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d7ff5480c22-d63d36f4632d-1000--the-greatest-teams-of-all-time-real-madrid-1956-60/",
+      "section": "Five consecutive European Cups",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-065",
+    "category": "football",
+    "sub": "تاريخ كأس أوروبا",
+    "subcategory": "تاريخ كأس أوروبا",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "أي ناد أصبح أول فريق بريطاني يحرز كأس أوروبا عام 1967؟",
+    "options": [
+      "مانشستر يونايتد",
+      "ليفربول",
+      "نوتنغهام فورست",
+      "سلتيك"
+    ],
+    "answer": 3,
+    "correctAnswer": "سلتيك",
+    "acceptedAnswers": [
+      "Celtic",
+      "سيلتيك"
+    ],
+    "explanation": "فاز سلتيك الإسكتلندي على إنتر 2-1 في لشبونة عام 1967 ليصبح أول بطل بريطاني للمسابقة.",
+    "source": {
+      "title": "UEFA — تومي غيميل وأسود لشبونة",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0237-0e96605f25be-327f601a9b15-1000--celtic-lisbon-lion-tommy-gemmell-passes-away/",
+      "reference": "First British European Cup winners / Estádio Nacional"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ كأس أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — تومي غيميل وأسود لشبونة",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0237-0e96605f25be-327f601a9b15-1000--celtic-lisbon-lion-tommy-gemmell-passes-away/",
+      "section": "First British European Cup winners / Estádio Nacional",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-066",
+    "category": "football",
+    "sub": "ملاعب النهائيات",
+    "subcategory": "ملاعب النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "ما الملعب الذي شهد تتويج «أسود لشبونة» من سلتيك بكأس أوروبا عام 1967؟",
+    "options": [
+      "ملعب جوزيه ألفالادي",
+      "ملعب دراغاو",
+      "الملعب الوطني في لشبونة",
+      "ملعب دا لوش"
+    ],
+    "answer": 2,
+    "correctAnswer": "الملعب الوطني في لشبونة",
+    "acceptedAnswers": [
+      "Estádio Nacional",
+      "Estadio Nacional",
+      "استاديو ناسيونال",
+      "إستاديو ناسيونال"
+    ],
+    "explanation": "أقيم نهائي سلتيك وإنتر في إستاديو ناسيونال، الملعب الوطني قرب لشبونة.",
+    "source": {
+      "title": "UEFA — تومي غيميل وأسود لشبونة",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0237-0e96605f25be-327f601a9b15-1000--celtic-lisbon-lion-tommy-gemmell-passes-away/",
+      "reference": "First British European Cup winners / Estádio Nacional"
+    },
+    "spoiler": false,
+    "tags": [
+      "ملاعب النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — تومي غيميل وأسود لشبونة",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0237-0e96605f25be-327f601a9b15-1000--celtic-lisbon-lion-tommy-gemmell-passes-away/",
+      "section": "First British European Cup winners / Estádio Nacional",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-067",
+    "category": "football",
+    "sub": "حراس المرمى",
+    "subcategory": "حراس المرمى",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من حارس ستيوا بوخارست الذي صد ركلات برشلونة الأربع في ترجيح نهائي كأس أوروبا 1986؟",
+    "options": [
+      "فلورين برونيا",
+      "هيلموت دوكادام",
+      "سيلفيو لونغ",
+      "بوغدان ستيليا"
+    ],
+    "answer": 1,
+    "correctAnswer": "هيلموت دوكادام",
+    "acceptedAnswers": [
+      "Helmut Duckadam",
+      "دوكادام",
+      "هيلموت دوكادم"
+    ],
+    "explanation": "صد هيلموت دوكادام ركلات برشلونة الأربع، وفاز ستيوا بالترجيح 2-0 بعد تعادل سلبي.",
+    "source": {
+      "title": "UEFA — ستيوا يفاجئ برشلونة في 1986",
+      "url": "https://www.uefa.com/uefachampionsleague/news/00c5-0e6a0bc49898-3c69a840d79b-1000/",
+      "reference": "1985/86 — Helmut Duckadam saves four penalties"
+    },
+    "spoiler": false,
+    "tags": [
+      "حراس المرمى",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — ستيوا يفاجئ برشلونة في 1986",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/00c5-0e6a0bc49898-3c69a840d79b-1000/",
+      "section": "1985/86 — Helmut Duckadam saves four penalties",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-068",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدف أستون فيلا الوحيد أمام بايرن ميونخ في نهائي كأس أوروبا 1982؟",
+    "options": [
+      "بيتر ويث",
+      "غاري شو",
+      "توني مورلي",
+      "غوردون كوانز"
+    ],
+    "answer": 0,
+    "correctAnswer": "بيتر ويث",
+    "acceptedAnswers": [
+      "Peter Withe",
+      "بيتر ويذ",
+      "ويث"
+    ],
+    "explanation": "سجّل بيتر ويث هدف المباراة الوحيد في روتردام، فأحرز أستون فيلا اللقب في أول مشاركة له بكأس أوروبا.",
+    "source": {
+      "title": "UEFA — بيتر ويث يقود فيلا إلى اللقب",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0254-0d7b1e154752-f2cfb521c62d-1000/",
+      "reference": "1981/82 — Aston Villa 1-0 Bayern"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — بيتر ويث يقود فيلا إلى اللقب",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0254-0d7b1e154752-f2cfb521c62d-1000/",
+      "section": "1981/82 — Aston Villa 1-0 Bayern",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-069",
+    "category": "football",
+    "sub": "تاريخ كأس أوروبا",
+    "subcategory": "تاريخ كأس أوروبا",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "أي ناد هزم مارسيليا بركلات الترجيح في نهائي كأس أوروبا 1991 في باري؟",
+    "options": [
+      "بارتيزان بلغراد",
+      "دينامو زغرب",
+      "ستيوا بوخارست",
+      "النجم الأحمر بلغراد"
+    ],
+    "answer": 3,
+    "correctAnswer": "النجم الأحمر بلغراد",
+    "acceptedAnswers": [
+      "Crvena Zvezda",
+      "Red Star Belgrade",
+      "النجم الأحمر",
+      "تسرفينا زفيزدا"
+    ],
+    "explanation": "حسم النجم الأحمر، واسمه الصربي تسرفينا زفيزدا، النهائي بالترجيح 5-3 بعد تعادل سلبي.",
+    "source": {
+      "title": "UEFA — النجم الأحمر يحسم نهائي باري 1991",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0101-0e6a0d18f6a6-7526711e6abf-1000/",
+      "reference": "1990/91 — Crvena Zvezda 0-0 Marseille, 5-3 on penalties"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ كأس أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — النجم الأحمر يحسم نهائي باري 1991",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0101-0e6a0d18f6a6-7526711e6abf-1000/",
+      "section": "1990/91 — Crvena Zvezda 0-0 Marseille, 5-3 on penalties",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-070",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدفي دورتموند الأول والثاني في نهائي دوري الأبطال 1997 أمام يوفنتوس؟",
+    "options": [
+      "أندرياس مولر",
+      "ستيفان شابويزات",
+      "كارل هاينتس ريدله",
+      "لارس ريكن"
+    ],
+    "answer": 2,
+    "correctAnswer": "كارل هاينتس ريدله",
+    "acceptedAnswers": [
+      "Karl-Heinz Riedle",
+      "ريدله",
+      "ريدل"
+    ],
+    "explanation": "تقدم دورتموند بهدفين لكارل هاينتس ريدله، ثم سجّل ريكن الثالث في الفوز 3-1.",
+    "source": {
+      "title": "UEFA — نهائي دورتموند ويوفنتوس 1997",
+      "url": "https://www.uefa.com/uefachampionsleague/history/video/finals/0232-0e679786598e-87b13a5ec444-1000--1997-final-dortmund-3-1-juventus/",
+      "reference": "Karl-Heinz Riedle scores twice; Lars Ricken scores after coming on"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — نهائي دورتموند ويوفنتوس 1997",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/history/video/finals/0232-0e679786598e-87b13a5ec444-1000--1997-final-dortmund-3-1-juventus/",
+      "section": "Karl-Heinz Riedle scores twice; Lars Ricken scores after coming on",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-071",
+    "category": "football",
+    "sub": "ملاعب النهائيات",
+    "subcategory": "ملاعب النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "أي ملعب استضاف نهائي دوري الأبطال 2003 بين ميلان ويوفنتوس؟",
+    "options": [
+      "ملعب الألفية في كارديف",
+      "أولد ترافورد",
+      "ويمبلي",
+      "أنفيلد"
+    ],
+    "answer": 1,
+    "correctAnswer": "أولد ترافورد",
+    "acceptedAnswers": [
+      "Old Trafford",
+      "اولد ترافورد"
+    ],
+    "explanation": "أقيم النهائي الإيطالي الخالص في أولد ترافورد بمانشستر، وفاز ميلان بركلات الترجيح.",
+    "source": {
+      "title": "UEFA — ميلان يحرز اللقب في أولد ترافورد",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b3011dd29-b3eede70c2ce-1000/",
+      "reference": "2002/03 final — Old Trafford, Manchester"
+    },
+    "spoiler": false,
+    "tags": [
+      "ملاعب النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — ميلان يحرز اللقب في أولد ترافورد",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0253-0d7b3011dd29-b3eede70c2ce-1000/",
+      "section": "2002/03 final — Old Trafford, Manchester",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-072",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدف ليفربول الوحيد أمام ريال مدريد في نهائي كأس أوروبا 1981؟",
+    "options": [
+      "آلان كينيدي",
+      "راي كينيدي",
+      "كيني دالغليش",
+      "إيان راش"
+    ],
+    "answer": 0,
+    "correctAnswer": "آلان كينيدي",
+    "acceptedAnswers": [
+      "Alan Kennedy",
+      "الان كينيدي"
+    ],
+    "explanation": "سجّل الظهير آلان كينيدي هدف الحسم المتأخر في نهائي باريس عام 1981.",
+    "source": {
+      "title": "UEFA — نهائيات ليفربول وريال مدريد السابقة",
+      "url": "https://www.uefa.com/news/0275-15201acb75e7-c57250f46a12-1000--liverpool-and-real-madrid-s-finals/",
+      "reference": "1981 Liverpool 1-0 Real Madrid — Alan Kennedy"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — نهائيات ليفربول وريال مدريد السابقة",
+      "referenceUrl": "https://www.uefa.com/news/0275-15201acb75e7-c57250f46a12-1000--liverpool-and-real-madrid-s-finals/",
+      "section": "1981 Liverpool 1-0 Real Madrid — Alan Kennedy",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-073",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "من بديل أياكس الذي سجّل هدف الفوز على ميلان في نهائي دوري الأبطال 1995؟",
+    "options": [
+      "مارك أوفرمارس",
+      "ياري ليتمانن",
+      "فينيدي جورج",
+      "باتريك كلويفرت"
+    ],
+    "answer": 3,
+    "correctAnswer": "باتريك كلويفرت",
+    "acceptedAnswers": [
+      "Patrick Kluivert",
+      "كلويفرت",
+      "باتريك كلايفرت"
+    ],
+    "explanation": "دخل باتريك كلويفرت بديلًا وسجّل الهدف الوحيد في فيينا، ليمنح أياكس اللقب.",
+    "source": {
+      "title": "UEFA — كلويفرت يحسم اللقب لأياكس",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f0a393e2-49ba29a70f4c-1000--1994-95-kluivert-strikes-late-for-ajax/",
+      "reference": "1994/95 final — Patrick Kluivert"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — كلويفرت يحسم اللقب لأياكس",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0250-0c50f0a393e2-49ba29a70f4c-1000--1994-95-kluivert-strikes-late-for-ajax/",
+      "section": "1994/95 final — Patrick Kluivert",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-074",
+    "category": "football",
+    "sub": "نجوم النهائيات",
+    "subcategory": "نجوم النهائيات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من سجّل هدف ميلان الثالث بتسديدة ساقطة فوق زوبيزاريتا في نهائي دوري الأبطال 1994؟",
+    "options": [
+      "مارسيل ديسايي",
+      "روبرتو دونادوني",
+      "ديان سافيتشيفيتش",
+      "دانييلي ماسارو"
+    ],
+    "answer": 2,
+    "correctAnswer": "ديان سافيتشيفيتش",
+    "acceptedAnswers": [
+      "Dejan Savićević",
+      "Dejan Savicevic",
+      "ديان سافيسيفيتش",
+      "سافيتشيفيتش"
+    ],
+    "explanation": "استغل ديان سافيتشيفيتش كرة مرتدة وسجّل تسديدة ساقطة من بعيد؛ انتهى النهائي 4-0 لميلان.",
+    "source": {
+      "title": "UEFA — ميلان ونهائي أثينا 1994",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0125-0e6a11f19623-2e29440f5997-1000--milan-find-perfect-pitch-in-dream-final/",
+      "reference": "Savićević lobs Zubizarreta / Massaro brace"
+    },
+    "spoiler": false,
+    "tags": [
+      "نجوم النهائيات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "UEFA — ميلان ونهائي أثينا 1994",
+      "referenceUrl": "https://www.uefa.com/uefachampionsleague/news/0125-0e6a11f19623-2e29440f5997-1000--milan-find-perfect-pitch-in-dream-final/",
+      "section": "Savićević lobs Zubizarreta / Massaro brace",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-075",
+    "category": "football",
+    "sub": "قوانين كرة القدم",
+    "subcategory": "قوانين كرة القدم",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "عند لحظة تمرير الكرة في الرسم، يقف المهاجم الأزرق رقم 1 أقرب إلى المرمى من الكرة وثاني آخر منافس، داخل نصف ملعب الخصم. ما وصف موقعه قبل تحديد تدخله في اللعب؟",
+    "options": [
+      "مرتكب لخطأ لمس يد",
+      "في موقف تسلل",
+      "في موقف صحيح حتمًا",
+      "مطرود من المباراة"
+    ],
+    "answer": 1,
+    "correctAnswer": "في موقف تسلل",
+    "acceptedAnswers": [
+      "موقف تسلل",
+      "Offside position"
+    ],
+    "explanation": "تحدد هذه الشروط موقف التسلل فقط؛ لا يُعاقب اللاعب إلا إذا شارك في اللعب على النحو المحدد في القانون 11.",
+    "source": {
+      "title": "مجلس الاتحاد الدولي — القانون 11: التسلل",
+      "url": "https://www.theifab.com/laws/latest/offside/",
+      "reference": "11.1 Offside position / 11.2 Offside offence"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين كرة القدم",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجلس الاتحاد الدولي — القانون 11: التسلل",
+      "referenceUrl": "https://www.theifab.com/laws/latest/offside/",
+      "section": "11.1 Offside position / 11.2 Offside offence",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-f01",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "مخطط لحظة تمرير الكرة إلى اللاعب الأزرق رقم 1، مع خط مرجعي للمدافع رقم 3 واتجاه الهجوم.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-f01.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-076",
+    "category": "football",
+    "sub": "قوانين كرة القدم",
+    "subcategory": "قوانين كرة القدم",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "في الرسم تعبر الكرة خط المرمى بالكامل خارج القائمين بعد أن لمسها مدافع أخيرًا، دون تسجيل هدف. ما الاستئناف المعتاد؟",
+    "options": [
+      "ركلة ركنية للمهاجمين",
+      "ركلة مرمى للمدافعين",
+      "رمية تماس",
+      "إسقاط الكرة"
+    ],
+    "answer": 0,
+    "correctAnswer": "ركلة ركنية للمهاجمين",
+    "acceptedAnswers": [
+      "ركنية",
+      "ضربة ركنية",
+      "Corner kick"
+    ],
+    "explanation": "تمنح الركلة الركنية عندما تعبر الكرة خط المرمى بالكامل ويكون آخر من لمسها من الفريق المدافع، دون إحراز هدف.",
+    "source": {
+      "title": "مجلس الاتحاد الدولي — القانون 17: الركلة الركنية",
+      "url": "https://www.theifab.com/laws/latest/the-corner-kick/",
+      "reference": "17.1 Procedure — ball passes over the goal line, last touched by defender"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين كرة القدم",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجلس الاتحاد الدولي — القانون 17: الركلة الركنية",
+      "referenceUrl": "https://www.theifab.com/laws/latest/the-corner-kick/",
+      "section": "17.1 Procedure — ball passes over the goal line, last touched by defender",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-f02",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "كرة تتجاوز خط المرمى من خارج القائم بعد أن لمسها مدافع، مع موضع الراية عند الركن.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-f02.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-077",
+    "category": "football",
+    "sub": "قياسات الملعب",
+    "subcategory": "قياسات الملعب",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما طول المسافة المحددة بالسهم، من خط المرمى إلى الخط الموازي له في مقدمة منطقة الجزاء؟",
+    "options": [
+      "5.5 متر",
+      "11 متر",
+      "18.5 متر",
+      "16.5 متر"
+    ],
+    "answer": 3,
+    "correctAnswer": "16.5 متر",
+    "acceptedAnswers": [
+      "16.5",
+      "16.5 م",
+      "ستة عشر ونصف"
+    ],
+    "explanation": "ينص القانون 1 على امتداد خطوط منطقة الجزاء 16.5 متر داخل الملعب ثم وصلها بخط مواز لخط المرمى.",
+    "source": {
+      "title": "مجلس الاتحاد الدولي — القانون 1: ميدان اللعب",
+      "url": "https://theifab.com/laws/latest/the-field-of-play/",
+      "reference": "1.2 Field markings / 1.6 The penalty area"
+    },
+    "spoiler": false,
+    "tags": [
+      "قياسات الملعب",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجلس الاتحاد الدولي — القانون 1: ميدان اللعب",
+      "referenceUrl": "https://theifab.com/laws/latest/the-field-of-play/",
+      "section": "1.2 Field markings / 1.6 The penalty area",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-f03",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "جزء من ملعب تظهر فيه منطقة كبيرة حول المرمى، وسهم مزدوج يسأل عن عمقها من خط المرمى.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-f03.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-078",
+    "category": "football",
+    "sub": "قوانين كرة القدم",
+    "subcategory": "قوانين كرة القدم",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "في رمية التماس، أي شرط لموضع القدمين يطابق الحالة الموضحة في الرسم عند إطلاق الكرة؟",
+    "options": [
+      "يجب رفع القدمين معًا عن الأرض",
+      "يجب وضع القدمين كاملتين داخل الملعب",
+      "جزء من كل قدم على الخط أو الأرض خارجه",
+      "يكفي ملامسة قدم واحدة للأرض"
+    ],
+    "answer": 2,
+    "correctAnswer": "جزء من كل قدم على الخط أو الأرض خارجه",
+    "acceptedAnswers": [
+      "جزء من كل قدم على خط التماس أو على الأرض خارجه",
+      "جزء من القدمين على الخط أو خارجه"
+    ],
+    "explanation": "يتطلب القانون أن يكون جزء من كل قدم على خط التماس أو على الأرض خارجه لحظة إطلاق الكرة؛ هذا شرط القدمين وحده.",
+    "source": {
+      "title": "مجلس الاتحاد الدولي — القانون 15: رمية التماس",
+      "url": "https://www.theifab.com/laws/latest/the-throw-in/",
+      "reference": "15.1 Procedure — both feet; behind and over the head"
+    },
+    "spoiler": false,
+    "tags": [
+      "قوانين كرة القدم",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجلس الاتحاد الدولي — القانون 15: رمية التماس",
+      "referenceUrl": "https://www.theifab.com/laws/latest/the-throw-in/",
+      "section": "15.1 Procedure — both feet; behind and over the head",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-f04",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "لاعب يرفع الكرة بكلتا يديه فوق رأسه، مع بقاء جزء من كل قدم على خط التماس.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-f04.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-079",
+    "category": "football",
+    "sub": "قياسات الملعب",
+    "subcategory": "قياسات الملعب",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما نصف قطر دائرة منتصف ملعب كرة القدم، الذي يمثله السهم من علامة الوسط إلى محيط الدائرة؟",
+    "options": [
+      "16.5 متر",
+      "9.15 متر",
+      "11 متر",
+      "5.5 متر"
+    ],
+    "answer": 1,
+    "correctAnswer": "9.15 متر",
+    "acceptedAnswers": [
+      "9.15",
+      "9.15 م",
+      "تسعة أمتار و15 سنتيمترًا"
+    ],
+    "explanation": "دائرة منتصف الملعب مرسومة بنصف قطر 9.15 متر، أي 10 ياردات، حول علامة الوسط.",
+    "source": {
+      "title": "مجلس الاتحاد الدولي — القانون 1: ميدان اللعب",
+      "url": "https://theifab.com/laws/latest/the-field-of-play/",
+      "reference": "1.2 Field markings / 1.6 The penalty area"
+    },
+    "spoiler": false,
+    "tags": [
+      "قياسات الملعب",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجلس الاتحاد الدولي — القانون 1: ميدان اللعب",
+      "referenceUrl": "https://theifab.com/laws/latest/the-field-of-play/",
+      "section": "1.2 Field markings / 1.6 The penalty area",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-f05",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "مخطط ملعب مع إبراز الدائرة الوسطى وسهم من مركزها إلى محيطها لتحديد نصف القطر.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-f05.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-080",
+    "category": "football",
+    "sub": "إشارات الحكم",
+    "subcategory": "إشارات الحكم",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "يرفع الحكم ذراعه فوق رأسه في الرسم ويستمر في الإشارة عند تنفيذ الركلة. على أي نوع من الركلات يدل ذلك؟",
+    "options": [
+      "ركلة حرة غير مباشرة",
+      "ركلة جزاء",
+      "ركلة مرمى",
+      "ركلة حرة مباشرة"
+    ],
+    "answer": 0,
+    "correctAnswer": "ركلة حرة غير مباشرة",
+    "acceptedAnswers": [
+      "غير مباشرة",
+      "ركلة غير مباشرة",
+      "Indirect free kick"
+    ],
+    "explanation": "يشير الحكم إلى الركلة الحرة غير المباشرة برفع ذراعه فوق رأسه، مع استمرار الإشارة وفق شروط القانون 13.",
+    "source": {
+      "title": "مجلس الاتحاد الدولي — القانون 13: الركلات الحرة",
+      "url": "https://www.theifab.com/laws/latest/free-kicks/",
+      "reference": "13.1 Types of free kick — indirect free kick signal"
+    },
+    "spoiler": false,
+    "tags": [
+      "إشارات الحكم",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجلس الاتحاد الدولي — القانون 13: الركلات الحرة",
+      "referenceUrl": "https://www.theifab.com/laws/latest/free-kicks/",
+      "section": "13.1 Types of free kick — indirect free kick signal",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-f06",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "حكم يرفع ذراعًا واحدة عموديًا إلى أعلى، وبجانبه لاعب وكرة متوقفة قبل الاستئناف.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-f06.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-081",
+    "category": "geo",
+    "sub": "أعلام الدول",
+    "subcategory": "أعلام الدول",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "إلى أي دولة يعود العلم ذو المثلثين المتصلين والإطار الأزرق الظاهر في الرسم؟",
+    "options": [
+      "بوتان",
+      "سريلانكا",
+      "بنغلاديش",
+      "نيبال"
+    ],
+    "answer": 3,
+    "correctAnswer": "نيبال",
+    "acceptedAnswers": [
+      "Nepal",
+      "نيپال"
+    ],
+    "explanation": "يصف دستور نيبال علمها بأنه مثلثان متصلان بلون قرمزي وإطار أزرق، مع رمزي الشمس والقمر.",
+    "source": {
+      "title": "حكومة نيبال — الدستور",
+      "url": "https://nic.gov.np/files/new_files/constitution-of-nepal.pdf",
+      "reference": "Article 8 and Schedule 1 — National flag"
+    },
+    "spoiler": false,
+    "tags": [
+      "أعلام الدول",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "حكومة نيبال — الدستور",
+      "referenceUrl": "https://nic.gov.np/files/new_files/constitution-of-nepal.pdf",
+      "section": "Article 8 and Schedule 1 — National flag",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-w01",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "علم أحمر بإطار أزرق، مؤلف من مثلثين متصلين، ويحمل شكلين أبيضين في جزأيه العلوي والسفلي.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-w01.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-082",
+    "category": "geo",
+    "sub": "أعلام الدول",
+    "subcategory": "أعلام الدول",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "ما الدولة التي يمثلها هذا العلم المربع الأحمر ذو الصليب الأبيض؟",
+    "options": [
+      "السويد",
+      "النرويج",
+      "سويسرا",
+      "الدنمارك"
+    ],
+    "answer": 2,
+    "correctAnswer": "سويسرا",
+    "acceptedAnswers": [
+      "Switzerland",
+      "الكونفدرالية السويسرية"
+    ],
+    "explanation": "العلم الوطني السويسري مربع أحمر يتوسطه صليب أبيض متساوي الأذرع.",
+    "source": {
+      "title": "وزارة الخارجية السويسرية — العلم السويسري",
+      "url": "https://www.aboutswitzerland.eda.admin.ch/en/swiss-flag",
+      "reference": "Square red flag and white cross"
+    },
+    "spoiler": false,
+    "tags": [
+      "أعلام الدول",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وزارة الخارجية السويسرية — العلم السويسري",
+      "referenceUrl": "https://www.aboutswitzerland.eda.admin.ch/en/swiss-flag",
+      "section": "Square red flag and white cross",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-w02",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "علم مربع أحمر يتوسطه صليب أبيض بأذرع متساوية.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-w02.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-083",
+    "category": "geo",
+    "sub": "أنهار أوروبا",
+    "subcategory": "أنهار أوروبا",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما النهر الذي يمر بفيينا وبراتيسلافا وبودابست وبلغراد؟",
+    "options": [
+      "الإلبه",
+      "الدانوب",
+      "الراين",
+      "السين"
+    ],
+    "answer": 1,
+    "correctAnswer": "الدانوب",
+    "acceptedAnswers": [
+      "Danube",
+      "نهر الدانوب"
+    ],
+    "explanation": "تدرج خريطة لجنة الدانوب موانئ العواصم الأربع على مجرى الدانوب.",
+    "source": {
+      "title": "لجنة الدانوب — خريطة الموانئ",
+      "url": "https://www.danubecommission.org/dc/en/danube-navigation/danube-ports-map/",
+      "reference": "Danube ports — Wien / Bratislava / Budapest / Beograd"
+    },
+    "spoiler": false,
+    "tags": [
+      "أنهار أوروبا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "لجنة الدانوب — خريطة الموانئ",
+      "referenceUrl": "https://www.danubecommission.org/dc/en/danube-navigation/danube-ports-map/",
+      "section": "Danube ports — Wien / Bratislava / Budapest / Beograd",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-084",
+    "category": "geo",
+    "sub": "بحيرات العالم",
+    "subcategory": "بحيرات العالم",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما أكبر بحيرة عذبة منفردة في العالم من حيث مساحة سطحها، وفق التصنيف الجغرافي المعتاد للبحيرات العظمى؟",
+    "options": [
+      "سوبيريور",
+      "بايكال",
+      "فيكتوريا",
+      "تنجانيقا"
+    ],
+    "answer": 0,
+    "correctAnswer": "سوبيريور",
+    "acceptedAnswers": [
+      "Lake Superior",
+      "بحيرة سوبيريور",
+      "البحيرة العليا"
+    ],
+    "explanation": "سوبيريور أكبر بحيرة عذبة منفردة من حيث مساحة السطح؛ بايكال تتفوق في العمق والحجم. يعامل التصنيف المعتاد ميشيغان وهورون بحيرتين منفصلتين.",
+    "source": {
+      "title": "غينيس — أكبر بحيرة عذبة من حيث المساحة",
+      "url": "https://www.guinnessworldrecords.com/world-records/75875-largest-freshwater-lake-by-surface-area",
+      "reference": "Lake Superior — Canada and USA"
+    },
+    "spoiler": false,
+    "tags": [
+      "بحيرات العالم",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "غينيس — أكبر بحيرة عذبة من حيث المساحة",
+      "referenceUrl": "https://www.guinnessworldrecords.com/world-records/75875-largest-freshwater-lake-by-surface-area",
+      "section": "Lake Superior — Canada and USA",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-085",
+    "category": "geo",
+    "sub": "الصحارى",
+    "subcategory": "الصحارى",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "ما أكبر صحراء حارة في العالم من حيث المساحة؟",
+    "options": [
+      "صحراء غوبي",
+      "صحراء أتاكاما",
+      "صحراء ناميب",
+      "الصحراء الكبرى"
+    ],
+    "answer": 3,
+    "correctAnswer": "الصحراء الكبرى",
+    "acceptedAnswers": [
+      "Sahara",
+      "الصحارى الكبرى",
+      "الساحارا"
+    ],
+    "explanation": "الصحراء الكبرى في شمال أفريقيا هي أكبر الصحارى الحارة؛ توجد صحارى قطبية أكبر منها، لذا قُيّد السؤال بالحارة.",
+    "source": {
+      "title": "غينيس — أكبر صحراء حارة",
+      "url": "https://www.guinnessworldrecords.com/world-records/largest-desert",
+      "reference": "Sahara — North Africa"
+    },
+    "spoiler": false,
+    "tags": [
+      "الصحارى",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "غينيس — أكبر صحراء حارة",
+      "referenceUrl": "https://www.guinnessworldrecords.com/world-records/largest-desert",
+      "section": "Sahara — North Africa",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-086",
+    "category": "geo",
+    "sub": "الممرات البحرية",
+    "subcategory": "الممرات البحرية",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "ما الممر البحري الذي تعبره السفن عادة من الطرف الجنوبي لأمريكا الجنوبية إلى شبه الجزيرة القطبية الجنوبية؟",
+    "options": [
+      "مضيق ملقا",
+      "قناة كيل",
+      "ممر دريك",
+      "مضيق بيرينغ"
+    ],
+    "answer": 2,
+    "correctAnswer": "ممر دريك",
+    "acceptedAnswers": [
+      "Drake Passage",
+      "مضيق دريك",
+      "دريك"
+    ],
+    "explanation": "يوضح البرنامج الأسترالي للقطب الجنوبي أن غالبية السفن إلى شبه الجزيرة القطبية تعبر ممر دريك من أمريكا الجنوبية.",
+    "source": {
+      "title": "البرنامج الأسترالي للقطب الجنوبي — أسئلة السياحة",
+      "url": "https://www.antarctica.gov.au/about-antarctica/tourism/frequently-asked-questions/",
+      "reference": "How long does it take? — Drake Passage from South America"
+    },
+    "spoiler": false,
+    "tags": [
+      "الممرات البحرية",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "البرنامج الأسترالي للقطب الجنوبي — أسئلة السياحة",
+      "referenceUrl": "https://www.antarctica.gov.au/about-antarctica/tourism/frequently-asked-questions/",
+      "section": "How long does it take? — Drake Passage from South America",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-087",
+    "category": "geo",
+    "sub": "شلالات العالم",
+    "subcategory": "شلالات العالم",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "على أي نهر تقع شلالات فيكتوريا بين زامبيا وزيمبابوي؟",
+    "options": [
+      "أورانج",
+      "زامبيزي",
+      "الكونغو",
+      "النيجر"
+    ],
+    "answer": 1,
+    "correctAnswer": "زامبيزي",
+    "acceptedAnswers": [
+      "Zambezi",
+      "نهر زامبيزي",
+      "زمبيزي"
+    ],
+    "explanation": "تصف اليونسكو شلالات فيكتوريا بانحدار نهر زامبيزي إلى سلسلة من الأخاديد البازلتية.",
+    "source": {
+      "title": "اليونسكو — موسي أو تونيا / شلالات فيكتوريا",
+      "url": "https://whc.unesco.org/en/list/509",
+      "reference": "Brief synthesis — Zambezi River"
+    },
+    "spoiler": false,
+    "tags": [
+      "شلالات العالم",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "اليونسكو — موسي أو تونيا / شلالات فيكتوريا",
+      "referenceUrl": "https://whc.unesco.org/en/list/509",
+      "section": "Brief synthesis — Zambezi River",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-088",
+    "category": "geo",
+    "sub": "أنهار أفريقيا",
+    "subcategory": "أنهار أفريقيا",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من أي بحيرة إثيوبية يخرج النيل الأزرق؟",
+    "options": [
+      "بحيرة تانا",
+      "بحيرة توركانا",
+      "بحيرة مالاوي",
+      "بحيرة كيفو"
+    ],
+    "answer": 0,
+    "correctAnswer": "بحيرة تانا",
+    "acceptedAnswers": [
+      "Lake Tana",
+      "تانا",
+      "بحيرة تانة"
+    ],
+    "explanation": "توضح وكالة الفضاء الأوروبية أن النيل الأزرق يخرج من الركن الجنوبي الشرقي لبحيرة تانا في إثيوبيا.",
+    "source": {
+      "title": "وكالة الفضاء الأوروبية — بحيرة تانا منبع النيل الأزرق",
+      "url": "https://www.esa.int/Applications/Observing_the_Earth/Lake_Tana_source_of_the_Blue_Nile",
+      "reference": "Blue Nile from southeast corner of Lake Tana"
+    },
+    "spoiler": false,
+    "tags": [
+      "أنهار أفريقيا",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وكالة الفضاء الأوروبية — بحيرة تانا منبع النيل الأزرق",
+      "referenceUrl": "https://www.esa.int/Applications/Observing_the_Earth/Lake_Tana_source_of_the_Blue_Nile",
+      "section": "Blue Nile from southeast corner of Lake Tana",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-089",
+    "category": "games",
+    "sub": "أجهزة محمولة",
+    "subcategory": "أجهزة محمولة",
+    "level": 2,
+    "difficulty": "intermediate",
+    "points": 400,
+    "q": "يمثل الرسم جهاز سيغا المحمول ذي الشاشة الملونة والتصميم الأفقي. ما اسمه؟",
+    "options": [
+      "أتاري لينكس",
+      "غيم بوي الأصلي",
+      "نيو جيو بوكيت",
+      "غيم غير"
+    ],
+    "answer": 3,
+    "correctAnswer": "غيم غير",
+    "acceptedAnswers": [
+      "Game Gear",
+      "Sega Game Gear",
+      "جيم جير",
+      "غيم جير"
+    ],
+    "explanation": "غيم غير هو جهاز سيغا المحمول ذو الشاشة الملونة؛ الرسم مخطط أصلي ولا يستخدم شعارات الشركة أو صورها.",
+    "source": {
+      "title": "سيغا — تاريخ جهاز غيم غير",
+      "url": "https://www.sega.jp/history/hard/gamegear/index.html",
+      "reference": "ゲームギア — portable colour LCD system"
+    },
+    "spoiler": false,
+    "tags": [
+      "أجهزة محمولة",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "سيغا — تاريخ جهاز غيم غير",
+      "referenceUrl": "https://www.sega.jp/history/hard/gamegear/index.html",
+      "section": "ゲームギア — portable colour LCD system",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-g01",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "جهاز ألعاب محمول أفقي داكن، بشاشة ملونة وأزرار اتجاهات يسارًا وزرين أزرقين يمينًا، دون شعارات.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-g01.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-090",
+    "category": "games",
+    "sub": "أجهزة محمولة",
+    "subcategory": "أجهزة محمولة",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "ما جهاز الألعاب الملون الذي يشير إليه الرسم، وتسمح خاصية قلب اتجاه عرضه بتكييفه لليد اليسرى أو اليمنى؟",
+    "options": [
+      "نينتندو غيم بوي",
+      "سوني PSP",
+      "أتاري لينكس",
+      "سيغا غيم غير"
+    ],
+    "answer": 2,
+    "correctAnswer": "أتاري لينكس",
+    "acceptedAnswers": [
+      "Atari Lynx",
+      "Lynx",
+      "لينكس"
+    ],
+    "explanation": "تميز أتاري لينكس بإمكانية عكس اتجاه العرض ليتناسب مع مستخدمي اليد اليمنى أو اليسرى؛ المخطط لا يمثل صورة رسمية للجهاز.",
+    "source": {
+      "title": "مركز تاريخ الحوسبة — أتاري لينكس",
+      "url": "https://www.computinghistory.org.uk/det/70868/Atari-Lynx/",
+      "reference": "Switchable right-handed/left-handed configuration"
+    },
+    "spoiler": false,
+    "tags": [
+      "أجهزة محمولة",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مركز تاريخ الحوسبة — أتاري لينكس",
+      "referenceUrl": "https://www.computinghistory.org.uk/det/70868/Atari-Lynx/",
+      "section": "Switchable right-handed/left-handed configuration",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-g02",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "جهاز ألعاب أفقي رمادي بشاشة ملونة وأزرار مزدوجة، مع سهم يرمز لقلب اتجاه عرض الشاشة.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-g02.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-091",
+    "category": "games",
+    "sub": "أجهزة محمولة",
+    "subcategory": "أجهزة محمولة",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "أي عائلة أجهزة نينتندو يشير إليها الرسم ذو الشاشتين، إحداهما شاشة لمس تستخدم بقلم؟",
+    "options": [
+      "غيم كيوب",
+      "نينتندو DS",
+      "غيم بوي أدفانس SP",
+      "نينتندو 64"
+    ],
+    "answer": 1,
+    "correctAnswer": "نينتندو DS",
+    "acceptedAnswers": [
+      "Nintendo DS",
+      "DS",
+      "نينتندو دي إس"
+    ],
+    "explanation": "قدم Nintendo DS شاشتين، إحداهما تعمل باللمس، مع قلم للتفاعل معها؛ الرسم يوضح الفكرة العامة للجهاز.",
+    "source": {
+      "title": "نينتندو — إيواتا يسأل: فكرة جهاز 3DS",
+      "url": "https://iwataasks.nintendo.com/interviews/3ds/how-nintendo-3ds-made/1/0/",
+      "reference": "Footnote: Nintendo DS — two screens, one touch screen"
+    },
+    "spoiler": false,
+    "tags": [
+      "أجهزة محمولة",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "نينتندو — إيواتا يسأل: فكرة جهاز 3DS",
+      "referenceUrl": "https://iwataasks.nintendo.com/interviews/3ds/how-nintendo-3ds-made/1/0/",
+      "section": "Footnote: Nintendo DS — two screens, one touch screen",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-g03",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "جهاز محمول يفتح بمفصلة، وفيه شاشتان إحداهما سفلية تعمل بقلم، وأزرار تحكم على جانبيها.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-g03.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-092",
+    "category": "games",
+    "sub": "أدوات التحكم",
+    "subcategory": "أدوات التحكم",
+    "level": 1,
+    "difficulty": "accessible",
+    "points": 200,
+    "q": "ما اسم وحدة تحكم Wii الطولية التي يشير إليها الرسم، والمعروفة باستشعار الحركة ورباط المعصم؟",
+    "options": [
+      "وي ريموت",
+      "دوال شوك 2",
+      "دريمكاست كونترولر",
+      "غيم كيوب كونترولر"
+    ],
+    "answer": 0,
+    "correctAnswer": "وي ريموت",
+    "acceptedAnswers": [
+      "Wii Remote",
+      "Wii Remote Plus",
+      "ويي ريموت",
+      "ويموت"
+    ],
+    "explanation": "وي ريموت أداة التحكم الحركية المرتبطة بجهاز Wii؛ ينتمي إصدار Remote Plus إلى العائلة نفسها.",
+    "source": {
+      "title": "نينتندو — أدوات تحكم Wii",
+      "url": "https://www.nintendo.com/en-gb/Wii/Accessories/Accessories-Wii-Nintendo-UK-626430.html",
+      "reference": "Wii Remote / Wii Remote Plus — motion sensing"
+    },
+    "spoiler": false,
+    "tags": [
+      "أدوات التحكم",
+      "توسعة V3"
+    ],
+    "type": "image",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "نينتندو — أدوات تحكم Wii",
+      "referenceUrl": "https://www.nintendo.com/en-gb/Wii/Accessories/Accessories-Wii-Nintendo-UK-626430.html",
+      "section": "Wii Remote / Wii Remote Plus — motion sensing",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    },
+    "image": "v3-g04",
+    "imageAttribution": "رسم تخطيطي أصلي للعبة سين جيم خالد؛ ليس صورة رسمية أو وثيقة أثرية.",
+    "imageLicense": "CC0-1.0",
+    "imageAlt": "وحدة تحكم بيضاء طولية بقرص اتجاهات وأزرار ورباط معصم، مع خطوط ترمز لاستشعار الحركة.",
+    "imageSource": "https://github.com/DRAGONQ8/Seen/blob/main/assets/media/v3-g04.svg",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "v3-p-093",
+    "category": "games",
+    "sub": "أجهزة وملحقات",
+    "subcategory": "أجهزة وملحقات",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "لأي جهاز ألعاب صُممت وحدة حفظ الألعاب ذات الشاشة الصغيرة المعروفة باسم VMU؟",
+    "options": [
+      "نينتندو غيم كيوب",
+      "سوني بلايستيشن 2",
+      "أتاري جاغوار",
+      "سيغا دريمكاست"
+    ],
+    "answer": 3,
+    "correctAnswer": "سيغا دريمكاست",
+    "acceptedAnswers": [
+      "Dreamcast",
+      "Sega Dreamcast",
+      "دريمكاست"
+    ],
+    "explanation": "وحدة VMU، اختصار Visual Memory Unit، ملحق لحفظ ألعاب سيغا دريمكاست وتملك شاشة صغيرة.",
+    "source": {
+      "title": "مجموعة متحف العلوم — وحدة الذاكرة المرئية لدريمكاست",
+      "url": "https://collection.sciencemuseumgroup.org.uk/objects/co8912917/sega-dreamcast-visual-memory",
+      "reference": "Sega Dreamcast Visual Memory Unit (VMU)"
+    },
+    "spoiler": false,
+    "tags": [
+      "أجهزة وملحقات",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مجموعة متحف العلوم — وحدة الذاكرة المرئية لدريمكاست",
+      "referenceUrl": "https://collection.sciencemuseumgroup.org.uk/objects/co8912917/sega-dreamcast-visual-memory",
+      "section": "Sega Dreamcast Visual Memory Unit (VMU)",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-094",
+    "category": "games",
+    "sub": "معمارية الأجهزة",
+    "subcategory": "معمارية الأجهزة",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "بماذا سُمّي المعالج المركزي لجهاز PlayStation 2؟",
+    "options": [
+      "زين 2",
+      "رياليتي كوبروسيسور",
+      "إيموشن إنجن",
+      "سيل برودباند إنجن"
+    ],
+    "answer": 2,
+    "correctAnswer": "إيموشن إنجن",
+    "acceptedAnswers": [
+      "Emotion Engine",
+      "محرك العاطفة",
+      "إيموشن إنجين"
+    ],
+    "explanation": "تعرض صفحة تاريخ بلايستيشن اسم Emotion Engine للمعالج المركزي في PS2؛ معالج Cell ارتبط بـPS3.",
+    "source": {
+      "title": "بلايستيشن — تاريخ PS2 وPSP",
+      "url": "https://www.playstation.com/en-us/playstation-history/2000-ps2-psp/",
+      "reference": "Emotion Engine — PS2 CPU"
+    },
+    "spoiler": false,
+    "tags": [
+      "معمارية الأجهزة",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بلايستيشن — تاريخ PS2 وPSP",
+      "referenceUrl": "https://www.playstation.com/en-us/playstation-history/2000-ps2-psp/",
+      "section": "Emotion Engine — PS2 CPU",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-095",
+    "category": "games",
+    "sub": "تاريخ ألعاب الحاسوب",
+    "subcategory": "تاريخ ألعاب الحاسوب",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "على أي حاسوب طُورت النسخة الأولى من لعبة Spacewar! في معهد MIT عام 1962؟",
+    "options": [
+      "آي بي إم PC",
+      "DEC PDP-1",
+      "ألتير 8800",
+      "كومودور 64"
+    ],
+    "answer": 1,
+    "correctAnswer": "DEC PDP-1",
+    "acceptedAnswers": [
+      "PDP-1",
+      "PDP 1",
+      "بي دي بي 1"
+    ],
+    "explanation": "تذكر سيرة ستيف راسل في متحف تاريخ الحاسوب أن Spacewar! نُفذت أولًا على PDP-1 في MIT عام 1962.",
+    "source": {
+      "title": "متحف تاريخ الحاسوب — ستيف راسل",
+      "url": "https://computerhistory.org/profile/steve-russell/",
+      "reference": "Spacewar! — first realized on PDP-1 at MIT in 1962"
+    },
+    "spoiler": false,
+    "tags": [
+      "تاريخ ألعاب الحاسوب",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "متحف تاريخ الحاسوب — ستيف راسل",
+      "referenceUrl": "https://computerhistory.org/profile/steve-russell/",
+      "section": "Spacewar! — first realized on PDP-1 at MIT in 1962",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  },
+  {
+    "id": "v3-p-096",
+    "category": "games",
+    "sub": "صناع أجهزة الألعاب",
+    "subcategory": "صناع أجهزة الألعاب",
+    "level": 3,
+    "difficulty": "specialist",
+    "points": 600,
+    "q": "من المصمم الذي تسميه مقابلات نينتندو الرسمية «أبا غيم بوي» لدوره المركزي في تطويره؟",
+    "options": [
+      "غونبي يوكوي",
+      "شينجي ميكامي",
+      "كازونوري ياماووتشي",
+      "هيديكي كاميا"
+    ],
+    "answer": 0,
+    "correctAnswer": "غونبي يوكوي",
+    "acceptedAnswers": [
+      "Gunpei Yokoi",
+      "Gumpei Yokoi",
+      "جونبي يوكوي",
+      "يوكوي"
+    ],
+    "explanation": "تصف مقابلات إيواتا غونبي يوكوي بأبي غيم بوي وتذكر دوره المركزي في تطوير الجهاز؛ شارك آخرون أيضًا في تطويره.",
+    "source": {
+      "title": "نينتندو — إيواتا يسأل: غونبي يوكوي",
+      "url": "https://iwataasks.nintendo.com/interviews/3ds/how-nintendo-3ds-made/0/1/",
+      "reference": "Footnote 4 — Gunpei Yokoi, father of Game Boy"
+    },
+    "spoiler": false,
+    "tags": [
+      "صناع أجهزة الألعاب",
+      "توسعة V3"
+    ],
+    "type": "text",
+    "version": 1,
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "نينتندو — إيواتا يسأل: غونبي يوكوي",
+      "referenceUrl": "https://iwataasks.nintendo.com/interviews/3ds/how-nintendo-3ds-made/0/1/",
+      "section": "Footnote 4 — Gunpei Yokoi, father of Game Boy",
+      "verifiedAt": "2026-10-20",
+      "notes": "قورن الادعاء المحدد في السؤال بالنص المتاح من المرجع المشار إليه؛ لا يشمل ذلك اعتماد جميع محتويات المرجع."
+    }
+  }
+]
