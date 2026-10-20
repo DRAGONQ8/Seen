@@ -103,7 +103,7 @@ const TeamEngine = (() => {
   }
   function defaults() {
     return {
-      mode: 'teams', board: 'compact', answerStyle: 'oral', choiceCount: 4,
+      mode: 'teams', board: 'classic', answerStyle: 'oral', choiceCount: 4,
       timer: true, duration: 60, steal: true, stealDuration: 10, negative: false,
       bonus: false, sound: true, animations: true, explanations: true, hints: true,
       spoilerProtection: true, repetition: 'recent', anime: {selected: FRANCHISES.map(f => f.id), levels: Object.fromEntries(FRANCHISES.map(f => [f.id, 1]))}, transition: 'auto', starter: '0', assistSlots: 3,
@@ -190,12 +190,12 @@ const TeamEngine = (() => {
       version: VERSION, timing: {elapsedMs:0,lastActiveAt:now}, questions: freezeTree(questions), selectionWarnings: [...new Set(selectionWarnings)], statisticsVersion: 2, id: `match-${now}-${seed}`, state: 'BOARD', config: c, seed, createdAt: now,
       teams: c.teams.map((t, i) => ({ id: `team-${i}`, name: t.name, color: t.color, avatar: t.avatar, players: [...t.players], score: 0, correct: 0, incorrect: 0, steals: 0, assists: Object.fromEntries(t.assists.map(k => [k, c.assistLimits[k]])), assistHistory: [] })),
       categories, board, turn: startingTeam, startingTeam, current: null,
-      transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, winner: null
+      transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, winner: null, lastResolution: null
     };
   }
   function reject(s, message) { s.lastError = message; return s; }
   function nextId(s, prefix) { s.serial++; return `${s.id}-${prefix}-${s.serial}`; }
-  function checkpoint(s) { const {questions, undo, ...rest} = s; const snap = clone(rest); s.undo.push(snap); if (s.undo.length > 24) s.undo.shift(); }
+  function checkpoint(s, kind = null) { const {questions, undo, ...rest} = s; const snap = clone(rest); if (kind) snap.undoAction = kind; s.undo.push(snap); if (s.undo.length > 24) s.undo.shift(); }
   function stopClock(c, now) { if (c.deadline !== null) c.remainingMs = Math.max(0, c.deadline - now); c.deadline = null; }
   function startClock(c, duration, enabled, now) { c.remainingMs = duration * 1000; c.timed = enabled; c.timerStarted = true; c.deadline = enabled ? now + c.remainingMs : null; }
   function refreshToken(s) { s.current.token = nextId(s, 'clock'); }
@@ -226,15 +226,96 @@ const TeamEngine = (() => {
     const tx = { id: nextId(s, 'score'), questionId, teamId: team, originalValue: value, reason, modifier, scoreBefore: before, scoreAfter: after, timestamp: now, groupId };
     target.score = after; s.transactions.push(tx); return tx.id;
   }
-  function adjudicate(s, winner, now) {
+  /* This pure preview is also the scoring plan used by adjudication. Deltas are
+     actual changes after the configured zero floor, not promised deductions. */
+  function scoreOutcome(s, requestedWinner) {
+    const c = s?.current;
+    if (!c || (requestedWinner !== null && teamIndex(requestedWinner) === null)) return null;
+    const winner = c.skip ? null : requestedWinner === null ? null : teamIndex(requestedWinner);
+    const implicitSteal = c.phase === 'first' && winner !== null && winner !== c.selector && s.config.steal;
+    const phase = implicitSteal ? 'steal' : c.phase;
+    const responder = implicitSteal ? 1 - c.selector : c.responder;
+    const doubled = winner !== null && questionAssists(c).some(a => a.key === 'double' && a.teamId === winner);
+    const earned = winner === null || phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (doubled ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
+    const transactions = [];
+    const add = (teamId, delta, reason, modifier) => transactions.push({teamId, delta, reason, modifier});
+    if (winner !== null && !(phase === 'trap' && s.config.trapSuccess === 'none')) add(winner, earned, phase === 'steal' && winner !== c.selector ? 'steal' : phase === 'trap' ? 'trap-correct' : 'correct', doubled ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal');
+    if (c.pitTeam !== null && winner === c.pitTeam) add(1 - c.pitTeam, -c.value, 'pit', 'pit');
+    if (c.pitTeam !== null && winner !== c.pitTeam && s.config.pitFailPenalty) add(c.pitTeam, -c.value, 'pit-failed', 'pit');
+    if (phase === 'trap' && winner !== responder) add(responder, -c.value, 'trap-failed', 'trap');
+    if (phase === 'steal' && winner !== responder && s.config.stealPenalty) add(responder, -c.value, 'steal-failed', 'steal');
+    const after = s.teams.map(t => t.score);
+    for (const tx of transactions) after[tx.teamId] = s.config.negative ? after[tx.teamId] + tx.delta : Math.max(0, after[tx.teamId] + tx.delta);
+    return {winner, earned, awarded:earned, deltas:after.map((n,i) => n - s.teams[i].score), transactions, phase, responder, steal:phase === 'steal' && winner !== null && winner !== c.selector};
+  }
+  function questionAssists(c) { return [...(c.usedAssists || []), ...(c.pendingAssists || [])]; }
+  function pendingAssistsValid(s) {
+    const c = s.current, pending = c?.pendingAssists ?? [];
+    if (!Array.isArray(pending) || pending.length > 10) return false;
+    if (!c || !Array.isArray(c.usedAssists)) return false;
+    const effective = s.state === 'PAUSED' ? s.pausedFrom : s.state;
+    if (pending.length && (!['ANSWER_REVEAL','SCORE_ADJUDICATION'].includes(effective) || c.resolved || !c.revealed || !c.closed)) return false;
+    const combined = questionAssists(c), ids = new Set(), uses = new Map();
+    if (combined.length > 10 || new Set(combined.map(a => `${a?.teamId}:${a?.key}`)).size !== combined.length) return false;
+    for (const a of pending) {
+      if (!a || !identifier(a.id) || ids.has(a.id) || !ASSISTS.includes(a.key) || !integer(a.teamId,0,1) || a.questionId !== c.questionId || !integer(a.at,0,1e14) || (a.participant !== null && !safeText(a.participant,32)) || !s.config.assistEnabled[a.key] || !s.config.teams[a.teamId].assists.includes(a.key) || s.teams.some(t => t.assistHistory.some(item => item.id === a.id)) || c.usedAssists.some(item => item.id === a.id)) return false;
+      if (a.key === 'sitout' && !s.teams[1-a.teamId].players.includes(a.participant)) return false;
+      ids.add(a.id); const key = `${a.teamId}:${a.key}`; uses.set(key,(uses.get(key)||0)+1);
+      if (s.teams[a.teamId].assists[a.key] < uses.get(key)) return false;
+    }
+    for (const [field,key] of Object.entries({pitTeam:'pit',doubleTeam:'double',twiceTeam:'twice',secondTeam:'second',trapTeam:'trap'})) if (c[field] !== null && !combined.some(a => a.teamId === c[field] && a.key === key)) return false;
+    if (c.phase === 'trap' && (c.trapTeam === null || !combined.some(a => a.key === 'trap' && a.teamId === c.selector))) return false;
+    if (c.hint && !combined.some(a => a.key === 'hint') || c.skip && !combined.some(a => a.key === 'skip') || c.sitout && !combined.some(a => a.key === 'sitout' && a.participant === c.sitout.participant && a.teamId === 1-c.sitout.teamId)) return false;
+    return true;
+  }
+  function consumePendingAssists(s) {
+    const c = s.current;
+    for (const a of c.pendingAssists || []) { s.teams[a.teamId].assists[a.key]--; s.teams[a.teamId].assistHistory.push(a); c.usedAssists.push(a); }
+    c.pendingAssists = [];
+  }
+  function refundQuestionHelpers(state, records, questionId) {
+    const ids = new Set(records.map(a => a.id));
+    for (const team of state.teams) {
+      const refunded = team.assistHistory.filter(a => ids.has(a.id));
+      for (const a of refunded) team.assists[a.key]++;
+      team.assistHistory = team.assistHistory.filter(a => !ids.has(a.id));
+    }
+    const c = state.current;
+    if (c?.questionId === questionId) {
+      // Entitlements remain attached to the question. Their inventory use is
+      // deferred until readjudication so correction never loses Double/Pit.
+      c.pendingAssists = [...new Map(questionAssists(c).map(a => [a.id, a])).values()];
+      c.usedAssists = []; c.assistance = null;
+      c.revealed = c.closed = c.knowledgeLocked = true; c.resolved = false;
+      c.deadline = null; c.pendingWinner = c.winner = null; c.earned = 0; c.transactionIds = [];
+      state.state = 'ANSWER_REVEAL'; delete state.pausedFrom;
+    }
+  }
+  function resolutionCheckpoint(s) {
+    const {questionId} = s.current, usedAssists = questionAssists(s.current);
+    // Refunding a whole question must not resurrect its consumed helpers in an
+    // older manual-adjustment Undo. Keep those adjustments, scrub helper use.
+    s.undo = s.undo.filter(h => !(h.undoAction === 'assist' && h.current?.questionId === questionId));
+    for (const snap of s.undo) if (snap.current?.questionId === questionId) refundQuestionHelpers(snap, usedAssists, questionId);
+    checkpoint(s, 'question-resolution');
+    refundQuestionHelpers(s.undo[s.undo.length - 1], usedAssists, questionId);
+  }
+  function finishTurn(s, now) {
+    s.current = null;
+    if (s.board.every(t => t.done)) { s.state = 'MATCH_COMPLETE'; if (s.timing) s.timing.lastActiveAt = null; s.completedAt = now; s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; }
+    else s.state = 'BOARD';
+    return s;
+  }
+  function adjudicate(s, winner, now, atomic = false) {
     const c = s.current, tile = s.board.find(t => t.id === c.tileId);
     if (!tile || tile.done || c.resolved) return reject(s, 'حُسم هذا السؤال بالفعل.');
-    checkpoint(s); const group = nextId(s, 'resolution'), ids = [], earned = winner === null || c.phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (c.usedAssists.some(a => a.key === 'double' && a.teamId === winner) ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
-    if (winner !== null && !(c.phase === 'trap' && s.config.trapSuccess === 'none')) ids.push(transaction(s, winner, earned, c.phase === 'steal' && winner !== c.selector ? 'steal' : c.phase === 'trap' ? 'trap-correct' : 'correct', c.usedAssists.some(a => a.key === 'double' && a.teamId === winner) ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal', now, group, c.questionId, c.value));
-    if (c.pitTeam !== null && winner === c.pitTeam) ids.push(transaction(s, 1 - c.pitTeam, -c.value, 'pit', 'pit', now, group, c.questionId, c.value));
-    if (c.pitTeam !== null && winner !== c.pitTeam && s.config.pitFailPenalty) ids.push(transaction(s, c.pitTeam, -c.value, 'pit-failed', 'pit', now, group, c.questionId, c.value));
-    if (c.phase === 'trap' && winner !== c.responder) ids.push(transaction(s, c.responder, -c.value, 'trap-failed', 'trap', now, group, c.questionId, c.value));
-    if (c.phase === 'steal' && winner !== c.responder && s.config.stealPenalty) ids.push(transaction(s, c.responder, -c.value, 'steal-failed', 'steal', now, group, c.questionId, c.value));
+    if (!pendingAssistsValid(s)) return reject(s, 'تعذر إعادة اعتماد المساعدات المحفوظة؛ لم تتغير النقاط.');
+    const outcome = scoreOutcome(s, winner);
+    if (atomic) resolutionCheckpoint(s); else checkpoint(s);
+    consumePendingAssists(s);
+    const group = nextId(s, 'resolution'), ids = [], earned = outcome.earned;
+    winner = outcome.winner; c.phase = outcome.phase; c.responder = outcome.responder;
+    for (const tx of outcome.transactions) ids.push(transaction(s, tx.teamId, tx.delta, tx.reason, tx.modifier, now, group, c.questionId, c.value));
     // Delegation, reveal, skip and clock transitions are not wrong answers.
     // A team's final host-approved success overrides its earlier rejected attempt.
     const failed = new Set(c.attempts.filter(a => !['timeout', 'skip', 'delegation'].includes(a.reason)).map(a => a.teamId));
@@ -245,6 +326,10 @@ const TeamEngine = (() => {
     const q = { attempts: clone(c.attempts), incorrectTeams: [...failed], questionId: c.questionId, tileId: c.tileId, value: c.value, selector: c.selector, responder: c.responder, winner, phase: c.phase, correct: winner !== null, transactionIds: ids, at: now, assists: clone(c.usedAssists) };
     s.history.push(q); s.turn = 1 - c.selector; s.state = 'TURN_COMPLETE';
     s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1;
+    if (atomic) {
+      s.lastResolution = {id:group, questionId:c.questionId, tileId:c.tileId, token:c.token, winner, earned, deltas:outcome.deltas, transactionIds:ids, at:now, phase:outcome.phase, steal:outcome.steal};
+      finishTurn(s, now);
+    }
     return s;
   }
   /* Knowledge is irreversible even when a host undoes a scoring/helper action.
@@ -281,7 +366,7 @@ const TeamEngine = (() => {
     if (key === 'trap' && (c.phase !== 'first' || c.attempts.length || c.trapTeam !== null)) return reject(s, 'لا يُنقل السؤال بالفخ أكثر من مرة.');
     const participant = cleanText(action.participant, '', 32);
     if (key === 'sitout' && (!participant || !s.teams[1 - i].players.includes(participant))) return reject(s, 'اختر مشاركًا مسجلًا من الفريق المقابل وأكد الاستراحة.');
-    checkpoint(s); s.teams[i].assists[key]--;
+    checkpoint(s, 'assist'); s.teams[i].assists[key]--;
     const record = { id: nextId(s, 'assist'), key, teamId: i, questionId: c.questionId, at: now, participant: key === 'sitout' ? participant : null };
     s.teams[i].assistHistory.push(record); c.usedAssists.push(record);
     if (key === 'pit') c.pitTeam = i;
@@ -323,8 +408,10 @@ const TeamEngine = (() => {
     if (action.type === 'UNDO') {
       if (!s.undo.length) return reject(s, 'لا توجد خطوة قابلة للتراجع.');
       const undo = s.undo.slice(), restored = undo.pop(); restored.undo = undo; restored.serial = Math.max(s.serial, restored.serial); restored.lastError = null; restored.questions = s.questions; restored.timing = s.timing ? {...s.timing, lastActiveAt:now} : null;
+      const resolutionUndo = restored.undoAction === 'question-resolution'; delete restored.undoAction;
       restored.knownAnswers = [...new Set([...knowledge(s), ...knowledge(restored)])];
       preserveKnowledge(restored, now);
+      if (resolutionUndo && restored.current) refreshToken(restored);
       if (restored.current && PLAY_STATES.includes(restored.state)) { stopClock(restored.current, now); restored.pausedFrom = restored.state; restored.state = 'PAUSED'; }
       if (restored.timing && ['PAUSED','MATCH_COMPLETE'].includes(restored.state)) restored.timing.lastActiveAt = null;
       return restored;
@@ -360,7 +447,7 @@ const TeamEngine = (() => {
       if (!question) return reject(s, 'تعذر العثور على نسخة السؤال المحفوظة.');
       const rng = rngFor(s.seed + s.serial + tile.value + s.history.length);
       const wrong = shuffle([0, 1, 2, 3].filter(i => i !== question.answer), rng).slice(0, s.config.choiceCount - 1);
-      s.current = { tileId: tile.id, questionId: tile.questionId, value: tile.value, selector: s.turn, responder: s.turn, phase: 'first', token: '', deadline: null, remainingMs: s.config.duration * 1000, timed: s.config.timer, timerStarted: false, revealed: false, closed: false, resolved: false, pitTeam: null, doubleTeam: null, twiceTeam: null, secondTeam: null, twice: false, trapTeam: null, attempts: [], failedTeams: [], usedAssists: [], assistance: null, choices: shuffle([question.answer, ...wrong], rng), hint: false, pendingWinner: null, winner: null, earned: 0, transactionIds: [], lastAttemptIncorrect: false, skip: false, sitout: null };
+      s.current = { tileId: tile.id, questionId: tile.questionId, value: tile.value, selector: s.turn, responder: s.turn, phase: 'first', token: '', deadline: null, remainingMs: s.config.duration * 1000, timed: s.config.timer, timerStarted: false, revealed: false, closed: false, resolved: false, pitTeam: null, doubleTeam: null, twiceTeam: null, secondTeam: null, twice: false, trapTeam: null, attempts: [], failedTeams: [], usedAssists: [], pendingAssists: [], assistance: null, choices: shuffle([question.answer, ...wrong], rng), hint: false, pendingWinner: null, winner: null, earned: 0, transactionIds: [], lastAttemptIncorrect: false, skip: false, sitout: null };
       refreshToken(s); s.state = 'QUESTION_PREVIEW'; return preserveKnowledge(s, now);
     }
     if (action.type === 'START_QUESTION') {
@@ -420,6 +507,13 @@ const TeamEngine = (() => {
     if (action.type === 'ASSIST') return assist(s, action, now);
     if (action.type === 'RETURN_ASSISTANCE') return returnAssistance(s, now);
     if (action.type === 'BEGIN_ADJUDICATION') { if (s.state === 'ANSWER_REVEAL') s.state = 'SCORE_ADJUDICATION'; else reject(s, 'لم تُكشف الإجابة بعد.'); return s; }
+    if (action.type === 'RESOLVE_QUESTION') {
+      if (!['ANSWER_REVEAL', 'SCORE_ADJUDICATION'].includes(s.state) || !c?.revealed || c.resolved) return reject(s, 'حُسم السؤال أو لم تُكشف إجابته بعد.');
+      if (action.tileId !== c.tileId || action.questionId !== c.questionId || action.token !== c.token) return reject(s, 'انتهت صلاحية هذا الاختيار؛ استخدم خيارات السؤال الحالي.');
+      const winner = action.teamId === null ? null : teamIndex(action.teamId);
+      if (action.teamId !== null && winner === null) return reject(s, 'حدد الفريق الصحيح أو اختر محد جاوب صح.');
+      return adjudicate(s, c.skip ? null : winner, now, true);
+    }
     if (action.type === 'ADJUDICATE') {
       if (!['ANSWER_REVEAL', 'SCORE_ADJUDICATION'].includes(s.state) || !c || !c.revealed) return reject(s, 'اكشف الإجابة قبل تسجيل النتيجة.');
       const winner = action.teamId === null ? null : teamIndex(action.teamId);
@@ -428,9 +522,7 @@ const TeamEngine = (() => {
     }
     if (action.type === 'NEXT_TURN') {
       if (s.state !== 'TURN_COMPLETE' || !c?.resolved) return reject(s, 'احسم السؤال قبل الانتقال.');
-      s.current = null;
-      if (s.board.every(t => t.done)) { s.state = 'MATCH_COMPLETE'; if (s.timing) s.timing.lastActiveAt = null; s.completedAt = now; s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; }
-      else s.state = 'BOARD'; return s;
+      return finishTurn(s, now);
     }
     return reject(s, 'إجراء غير معروف أو غير متاح.');
   }
@@ -494,6 +586,19 @@ const TeamEngine = (() => {
         if (h.value !== tile?.value || h.correct !== (h.winner !== null) || h.selector !== (startingTeam ^ historyIndex % 2) || !tile || !tile.done || tile.questionId !== h.questionId || historyIds.has(h.tileId) || !integer(h.selector, 0, 1) || !integer(h.responder, 0, 1) || (h.winner !== null && !integer(h.winner, 0, 1)) || !Array.isArray(h.transactionIds) || h.transactionIds.some(id => !ids.has(id)) || !Array.isArray(h.assists) || h.assists.some(a => !a || !ASSISTS.includes(a.key) || !integer(a.teamId, 0, 1) || !raw.teams[a.teamId].assistHistory.some(record => record.id === a.id && record.key === a.key && record.questionId === h.questionId)) || !integer(h.at, 0, 1e14) || !['first', 'steal', 'trap'].includes(h.phase)) return null;
         historyIds.add(h.tileId);
       }
+      if (raw.undoAction !== undefined && !['assist', 'question-resolution'].includes(raw.undoAction)) return null;
+      if (raw.lastResolution !== undefined && raw.lastResolution !== null) {
+        const result = raw.lastResolution, h = raw.history.find(h => h.tileId === result?.tileId);
+        if (!h || !identifier(result.id) || result.questionId !== h.questionId || result.winner !== h.winner || result.phase !== h.phase || !identifier(result.token) || !integer(result.at,0,1e14) || result.at !== h.at || !integer(result.earned,0,1250) || !Array.isArray(result.deltas) || result.deltas.length !== 2 || result.deltas.some(n => !integer(n,-1e8,1e8)) || JSON.stringify(result.transactionIds) !== JSON.stringify(h.transactionIds) || result.steal !== (h.phase === 'steal' && h.winner !== null && h.winner !== h.selector)) return null;
+        const deltas = [0,0]; let earned = 0;
+        for (const id of result.transactionIds) {
+          const tx = raw.transactions.find(tx => tx.id === id);
+          if (!tx || tx.groupId !== result.id) return null;
+          deltas[tx.teamId] += tx.scoreAfter - tx.scoreBefore;
+          if (['correct','steal','trap-correct'].includes(tx.reason)) earned += tx.scoreAfter - tx.scoreBefore;
+        }
+        if (JSON.stringify(deltas) !== JSON.stringify(result.deltas) || earned !== result.earned) return null;
+      }
       if (raw.statisticsVersion === 2) {
         const correct = [0,0], incorrect = [0,0], steals = [0,0];
         for (const h of raw.history) {
@@ -524,6 +629,7 @@ const TeamEngine = (() => {
           if (help.key !== 'call' || !integer(help.teamId, 0, 1) || !PLAY_STATES.includes(help.returnState) || (help.deadline !== null && !integer(help.deadline, 0, 1e14)) || !integer(help.remainingMs, 0, 300000) || typeof help.pausedMain !== 'boolean') return null;
         }
         if (effective === 'ASSISTANCE_ACTIVE' && !a.assistance) return null;
+        if (!pendingAssistsValid(raw)) return null;
       } else if (!['BOARD', 'MATCH_COMPLETE'].includes(raw.state) && !(raw.state === 'PAUSED' && raw.pausedFrom === 'BOARD')) return null;
       const {questions, ...mutable} = raw; const out = clone(mutable); out.questions = freezeTree(clone(questions)); out.config = c; out.startingTeam = startingTeam; out.lastError = null;
       out.knownAnswers = knowledge(raw);
@@ -543,6 +649,6 @@ const TeamEngine = (() => {
       return preserveKnowledge(out, Date.now());
     } catch { return null; }
   }
-  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, validateState, restore, getQuestion, eligibleQuestions, isEligible, FRANCHISES, normalizeAnswer, pointValue });
+  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, scoreOutcome, validateState, restore, getQuestion, eligibleQuestions, isEligible, FRANCHISES, normalizeAnswer, pointValue });
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = TeamEngine;

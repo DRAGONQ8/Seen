@@ -1,8 +1,17 @@
 {
   "project": "سين جيم خالد",
-  "release": "V3",
+  "release": "V3.1 — الحسم بضغطة واحدة",
   "checkedAt": "2026-10-20",
-  "baselineCommit": "caacb6df2ed2fcffbc95f0e2482e1719c9076e59",
+  "baselineCommit": "3ff18d8a1bffcb03a69334e75345988fa58d673a",
+  "implemented": [
+    "كشف الإجابة ثم اختيار الفريق أو عدم وجود مجيب يحسم السؤال ويعيد اللوحة فورًا.",
+    "معاملة نقاط موحدة وحتمية مع منع تكرار النقر والرموز القديمة بعد التراجع وإعادة التحميل.",
+    "تراجع مباشر يعكس النقاط والمحاولات والسرقة والخصومات والمساعدات والخانة والدور، مع حفظ معرفة الإجابة والاستحقاقات عند تصحيح التحكيم.",
+    "الكلاسيكية 36 هي الافتراضية للمستخدم الجديد؛ السريعة 18 والتفضيلات السابقة محفوظة.",
+    "بدء سريع، فتح السؤال مباشرة، تفعيل الحفرة قبل الاختيار، وعرض الفريق الفائز على الخانات المكتملة.",
+    "نقل حفظ المباراة والجولة الفردية والأسئلة المحلية؛ بديل نسخ ولصق عند غياب واجهات التنزيل. ترميز base64 ليس تشفيرًا.",
+    "تقوية استعادة اللعب الفردي لمنع إعادة احتساب نتائج متناقضة، ودورة أسئلة جديدة دون مسح الإحصاءات."
+  ],
   "content": {
     "questions": 648,
     "images": 63,
@@ -37,123 +46,156 @@
         ]
       }
     ],
-    "originalQuestions": 488,
-    "addedQuestions": 160,
-    "addedByCategory": {
-      "prophets": 16,
-      "seerah": 16,
-      "arabia": 16,
-      "islamic": 16,
-      "anime": 48,
-      "football": 32,
-      "geo": 8,
-      "games": 8
-    },
-    "originalVisualQuestions": 39,
-    "addedVisualQuestions": 24,
+    "originalQuestions": 648,
+    "addedQuestions": 0,
+    "removedQuestions": 0,
+    "originalVisualQuestions": 63,
+    "addedVisualQuestions": 0,
     "visualByCategory": {
-      "islamic": 4,
       "anime": 8,
       "football": 8,
       "geo": 36,
       "games": 6,
+      "islamic": 4,
       "arabia": 1
     },
-    "newVerification": {
-      "source-checked": 155,
-      "disputed": 5
-    },
-    "reviewNotes": [
-      "مرشح التشابه seerah-008 وseerah-040 سؤالان قديمان مختلفان: عمر البعثة وعمر الوفاة.",
-      "حُفظت ادعاءات التحقق القديمة في historicalVerification دون إعادة اعتمادها بمجرد وجود رابط."
-    ]
+    "verificationScope": "حُفظت وسوم التوثيق السابقة؛ التدقيق الحالي بنيوي وتحريري، وليس إعادة تحقق مستقلة من جميع المراجع الخارجية.",
+    "licensing": "لم تُضف أصول جديدة. حُفظت الخرائط والصور المرخصة والرسوم الأصلية وإسناداتها وخط Noto Sans Arabic المضمن."
+  },
+  "baselineValidation": {
+    "suitesPassed": 14,
+    "suitesFailed": 1,
+    "issue": "فشل توقيت في اختبار الصورة: كان يفحص naturalWidth قبل اكتمال فكّ الصورة. أُصلح الاختبار لينتظر decode() دون إلغاء التحقق."
   },
   "validation": {
     "command": "npm test",
-    "suitesPassed": 15,
+    "suitesPassed": 16,
     "suitesFailed": 0,
-    "uniqueChecksPassed": 388,
-    "executionsPassedIncludingRepeatedSourceChecks": 414,
+    "uniqueChecksPassed": 450,
+    "executionsPassedIncludingRepeatedSourceChecks": 476,
     "checksFailed": 0,
     "checksSkipped": 0,
     "suites": [
       {
         "command": "python -m unittest discover -s tests -p test_*.py",
-        "passed": 5,
-        "failed": 0
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/team-engine.spec.cjs",
-        "passed": 62,
-        "failed": 0
+        "passed": 79,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/team-content.spec.cjs",
         "passed": 21,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/solo-v3.spec.cjs",
-        "passed": 14,
-        "failed": 0
+        "passed": 20,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/v3-media.spec.cjs",
         "passed": 5,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "command": "node tests/one-tap.spec.cjs",
+        "passed": 16,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/game.spec.cjs",
         "passed": 26,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/reliability.spec.cjs",
         "passed": 11,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/team-browser.spec.cjs",
         "passed": 30,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/solo-v3-browser.spec.cjs",
-        "passed": 8,
-        "failed": 0
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/v3-team-ui.spec.cjs",
         "passed": 8,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/v3-build-browser.spec.cjs",
-        "passed": 14,
-        "failed": 0
+        "passed": 15,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/accessibility.spec.cjs",
         "passed": 60,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/team-accessibility.spec.cjs",
-        "passed": 115,
-        "failed": 0
+        "passed": 131,
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/team-content.spec.cjs --browser",
         "passed": 29,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       },
       {
         "command": "node tests/v3-media.spec.cjs --browser",
         "passed": 6,
-        "failed": 0
+        "failed": 0,
+        "skipped": 0
       }
     ],
-    "browsers": "Chromium touch and viewport emulation; no physical Samsung hardware",
+    "fullRunArtifactSha256": "a0c95db932b43a6b5b006d152bdfc666bf321928ff524a783a4195d1816f0efc",
+    "fullRunLogSha256": "8faccc850765181a1c517635eac5f352d1bf1ba96384a1ba8b11700e7adb2630",
+    "finalArtifactFollowUp": {
+      "reason": "أضيف احتواء فشل ترميز نسخة الفريق الكبيرة ورسالة تنزيل دقيقة بعد البناء المفحوص كاملًا؛ أعيد فحص مسارات التصدير والاستعادة والبناء الفعلي. لم يتغير محرك النقاط أو CSS بعد الفحص الكامل.",
+      "artifactSha256": "6ad1a10ae28b5337fecda7ee1925c9ccdfb2e0c8285fd95ef7d1db36b1247115",
+      "checksPassed": 25,
+      "checksFailed": 0,
+      "commands": [
+        {
+          "command": "SEEN_ONE_TAP_PATTERN='storage denial|no uncaught' node tests/one-tap.spec.cjs",
+          "passed": 2
+        },
+        {
+          "command": "node tests/v3-team-ui.spec.cjs",
+          "passed": 8
+        },
+        {
+          "command": "node tests/v3-build-browser.spec.cjs",
+          "passed": 15
+        }
+      ]
+    },
+    "browsers": "Chromium مع محاكاة اللمس وأبعاد الهاتف واللوح؛ لا أجهزة فعلية.",
     "viewports": [
       [
         412,
@@ -181,27 +223,30 @@
       130
     ],
     "axeCore": "4.10.3",
+    "axeScreenAudits": 124,
     "wcagDetectedViolations": 0,
-    "teamContrastIncompleteRuleInstances": 80,
-    "contrastNotes": "نتائج التباين غير المحسومة آليًا ترتبط بالتدرجات والزخارف والرموز القصيرة؛ حُسنت ألوان المظهر الفاتح وحُسبت حدود تباين محافظة. ليست شهادة امتثال WCAG شاملة.",
-    "coldOfflineStartup": "Passed from local HTML bytes with network disabled before startup",
-    "localFileNavigation": "Managed Chromium blocks file:// navigation; not claimed as executed",
+    "teamContrastIncompleteRuleInstances": 88,
+    "contrastNotes": "88 نتيجة تباين غير محسومة آليًا عبر الشاشات المكررة والتدرجات والرسوم؛ ليست فشلًا أو تجاوزًا للاختبارات ولا شهادة امتثال WCAG شاملة. تقرير اللعب الفردي لا يحتفظ بنتائج التباين غير المحسومة.",
+    "manualVisualReview": "راجعت شاشة الإجابة على 412×915 و1536×1024 واللوحة قبل الحسم وبعده؛ الأزرار واضحة، والنقاط والدور وإشعار التراجع تظهر فورًا.",
+    "coldOfflineStartup": "نجح تشغيل بايتات HTML النهائية مع تعطيل الشبكة قبل البدء.",
+    "localFileNavigation": "حُجبت file:// بسياسة Chromium المدار؛ لا يُدّعى تنفيذها على هاتف.",
     "uncaughtRuntimeErrors": 0,
     "externalRuntimeRequests": 0
   },
   "artifact": {
     "file": "index.html",
-    "bytes": 2465671,
-    "sha256": "cb8637e433186687839ad634d9fccf2b3fbc243fc979f0588c05bdda35cf3b7c",
+    "bytes": 2501654,
+    "sha256": "6ad1a10ae28b5337fecda7ee1925c9ccdfb2e0c8285fd95ef7d1db36b1247115",
     "consecutiveBuildsIdentical": true,
+    "matchesFinalTargetedBrowserArtifact": true,
     "mandatoryBuildDependencies": "Python standard library only",
     "runtimeDependencies": "None; CSS/JS/font/questions/media embedded"
   },
   "limitations": [
-    "لم تتوفر أجهزة سامسونج فعلية أو اختبار مباشر لـSamsung Internet أو Android 17.",
-    "يوم البيداء مستبعد لعدم التثبت من تحديده؛ لم يُخلط بيوم الهباء.",
-    "حدود المحتوى القديمة غير المفحوصة تبقى غير مؤرخة؛ تصنيف الحرق تحريري محافظ.",
-    "المستوى الثالث للحرق مدعوم؛ لم تُضف أسئلة حصرية لأحداث المانغا في هذه الدفعة.",
-    "لا تتضمن هذه الدفعة أوضاع الكشف المتقدمة أو اللعب عبر الإنترنت أو التطبيق الأصلي، وفق النطاق المؤجل."
+    "لم تتوفر أجهزة Samsung فعلية أو متصفحات Samsung Internet وChrome Android وSafari iOS الأصلية للاختبار المباشر.",
+    "فتح file:// أو content:// والتخزين والتنزيل يتبعان صلاحيات المتصفح؛ لا ضمان للحفظ التلقائي عند منعه.",
+    "لم تُضف أسئلة أو صور أو فئات جديدة في هذا التحديث؛ ما زال 88 سؤالًا بانتظار التحقق و5 أسئلة موسومة بالخلاف أو عدم اليقين.",
+    "لم يُضف تحدٍّ ختامي برهانات أو لعب عبر الإنترنت أو حسابات سحابية أو تطبيق أصلي؛ لا تُعرض هذه كأوضاع مكتملة.",
+    "لعبة محلية بلا تشفير سرّي للإجابات؛ إخفاء الحلول عملي على مستوى الواجهة، ونسخ الاستئناف خاصة بالمقدم."
   ]
 }

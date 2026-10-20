@@ -9,17 +9,17 @@ const bank = fs.readdirSync(path.join(__dirname, '../content')).filter(f => f.en
 let count = 0, failures = 0;
 let clock = Date.now();
 function run(name, fn) { try { fn(); count++; console.log('PASS', name); } catch (e) { failures++; console.error('FAIL', name, e); } }
-function config(extra = {}) { const c = E.defaults(); c.timer = false; Object.assign(c, extra); return c; }
+function config(extra = {}) { const c = E.defaults(); c.board = 'compact'; c.timer = false; Object.assign(c, extra); return c; }
 function create(c = config(), seed = 8) { return E.create(c, bank, { seed, now: clock }); }
 function act(s, type, fields = {}, at = clock += 50) { return E.dispatch(s, { type, ...fields }, bank, at); }
 function question(s, value = 200) { s = act(s, 'SELECT_TILE', { tileId: s.board.find(t => !t.done && t.value === value).id }); return act(s, 'START_QUESTION'); }
 function oralWin(s, team = s.current.responder) { s = act(s, 'REVEAL'); return act(s, 'ADJUDICATE', { teamId: team }); }
 function helpers(keys, extra = {}) { const c = config(extra); c.assistSlots = 5; c.teams.forEach(t => t.assists = [...keys]); return c; }
 function use(s, key, extra = {}) { return act(s, 'ASSIST', { key, confirmed: true, ...extra }); }
-run('default rules: compact18, values200400600, exactlythreecategorieseach', () => {
- const c=E.defaults();assert.equal(c.board,'compact');assert.equal(c.answerStyle,'oral');assert.equal(c.duration,60);assert.equal(c.stealDuration,10);assert.equal(c.assistSlots,3);
- const s=create(c);assert.equal(s.board.length,18);assert.equal(new Set(s.board.map(t=>t.questionId)).size,18);assert.deepEqual([...new Set(s.board.map(t=>t.value))],[200,400,600]);
- s.categories.forEach(cat=>assert.deepEqual(s.board.filter(t=>t.category===cat).map(t=>t.value),[200,400,600]));assert.equal(s.board.reduce((a,t)=>a+t.value,0),7200);
+run('default rules: classic36, values200400600, exactlythreecategorieseach', () => {
+ const c=E.defaults();assert.equal(c.board,'classic');assert.equal(c.answerStyle,'oral');assert.equal(c.duration,60);assert.equal(c.stealDuration,10);assert.equal(c.assistSlots,3);
+ const s=create(c);assert.equal(s.board.length,36);assert.equal(new Set(s.board.map(t=>t.questionId)).size,36);assert.deepEqual([...new Set(s.board.map(t=>t.value))],[200,400,600]);
+ s.categories.forEach(cat=>assert.deepEqual(s.board.filter(t=>t.category===cat).map(t=>t.value),[200,200,400,400,600,600]));assert.equal(s.board.reduce((a,t)=>a+t.value,0),14400);
 });
 run('classic36 has six independentquestions percategory, eachvaluetwice',()=>{
  const s=create(config({board:'classic'}));assert.equal(s.board.length,36);assert.equal(new Set(s.board.map(t=>t.questionId)).size,36);s.categories.forEach(cat=>assert.deepEqual(s.board.filter(t=>t.category===cat).map(t=>t.value),[200,200,400,400,600,600]));
@@ -228,5 +228,83 @@ run('V3 missinglegacylibraryanswerfieldsnormalizedbutinvalidexplicitvaluesreject
  const old=JSON.parse(JSON.stringify(saved));old.version=2;delete old.questions;const restored=E.validateState(old,legacyBank);assert(restored);assert.equal(restored.version,3);assert(Object.values(restored.questions).every(q=>q.correctAnswer===q.options[q.answer]));
  const q=bank.find(q=>q.category==='football');assert(!E.isEligible({...q,points:300},config()));assert(!E.isEligible({...q,correctAnswer:q.options[(q.answer+1)%4]},config()));assert(!E.isEligible({...q,acceptedAnswers:[q.options[(q.answer+1)%4]]},config()));
 });
+
+function resolved(s, teamId = null) {
+ if(!s.current.revealed)s=act(s,'REVEAL');
+ return act(s,'RESOLVE_QUESTION',{teamId,tileId:s.current.tileId,questionId:s.current.questionId,token:s.current.token});
+}
+run('one-tap resolution awards200400600 andreturnsboard atomicallywithoutmutatinginput',()=>{
+ for(const value of [200,400,600]){
+  let s=question(create(),value);s=act(s,'REVEAL');const original=JSON.stringify(s),id=s.current.questionId,tileId=s.current.tileId,preview=E.scoreOutcome(s,0);assert.equal(JSON.stringify(s),original);assert.equal(preview.earned,value);assert.deepEqual(preview.deltas,[value,0]);
+  const awarded=resolved(s,0);assert.equal(JSON.stringify(s),original);assert.equal(awarded.questions,s.questions);assert.equal(awarded.state,'BOARD');assert.equal(awarded.current,null);assert.equal(awarded.turn,1);assert(awarded.board.find(t=>t.id===tileId).done);assert.deepEqual(awarded.teams.map(t=>t.score),[value,0]);assert.equal(awarded.teams[0].correct,1);assert.equal(awarded.history.length,1);assert.equal(awarded.lastResolution.questionId,id);assert.deepEqual(awarded.lastResolution.deltas,preview.deltas);assert(E.validateState(awarded,bank));
+ }
+});
+run('one-tap opposingwinner usesexplicitdefaultstealconvention onlywhenenabled',()=>{
+ for(const steal of [true,false])for(const value of [200,400,600]){
+  let s=question(create(config({steal})),value);s=resolved(s,1);assert.equal(s.state,'BOARD');assert.deepEqual(s.teams.map(t=>t.score),[0,value]);assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);assert.equal(s.teams[1].correct,1);assert.equal(s.teams[1].steals,steal?1:0);assert.equal(s.history[0].phase,steal?'steal':'first');assert.equal(s.lastResolution.steal,steal);assert(E.validateState(s,bank));
+ }
+});
+run('one-tap nobodycompleteswithnoinventedattempts andUndo reversescompletion',()=>{
+ let s=question(create());const id=s.current.questionId;s=resolved(s,null);assert.equal(s.state,'BOARD');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert.deepEqual(s.teams.map(t=>t.correct+t.incorrect),[0,0]);assert.equal(s.transactions.length,0);assert.equal(s.history[0].winner,null);assert(E.validateState(s,bank));s=act(s,'UNDO');assert.equal(s.state,'ANSWER_REVEAL');assert.equal(s.current.questionId,id);assert.equal(s.current.revealed,true);assert.equal(s.current.resolved,false);assert.equal(s.board.filter(t=>t.done).length,0);assert.equal(s.turn,0);assert.equal(s.history.length,0);assert(E.validateState(s,bank));
+ for(const both of [false,true]){let q=question(create());q=act(q,'DECLARE_INCORRECT');if(both)q=act(q,'DECLARE_INCORRECT');q=resolved(q,null);assert.deepEqual(q.teams.map(t=>t.incorrect),both?[1,1]:[1,0]);assert.equal(q.teams.reduce((sum,t)=>sum+t.correct,0),0);}
+});
+run('one-tap duplicate andstaleresolutions cannot score afterreloadornewquestion',()=>{
+ let s=question(create());s=act(s,'REVEAL');const action={teamId:0,tileId:s.current.tileId,questionId:s.current.questionId,token:s.current.token};s=act(s,'RESOLVE_QUESTION',action);const before=JSON.stringify({teams:s.teams,history:s.history,transactions:s.transactions,lastResolution:s.lastResolution});
+ s=act(s,'RESOLVE_QUESTION',action);assert(s.lastError);assert.equal(JSON.stringify({teams:s.teams,history:s.history,transactions:s.transactions,lastResolution:s.lastResolution}),before);
+ s=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(s);if(s.state==='PAUSED')s=act(s,'RESUME');s=act(s,'RESOLVE_QUESTION',action);assert(s.lastError);assert.equal(s.teams[0].score,200);s=question(s,400);s=act(s,'REVEAL');const newId=s.current.questionId;s=act(s,'RESOLVE_QUESTION',action);assert(s.lastError);assert.equal(s.current.questionId,newId);assert.equal(s.history.length,1);assert.equal(s.teams[0].score,200);s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[200,400]);
+});
+run('one-tap requiresfreshcompletequestionidentity andUndo invalidatesoldbuttons',()=>{
+ let s=question(create());const early={teamId:0,tileId:s.current.tileId,questionId:s.current.questionId,token:s.current.token};assert(act(s,'RESOLVE_QUESTION',early).lastError);s=act(s,'REVEAL');const good={teamId:0,tileId:s.current.tileId,questionId:s.current.questionId,token:s.current.token};
+ for(const patch of [{token:undefined},{tileId:undefined},{questionId:undefined},{token:early.token},{tileId:'missing-tile'},{questionId:'missing-question'},{teamId:2},{teamId:undefined}]){const rejected=act(s,'RESOLVE_QUESTION',{...good,...patch});assert(rejected.lastError);assert.equal(rejected.history.length,0);assert.deepEqual(rejected.teams.map(t=>t.score),[0,0]);}
+ s=act(s,'RESOLVE_QUESTION',good);s=act(s,'UNDO');assert.notEqual(s.current.token,good.token);s=act(s,'RESOLVE_QUESTION',good);assert(s.lastError);assert.equal(s.history.length,0);assert.deepEqual(s.teams.map(t=>t.score),[0,0]);
+});
+run('one-tap sharedpreview matchesDoubleBonusPit transactionsandzerofloor',()=>{
+ for(const value of [200,400,600]){
+  let s=create(helpers(['pit','double'],{bonus:true}));s=act(s,'ADJUST_SCORE',{teamId:0,delta:10,reason:'رصيد'});s=act(s,'ADJUST_SCORE',{teamId:1,delta:100,reason:'رصيد'});s=act(s,'SELECT_TILE',{tileId:s.board.find(t=>t.value===value).id});s=use(s,'pit');s=act(s,'START_QUESTION');s=use(s,'double');s=act(s,'REVEAL');const original=JSON.stringify(s),preview=E.scoreOutcome(s,0);assert.equal(JSON.stringify(s),original);assert.equal(preview.earned,value*2+50);assert.deepEqual(preview.deltas,[value*2+50,-100]);s=resolved(s,0);assert.deepEqual(s.teams.map(t=>t.score),[10+value*2+50,0]);assert.equal(s.lastResolution.transactionIds.length,2);assert.deepEqual(s.lastResolution.deltas,preview.deltas);assert(E.validateState(s,bank));
+  s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.score),[10,100]);assert.equal(s.teams[0].assists.pit,1);assert.equal(s.teams[0].assists.double,1);assert.equal(s.current.pendingAssists.length,2);assert.equal(E.scoreOutcome(s,0).earned,value*2+50);assert(E.validateState(s,bank));s=resolved(s,0);assert.equal(s.teams[0].assists.double,0);assert.equal(s.teams[0].assists.pit,0);assert.equal(s.teams[0].assistHistory.length,2);assert.deepEqual(s.teams.map(t=>t.score),[10+value*2+50,0]);
+ }
+});
+run('one-tap trap successfailure andUndo retainconfiguredruleswithoutsteal',()=>{
+ for(const trapSuccess of ['responder','none'])for(const success of [true,false]){
+  let s=question(create(helpers(['trap'],{trapSuccess,negative:true})),600);s=use(s,'trap');if(!success)s=act(s,'DECLARE_INCORRECT');s=resolved(s,success?1:null);assert.equal(s.state,'BOARD');assert.equal(s.teams[0].incorrect,0);assert.equal(s.teams[1].incorrect,success?0:1);assert.equal(s.teams[1].correct,success?1:0);assert.equal(s.teams[1].score,success?(trapSuccess==='responder'?600:0):-600);assert.equal(s.teams[1].steals,0);assert(E.validateState(s,bank));s=act(s,'UNDO');assert.equal(s.teams[0].assists.trap,1);assert.equal(s.current.pendingAssists.length,1);assert.equal(s.current.phase,'trap');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert(E.validateState(s,bank));s=resolved(s,1);assert.equal(s.teams[0].assists.trap,0);assert.equal(s.teams[1].score,trapSuccess==='responder'?600:0);assert.equal(s.teams[1].steals,0);
+ }
+ let floored=question(create(helpers(['trap'])),600);floored=act(floored,'ADJUST_SCORE',{teamId:1,delta:100,reason:'رصيد'});floored=use(floored,'trap');floored=act(floored,'REVEAL');assert.deepEqual(E.scoreOutcome(floored,null).deltas,[0,-100]);floored=resolved(floored,null);assert.equal(floored.teams[1].score,0);
+});
+run('one-tap configuredPitandstealpenalties runonce andUndo restoresbothteams',()=>{
+ let s=create(helpers(['pit'],{negative:true,pitFailPenalty:true,stealPenalty:true}));s=act(s,'SELECT_TILE',{tileId:s.board.find(t=>t.value===400).id});s=use(s,'pit');s=act(s,'START_QUESTION');s=act(s,'DECLARE_INCORRECT');s=act(s,'PASS');const preview=E.scoreOutcome(s,null);assert.deepEqual(preview.deltas,[-400,-400]);s=resolved(s,null);assert.deepEqual(s.teams.map(t=>t.score),[-400,-400]);assert.deepEqual(s.teams.map(t=>t.incorrect),[1,0]);assert.equal(s.transactions.length,2);s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);assert.equal(s.teams[0].assists.pit,1);assert(E.validateState(s,bank));s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[-400,400]);assert.equal(s.teams[0].assists.pit,0);assert.equal(s.history.length,1);
+});
+run('one-tap Doubleentitlement surviveswrongwinnerUndoreloadandcorrection foreachteam',()=>{
+ let s=question(create(helpers(['double'])),600);s=use(s,'double');s=act(s,'DECLARE_INCORRECT');s=use(s,'double');s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[0,1200]);s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.assists.double),[1,1]);assert.deepEqual(s.teams.map(t=>t.assistHistory.length),[0,0]);assert.equal(s.current.pendingAssists.length,2);assert.equal(E.scoreOutcome(s,0).earned,1200);assert.equal(E.scoreOutcome(s,1).earned,1200);s=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(s);if(s.state==='PAUSED')s=act(s,'RESUME');s=resolved(s,0);assert.deepEqual(s.teams.map(t=>t.score),[1200,0]);assert.deepEqual(s.teams.map(t=>t.assists.double),[0,0]);assert.deepEqual(s.teams.map(t=>t.assistHistory.length),[1,1]);assert.equal(s.teams[0].incorrect,0);assert(E.validateState(s,bank));
+});
+run('one-tap Undo refundsallquestionhelpers andreadjudication consumesexactlyonce',()=>{
+ let s=question(create(helpers(['time','hint','double','call','twice'],{timer:true})));for(const key of ['time','hint','double','twice'])s=use(s,key);s=use(s,'call');s=act(s,'RETURN_ASSISTANCE');s=resolved(s,0);assert.equal(s.teams[0].assistHistory.length,5);s=act(s,'UNDO');assert.equal(s.current.pendingAssists.length,5);assert.equal(s.current.usedAssists.length,0);assert.equal(s.teams[0].assistHistory.length,0);assert(Object.values(s.teams[0].assists).every(n=>n===1));assert.equal(E.scoreOutcome(s,0).earned,400);assert(E.validateState(s,bank));s=resolved(s,0);assert.equal(s.teams[0].assistHistory.length,5);assert(Object.values(s.teams[0].assists).every(n=>n===0));assert.equal(s.teams[0].score,400);
+});
+run('one-tap Skip remainsanunscorablequestion andrefundshelperonUndo',()=>{
+ let s=question(create(helpers(['skip'])));s=use(s,'skip');assert.equal(E.scoreOutcome(s,0).earned,0);assert.equal(E.scoreOutcome(s,1).earned,0);s=resolved(s,0);assert.equal(s.lastResolution.winner,null);assert.deepEqual(s.teams.map(t=>t.score),[0,0]);s=act(s,'UNDO');assert.equal(s.teams[0].assists.skip,1);assert.equal(s.current.pendingAssists.length,1);assert(E.validateState(s,bank));s=resolved(s,null);assert.equal(s.teams[0].assists.skip,0);assert.equal(s.teams[0].correct,0);
+});
+run('one-tap Undo preservesinterleavedmanualadjustments anddoesnotresurrecthelperusage',()=>{
+ let s=question(create(helpers(['double'])));s=use(s,'double');s=act(s,'ADJUST_SCORE',{teamId:1,delta:500,reason:'تصحيح مستقل'});s=resolved(s,0);assert.deepEqual(s.teams.map(t=>t.score),[400,500]);s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.score),[0,500]);assert.equal(s.teams[0].assists.double,1);assert.equal(s.current.pendingAssists.length,1);assert(E.validateState(s,bank));s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert.equal(s.teams[0].assists.double,1);assert.equal(s.teams[0].assistHistory.length,0);assert.equal(E.scoreOutcome(s,0).earned,400);s=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(s);if(s.state==='PAUSED')s=act(s,'RESUME');s=resolved(s,0);assert.deepEqual(s.teams.map(t=>t.score),[400,0]);assert.equal(s.teams[0].assists.double,0);assert.equal(s.teams[0].assistHistory.length,1);assert(E.validateState(s,bank));
+});
+run('one-tap pendinghelpersandresultmetadatarejectcorruptionwithoutlosingbackup',()=>{
+ let s=question(create(helpers(['double'])));s=use(s,'double');s=resolved(s,0);const scored=JSON.parse(JSON.stringify(s));for(const mutate of [t=>t.lastResolution.deltas=[999,0],t=>t.lastResolution.earned=200,t=>t.lastResolution.token='<unsafe>',t=>t.lastResolution.transactionIds=[],t=>t.lastResolution.steal=true]){const bad=structuredClone(scored);mutate(bad);assert.equal(E.restore(bad,bank).state,null);}
+ s=act(s,'UNDO');const pending=JSON.parse(JSON.stringify(s));assert(E.validateState(pending,bank));for(const mutate of [t=>t.current.pendingAssists.push({...t.current.pendingAssists[0]}),t=>t.current.pendingAssists[0].teamId=2,t=>t.current.pendingAssists[0].key='missing',t=>t.current.pendingAssists[0].questionId='other-question',t=>t.teams[0].assists.double=0,t=>t.current.pendingAssists[0].participant='<bad>'.repeat(20),t=>t.current.doubleTeam=1,t=>t.current.pendingAssists[0].id='constructor',t=>{t.state='QUESTION_ACTIVE';t.current.revealed=t.current.closed=false;}]){const bad=structuredClone(pending);mutate(bad);const before=JSON.stringify(bad),result=E.restore(bad,bank);assert.equal(result.state,null);assert.equal(result.backup,bad);assert.equal(JSON.stringify(bad),before);}
+});
+run('one-tap timeoutrecordsnoinventedwronganswers andcanresolvewithoutanextraaction',()=>{
+ let s=question(create(config({timer:true})));s=act(s,'TICK',{token:s.current.token},s.current.deadline);s=act(s,'TICK',{token:s.current.token},s.current.deadline);assert.equal(s.state,'ANSWER_REVEAL');s=resolved(s,null);assert.equal(s.state,'BOARD');assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);assert.equal(s.history[0].attempts.length,2);assert(E.validateState(s,bank));
+});
+run('one-tap completeClassic36 supportsfinalwinner tiesandlastquestionUndo',()=>{
+ for(const nobody of [false,true]){let s=create(config({board:'classic'}));let n=0;while(s.state!=='MATCH_COMPLETE'){s=act(s,'SELECT_TILE',{tileId:s.board.find(t=>!t.done).id});s=act(s,'START_QUESTION');s=resolved(s,nobody?null:n%3===0?null:n%2);n++;if(n<36)assert.equal(s.state,'BOARD');assert(n<=36);}assert.equal(n,36);assert.equal(s.current,null);assert.equal(s.history.length,36);assert(s.completedAt);assert.equal(s.board.filter(t=>t.done).length,36);assert.equal(s.winner,nobody?null:s.teams[0].score===s.teams[1].score?null:s.teams[0].score>s.teams[1].score?0:1);assert(E.validateState(s,bank));const scores=s.teams.map(t=>t.score),before=s.lastResolution;s=act(s,'UNDO');assert.equal(s.state,'ANSWER_REVEAL');assert.equal(s.completedAt,null);assert.equal(s.board.filter(t=>t.done).length,35);assert.equal(s.current.questionId,before.questionId);assert(E.validateState(s,bank));s=resolved(s,before.winner);assert.equal(s.state,'MATCH_COMPLETE');assert.deepEqual(s.teams.map(t=>t.score),scores);assert(E.validateState(s,bank));}
+});
+
+
+run('one-tap postresolutionmanualadjustUndo preserveshelpercostuntilquestionUndo',()=>{
+ let s=question(create(helpers(['double'])));s=use(s,'double');s=resolved(s,0);s=act(s,'ADJUST_SCORE',{teamId:1,delta:300,reason:'تصحيح بعد الحسم'});assert.deepEqual(s.teams.map(t=>t.score),[400,300]);s=act(s,'UNDO');assert.equal(s.state,'BOARD');assert.deepEqual(s.teams.map(t=>t.score),[400,0]);assert.equal(s.teams[0].assists.double,0);assert(E.validateState(s,bank));s=act(s,'UNDO');assert.equal(s.state,'ANSWER_REVEAL');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert.equal(s.teams[0].assists.double,1);assert.equal(s.current.pendingAssists.length,1);assert(E.validateState(s,bank));s=resolved(s,0);assert.deepEqual(s.teams.map(t=>t.score),[400,0]);assert.equal(s.teams[0].assists.double,0);assert.equal(s.teams[0].assistHistory.length,1);assert(E.validateState(s,bank));
+});
+run('one-tap restorationrejectsunearnedmodifiers withoutconsumedordeferredhelperledger',()=>{
+ const active=question(create(helpers(['pit','double','hint','skip','second'])));
+ for(const mutate of [t=>t.current.pitTeam=0,t=>t.current.doubleTeam=0,t=>t.current.twiceTeam=0,t=>t.current.secondTeam=0,t=>t.current.trapTeam=0,t=>t.current.hint=true,t=>t.current.skip=true]){const bad=JSON.parse(JSON.stringify(active));mutate(bad);assert.equal(E.validateState(bad,bank),null);}
+ let s=use(active,'double');s=resolved(s,0);s=act(s,'UNDO');const bad=JSON.parse(JSON.stringify(s));bad.current.pendingAssists=Array.from({length:11},(_,i)=>({...bad.current.pendingAssists[0],id:'pending-'+i}));assert.equal(E.validateState(bad,bank),null);
+});
+
 console.log(JSON.stringify({passed:count,failed:failures,questions:bank.length}));
 if(failures)process.exitCode=1;

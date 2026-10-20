@@ -94,7 +94,7 @@ async function inspect(page, screen, width, theme) {
       const q=QUESTION_MAP.get(session.current.id),image=document.querySelector('.question-media img');return {answer:q.options[q.answer],alt:image?.alt,src:image?.src,sub:document.querySelector('.question-label')?.textContent};
     });
     assert(snapshot.alt?.length,'meaningful image alternative missing');assert(/^data:image\/(?:svg\+xml|jpeg|png|webp)(?:;base64|;charset=[^,;]+|,)/i.test(snapshot.src),'supported visual must be embedded offline');assert(!snapshot.alt.includes(snapshot.answer),`alt reveals answer: ${snapshot.alt}`);
-    assert(await page.locator('.question-media img').evaluate(img=>img.complete&&img.naturalWidth>0),'embedded image must decode successfully');
+    assert(await page.locator('.question-media img').evaluate(async img=>{await img.decode();return img.complete&&img.naturalWidth>0;}),'embedded image must decode successfully');
   });
   await check(`image question 130% ${width} ${theme}`,()=>inspect(page,'image-question',width,theme));
   await page.screenshot({path:`/tmp/seen-a11y-${width}-${theme}.png`,fullPage:true});

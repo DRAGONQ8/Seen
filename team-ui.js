@@ -98,7 +98,7 @@ const TeamUI = (() => {
     recoveryRaw = null,
     recoveryError = "",
     selectedPreset = "custom";
-  let lastTickSound = -1, lastScores = null;
+  let lastTickSound = -1, lastScores = null, armedPitTeam = null, resolutionBusy = false, resolutionToastTimer = null, storageIssue = false, lastScoreTapAt = 0, quietRestore = null, choosingSitout = false;
   const deep = (v) => JSON.parse(JSON.stringify(v));
   const m = () => store.match;
   const active = () => m() && m().state !== "MATCH_COMPLETE";
@@ -106,17 +106,23 @@ const TeamUI = (() => {
     return QUESTION_BANK;
   }
   function write() {
-    if (locked) return;
+    if (locked) return false;
     try {
       localStorage.setItem(KEY, JSON.stringify(store));
+      storageIssue = false;
+      return true;
     } catch {
-      toast(
-        "تعذّر حفظ المباراة محليًا. استخدم نسخة احتياطية من شاشة سجل المباريات.",
-      );
+      if (!storageIssue) toast("المباراة مستمرة في الذاكرة؛ تعذّر الحفظ التلقائي. صدّر حفظ متابعة للمقدم قبل إغلاق الصفحة.");
+      storageIssue = true;
+      return false;
     }
   }
+  function storageNotice() {
+    if (locked) return '<div class="match-storage-notice" role="status"><span>تغيّر حفظ المباراة في نافذة أخرى. حمّل أحدث نسخة قبل المتابعة.</span><button class="btn secondary small" data-team-action="reload">تحميل أحدث حفظ</button></div>';
+    return storageIssue ? '<div class="match-storage-notice" role="status"><span>الحفظ التلقائي غير متاح؛ المباراة مستمرة. احفظ نسخة متابعة قبل إغلاق الصفحة.</span><button class="btn secondary small" data-team-action="backup">حفظ متابعة للمقدم</button></div>' : '';
+  }
   function parseJSON(text) {
-    if (text.length > 20000000) throw Error("الملف أكبر من الحجم المسموح.");
+    if (text.length > 28100000) throw Error("الملف أكبر من الحجم المسموح.");
     return JSON.parse(text, (key, value) => {
       if (["__proto__", "prototype", "constructor"].includes(key))
         throw Error("مفاتيح غير آمنة في الملف.");
@@ -153,47 +159,118 @@ const TeamUI = (() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     $("#main").focus({ preventScroll: true });
   }
-  function dispatch(action) {
-    if (locked) {
-      toast("تغيرت المباراة في نافذة أخرى. حمّل أحدث حفظ.");
-      return;
+  function checkLatestSave() {
+    const current=m();
+    if (!current) return false;
+    // A failed write can leave an older, unrelated match on disk. The live
+    // memory-only match must remain playable until a successful save restores
+    // reliable cross-window comparisons.
+    if (storageIssue) return true;
+    let raw;
+    try { raw=localStorage.getItem(KEY); } catch { storageIssue=true; return true; }
+    if (!raw) return true;
+    let latest;
+    try { latest=parseJSON(raw)?.match; } catch {
+      preserveRecovery(raw,"تغيّر الحفظ المحلي إلى بيانات غير صالحة. الأصل محفوظ للاسترداد.");
+      locked=true; pause(false); render(); return false;
     }
-    const old = m();
-    if (!old) return;
+    if (latest && (latest.id !== current.id || Number.isFinite(latest.serial) && latest.serial > current.serial)) {
+      locked=true; pause(false); render();
+      toast("تغيّرت المباراة في نافذة أخرى. حمّل أحدث حفظ لحماية النقاط.");
+      return false;
+    }
+    return true;
+  }
+  function dismissResolutionToast() {
+    clearTimeout(resolutionToastTimer);
+    const el = $("#toast");
+    if (el?.classList.contains("with-undo")) {
+      el.classList.remove("show", "with-undo");
+      el.querySelector("[data-team-action=undo]")?.remove();
+    }
+  }
+  function resolutionToast(s) {
+    const r = s.lastResolution;
+    if (!r) return;
+    const message = r.winner === null
+      ? "محد جاوب صح — 0 نقطة" + (r.deltas?.some(delta => delta < 0) ? "؛ طُبّقت الخصومات المفعّلة" : "")
+      : `${s.teams[r.winner].name} حصل على ${num(r.earned)} نقطة${r.phase === "steal" ? " بالسرقة" : ""}`;
+    toast(message);
+    const el = $("#toast"), button = document.createElement("button");
+    button.className = "toast-undo";
+    button.type = "button";
+    button.textContent = "تراجع";
+    button.dataset.teamAction = "undo";
+    button.dataset.resolutionToken = r.token;
+    button.setAttribute("aria-label", "تراجع عن نتيجة السؤال الأخير");
+    el.classList.add("with-undo");
+    el.append(button);
+    clearTimeout(resolutionToastTimer);
+    resolutionToastTimer = setTimeout(() => {
+      if (button.isConnected) { button.remove(); el.classList.remove("with-undo"); }
+    }, 4300);
+  }
+  function presentTransition(old, next, action) {
+    if (next.state === "TURN_COMPLETE" && next.current?.resolved) next = TeamEngine.dispatch(next, {type:"NEXT_TURN"}, bank(), Date.now());
     const before = old.history?.length || 0;
-    const next = TeamEngine.dispatch(old, action, bank(), Date.now());
+    const resolved = (next.history?.length || 0) > before;
     store.match = next;
-    if (next.lastError) {
-      toast(next.lastError);
+    if (next.lastError) toast(next.lastError);
+    if (resolved) {
+      const h = next.history[next.history.length - 1];
+      if (h.questionId) { progress.seen[h.questionId] = Date.now(); persist(); }
+      if (next.config.sound) sound(h.winner !== null ? "correct" : "wrong");
+      armedPitTeam = null;
     }
-    if (next !== old) {
-      if ((next.history?.length || 0) > before) {
-        const h = next.history[next.history.length - 1];
-        if (h.questionId) {
-          progress.seen[h.questionId] = Date.now();
-          persist();
-        }
-      }
-      if (next.state === "TURN_COMPLETE" && old.state !== "TURN_COMPLETE") {
-        if (next.config.sound)
-          sound(next.current?.winner !== null ? "correct" : "wrong");
-        $("#announcer").textContent =
-          "حُسم السؤال. راجع حركة النقاط قبل العودة إلى اللوحة.";
-      }
-      if (next.state === "MATCH_COMPLETE") archive();
-      write();
+    if (action.type === "UNDO" && !next.lastError) {
+      store.history = store.history.filter(h => h.id !== old.id);
+      armedPitTeam = null;
     }
+    if (next.state === "MATCH_COMPLETE") archive();
+    write();
     render();
-    if (action.type === "START_QUESTION" || action.type === "START_STEAL")
-      $("#team-question-heading")?.focus({ preventScroll: true });
-    if (next.state === "ANSWER_REVEAL")
+    if (["START_QUESTION", "START_STEAL", "OPEN_QUESTION"].includes(action.type))
+      { window.scrollTo({top:0,behavior:"instant"}); $("#team-question-heading")?.focus({ preventScroll: true }); }
+    if (next.state === "ANSWER_REVEAL") {
       $(".canonical-answer")?.focus({ preventScroll: true });
-    if (next.state === "TURN_COMPLETE")
-      $("[data-team-action=engine][data-type=NEXT_TURN]")?.focus({
-        preventScroll: true,
-      });
-    if (next.state === "BOARD" && old.state !== "BOARD")
+      $(".answer-reveal")?.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+    if (next.state === "BOARD" && old.state !== "BOARD") {
+      window.scrollTo({ top: 0, behavior: "instant" });
       $("#team-match-heading")?.focus({ preventScroll: true });
+    }
+    if (resolved && action.type === "RESOLVE_QUESTION") {
+      const r = next.lastResolution;
+      $("#announcer").textContent = `${r?.winner === null ? "محد جاوب صح" : next.teams[r?.winner ?? 0].name + " حصل على " + num(r?.earned || 0) + " نقطة"}. ${next.state === "BOARD" ? "الدور على " + next.teams[next.turn].name : "اكتملت المباراة"}.`;
+      resolutionToast(next);
+    }
+    return next;
+  }
+  function dispatch(action) {
+    if (locked) { toast("تغيرت المباراة في نافذة أخرى. حمّل أحدث حفظ."); return null; }
+    const old = m();
+    if (!old) return null;
+    if (["RESOLVE_QUESTION","UNDO"].includes(action.type) && !checkLatestSave()) return null;
+    dismissResolutionToast();
+    return presentTransition(old, TeamEngine.dispatch(old, action, bank(), Date.now()), action);
+  }
+  function canArmPit(s) {
+    return s?.state === "BOARD" && s.config.assistEnabled.pit && s.teams[s.turn].assists.pit > 0;
+  }
+  function openTile(tileId) {
+    if (locked || !m() || m().state !== "BOARD" || Date.now()-lastScoreTapAt < 250) return;
+    const old = m(), now = Date.now();
+    dismissResolutionToast();
+    let next = TeamEngine.dispatch(old, {type:"SELECT_TILE", tileId}, bank(), now);
+    if (next.lastError) { toast(next.lastError); return; }
+    if (armedPitTeam === old.turn && canArmPit(old)) {
+      next = TeamEngine.dispatch(next, {type:"ASSIST",key:"pit",confirmed:true},bank(),now);
+      if (next.lastError) { toast(next.lastError); return; }
+    }
+    next = TeamEngine.dispatch(next,{type:"START_QUESTION"},bank(),now);
+    if (next.lastError) { toast(next.lastError); return; }
+    armedPitTeam = null;
+    presentTransition(old,next,{type:"OPEN_QUESTION"});
   }
   function archive() {
     const s = m();
@@ -226,6 +303,27 @@ const TeamUI = (() => {
     for (const q of QUESTION_BANK) q.disabled = store.disabled.includes(q.id);
     QUESTION_MAP.clear();
     QUESTION_BANK.forEach((q) => QUESTION_MAP.set(q.id, q));
+  }
+  function prepareResumeLibrary(raw) {
+    if (!raw || !Array.isArray(raw.edits) || raw.edits.length>1200 || !Array.isArray(raw.disabled) || raw.disabled.length>2000) throw Error("مكتبة الأسئلة في حفظ المتابعة غير صالحة.");
+    const ids=new Set(),texts=new Set();
+    const incoming=raw.edits.map(item=>{
+      const q=safeQuestion(item,ids,{legacy:true}),text=TeamEngine.normalizeAnswer(q.q);
+      if (texts.has(text)) throw Error("تكرار أسئلة داخل حفظ المتابعة.");
+      ids.add(q.id);texts.add(text);return q;
+    });
+    const merged=new Map(store.edits.map(q=>[q.id,q]));
+    incoming.forEach(q=>merged.set(q.id,q));
+    if (merged.size>1200) throw Error("دمج مكتبة المتابعة يتجاوز سعة 1200 سؤال محلي؛ صدّر المحتوى الحالي ونظّمه أولًا.");
+    const edits=[...merged.values()],questions=deep(baseBank),disabled=[...new Set([...store.disabled.filter(id=>!ids.has(id)),...raw.disabled.filter(id=>typeof id==="string"&&!['__proto__','prototype','constructor'].includes(id))])];
+    for(const q of edits){const index=questions.findIndex(item=>item.id===q.id);if(index>=0)questions[index]=deep(q);else questions.push(deep(q));}
+    const seenText=new Set();
+    for(const q of questions){const text=TeamEngine.normalizeAnswer(q.q);if(seenText.has(text))throw Error("دمج مكتبة المتابعة ينتج سؤالًا مكررًا؛ لم تتغير البيانات الحالية.");seenText.add(text);q.disabled=disabled.includes(q.id);}
+    return {edits,disabled,questions};
+  }
+  function commitResumeLibrary(prepared) {
+    if (!prepared || !Array.isArray(prepared.edits) || !Array.isArray(prepared.disabled)) throw Error("تعذّر اعتماد مكتبة المتابعة.");
+    store.edits=deep(prepared.edits);store.disabled=[...prepared.disabled];applyEdits();write();
   }
   function verificationLabel(status) {
     return ({"source-checked":"مدقق بمصدر",editorial:"مراجعة تحريرية",pending:"بانتظار التحقق",disputed:"مختلف فيه أو غير يقيني","owner-reviewed":"مراجعة المالك"})[status] || "بانتظار التحقق";
@@ -375,8 +473,13 @@ const TeamUI = (() => {
         store.version = 3;
       }
     } catch (e) {
-      preserveRecovery(raw, errText(e));
-      toast("تعذّرت استعادة حفظ الفريقين بالكامل. الأصل محفوظ للتصدير، وتقدمك الفردي مستقل.");
+      if (raw === null) {
+        storageIssue = true;
+        toast("التخزين التلقائي غير متاح في هذا المتصفح. يمكنك اللعب وحفظ ملف متابعة يدويًا.");
+      } else {
+        preserveRecovery(raw, errText(e));
+        toast("تعذّرت استعادة حفظ الفريقين بالكامل. الأصل محفوظ للتصدير، وتقدمك الفردي مستقل.");
+      }
     }
     load();
     ready = true;
@@ -491,7 +594,7 @@ const TeamUI = (() => {
       ? sanitizePreferred(store.preferred)
       : TeamEngine.defaults();
     step = 0;
-    selectedPreset = "custom";
+    selectedPreset = store.preferred ? "custom" : "classic";
     categoryTeam = 0;
     categorySearch = "";
     categoryFilter = "all";
@@ -601,7 +704,7 @@ const TeamUI = (() => {
   function wizardBody() {
     switch (step) {
       case 0:
-        return `<h2>اختر أجواء اللعب</h2>${presetControls()}<h3>طريقة إدارة المباراة</h3>${choices("mode", [
+        return `${draft.mode !== "solo" && !TeamEngine.validateConfig(draft,bank()).length ? `<section class="fast-start panel stack"><span class="eyebrow">جاهزة للعب</span><h2>${draft.board === "classic" ? "مباراة كلاسيكية" : "مباراة سريعة"} · ${draft.board === "classic" ? 36 : 18} سؤالًا</h2><p>${teamName(0)} × ${teamName(1)}</p><p class="muted">${draft.teams.flatMap(t=>t.categories).map(id=>catById(id).name).join(" · ")}</p><button class="btn primary" data-team-action="start-match">ابدأ ${draft.board === "classic" ? 36 : 18} سؤالًا</button><button class="btn secondary" data-team-action="customize">تخصيص الفريقين والقواعد</button></section>` : ""}<h2>اختر أجواء اللعب</h2>${presetControls()}<h3>طريقة إدارة المباراة</h3>${choices("mode", [
           {
             id: "teams",
             name: "منافسة فريقين",
@@ -664,7 +767,7 @@ const TeamUI = (() => {
         return `<h2>أي لوحة تفضلون؟</h2>${choices("board", [
           {
             id: "compact",
-            name: "المختصرة · الافتراضية",
+            name: "المختصرة · مباراة سريعة",
             icon: "bolt",
             desc: "18 سؤالًا. في كل فئة: 200 و400 و600، خانة واحدة لكل قيمة.",
           },
@@ -702,7 +805,7 @@ const TeamUI = (() => {
                 [3, "3 خيارات"],
               ])
             : ""
-        }<p class="muted">في الشفهي: استخدم «إجابة خاطئة · فرصة السرقة» عند المحاولة الخاطئة، أو «بلا إجابة · تمرير للمنافس» دون تسجيل خطأ قبل كشف الإجابة إذا أخفق الفريق. الكشف النهائي يغلق المحاولات حتى لا يتسرّب الحل.</p>`;
+        }<p class="muted">في الشفهي: استخدم «إجابة خاطئة · فرصة السرقة» عند المحاولة الخاطئة، أو «بلا إجابة · تمرير للمنافس» دون تسجيل خطأ قبل كشف الإجابة إذا أخفق الفريق. بعد الكشف، اختر الفريق أو «محد جاوب صح» للعودة إلى اللوحة مباشرة.</p>`;
       case 5:
         return `<h2>الوقت على راحتكم</h2>${toggleField("timer", "تفعيل مؤقّت الإجابة")}<div class="chips">${[15, 30, 45, 60, 90, 120].map((n) => `<button class="chip ${draft.duration === n ? "selected" : ""}" data-team-action="duration" data-value="${n}">${n} ثانية</button>`).join("")}</div><div class="team-settings-grid">${numberField("duration", "مدة الإجابة المخصصة · ثانية", 5, 600)}${numberField("stealDuration", "مدة السرقة المستقلة · ثانية", 5, 120)}${numberField("callDuration", "مهلة الاتصال بصديق · ثانية", 10, 300)}${selectField(
           "transition",
@@ -825,13 +928,13 @@ const TeamUI = (() => {
           seed: Date.now(),
           now: Date.now(),
           seen: progress.seen,
-          recentMatches: store.history.slice(0,3).map(h => ({ at: h.at, questionIds: h.history.map(r => r.questionId) })),
+          recentMatches: store.history.map(h => ({at:h.at,questionIds:h.history.filter(r=>r.at >= (prefs.questionHistoryResetAt || 0)).map(r=>r.questionId)})).filter(h=>h.questionIds.length).slice(0,3),
         });
         store.preferred = deep(draft);
         write();
         closeDialog();
         go("teamMatch");
-        if (store.match.selectionWarnings?.length) openDialog("تنبيه اختيار الأسئلة", `<div class="stack">${store.match.selectionWarnings.map(w => `<p>${esc(w)}</p>`).join("")}</div>`);
+        if (store.match.selectionWarnings?.length) toast("استُخدمت أسئلة قديمة عند نفاد البدائل؛ بقيت حدود الحرق مطبّقة.");
       } catch (e) {
         toast(errText(e));
       }
@@ -839,7 +942,7 @@ const TeamUI = (() => {
     if (active()) {
       openDialog(
         "استبدال المباراة المحفوظة؟",
-        "<p>المباراة الحالية لم تكتمل. استبدالها لا يمس تقدمك الفردي أو سجل المباريات المكتملة. يمكنك تصدير نسخة احتياطية أولًا.</p>",
+        "<p>المباراة الحالية لم تكتمل. استبدالها لا يمس تقدمك الفردي أو سجل المباريات المكتملة. يمكنك تصدير حفظ متابعة أولًا.</p>",
         '<button class="btn primary" id="team-confirm-start">بدء المباراة الجديدة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
       );
       $("#team-confirm-start").addEventListener("click", run, { once: true });
@@ -851,13 +954,13 @@ const TeamUI = (() => {
   }
   function toolbar(s) {
     const left = s.board.filter((t) => !t.done).length;
-    return `<div class="match-toolbar"><div><span class="eyebrow">${s.config.board === "compact" ? "اللوحة المختصرة" : "اللوحة الكلاسيكية"} · ${left} سؤالًا متبقيًا</span><h1 id="team-match-heading" tabindex="-1">${s.state === "BOARD" ? `الدور على ${esc(s.teams[s.turn].name)}` : "سين جيم خالد"}</h1></div><div class="match-controls"><button class="icon-btn" data-team-action="pause-menu" aria-label="قائمة المباراة">${icon("pause")}</button><button class="icon-btn" data-team-action="rules" aria-label="دليل القواعد">${icon("help")}</button><button class="icon-btn" data-action="fullscreen" aria-label="ملء الشاشة">${icon("expand")}</button></div></div>`;
+    return `<div class="match-toolbar"><div><span class="eyebrow">${s.config.board === "compact" ? "اللوحة المختصرة" : "اللوحة الكلاسيكية"} · ${left} سؤالًا متبقيًا</span><h1 id="team-match-heading" tabindex="-1">${s.state === "BOARD" ? `الدور على ${esc(s.teams[s.turn].name)}` : "سين جيم خالد"}</h1></div><div class="match-controls"><button class="icon-btn" data-team-action="quiet" aria-label="${prefs.sound || prefs.music ? "تفعيل الوضع الهادئ" : "إلغاء الوضع الهادئ"}" aria-pressed="${!prefs.sound && !prefs.music}">${icon("sound")}</button><button class="icon-btn" data-team-action="pause-menu" aria-label="قائمة المباراة">${icon("pause")}</button><button class="icon-btn" data-team-action="rules" aria-label="دليل القواعد">${icon("help")}</button><button class="icon-btn" data-action="fullscreen" aria-label="ملء الشاشة">${icon("expand")}</button></div></div>`;
   }
   function matchScreen() {
     const s = m();
     if (!s)
       return `<div class="panel match-empty"><h1>لنجهّز أول مباراة</h1><button class="btn primary" data-team-action="new">إعداد فريقين</button></div>`;
-    if (s.state === "MATCH_COMPLETE") return resultsScreen();
+    if (s.state === "MATCH_COMPLETE") return storageNotice() + resultsScreen();
     let content = "";
     if (s.state === "BOARD") content = boardScreen(s);
     else if (s.state === "QUESTION_PREVIEW") content = previewScreen(s);
@@ -865,24 +968,22 @@ const TeamUI = (() => {
       content = `<div class="panel pause-card stack"><span class="mode-icon">${icon("pause")}</span><h2>المباراة متوقفة مؤقتًا</h2><p class="muted">الوقت والنقاط محفوظة. لن تبدأ المهلة إلا عند المتابعة.</p><button class="btn primary" data-team-action="engine" data-type="RESUME">متابعة المباراة ${icon("play")}</button><button class="btn secondary" data-team-action="home">حفظ والعودة للرئيسية</button></div>`;
     else if (s.state === "TURN_COMPLETE") content = receiptScreen(s);
     else content = questionScreen(s);
-    return `<div class="team-page ${s.config.mode === "presenter" ? "presenter-view" : ""}">${toolbar(s)}${scoreboard(s)}${content}</div>`;
+    return `<div class="team-page ${s.config.mode === "presenter" ? "presenter-view" : ""}">${storageNotice()}${toolbar(s)}${scoreboard(s)}${content}</div>`;
+  }
+  function liveHistory(s) {
+    if (!s.history.length && !s.transactions.length) return "";
+    return `<details class="match-live-history panel"><summary>سجل هذه المباراة · ${s.history.length} سؤالًا مكتملًا</summary><div class="stack">${s.history.slice().reverse().map(h => `<div class="live-outcome"><span>${catById(s.board.find(t=>t.id===h.tileId)?.category)?.name || "سؤال"} · ${h.value} نقطة</span><strong>${h.winner === null ? "محد جاوب صح" : esc(s.teams[h.winner].name)}</strong>${h.phase === "steal" && h.winner !== null ? '<small>سرقة ناجحة</small>' : ""}</div>`).join("")}${transactionList(s)}<button class="btn secondary" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>تراجع عن آخر إجراء</button></div></details>`;
   }
   function boardScreen(s) {
-    return `${s.board.every(t=>!t.done) ? `<section class="team-introduction" aria-label="بداية المواجهة"><strong>${esc(s.teams[0].avatar)} ${esc(s.teams[0].name)}</strong><span>تبدأ المواجهة</span><strong>${esc(s.teams[1].avatar)} ${esc(s.teams[1].name)}</strong></section>` : ""}<div class="match-progress" role="progressbar" aria-label="تقدم المباراة" aria-valuemin="0" aria-valuemax="${s.board.length}" aria-valuenow="${s.board.filter((t) => t.done).length}"><span style="width:${(s.board.filter((t) => t.done).length / s.board.length) * 100}%"></span></div><div class="match-board" data-board="${s.config.board}" style="--columns:6">${s.categories
-      .map((id) => {
-        const cat = catById(id),
-          owner = s.config.teams.findIndex((t) => t.categories.includes(id));
-        return `<section class="match-category" style="--accent:${cat.color}"><div class="board-art">${categoryArt(id)}</div><h2 class="board-title">${cat.name}</h2><small class="muted">اختيار ${esc(s.teams[owner].name)}</small><div class="match-tiles ${s.config.board}">${s.board
-          .filter((t) => t.category === id)
-          .map(
-            (t) =>
-              `<button class="match-tile ${t.done ? "used" : ""}" data-team-action="tile" data-id="${esc(t.id)}" data-value="${t.value}" ${t.done ? "disabled" : ""} aria-label="${cat.name}، ${t.value} نقطة، السؤال ${t.slot + 1}${t.done ? "، مكتمل" : ""}"><strong>${t.done ? icon("check") : t.value}</strong><small>${t.done ? "مكتمل" : s.config.board === "classic" ? `السؤال ${t.slot + 1}` : "نقطة"}</small></button>`,
-          )
-          .join("")}</div></section>`;
-      })
-      .join(
-        "",
-      )}</div><p class="footer-note">الفئات الست للجميع. لا تُعاد خانة مكتملة، وتتناوب الفرق على اختيار الأسئلة مهما كانت نتيجة السرقة.</p>`;
+    const completed = s.board.filter(t=>t.done).length;
+    const outcomes = new Map(s.history.map(h=>[h.tileId,h]));
+    return `${!completed ? `<section class="team-introduction" aria-label="بداية المواجهة"><strong>${esc(s.teams[0].avatar)} ${esc(s.teams[0].name)}</strong><span>تبدأ المواجهة</span><strong>${esc(s.teams[1].avatar)} ${esc(s.teams[1].name)}</strong></section>` : ""}<div class="board-tools"><p class="board-progress-label">اكتمل <strong>${completed}</strong> من ${s.board.length} سؤالًا</p><div class="row"><button class="btn secondary board-undo" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>${icon("history")} تراجع عن آخر إجراء</button>${canArmPit(s) ? `<button class="btn secondary ${armedPitTeam === s.turn ? "pit-armed" : ""}" data-team-action="arm-pit" aria-pressed="${armedPitTeam === s.turn}">${icon("shield")} ${armedPitTeam === s.turn ? "الحفرة جاهزة · اضغط لإلغائها" : "الحفرة للسؤال التالي"}</button>` : ""}</div></div>${armedPitTeam === s.turn ? '<p class="inline-note" role="status">ستُفعّل الحفرة قبل فتح السؤال التالي. لن تُستهلك قبل اختيار خانة.</p>' : ""}<div class="match-progress" role="progressbar" aria-label="تقدم المباراة" aria-valuemin="0" aria-valuemax="${s.board.length}" aria-valuenow="${completed}"><span style="width:${completed / s.board.length * 100}%"></span></div><div class="match-board" data-board="${s.config.board}" style="--columns:6">${s.categories.map(id => {
+      const cat=catById(id), owner=s.config.teams.findIndex(t=>t.categories.includes(id)), tiles=s.board.filter(t=>t.category===id), allDone=tiles.every(t=>t.done);
+      return `<section class="match-category ${allDone ? "category-complete" : ""}" style="--accent:${cat.color}"><div class="board-art">${categoryArt(id)}</div><h2 class="board-title">${cat.name}${allDone ? '<span class="sr-only"> · اكتملت الفئة</span>' : ''}</h2><small class="muted">اختيار ${esc(s.teams[owner].name)}</small><div class="match-tiles ${s.config.board}">${tiles.map(t=>{
+        const h=outcomes.get(t.id), winner=h?.winner ?? null, label=t.done ? winner===null ? "محد جاوب صح" : s.teams[winner].name : s.config.board === "classic" ? `السؤال ${t.slot+1}` : "نقطة";
+        return `<button class="match-tile ${t.done ? "used" : ""} ${t.done && winner !== null ? "won-team-"+winner : ""}" data-team-action="tile" data-id="${esc(t.id)}" data-value="${t.value}" data-winner="${t.done ? winner ?? "none" : ""}" ${t.done ? "disabled" : ""} ${t.done && winner !== null ? `style="--tile-team-color:${s.teams[winner].color}"` : ""} aria-label="${cat.name}، ${t.value} نقطة، السؤال ${t.slot+1}${t.done ? "، مكتمل، "+esc(label) : ""}"><strong>${t.value}</strong><small>${t.done ? icon(winner===null ? "close" : "check") : ""}${esc(label)}</small></button>`;
+      }).join("")}</div></section>`;
+    }).join("")}</div>${liveHistory(s)}`;
   }
   function previewScreen(s) {
     const c = s.current,
@@ -896,36 +997,30 @@ const TeamUI = (() => {
     return `<figure class="match-media"><img src="${imageSrc(q.image)}" alt="${esc(questionAlt(q,revealed))}" width="600" height="360" decoding="async"><button class="zoom-btn icon-btn" data-team-action="zoom" data-key="${esc(q.image)}" aria-label="تكبير صورة السؤال">${icon("expand")}</button><figcaption>صورة محلية للسؤال · الإسناد والرخصة بعد الكشف</figcaption></figure>`;
   }
   function questionScreen(s) {
-    const c = s.current,
-      q = TeamEngine.getQuestion(s, c.questionId, bank()),
-      revealed =
-        c.revealed || ["ANSWER_REVEAL", "SCORE_ADJUDICATION"].includes(s.state),
-      steal = c.phase === "steal",
-      trap = c.phase === "trap";
-    if (s.state === "ASSISTANCE_ACTIVE")
-      return `<section class="panel pause-card stack"><span class="mode-icon">${icon("sound")}</span><h2>اتصال بصديق · ${esc(s.teams[c.responder].name)}</h2><p>يمكنكم التواصل مع شخص حقيقي الآن. لا تجري اللعبة اتصالًا نيابةً عنكم.</p><div class="panel stack"><h3>السؤال للصديق</h3><p>${esc(q.q)}</p>${questionMedia(q)}</div><div class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي للمساعدة">${timerLabel(s)}</div><p class="muted">${s.config.callPause ? "مؤقّت السؤال متوقف خلال المساعدة." : "مؤقّت السؤال يستمر خلال المساعدة."}</p><button class="btn primary" data-team-action="engine" data-type="RETURN_ASSISTANCE">العودة للسؤال</button></section>`;
-    return `${steal ? `<section class="steal-banner"><span>${icon("bolt")} فرصة السرقة</span><strong>${esc(s.teams[c.responder].name)}</strong><small>الإجابة السابقة مقفلة. الحل مخفي حتى تنتهي هذه المحاولة.</small></section>` : ""}${trap ? `<section class="trap-banner"><strong>${icon("flag")} سؤال الفخ · ${esc(s.teams[c.responder].name)}</strong><p>الإخفاق يخصم ${c.value} نقطة. لا توجد سرقة إضافية بعده.</p></section>` : ""}<div class="match-question-grid"><section class="match-question-panel panel stack"><div class="row"><span class="pill">${catById(q.category).name} · ${c.value} نقطة</span><span class="muted">المستجيب: ${esc(s.teams[c.responder].name)}</span>${!revealed ? `<span class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي">${timerLabel(s)}</span>` : ""}</div>${questionMedia(q,revealed)}<h2 class="match-question-text" id="team-question-heading" tabindex="-1">${esc(q.q)}</h2>${c.hint ? `<p class="hint-box">${icon("help")} ${esc(safeHint(q))}</p>` : ""}${c.twice ? '<p class="pill">جاوب جوابين: اقتراحان ضمن المهلة نفسها</p>' : ""}${c.doubleTeam === c.responder ? '<p class="pill">مضاعفة النقاط مفعّلة لهذا المستجيب</p>' : ""}${c.pitTeam !== null ? `<p class="pill">الحفرة مفعّلة لصالح ${esc(s.teams[c.pitTeam].name)}</p>` : ""}${c.knowledgeLocked ? '<p class="inline-note warning" role="status">سبق كشف الإجابة؛ التحكيم فقط. لا تعود محاولة جديدة أو سرقة بعد التراجع.</p>' : ""}${c.sitout ? `<p class="pill">استريح: ${esc(c.sitout.participant)} · ${esc(s.teams[c.sitout.teamId].name)}</p>` : ""}${revealed ? revealScreen(s, q) : answerControls(s, q)}</section><aside class="match-asside">${!revealed ? assists(s) : ""}<section class="panel stack"><h2>قرار واضح، ونقاط واضحة</h2><p class="muted">قبل الكشف النهائي، انقل السؤال للمنافس إذا أخفق المستجيب. بعد الكشف تُغلق كل المحاولات ويؤكد المقدم الفريق المستحق.</p><button class="text-btn" data-team-action="report" data-id="${esc(q.id)}">الإبلاغ عن سؤال ${icon("flag")}</button></section></aside></div>`;
+    const c=s.current, q=TeamEngine.getQuestion(s,c.questionId,bank()), revealed=c.revealed || ["ANSWER_REVEAL","SCORE_ADJUDICATION"].includes(s.state), steal=c.phase==="steal", trap=c.phase==="trap";
+    if (s.state === "ASSISTANCE_ACTIVE") return `<section class="panel pause-card stack"><span class="mode-icon">${icon("sound")}</span><h2>اتصال بصديق · ${esc(s.teams[c.responder].name)}</h2><p>استعينوا بصديق الآن؛ لا تجري اللعبة اتصالًا تلقائيًا.</p><div class="panel stack"><h3>السؤال للصديق</h3><p>${esc(q.q)}</p>${questionMedia(q)}</div><div class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي للمساعدة">${timerLabel(s)}</div><p class="muted">${s.config.callPause ? "مؤقّت السؤال متوقف خلال المساعدة." : "مؤقّت السؤال مستمر."}</p><button class="btn primary" data-team-action="engine" data-type="RETURN_ASSISTANCE">العودة للسؤال</button></section>`;
+    const question = `${questionMedia(q,revealed)}<h2 class="match-question-text" id="team-question-heading" tabindex="-1">${esc(q.q)}</h2>`;
+    const modifiers = `${c.hint && !revealed ? `<p class="hint-box">${icon("help")} ${esc(safeHint(q))}</p>` : ""}${c.twice && !revealed ? '<p class="pill">جاوب جوابين: اقتراحان ضمن المهلة نفسها</p>' : ""}${c.doubleTeam === c.responder ? '<p class="pill">مضاعفة النقاط مفعّلة</p>' : ""}${c.pitTeam !== null ? `<p class="pill">الحفرة لصالح ${esc(s.teams[c.pitTeam].name)}</p>` : ""}${c.sitout ? `<p class="pill">استريح: ${esc(c.sitout.participant)}</p>` : ""}`;
+    return `${steal && !revealed ? `<section class="steal-banner"><span>${icon("bolt")} فرصة السرقة</span><strong>${esc(s.teams[c.responder].name)}</strong></section>` : ""}${trap && !revealed ? `<section class="trap-banner"><strong>${icon("flag")} سؤال الفخ · ${esc(s.teams[c.responder].name)}</strong><p>تُطبّق عقوبة الإخفاق المفعّلة عند الحسم.</p></section>` : ""}<div class="match-question-grid ${revealed ? "answer-state" : ""}"><section class="match-question-panel panel stack"><div class="question-context row"><span class="pill">${catById(q.category).name} · ${c.value} نقطة</span><span class="muted">${revealed ? "صاحب الاختيار" : "المستجيب"}: ${esc(s.teams[revealed ? c.selector : c.responder].name)}</span>${!revealed ? `<span class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي">${timerLabel(s)}</span>` : ""}</div>${revealed ? `${revealScreen(s,q)}<details class="original-question"><summary>السؤال${q.image ? " والصورة" : ""}</summary><div class="stack">${question}</div></details>` : `${question}${modifiers}${answerControls(s,q)}`}</section><aside class="match-aside">${!revealed ? assists(s) : ""}<section class="panel question-report"><button class="text-btn" data-team-action="report" data-id="${esc(q.id)}">الإبلاغ عن سؤال ${icon("flag")}</button></section></aside></div>`;
   }
   function answerControls(s, q) {
     const c = s.current,
       extra = c.twiceTeam === c.responder || c.secondTeam === c.responder,
       attemptCount = c.attempts.filter((a) => a.teamId === c.responder).length;
-    if (
-      s.state === "STEAL_OPPORTUNITY" &&
-      !c.timerStarted &&
-      s.config.transition === "host"
-    )
-      return `<div class="question-actions"><p>استعدوا لبدء فرصة السرقة. لن يُستهلك الوقت قبل ضغط الزر.</p><button class="btn primary" data-team-action="engine" data-type="START_STEAL">ابدأ فرصة ${esc(s.teams[c.responder].name)}</button></div>`;
     let html = "";
     if (s.config.answerStyle === "choice")
       html = `<div class="answers-grid">${c.choices.map((idx, i) => `<button class="answer-card" data-team-action="answer" data-value="${idx}" ${c.attempts?.some((a) => a.teamId === c.responder && a.values?.includes(idx)) ? "disabled" : ""}><span class="answer-key">${i + 1}</span><span class="answer-label" dir="auto">${esc(q.options[idx])}</span></button>`).join("")}</div>`;
     if (s.config.answerStyle === "typed")
       html = `<form id="team-answer-form" class="stack"><label for="team-answer-input">إجابة ${esc(s.teams[c.responder].name)}</label><input id="team-answer-input" name="answer" maxlength="180" autocomplete="off" required><small class="muted">تُوحّد الهمزات ويُحذف التشكيل. تظل التاء المربوطة والهاء، والألف المقصورة والياء، حروفًا متميزة. للمقدم تصحيح المطابقة بعد الكشف.</small><button class="btn primary" type="submit">اعتماد الإجابة</button></form>`;
-    return `${extra && attemptCount === 1 ? '<p class="inline-note warning" role="status">الإجابة الأولى غير مطابقة. بقيت محاولة ثانية ضمن الوقت نفسه.</p>' : ""}${html}<div class="question-actions">${s.config.timer && !c.timerStarted ? '<button class="btn primary" data-team-action="engine" data-type="START_TIMER">ابدأ المؤقّت</button>' : ""}<button class="btn primary" data-team-action="reveal">${icon("eye")} كشف الإجابة</button><button class="btn secondary" data-team-action="incorrect">${extra && attemptCount === 0 ? "الاقتراح الأول غير صحيح · المحاولة الثانية" : c.phase === "first" && s.config.steal ? "إجابة خاطئة · فرصة السرقة" : "إجابة خاطئة · إنهاء المحاولة"}</button><button class="btn secondary" data-team-action="engine" data-type="PASS">${c.phase === "first" && s.config.steal ? "بلا إجابة · تمرير للمنافس" : "بلا إجابة · إنهاء السؤال"}</button><button class="btn secondary" data-team-action="pause-menu">${icon("pause")} إيقاف مؤقت</button></div>${s.config.answerStyle === "oral" ? '<p class="muted">أجيبوا شفهيًا. كشف الحل نهائي؛ إن لم يجب الفريق استخدموا زر فرصة السرقة أولًا.</p>' : ""}`;
+    return `${extra && attemptCount === 1 ? '<p class="inline-note" role="status">الاقتراح الأول غير مطابق؛ بقيت محاولة ثانية.</p>' : ""}${html}<div class="question-actions"><button class="btn primary reveal-primary" data-team-action="reveal">${icon("eye")} كشف الإجابة</button><div class="host-inline-controls">${s.config.timer && !c.timerStarted ? `<button class="btn secondary" data-team-action="engine" data-type="${s.state === "STEAL_OPPORTUNITY" ? "START_STEAL" : "START_TIMER"}">${icon("clock")} ابدأ المؤقّت</button>` : ""}<button class="btn secondary" data-team-action="pause-menu">${icon("pause")} إيقاف مؤقت</button></div><details class="attempt-controls"><summary>إدارة المحاولات والسرقة</summary><div class="row"><button class="btn secondary" data-team-action="incorrect">${extra && attemptCount === 0 ? "الاقتراح الأول غير صحيح" : c.phase === "first" && s.config.steal ? "إجابة خاطئة · فرصة السرقة" : "إجابة خاطئة · إنهاء المحاولة"}</button><button class="btn secondary" data-team-action="engine" data-type="PASS">${c.phase === "first" && s.config.steal ? "بلا إجابة · تمرير للمنافس" : "بلا إجابة · إنهاء السؤال"}</button></div></details></div>`;
   }
   function revealScreen(s, q) {
-    const c = s.current;
-    return `<section class="answer-reveal stack"><span class="eyebrow">الإجابة الصحيحة</span><strong class="canonical-answer" tabindex="-1" dir="auto">${esc(q.correctAnswer || q.options[q.answer])}</strong>${q.acceptedAnswers?.length ? `<p class="muted">بدائل مقبولة: ${q.acceptedAnswers.map(esc).join("، ")}</p>` : ""}${q.image ? mediaCredit(q.image) : ""}${s.config.explanations ? `<p>${esc(q.explanation)}</p><a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">${esc(q.source.title)} · ${esc(q.source.reference)}</a>` : ""}<h3>${c.skip ? "سؤال متخطّى · لا مكافأة عادية" : "من أجاب إجابة صحيحة؟"}</h3><p class="muted">سيظهر تأكيد باسم الفريق وقيمة السؤال قبل أي تسجيل. الكشف لا يمنح نقاطًا وحده.</p><div class="adjudication-grid">${(c.skip ? [] : s.teams).map((t, i) => `<button class="award-team btn" data-team-action="award" data-team="${i}" style="--team-color:${t.color}">${esc(t.avatar)} ${esc(t.name)} أجاب صح${i === c.responder ? " · المستجيب" : c.phase !== "first" ? " · تصحيح المقدم" : ""}</button>`).join("")}<button class="btn secondary" data-team-action="award" data-team="none">لا أحد أجاب</button></div></section>`;
+    const c=s.current;
+    const outcomes=s.teams.map((_,i)=>TeamEngine.scoreOutcome(s,i));
+    const nobody=TeamEngine.scoreOutcome(s,null);
+    const identity=`data-question-id="${esc(c.questionId)}" data-tile-id="${esc(c.tileId)}" data-token="${esc(c.token)}"`;
+    const notes=outcomes.map((outcome,i)=>`<p><strong>${esc(s.teams[i].name)}:</strong> ${outcome.deltas.map((delta,index)=>`${esc(s.teams[index].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>`).join("");
+    return `<section class="answer-reveal stack"><span class="eyebrow">الإجابة الصحيحة</span><strong class="canonical-answer" tabindex="-1" dir="auto">${esc(q.correctAnswer || q.options[q.answer])}</strong><div class="adjudication-grid scoring-actions" role="group" aria-label="حسم السؤال بضغطة واحدة">${s.teams.map((t,i)=>`<button class="award-team btn" data-team-action="award" data-team="${i}" ${identity} style="--team-color:${t.color}"><span class="scoring-team-name">${esc(t.avatar)} ${esc(t.name)}</span><strong class="scoring-points" dir="ltr">${outcomes[i].earned>0?"+":""}${num(outcomes[i].earned)}</strong></button>`).join("")}<button class="btn scoring-nobody" data-team-action="award" data-team="none" ${identity}><span>⚪ محد جاوب صح</span><strong class="scoring-points" dir="ltr">0</strong></button></div>${c.skip ? '<p class="muted">سؤال متخطّى؛ لا مكافأة نقاط لأي فريق.</p>' : ""}${s.config.explanations ? `<p class="answer-explanation">${esc(q.explanation)}</p>` : ""}<details class="answer-reference"><summary>المراجع وتفاصيل الاحتساب</summary><div class="stack">${q.acceptedAnswers?.length ? `<p>بدائل مقبولة: ${q.acceptedAnswers.map(esc).join("، ")}</p>` : ""}${s.config.explanations ? `<p>${esc(q.source.title)} · ${esc(q.source.reference)}</p>${q.source.url ? `<a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">فتح المرجع</a>` : `<p>${esc(q.source.bibliography || "")}</p>`}` : ""}${q.image ? mediaCredit(q.image) : ""}<p class="muted">اختيار الفريق المنافس يُسجّل سرقة عند تفعيلها، ما لم يكن السؤال فخًا. لا تُضاف إجابة خاطئة دون محاولة مسجلة. «محد جاوب صح» لا يضيف نقاطًا؛ الخصومات تتبع القواعد المفعّلة فقط.</p>${notes}${nobody.deltas.some(delta=>delta<0) ? `<p>عند عدم الإجابة: ${nobody.deltas.map((delta,i)=>`${esc(s.teams[i].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>` : ""}</div></details></section>`;
   }
   function assists(s, preview = false) {
     const c = s.current,
@@ -947,7 +1042,8 @@ const TeamUI = (() => {
             c.secondTeam !== c.responder)),
     );
     if (!ids.length) return "";
-    return `<section class="assist-bar panel"><h2>مساعدات ${esc(t.name)}</h2><div class="assist-actions">${ids.map((id) => `<button class="assist-action" data-team-action="assist" data-key="${id}">${icon(HELP[id].icon)}<span>${HELP[id].name}</span><small>${t.assists[id]} متبقية</small></button>`).join("")}</div></section>`;
+    const sitout=choosingSitout && ids.includes("sitout") ? `<div class="inline-sitout" role="group" aria-label="اختيار المشارك المستريح"><label for="sitout-inline-participant">المشارك الذي يستريح من ${esc(s.teams[1-c.responder].name)}</label><select id="sitout-inline-participant">${s.teams[1-c.responder].players.map(name=>`<option>${esc(name)}</option>`).join("")}</select><div class="row"><button class="btn secondary" data-team-action="use-sitout">إراحة المشارك</button><button class="btn secondary" data-team-action="cancel-sitout">إلغاء</button></div></div>` : "";
+    return `<section class="assist-bar panel"><h2>مساعدات ${esc(t.name)}</h2><div class="assist-actions">${ids.map((id) => `<button class="assist-action" data-team-action="assist" data-key="${id}">${icon(HELP[id].icon)}<span>${HELP[id].name}</span><small>${t.assists[id]} متبقية</small></button>`).join("")}${sitout}</div></section>`;
   }
   function reasonLabel(reason) {
     const labels = {
@@ -1055,95 +1151,41 @@ const TeamUI = (() => {
     tickHandle = setInterval(tick, 200);
     tick();
   }
-  function confirmReveal() {
-    const s = m();
-    if (!s || !s.current) return;
-    if (s.config.mode === "presenter") { dispatch({type:"REVEAL"}); return; }
-    if (s.current.phase === "first" && s.config.steal) {
-      pause();
-      render();
-      openDialog(
-        "الكشف النهائي يغلق فرصة السرقة",
-        `<p>إذا أخطأ ${esc(s.teams[s.current.responder].name)} فابدأ فرصة المنافس قبل كشف الحل. بعد الكشف يستطيع المقدم تحكيم النتيجة، ولن تتاح محاولة سرقة جديدة لهذا السؤال.</p>`,
-        '<button class="btn primary" id="confirm-team-reveal">كشف الإجابة نهائيًا</button><button class="btn secondary" id="instead-team-steal">فرصة المنافس أولًا</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-      );
-      $("#confirm-team-reveal").addEventListener(
-        "click",
-        () => {
-          closeDialog();
-          if (m().state === "PAUSED") dispatch({ type: "RESUME" });
-          dispatch({ type: "REVEAL" });
-        },
-        { once: true },
-      );
-      $("#instead-team-steal").addEventListener(
-        "click",
-        () => {
-          closeDialog();
-          if (m().state === "PAUSED") dispatch({ type: "RESUME" });
-          dispatch({ type: "DECLARE_INCORRECT" });
-        },
-        { once: true },
-      );
-    } else dispatch({ type: "REVEAL" });
+  function revealAnswer() {
+    if (!m()?.current) return;
+    dispatch({type:"REVEAL"});
   }
-  function confirmAward(value) {
-    const s = m();
-    if (!s?.current || !s.current.revealed) return;
-    const team = value === "none" ? null : Number(value),
-      name = team === null ? "لا أحد" : s.teams[team].name;
-    openDialog(
-      "تأكيد نتيجة السؤال",
-      `<p>الفريق المستحق: <strong>${esc(name)}</strong></p>${team !== null && team !== s.current.responder && s.current.phase !== "first" ? '<p class="inline-note warning">هذا تصحيح يدوي لصالح فريق غير صاحب المحاولة الحالية، ولا يفتح محاولة إجابة جديدة. راجع الاختيار قبل التأكيد.</p>' : ""}<p>قيمة السؤال: <strong>${s.current.value} نقطة</strong>. ستُطبّق أي حفرة أو فخ أو مضاعفة وفق القواعد الثابتة، وتظهر كل حركة في إيصال التسجيل.</p>`,
-      '<button class="btn primary" id="confirm-team-award">تأكيد النتيجة</button><button class="btn secondary" data-action="close-dialog">مراجعة</button>',
-    );
-    $("#confirm-team-award").addEventListener(
-      "click",
-      () => {
-        closeDialog();
-        dispatch({ type: "ADJUDICATE", teamId: team });
-      },
-      { once: true },
-    );
+  function resolveAward(button) {
+    if (resolutionBusy) return;
+    const s = m(), c = s?.current;
+    if (!c?.revealed || c.resolved || button.dataset.questionId !== c.questionId || button.dataset.tileId !== c.tileId || button.dataset.token !== c.token) return;
+    const winner = button.dataset.team === "none" ? null : Number(button.dataset.team);
+    if (winner !== null && ![0,1].includes(winner)) return;
+    resolutionBusy = true;
+    lastScoreTapAt = Date.now();
+    try {
+      document.querySelectorAll('[data-team-action="award"]').forEach(el => { el.disabled = true; });
+      dispatch({type:"RESOLVE_QUESTION",teamId:winner,questionId:c.questionId,tileId:c.tileId,token:c.token});
+    } finally { resolutionBusy = false; }
   }
-  function confirmAssist(key) {
-    const s = m();
-    if (!s?.current || !HELP[key]) return;
-    const c = s.current;
-    const previous = s.state;
-    if (key !== "pit") pause();
-    render();
-    let extra = "";
+  function useAssist(key) {
+    if (!m()?.current || !HELP[key]) return;
     if (key === "sitout") {
-      const names = s.teams[1 - c.responder].players;
-      extra = `<label for="sitout-participant">المشارك المرشح من ${esc(s.teams[1 - c.responder].name)}</label>${names.length ? `<select id="sitout-participant">${names.map((n) => `<option>${esc(n)}</option>`).join("")}</select>` : '<input id="sitout-participant" maxlength="24" placeholder="اسم المشارك">'}`;
+      choosingSitout=true;render();$("#sitout-inline-participant")?.focus({preventScroll:true});return;
     }
-    openDialog(
-      HELP[key].name,
-      `<div class="stack"><p>${HELP[key].rule}</p>${extra}<p class="muted">لن تُستهلك المساعدة قبل التأكيد. إلغاء النافذة يبقي السؤال متوقفًا حتى استئنافه.</p></div>`,
-      '<button class="btn primary" id="confirm-team-assist">تأكيد الاستخدام</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-    );
-    $("#confirm-team-assist").addEventListener(
-      "click",
-      () => {
-        const participant = $("#sitout-participant")?.value;
-        if (key === "sitout" && !participant?.trim()) {
-          toast("أدخل اسم المشارك أولًا.");
-          return;
-        }
-        closeDialog();
-        if (m().state === "PAUSED") dispatch({ type: "RESUME" });
-        dispatch({ type: "ASSIST", key, confirmed: true, participant });
-      },
-      { once: true },
-    );
+    const next=dispatch({type:"ASSIST",key,confirmed:true});
+    if (next && !next.lastError) {
+      $("#announcer").textContent=HELP[key].name+" مفعّلة";
+      if (next.state === "ASSISTANCE_ACTIVE") $("[data-type=RETURN_ASSISTANCE]")?.focus({preventScroll:true});
+      else $("#team-question-heading")?.focus({preventScroll:true});
+    }
   }
   function pauseMenu() {
     pause();
     render();
     openDialog(
       "إدارة المباراة",
-      `<div class="stack"><p>الوقت متوقف أثناء هذه القائمة. القواعد واللوحة لا تتغير بعد البداية.</p><button class="btn primary" data-team-action="resume-menu">متابعة المباراة</button><button class="btn secondary" data-team-action="score-panel">تصحيح النقاط يدويًا</button><button class="btn secondary" data-team-action="assist-history">سجل استخدام المساعدات</button><button class="btn secondary" data-team-action="undo">التراجع عن آخر إجراء</button><button class="btn secondary" data-team-action="history">سجل المباريات</button><button class="btn secondary" data-team-action="backup">تصدير نسخة احتياطية</button><button class="btn secondary" data-team-action="home">حفظ والعودة للرئيسية</button></div>`,
+      `<div class="stack"><p>الوقت متوقف أثناء هذه القائمة. يمكنك تصدير حفظ متابعة الآن إذا كان الحفظ التلقائي غير متاح.</p><button class="btn primary" data-team-action="resume-menu">متابعة المباراة</button><button class="btn secondary" data-team-action="score-panel">تصحيح النقاط يدويًا</button><button class="btn secondary" data-team-action="assist-history">سجل استخدام المساعدات</button><button class="btn secondary" data-team-action="undo">التراجع عن آخر إجراء</button><button class="btn secondary" data-team-action="history">سجل المباريات</button><button class="btn secondary" data-team-action="backup">حفظ متابعة للمقدم</button><button class="btn secondary" data-team-action="home">حفظ والعودة للرئيسية</button></div>`,
     );
   }
   function scorePanel() {
@@ -1173,7 +1215,7 @@ const TeamUI = (() => {
       scores = s.teams.map((t) => t.score),
       tie = scores[0] === scores[1],
       winner = s.teams[scores[1] > scores[0] ? 1 : 0];
-    return `<div class="team-page">${scoreboard(s)}<section class="winner-card panel stack"><div class="result-trophy">${icon("cup")}</div><span class="eyebrow">اكتملت ${s.board.length} خانة</span><h1>${tie ? "تعادل يستحق جولة أخرى" : `الكأس لـ ${esc(winner.name)}`}</h1><p>${tie ? "معرفة متكافئة… والتحدي مستمر." : "مباراة جميلة، ومعرفة تستحق الاحتفال."}</p><div class="row"><button class="btn primary" data-team-action="rematch">إعادة بنفس القواعد</button><button class="btn secondary" data-team-action="new">تخصيص مباراة جديدة</button><button class="btn secondary" data-team-action="home">الرئيسية</button><button class="btn secondary" data-team-action="history">سجل المباريات</button></div></section><div class="section-heading"><h2>حصيلة المباراة</h2><button class="text-btn" data-team-action="match-summary">تصدير الملخص ${icon("download")}</button></div>${statisticsPanel(s)}${transactionList(s)}<div class="section-heading"><h2>الأسئلة وتفسيراتها</h2></div><div class="stack">${s.history
+    return `<div class="team-page">${scoreboard(s)}<section class="winner-card panel stack"><div class="result-trophy">${icon("cup")}</div><span class="eyebrow">اكتملت ${s.board.length} خانة</span><h1>${tie ? "تعادل يستحق جولة أخرى" : `الكأس لـ ${esc(winner.name)}`}</h1><p>${tie ? "معرفة متكافئة… والتحدي مستمر." : "مباراة جميلة، ومعرفة تستحق الاحتفال."}</p><div class="row"><button class="btn primary" data-team-action="rematch">إعادة بنفس القواعد</button><button class="btn secondary" data-team-action="new">تخصيص مباراة جديدة</button><button class="btn secondary" data-team-action="home">الرئيسية</button><button class="btn secondary" data-team-action="history">سجل المباريات</button><button class="btn secondary" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>تراجع عن آخر نتيجة</button></div></section><div class="section-heading"><h2>حصيلة المباراة</h2><button class="text-btn" data-team-action="match-summary">تصدير الملخص ${icon("download")}</button></div>${statisticsPanel(s)}${transactionList(s)}<div class="section-heading"><h2>الأسئلة وتفسيراتها</h2></div><div class="stack">${s.history
       .map((h) => {
         const q = TeamEngine.getQuestion(s, h.questionId, bank());
         if (!q) return "";
@@ -1186,11 +1228,11 @@ const TeamUI = (() => {
     return `<div class="stack">${s.transactions.map((t) => `<div class="panel match-transaction"><strong>${esc(s.teams[t.teamId === "team-0" || t.teamId === 0 ? 0 : 1].name)}</strong><span>${reasonLabel(t.reason)}${t.modifier === "double" ? " · مضاعفة النقاط" : t.modifier === "bonus" ? " · مكافأة 50 نقطة" : ""}${t.reason === "host-correction" ? " · " + esc(t.modifier) : ""}</span><b dir="ltr">${num(t.scoreBefore)} → ${num(t.scoreAfter)}</b></div>`).join("") || '<div class="panel">لم تسجل حركات نقاط.</div>'}</div>`;
   }
   function historyScreen() {
-    return `<div class="team-page">${recoveryNotice()}${title("كل مواجهة لها حكاية", "سجل مباريات الفريقين", "آخر 30 مباراة مكتملة محفوظة على هذا الجهاز.")}<div class="row"><button class="btn secondary" data-team-action="backup">تصدير حفظ الفريقين</button><button class="btn secondary" data-team-action="restore">استيراد نسخة احتياطية</button>${m() ? '<button class="btn primary" data-team-action="resume">العودة للمباراة</button>' : ""}</div><div class="stack">${store.history.map((h, i) => `<details class="panel match-history"><summary><strong>${esc(h.teams[0].name)} ${num(h.teams[0].score)} × ${num(h.teams[1].score)} ${esc(h.teams[1].name)}</strong><span>${h.config.board === "compact" ? "18" : "36"} سؤالًا · ${new Date(h.at).toLocaleDateString("en-GB")}</span></summary><div class="stack">${statisticsPanel(h)}${transactionList(h)}<button class="btn secondary" data-team-action="historic-summary" data-index="${i}">تصدير ملخص المباراة</button></div></details>`).join("") || '<div class="panel match-empty">ابدأ مباراة وأكملها لتظهر هنا نتيجتها وسجل تسجيلها.</div>'}</div></div>`;
+    return `<div class="team-page">${recoveryNotice()}${title("كل مواجهة لها حكاية", "سجل مباريات الفريقين", "آخر 30 مباراة مكتملة محفوظة على هذا الجهاز.")}<div class="row"><button class="btn secondary" data-team-action="backup">حفظ متابعة للمقدم</button><button class="btn secondary" data-team-action="restore">استيراد نسخة احتياطية</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button>${m() ? '<button class="btn primary" data-team-action="resume">العودة للمباراة</button>' : ""}</div><div class="stack">${store.history.map((h, i) => `<details class="panel match-history"><summary><strong>${esc(h.teams[0].name)} ${num(h.teams[0].score)} × ${num(h.teams[1].score)} ${esc(h.teams[1].name)}</strong><span>${h.config.board === "compact" ? "18" : "36"} سؤالًا · ${new Date(h.at).toLocaleDateString("en-GB")}</span></summary><div class="stack">${statisticsPanel(h)}${transactionList(h)}<button class="btn secondary" data-team-action="historic-summary" data-index="${i}">تصدير ملخص المباراة</button></div></details>`).join("") || '<div class="panel match-empty">ابدأ مباراة وأكملها لتظهر هنا نتيجتها وسجل تسجيلها.</div>'}</div></div>`;
   }
   function homeAddon() {
     if (!ready) return "";
-    return `${recoveryNotice()}${m() ? `<section class="match-resume-banner panel row"><div><span class="eyebrow">مباراتك محفوظة</span><h2>${esc(m().teams[0].name)} × ${esc(m().teams[1].name)}</h2><p class="muted">${m().board.filter((t) => t.done).length}/${m().board.length} سؤالًا مكتملًا · ${num(m().teams[0].score)} مقابل ${num(m().teams[1].score)}</p></div><button class="btn primary" data-team-action="resume">${m().state === "MATCH_COMPLETE" ? "عرض النتيجة" : "متابعة المباراة"}</button></section>` : ""}<section class="team-dashboard-card panel"><div><span class="eyebrow">منافسة أصلية، على جهاز واحد</span><h2>فريقان، 6 فئات، و18 سؤالًا.</h2><p class="muted">لوحة مختصرة افتراضيًا، إجابات شفهية، سرقة سؤال ومساعدات لكل فريق. خصّص كل قاعدة قبل البدء.</p></div><div class="hero-actions"><button class="btn primary" data-team-action="new">إعداد مباراة فريقين ${icon("cup")}</button><button class="btn secondary" data-team-action="random">مباراة بفئات عشوائية</button><button class="text-btn" data-team-action="history">سجل المباريات</button><button class="text-btn" data-team-action="library">مكتبة الأسئلة</button></div></section>`;
+    return `${recoveryNotice()}${m() ? `<section class="match-resume-banner panel row"><div><span class="eyebrow">مباراتك محفوظة</span><h2>${esc(m().teams[0].name)} × ${esc(m().teams[1].name)}</h2><p class="muted">${m().board.filter((t) => t.done).length}/${m().board.length} سؤالًا مكتملًا · ${num(m().teams[0].score)} مقابل ${num(m().teams[1].score)}</p></div><button class="btn primary" data-team-action="resume">${m().state === "MATCH_COMPLETE" ? "عرض النتيجة" : "متابعة المباراة"}</button></section>` : ""}<section class="team-dashboard-card panel"><div><span class="eyebrow">منافسة أصلية، على جهاز واحد</span><h2>فريقان، 6 فئات، و36 سؤالًا.</h2><p class="muted">مباراة كلاسيكية بإجابات شفهية وحسم بضغطة واحدة، مع سرقة ومساعدات اختيارية. تتوفر مباراة سريعة من 18 سؤالًا؛ خصّص القواعد قبل البدء.</p></div><div class="hero-actions"><button class="btn primary" data-team-action="new">إعداد مباراة فريقين ${icon("cup")}</button><button class="btn secondary" data-team-action="random">مباراة بفئات عشوائية</button><button class="text-btn" data-team-action="history">سجل المباريات</button><button class="text-btn" data-team-action="library">مكتبة الأسئلة</button></div></section>`;
   }
   function profileAddon() {
     const played = store.history.length,
@@ -1244,19 +1286,10 @@ const TeamUI = (() => {
     );
   }
   function downloadRaw(text, name) {
-    const blob=new Blob([text],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
-    a.href=url; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(url),3000);
+    downloadLocalSave(text,name);
   }
   function download(obj, name) {
-    const blob = new Blob([JSON.stringify(obj, null, 2)], {
-        type: "application/json",
-      }),
-      url = URL.createObjectURL(blob),
-      a = document.createElement("a");
-    a.href = url;
-    a.download = name;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 3000);
+    return downloadLocalSave(obj,name);
   }
   function pickFile(kind) {
     const input = document.createElement("input");
@@ -1270,8 +1303,12 @@ const TeamUI = (() => {
   async function readFile(file, kind) {
     if (!file) return;
     try {
-      if (file.size > 20000000) throw Error("الملف كبير جدًا.");
-      const data = parseJSON(await file.text());
+      if (file.size > 28100000) throw Error("الملف كبير جدًا.");
+      let data = parseJSON(await file.text());
+      if (data?.format === "seen-khaled-resume") {
+        if (kind === "pack" || data.kind !== "teams") throw Error("اختر حفظ متابعة خاصًا بمباراة الفريقين.");
+        data = decodeMatchBackup(data);
+      }
       if (kind === "pack") {
         if (active() || session?.status === "active")
           throw Error("أكمل المباراة أو الجولة قبل استيراد الأسئلة.");
@@ -1414,7 +1451,7 @@ const TeamUI = (() => {
     if (route === "teamMatch") render();
     openDialog(
       "دليل مباراة الفريقين",
-      `<div class="stack"><p>تجربة مستقلة أصلية مستلهمة من نوع مسابقات الفرق. اللوحة المختصرة ذات 18 سؤالًا اختيار خاص بهذه النسخة. الكلاسيكية 36 سؤالًا؛ القيم 200 و400 و600 ولكل قيمة خانتان مستقلتان.</p><p>تؤكد الصفحات الرسمية اختيار 3 فئات و3 مساعدات لكل فريق، وإتاحة الفئات الست للجميع، ومهلة 60 ثانية ثم 10 للمنافس. الحفرة قبل ظهور السؤال والمساعدات الأربع الأساسية الأخرى بعده.</p><p>يتناوب الفريقان على اختيار السؤال. السرقة والفخ لا يغيران هذا الجدول. كشف الإجابة نهائي ويغلق المحاولات؛ أتح فرصة المنافس قبل الكشف إذا أخفق الفريق. لا تُضاف نقاط حتى تؤكد نتيجة السؤال باسم الفريق.</p><p>الإجابة الصحيحة تمنح قيمة الخانة. عند تفعيل المكافأة، تضاف 50 نقطة لصحة إجابة صاحب الاختيار. مضاعفة النقاط تخص المكافأة فقط. الحفرة تخصم القيمة الأساسية من الخصم. الفخ: إخفاق المستجيب يخصم قيمة السؤال، ولا سرقة بعده؛ نجاحه يتبع الإعداد. خصم السرقة وإخفاق الحفرة والرصيد السالب والمكافآت خيارات مخصصة، وليست قواعد رسمية مؤكدة.</p>${Object.values(
+      `<div class="stack"><p>تجربة مستقلة أصلية مستلهمة من نوع مسابقات الفرق. اللوحة المختصرة ذات 18 سؤالًا اختيار خاص بهذه النسخة. الكلاسيكية 36 سؤالًا؛ القيم 200 و400 و600 ولكل قيمة خانتان مستقلتان.</p><p>تؤكد الصفحات الرسمية اختيار 3 فئات و3 مساعدات لكل فريق، وإتاحة الفئات الست للجميع، ومهلة 60 ثانية ثم 10 للمنافس. الحفرة قبل ظهور السؤال والمساعدات الأربع الأساسية الأخرى بعده.</p><p>يتناوب الفريقان على اختيار السؤال. السرقة والفخ لا يغيران هذا الجدول. اكشف الإجابة ثم اضغط الفريق أو «محد جاوب صح»؛ تُسجّل النتيجة وتعود اللوحة مباشرة. اختيار المنافس يُسجّل سرقة عند تفعيلها، باستثناء الفخ، دون افتراض أن صاحب الاختيار حاول وأخطأ.</p><p>الإجابة الصحيحة تمنح قيمة الخانة. عند تفعيل المكافأة، تضاف 50 نقطة لصحة إجابة صاحب الاختيار. المضاعفة تضاعف قيمة السؤال للفريق المؤهل دون الخصومات؛ تبقى مكافأة 50 إضافة ثابتة. الحفرة تخصم القيمة الأساسية من الخصم. الفخ: إخفاق المستجيب يخصم قيمة السؤال، ولا سرقة بعده؛ نجاحه يتبع الإعداد. خصم السرقة وإخفاق الحفرة والرصيد السالب والمكافآت خيارات مخصصة، وليست قواعد رسمية مؤكدة.</p>${Object.values(
         HELP,
       )
         .map((h) => `<p><strong>${h.name}:</strong> ${h.rule}</p>`)
@@ -1473,6 +1510,7 @@ const TeamUI = (() => {
       step = Math.max(0, step - 1);
       render();
       $("#team-wizard-heading")?.focus({ preventScroll: true });
+    } else if (a === "customize") { step=1;render();$("#team-wizard-heading")?.focus({preventScroll:true});window.scrollTo(0,0);
     } else if (a === "next-step") {
       if (!validateStep()) return;
       if (draft.mode === "solo") {
@@ -1527,20 +1565,36 @@ const TeamUI = (() => {
       else toast("وصلت إلى عدد المساعدات المختار. ألغِ واحدة أولًا.");
       render();
     } else if (a === "start-match") startMatch();
-    else if (a === "tile")
-      dispatch({ type: "SELECT_TILE", tileId: b.dataset.id });
+    else if (a === "tile") openTile(b.dataset.id);
+    else if (a === "arm-pit") {
+      if (!canArmPit(m())) return;
+      armedPitTeam = armedPitTeam === m().turn ? null : m().turn;
+      render();
+      document.querySelector('[data-team-action="arm-pit"]')?.focus({preventScroll:true});
+    }
     else if (a === "engine") dispatch({ type: b.dataset.type });
     else if (a === "answer")
       dispatch({ type: "ANSWER", value: Number(b.dataset.value) });
     else if (a === "incorrect") dispatch({ type: "DECLARE_INCORRECT" });
-    else if (a === "reveal") confirmReveal();
-    else if (a === "award") confirmAward(b.dataset.team);
-    else if (a === "assist") confirmAssist(b.dataset.key);
+    else if (a === "reveal") revealAnswer();
+    else if (a === "award") resolveAward(b);
+    else if (a === "assist") useAssist(b.dataset.key);
+    else if (a === "use-sitout") {
+      const participant=$("#sitout-inline-participant")?.value;
+      choosingSitout=false;
+      dispatch({type:"ASSIST",key:"sitout",confirmed:true,participant});
+      $("#team-question-heading")?.focus({preventScroll:true});
+    } else if (a === "cancel-sitout") { choosingSitout=false;render();document.querySelector('[data-team-action="assist"][data-key="sitout"]')?.focus({preventScroll:true}); }
     else if (a === "pause-menu") pauseMenu();
     else if (a === "resume-menu") {
       closeDialog();
       if (m().state === "PAUSED") dispatch({ type: "RESUME" });
       else go("teamMatch");
+    } else if (a === "quiet") {
+      if (prefs.sound || prefs.music) { quietRestore={sound:prefs.sound,music:prefs.music};prefs.sound=0;prefs.music=0; }
+      else { prefs.sound=quietRestore?.sound || 45;prefs.music=quietRestore?.music || 0; }
+      applyPrefs();persist();render();
+      document.querySelector('[data-team-action="quiet"]')?.focus({preventScroll:true});
     } else if (a === "score-panel") scorePanel();
     else if (a === "assist-history") {
       openDialog(
@@ -1553,19 +1607,9 @@ const TeamUI = (() => {
           .join("")}</div>`,
       );
     } else if (a === "undo") {
-      openDialog(
-        "التراجع عن آخر إجراء؟",
-        "<p>يُعكس آخر حسم أو تصحيح نقاط أو استخدام مساعدة. تُعكس مجموعة النقاط كلها مع دورها وسؤالها، ولا تعود محاولة جديدة بعد معرفة الحل.</p>",
-        '<button class="btn primary" id="confirm-team-undo">تأكيد التراجع</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-      );
-      $("#confirm-team-undo").addEventListener(
-        "click",
-        () => {
-          closeDialog();
-          dispatch({ type: "UNDO" });
-        },
-        { once: true },
-      );
+      if (b.dataset.resolutionToken && b.dataset.resolutionToken !== m()?.lastResolution?.token) return;
+      closeDialog();
+      dispatch({type:"UNDO"});
     } else if (a === "history") {
       closeDialog();
       go("teamHistory");
@@ -1582,13 +1626,15 @@ const TeamUI = (() => {
           `<img class="zoom-image" src="${imageSrc(b.dataset.key)}" alt="${esc(questionAlt(TeamEngine.getQuestion(m(), m()?.current?.questionId, bank()) || {},!!m()?.current?.revealed))}">${m()?.current?.revealed || !active() ? mediaCredit(b.dataset.key) : '<p class="muted">يمكن عرض الإسناد والرخصة بعد انتهاء المحاولة.</p>'}`,
         );
     } else if (a === "backup") {
-      if (active() || session?.status === "active") { toast("الحفظ التلقائي مستمر. يتاح تصدير نسخة تتضمن الحلول بعد اكتمال المباراة أو الجولة."); return; }
       pause();
-      download(
-        { version: 3, save: store },
-        `seen-teams-backup-${localDate()}.json`,
-      );
+      try {
+        if (download(encodeMatchBackup("teams",{version:3,save:store}),`seen-teams-resume-${localDate()}.json`))
+          toast("أُعدّت نسخة متابعة للمقدم للتنزيل؛ احتفظ بالملف بعيدًا عن اللاعبين.");
+      } catch (error) {
+        toast(/[\u0600-\u06ff]/.test(error.message) ? error.message : "تعذّر إعداد نسخة المتابعة. تبقى المباراة مفتوحة دون تغيير.");
+      }
     } else if (a === "restore") pickFile("backup");
+    else if (a === "paste-backup") pasteLocalSave(file=>readFile(file,"backup"));
     else if (a === "rematch") {
       draft = deep(m().config);
       startMatch();
@@ -1873,6 +1919,8 @@ const TeamUI = (() => {
     profileAddon,
     libraryScreen,
     mediaCredit,
+    prepareResumeLibrary,
+    commitResumeLibrary,
     rules,
     pause,
     startTicker,

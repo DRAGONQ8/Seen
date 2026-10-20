@@ -1616,6 +1616,86 @@ html[data-team-motion="none"] .confetti { display: none !important; }
 .team-introduction { display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 22px;padding:12px;margin-bottom:12px;border:1px solid color-mix(in srgb,var(--gold) 30%,var(--line));border-radius:14px;background:linear-gradient(105deg,rgba(85,185,243,.08),rgba(196,155,255,.07),rgba(234,197,126,.09));text-align:center; }
 .team-introduction > span { font-size:.72rem;color:var(--muted); }
 .team-introduction strong { overflow-wrap:anywhere; }
+/* Fast host flow: one reveal, one outcome, back to the board. */
+.fast-start { border-color:color-mix(in srgb,var(--gold) 45%,var(--line));background:linear-gradient(115deg,color-mix(in srgb,var(--gold) 8%,var(--panel)),var(--panel));margin-bottom:18px; }
+.fast-start h2 { font-size:1.15rem; }
+.fast-start p { margin:0;overflow-wrap:anywhere; }
+.fast-start .btn { min-height:48px; }
+.board-tools { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px; }
+.board-tools > .row { flex-wrap:wrap;gap:8px; }
+.board-progress-label { margin:0;color:var(--muted);font-size:.8rem; }
+.board-progress-label strong { color:var(--text); }
+.board-tools .btn { min-height:44px;white-space:normal; }
+.board-tools .pit-armed { border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,var(--panel)); }
+.match-category.category-complete { border-color:color-mix(in srgb,var(--gold) 36%,var(--line)); }
+.match-tile { touch-action:manipulation; }
+.match-tile.used { opacity:1;filter:none;color:var(--muted);background:color-mix(in srgb,var(--panel-raised) 80%,var(--panel));border-style:solid; }
+.match-tile.used.won-team-0,.match-tile.used.won-team-1 { border-color:color-mix(in srgb,var(--tile-team-color) 50%,var(--line));border-inline-start:4px solid var(--tile-team-color); }
+.match-tile.used strong { opacity:.72;font-size:1.12rem; }
+.match-tile.used small { display:flex;align-items:center;justify-content:center;gap:4px;line-height:1.5;overflow-wrap:anywhere;white-space:normal; }
+.match-tile.used small svg { width:13px;height:13px;flex:0 0 13px; }
+.match-board[data-board="classic"] .match-tile.used small { font-size:.65rem;line-height:1.5; }
+.match-live-history { margin-top:16px; }
+.match-live-history > summary { min-height:48px;display:flex;align-items:center;font-weight:600;cursor:pointer; }
+.live-outcome { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px 12px;padding-block:10px;border-bottom:1px solid var(--line); }
+.live-outcome > span,.live-outcome > small { color:var(--muted);font-size:.75rem; }
+.match-question-grid.answer-state { grid-template-columns:minmax(0,1fr);max-width:920px;margin-inline:auto; }
+.answer-state .question-report { padding:8px 14px; }
+.answer-state .question-report .text-btn { margin:0; }
+.answer-reveal { scroll-margin-block-start:90px; }
+.answer-reveal .canonical-answer { font-size:clamp(1.45rem,3.2vw,2.35rem);line-height:1.7;overflow-wrap:anywhere;margin:0; }
+.answer-reveal .answer-explanation { font-size:.88rem;line-height:1.95;margin:0;color:var(--muted); }
+.scoring-actions.adjudication-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;isolation:isolate; }
+.scoring-actions .btn { min-width:0;min-height:78px;padding:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;line-height:1.6;white-space:normal;touch-action:manipulation; }
+.scoring-actions .award-team { background:linear-gradient(130deg,color-mix(in srgb,var(--team-color) 16%,var(--panel)),var(--panel));border:1px solid color-mix(in srgb,var(--team-color) 65%,var(--line));color:var(--text);box-shadow:inset 0 3px color-mix(in srgb,var(--team-color) 50%,transparent); }
+.scoring-actions .award-team:hover:not(:disabled) { border-color:var(--team-color);background:color-mix(in srgb,var(--team-color) 22%,var(--panel)); }
+.scoring-actions .scoring-nobody { grid-column:auto;background:var(--panel-raised);border-color:var(--line);color:var(--text); }
+.scoring-team-name { overflow-wrap:anywhere;font-size:.88rem; }
+.scoring-points { font-size:1.3rem;font-variant-numeric:tabular-nums;line-height:1.35; }
+.answer-reference,.original-question,.attempt-controls { padding:0;border-top:1px solid var(--line); }
+.answer-reference > summary,.original-question > summary,.attempt-controls > summary { cursor:pointer;min-height:44px;padding-block:10px;font-size:.8rem;color:var(--muted); }
+.answer-reference .stack,.original-question .stack { padding-block:8px; }
+.answer-reference p { margin:0;font-size:.8rem;line-height:1.9; }
+.team-page .question-actions { display:flex;flex-direction:column;gap:10px; }
+.team-page .question-actions > .reveal-primary { width:100%;min-height:54px;font-size:.93rem; }
+.host-inline-controls { display:flex;flex-wrap:wrap;gap:8px; }
+.host-inline-controls .btn { flex:1 1 160px;min-height:44px; }
+.attempt-controls .row { flex-wrap:wrap;padding-block:6px; }
+.attempt-controls .btn { flex:1 1 180px;white-space:normal; }
+.match-storage-notice { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 14px;padding:12px 16px;border:1px solid var(--gold);border-radius:14px;background:var(--panel);margin-bottom:14px;font-size:.8rem; }
+.match-storage-notice .btn { min-height:44px;white-space:normal; }
+#toast.toast.with-undo { display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;text-align:start;padding:8px 12px; }
+#toast.toast.with-undo.show { pointer-events:none; }
+#toast .toast-undo { flex:0 0 auto;min-width:64px;min-height:44px;border:1px solid var(--gold);border-radius:10px;background:var(--panel-raised);color:var(--gold);font:inherit;cursor:pointer;pointer-events:auto; }
+#toast:not(.show) .toast-undo { visibility:hidden;pointer-events:none; }
+html[data-team-play="true"] #toast.toast { bottom:max(16px,env(safe-area-inset-bottom)); }
+.inline-sitout { grid-column:1/-1;display:grid;gap:8px;padding:12px;border:1px solid var(--line);border-radius:12px; }
+.inline-sitout label { font-size:.78rem; }
+.inline-sitout select { min-height:44px;min-width:0;width:100%; }
+@media(max-width:600px) {
+  .board-tools { align-items:stretch; }
+  .board-tools > .row { width:100%; }
+  .board-tools .btn { flex:1 1 130px;font-size:.72rem;padding:8px; }
+  .match-tile.used small,.match-board[data-board="classic"] .match-tile.used small { font-size:.6rem; }
+  .answer-state .match-question-panel { padding:15px; }
+  .answer-reveal .canonical-answer { font-size:1.5rem; }
+  .scoring-actions.adjudication-grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;position:sticky;bottom:max(8px,env(safe-area-inset-bottom));z-index:8;padding:8px;margin-inline:-8px;border-radius:14px;background:var(--panel);box-shadow:0 8px 24px #0003; }
+  .scoring-actions .btn { min-height:67px;padding:9px 6px; }
+  .scoring-actions .scoring-nobody { grid-column:1/-1;min-height:45px;flex-direction:row;gap:12px; }
+  .scoring-team-name { font-size:.75rem; }
+  .scoring-points { font-size:1.15rem; }
+  .answer-reveal .answer-explanation { font-size:.82rem; }
+  .host-inline-controls .btn { flex-basis:120px;font-size:.75rem; }
+  .attempt-controls .btn { font-size:.73rem; }
+}
+@media(orientation:landscape) and (max-height:560px) {
+  .scoring-actions.adjudication-grid { grid-template-columns:repeat(3,minmax(0,1fr));position:sticky;bottom:max(6px,env(safe-area-inset-bottom));z-index:8;padding:6px;background:var(--panel);border-radius:12px; }
+  .scoring-actions .btn { min-height:54px;padding:6px 10px; }
+  .scoring-actions .scoring-nobody { grid-column:auto; }
+  .scoring-team-name { font-size:.73rem; }
+  .scoring-points { font-size:1.05rem; }
+}
+@media(prefers-reduced-motion:reduce) { .scoring-actions .btn,.match-category.category-complete { transition:none;animation:none; } }
 
 :root{--font:SeenArabic,"Noto Sans Arabic",Tahoma,sans-serif}
 </style>
@@ -1803,7 +1883,7 @@ const TeamEngine = (() => {
   }
   function defaults() {
     return {
-      mode: 'teams', board: 'compact', answerStyle: 'oral', choiceCount: 4,
+      mode: 'teams', board: 'classic', answerStyle: 'oral', choiceCount: 4,
       timer: true, duration: 60, steal: true, stealDuration: 10, negative: false,
       bonus: false, sound: true, animations: true, explanations: true, hints: true,
       spoilerProtection: true, repetition: 'recent', anime: {selected: FRANCHISES.map(f => f.id), levels: Object.fromEntries(FRANCHISES.map(f => [f.id, 1]))}, transition: 'auto', starter: '0', assistSlots: 3,
@@ -1890,12 +1970,12 @@ const TeamEngine = (() => {
       version: VERSION, timing: {elapsedMs:0,lastActiveAt:now}, questions: freezeTree(questions), selectionWarnings: [...new Set(selectionWarnings)], statisticsVersion: 2, id: `match-${now}-${seed}`, state: 'BOARD', config: c, seed, createdAt: now,
       teams: c.teams.map((t, i) => ({ id: `team-${i}`, name: t.name, color: t.color, avatar: t.avatar, players: [...t.players], score: 0, correct: 0, incorrect: 0, steals: 0, assists: Object.fromEntries(t.assists.map(k => [k, c.assistLimits[k]])), assistHistory: [] })),
       categories, board, turn: startingTeam, startingTeam, current: null,
-      transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, winner: null
+      transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, winner: null, lastResolution: null
     };
   }
   function reject(s, message) { s.lastError = message; return s; }
   function nextId(s, prefix) { s.serial++; return `${s.id}-${prefix}-${s.serial}`; }
-  function checkpoint(s) { const {questions, undo, ...rest} = s; const snap = clone(rest); s.undo.push(snap); if (s.undo.length > 24) s.undo.shift(); }
+  function checkpoint(s, kind = null) { const {questions, undo, ...rest} = s; const snap = clone(rest); if (kind) snap.undoAction = kind; s.undo.push(snap); if (s.undo.length > 24) s.undo.shift(); }
   function stopClock(c, now) { if (c.deadline !== null) c.remainingMs = Math.max(0, c.deadline - now); c.deadline = null; }
   function startClock(c, duration, enabled, now) { c.remainingMs = duration * 1000; c.timed = enabled; c.timerStarted = true; c.deadline = enabled ? now + c.remainingMs : null; }
   function refreshToken(s) { s.current.token = nextId(s, 'clock'); }
@@ -1926,15 +2006,96 @@ const TeamEngine = (() => {
     const tx = { id: nextId(s, 'score'), questionId, teamId: team, originalValue: value, reason, modifier, scoreBefore: before, scoreAfter: after, timestamp: now, groupId };
     target.score = after; s.transactions.push(tx); return tx.id;
   }
-  function adjudicate(s, winner, now) {
+  /* This pure preview is also the scoring plan used by adjudication. Deltas are
+     actual changes after the configured zero floor, not promised deductions. */
+  function scoreOutcome(s, requestedWinner) {
+    const c = s?.current;
+    if (!c || (requestedWinner !== null && teamIndex(requestedWinner) === null)) return null;
+    const winner = c.skip ? null : requestedWinner === null ? null : teamIndex(requestedWinner);
+    const implicitSteal = c.phase === 'first' && winner !== null && winner !== c.selector && s.config.steal;
+    const phase = implicitSteal ? 'steal' : c.phase;
+    const responder = implicitSteal ? 1 - c.selector : c.responder;
+    const doubled = winner !== null && questionAssists(c).some(a => a.key === 'double' && a.teamId === winner);
+    const earned = winner === null || phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (doubled ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
+    const transactions = [];
+    const add = (teamId, delta, reason, modifier) => transactions.push({teamId, delta, reason, modifier});
+    if (winner !== null && !(phase === 'trap' && s.config.trapSuccess === 'none')) add(winner, earned, phase === 'steal' && winner !== c.selector ? 'steal' : phase === 'trap' ? 'trap-correct' : 'correct', doubled ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal');
+    if (c.pitTeam !== null && winner === c.pitTeam) add(1 - c.pitTeam, -c.value, 'pit', 'pit');
+    if (c.pitTeam !== null && winner !== c.pitTeam && s.config.pitFailPenalty) add(c.pitTeam, -c.value, 'pit-failed', 'pit');
+    if (phase === 'trap' && winner !== responder) add(responder, -c.value, 'trap-failed', 'trap');
+    if (phase === 'steal' && winner !== responder && s.config.stealPenalty) add(responder, -c.value, 'steal-failed', 'steal');
+    const after = s.teams.map(t => t.score);
+    for (const tx of transactions) after[tx.teamId] = s.config.negative ? after[tx.teamId] + tx.delta : Math.max(0, after[tx.teamId] + tx.delta);
+    return {winner, earned, awarded:earned, deltas:after.map((n,i) => n - s.teams[i].score), transactions, phase, responder, steal:phase === 'steal' && winner !== null && winner !== c.selector};
+  }
+  function questionAssists(c) { return [...(c.usedAssists || []), ...(c.pendingAssists || [])]; }
+  function pendingAssistsValid(s) {
+    const c = s.current, pending = c?.pendingAssists ?? [];
+    if (!Array.isArray(pending) || pending.length > 10) return false;
+    if (!c || !Array.isArray(c.usedAssists)) return false;
+    const effective = s.state === 'PAUSED' ? s.pausedFrom : s.state;
+    if (pending.length && (!['ANSWER_REVEAL','SCORE_ADJUDICATION'].includes(effective) || c.resolved || !c.revealed || !c.closed)) return false;
+    const combined = questionAssists(c), ids = new Set(), uses = new Map();
+    if (combined.length > 10 || new Set(combined.map(a => `${a?.teamId}:${a?.key}`)).size !== combined.length) return false;
+    for (const a of pending) {
+      if (!a || !identifier(a.id) || ids.has(a.id) || !ASSISTS.includes(a.key) || !integer(a.teamId,0,1) || a.questionId !== c.questionId || !integer(a.at,0,1e14) || (a.participant !== null && !safeText(a.participant,32)) || !s.config.assistEnabled[a.key] || !s.config.teams[a.teamId].assists.includes(a.key) || s.teams.some(t => t.assistHistory.some(item => item.id === a.id)) || c.usedAssists.some(item => item.id === a.id)) return false;
+      if (a.key === 'sitout' && !s.teams[1-a.teamId].players.includes(a.participant)) return false;
+      ids.add(a.id); const key = `${a.teamId}:${a.key}`; uses.set(key,(uses.get(key)||0)+1);
+      if (s.teams[a.teamId].assists[a.key] < uses.get(key)) return false;
+    }
+    for (const [field,key] of Object.entries({pitTeam:'pit',doubleTeam:'double',twiceTeam:'twice',secondTeam:'second',trapTeam:'trap'})) if (c[field] !== null && !combined.some(a => a.teamId === c[field] && a.key === key)) return false;
+    if (c.phase === 'trap' && (c.trapTeam === null || !combined.some(a => a.key === 'trap' && a.teamId === c.selector))) return false;
+    if (c.hint && !combined.some(a => a.key === 'hint') || c.skip && !combined.some(a => a.key === 'skip') || c.sitout && !combined.some(a => a.key === 'sitout' && a.participant === c.sitout.participant && a.teamId === 1-c.sitout.teamId)) return false;
+    return true;
+  }
+  function consumePendingAssists(s) {
+    const c = s.current;
+    for (const a of c.pendingAssists || []) { s.teams[a.teamId].assists[a.key]--; s.teams[a.teamId].assistHistory.push(a); c.usedAssists.push(a); }
+    c.pendingAssists = [];
+  }
+  function refundQuestionHelpers(state, records, questionId) {
+    const ids = new Set(records.map(a => a.id));
+    for (const team of state.teams) {
+      const refunded = team.assistHistory.filter(a => ids.has(a.id));
+      for (const a of refunded) team.assists[a.key]++;
+      team.assistHistory = team.assistHistory.filter(a => !ids.has(a.id));
+    }
+    const c = state.current;
+    if (c?.questionId === questionId) {
+      // Entitlements remain attached to the question. Their inventory use is
+      // deferred until readjudication so correction never loses Double/Pit.
+      c.pendingAssists = [...new Map(questionAssists(c).map(a => [a.id, a])).values()];
+      c.usedAssists = []; c.assistance = null;
+      c.revealed = c.closed = c.knowledgeLocked = true; c.resolved = false;
+      c.deadline = null; c.pendingWinner = c.winner = null; c.earned = 0; c.transactionIds = [];
+      state.state = 'ANSWER_REVEAL'; delete state.pausedFrom;
+    }
+  }
+  function resolutionCheckpoint(s) {
+    const {questionId} = s.current, usedAssists = questionAssists(s.current);
+    // Refunding a whole question must not resurrect its consumed helpers in an
+    // older manual-adjustment Undo. Keep those adjustments, scrub helper use.
+    s.undo = s.undo.filter(h => !(h.undoAction === 'assist' && h.current?.questionId === questionId));
+    for (const snap of s.undo) if (snap.current?.questionId === questionId) refundQuestionHelpers(snap, usedAssists, questionId);
+    checkpoint(s, 'question-resolution');
+    refundQuestionHelpers(s.undo[s.undo.length - 1], usedAssists, questionId);
+  }
+  function finishTurn(s, now) {
+    s.current = null;
+    if (s.board.every(t => t.done)) { s.state = 'MATCH_COMPLETE'; if (s.timing) s.timing.lastActiveAt = null; s.completedAt = now; s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; }
+    else s.state = 'BOARD';
+    return s;
+  }
+  function adjudicate(s, winner, now, atomic = false) {
     const c = s.current, tile = s.board.find(t => t.id === c.tileId);
     if (!tile || tile.done || c.resolved) return reject(s, 'حُسم هذا السؤال بالفعل.');
-    checkpoint(s); const group = nextId(s, 'resolution'), ids = [], earned = winner === null || c.phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (c.usedAssists.some(a => a.key === 'double' && a.teamId === winner) ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
-    if (winner !== null && !(c.phase === 'trap' && s.config.trapSuccess === 'none')) ids.push(transaction(s, winner, earned, c.phase === 'steal' && winner !== c.selector ? 'steal' : c.phase === 'trap' ? 'trap-correct' : 'correct', c.usedAssists.some(a => a.key === 'double' && a.teamId === winner) ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal', now, group, c.questionId, c.value));
-    if (c.pitTeam !== null && winner === c.pitTeam) ids.push(transaction(s, 1 - c.pitTeam, -c.value, 'pit', 'pit', now, group, c.questionId, c.value));
-    if (c.pitTeam !== null && winner !== c.pitTeam && s.config.pitFailPenalty) ids.push(transaction(s, c.pitTeam, -c.value, 'pit-failed', 'pit', now, group, c.questionId, c.value));
-    if (c.phase === 'trap' && winner !== c.responder) ids.push(transaction(s, c.responder, -c.value, 'trap-failed', 'trap', now, group, c.questionId, c.value));
-    if (c.phase === 'steal' && winner !== c.responder && s.config.stealPenalty) ids.push(transaction(s, c.responder, -c.value, 'steal-failed', 'steal', now, group, c.questionId, c.value));
+    if (!pendingAssistsValid(s)) return reject(s, 'تعذر إعادة اعتماد المساعدات المحفوظة؛ لم تتغير النقاط.');
+    const outcome = scoreOutcome(s, winner);
+    if (atomic) resolutionCheckpoint(s); else checkpoint(s);
+    consumePendingAssists(s);
+    const group = nextId(s, 'resolution'), ids = [], earned = outcome.earned;
+    winner = outcome.winner; c.phase = outcome.phase; c.responder = outcome.responder;
+    for (const tx of outcome.transactions) ids.push(transaction(s, tx.teamId, tx.delta, tx.reason, tx.modifier, now, group, c.questionId, c.value));
     // Delegation, reveal, skip and clock transitions are not wrong answers.
     // A team's final host-approved success overrides its earlier rejected attempt.
     const failed = new Set(c.attempts.filter(a => !['timeout', 'skip', 'delegation'].includes(a.reason)).map(a => a.teamId));
@@ -1945,6 +2106,10 @@ const TeamEngine = (() => {
     const q = { attempts: clone(c.attempts), incorrectTeams: [...failed], questionId: c.questionId, tileId: c.tileId, value: c.value, selector: c.selector, responder: c.responder, winner, phase: c.phase, correct: winner !== null, transactionIds: ids, at: now, assists: clone(c.usedAssists) };
     s.history.push(q); s.turn = 1 - c.selector; s.state = 'TURN_COMPLETE';
     s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1;
+    if (atomic) {
+      s.lastResolution = {id:group, questionId:c.questionId, tileId:c.tileId, token:c.token, winner, earned, deltas:outcome.deltas, transactionIds:ids, at:now, phase:outcome.phase, steal:outcome.steal};
+      finishTurn(s, now);
+    }
     return s;
   }
   /* Knowledge is irreversible even when a host undoes a scoring/helper action.
@@ -1981,7 +2146,7 @@ const TeamEngine = (() => {
     if (key === 'trap' && (c.phase !== 'first' || c.attempts.length || c.trapTeam !== null)) return reject(s, 'لا يُنقل السؤال بالفخ أكثر من مرة.');
     const participant = cleanText(action.participant, '', 32);
     if (key === 'sitout' && (!participant || !s.teams[1 - i].players.includes(participant))) return reject(s, 'اختر مشاركًا مسجلًا من الفريق المقابل وأكد الاستراحة.');
-    checkpoint(s); s.teams[i].assists[key]--;
+    checkpoint(s, 'assist'); s.teams[i].assists[key]--;
     const record = { id: nextId(s, 'assist'), key, teamId: i, questionId: c.questionId, at: now, participant: key === 'sitout' ? participant : null };
     s.teams[i].assistHistory.push(record); c.usedAssists.push(record);
     if (key === 'pit') c.pitTeam = i;
@@ -2023,8 +2188,10 @@ const TeamEngine = (() => {
     if (action.type === 'UNDO') {
       if (!s.undo.length) return reject(s, 'لا توجد خطوة قابلة للتراجع.');
       const undo = s.undo.slice(), restored = undo.pop(); restored.undo = undo; restored.serial = Math.max(s.serial, restored.serial); restored.lastError = null; restored.questions = s.questions; restored.timing = s.timing ? {...s.timing, lastActiveAt:now} : null;
+      const resolutionUndo = restored.undoAction === 'question-resolution'; delete restored.undoAction;
       restored.knownAnswers = [...new Set([...knowledge(s), ...knowledge(restored)])];
       preserveKnowledge(restored, now);
+      if (resolutionUndo && restored.current) refreshToken(restored);
       if (restored.current && PLAY_STATES.includes(restored.state)) { stopClock(restored.current, now); restored.pausedFrom = restored.state; restored.state = 'PAUSED'; }
       if (restored.timing && ['PAUSED','MATCH_COMPLETE'].includes(restored.state)) restored.timing.lastActiveAt = null;
       return restored;
@@ -2060,7 +2227,7 @@ const TeamEngine = (() => {
       if (!question) return reject(s, 'تعذر العثور على نسخة السؤال المحفوظة.');
       const rng = rngFor(s.seed + s.serial + tile.value + s.history.length);
       const wrong = shuffle([0, 1, 2, 3].filter(i => i !== question.answer), rng).slice(0, s.config.choiceCount - 1);
-      s.current = { tileId: tile.id, questionId: tile.questionId, value: tile.value, selector: s.turn, responder: s.turn, phase: 'first', token: '', deadline: null, remainingMs: s.config.duration * 1000, timed: s.config.timer, timerStarted: false, revealed: false, closed: false, resolved: false, pitTeam: null, doubleTeam: null, twiceTeam: null, secondTeam: null, twice: false, trapTeam: null, attempts: [], failedTeams: [], usedAssists: [], assistance: null, choices: shuffle([question.answer, ...wrong], rng), hint: false, pendingWinner: null, winner: null, earned: 0, transactionIds: [], lastAttemptIncorrect: false, skip: false, sitout: null };
+      s.current = { tileId: tile.id, questionId: tile.questionId, value: tile.value, selector: s.turn, responder: s.turn, phase: 'first', token: '', deadline: null, remainingMs: s.config.duration * 1000, timed: s.config.timer, timerStarted: false, revealed: false, closed: false, resolved: false, pitTeam: null, doubleTeam: null, twiceTeam: null, secondTeam: null, twice: false, trapTeam: null, attempts: [], failedTeams: [], usedAssists: [], pendingAssists: [], assistance: null, choices: shuffle([question.answer, ...wrong], rng), hint: false, pendingWinner: null, winner: null, earned: 0, transactionIds: [], lastAttemptIncorrect: false, skip: false, sitout: null };
       refreshToken(s); s.state = 'QUESTION_PREVIEW'; return preserveKnowledge(s, now);
     }
     if (action.type === 'START_QUESTION') {
@@ -2120,6 +2287,13 @@ const TeamEngine = (() => {
     if (action.type === 'ASSIST') return assist(s, action, now);
     if (action.type === 'RETURN_ASSISTANCE') return returnAssistance(s, now);
     if (action.type === 'BEGIN_ADJUDICATION') { if (s.state === 'ANSWER_REVEAL') s.state = 'SCORE_ADJUDICATION'; else reject(s, 'لم تُكشف الإجابة بعد.'); return s; }
+    if (action.type === 'RESOLVE_QUESTION') {
+      if (!['ANSWER_REVEAL', 'SCORE_ADJUDICATION'].includes(s.state) || !c?.revealed || c.resolved) return reject(s, 'حُسم السؤال أو لم تُكشف إجابته بعد.');
+      if (action.tileId !== c.tileId || action.questionId !== c.questionId || action.token !== c.token) return reject(s, 'انتهت صلاحية هذا الاختيار؛ استخدم خيارات السؤال الحالي.');
+      const winner = action.teamId === null ? null : teamIndex(action.teamId);
+      if (action.teamId !== null && winner === null) return reject(s, 'حدد الفريق الصحيح أو اختر محد جاوب صح.');
+      return adjudicate(s, c.skip ? null : winner, now, true);
+    }
     if (action.type === 'ADJUDICATE') {
       if (!['ANSWER_REVEAL', 'SCORE_ADJUDICATION'].includes(s.state) || !c || !c.revealed) return reject(s, 'اكشف الإجابة قبل تسجيل النتيجة.');
       const winner = action.teamId === null ? null : teamIndex(action.teamId);
@@ -2128,9 +2302,7 @@ const TeamEngine = (() => {
     }
     if (action.type === 'NEXT_TURN') {
       if (s.state !== 'TURN_COMPLETE' || !c?.resolved) return reject(s, 'احسم السؤال قبل الانتقال.');
-      s.current = null;
-      if (s.board.every(t => t.done)) { s.state = 'MATCH_COMPLETE'; if (s.timing) s.timing.lastActiveAt = null; s.completedAt = now; s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; }
-      else s.state = 'BOARD'; return s;
+      return finishTurn(s, now);
     }
     return reject(s, 'إجراء غير معروف أو غير متاح.');
   }
@@ -2194,6 +2366,19 @@ const TeamEngine = (() => {
         if (h.value !== tile?.value || h.correct !== (h.winner !== null) || h.selector !== (startingTeam ^ historyIndex % 2) || !tile || !tile.done || tile.questionId !== h.questionId || historyIds.has(h.tileId) || !integer(h.selector, 0, 1) || !integer(h.responder, 0, 1) || (h.winner !== null && !integer(h.winner, 0, 1)) || !Array.isArray(h.transactionIds) || h.transactionIds.some(id => !ids.has(id)) || !Array.isArray(h.assists) || h.assists.some(a => !a || !ASSISTS.includes(a.key) || !integer(a.teamId, 0, 1) || !raw.teams[a.teamId].assistHistory.some(record => record.id === a.id && record.key === a.key && record.questionId === h.questionId)) || !integer(h.at, 0, 1e14) || !['first', 'steal', 'trap'].includes(h.phase)) return null;
         historyIds.add(h.tileId);
       }
+      if (raw.undoAction !== undefined && !['assist', 'question-resolution'].includes(raw.undoAction)) return null;
+      if (raw.lastResolution !== undefined && raw.lastResolution !== null) {
+        const result = raw.lastResolution, h = raw.history.find(h => h.tileId === result?.tileId);
+        if (!h || !identifier(result.id) || result.questionId !== h.questionId || result.winner !== h.winner || result.phase !== h.phase || !identifier(result.token) || !integer(result.at,0,1e14) || result.at !== h.at || !integer(result.earned,0,1250) || !Array.isArray(result.deltas) || result.deltas.length !== 2 || result.deltas.some(n => !integer(n,-1e8,1e8)) || JSON.stringify(result.transactionIds) !== JSON.stringify(h.transactionIds) || result.steal !== (h.phase === 'steal' && h.winner !== null && h.winner !== h.selector)) return null;
+        const deltas = [0,0]; let earned = 0;
+        for (const id of result.transactionIds) {
+          const tx = raw.transactions.find(tx => tx.id === id);
+          if (!tx || tx.groupId !== result.id) return null;
+          deltas[tx.teamId] += tx.scoreAfter - tx.scoreBefore;
+          if (['correct','steal','trap-correct'].includes(tx.reason)) earned += tx.scoreAfter - tx.scoreBefore;
+        }
+        if (JSON.stringify(deltas) !== JSON.stringify(result.deltas) || earned !== result.earned) return null;
+      }
       if (raw.statisticsVersion === 2) {
         const correct = [0,0], incorrect = [0,0], steals = [0,0];
         for (const h of raw.history) {
@@ -2224,6 +2409,7 @@ const TeamEngine = (() => {
           if (help.key !== 'call' || !integer(help.teamId, 0, 1) || !PLAY_STATES.includes(help.returnState) || (help.deadline !== null && !integer(help.deadline, 0, 1e14)) || !integer(help.remainingMs, 0, 300000) || typeof help.pausedMain !== 'boolean') return null;
         }
         if (effective === 'ASSISTANCE_ACTIVE' && !a.assistance) return null;
+        if (!pendingAssistsValid(raw)) return null;
       } else if (!['BOARD', 'MATCH_COMPLETE'].includes(raw.state) && !(raw.state === 'PAUSED' && raw.pausedFrom === 'BOARD')) return null;
       const {questions, ...mutable} = raw; const out = clone(mutable); out.questions = freezeTree(clone(questions)); out.config = c; out.startingTeam = startingTeam; out.lastError = null;
       out.knownAnswers = knowledge(raw);
@@ -2243,7 +2429,7 @@ const TeamEngine = (() => {
       return preserveKnowledge(out, Date.now());
     } catch { return null; }
   }
-  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, validateState, restore, getQuestion, eligibleQuestions, isEligible, FRANCHISES, normalizeAnswer, pointValue });
+  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, scoreOutcome, validateState, restore, getQuestion, eligibleQuestions, isEligible, FRANCHISES, normalizeAnswer, pointValue });
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = TeamEngine;
 
@@ -2275,18 +2461,34 @@ function seeded(seed){let n=seed;return()=>{n|=0;n=n+0x6D2B79F5|0;let t=Math.imu
 function shuffled(items,rng=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function normalizeArabic(s){return String(s).normalize('NFKC').replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632)).replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
 const defaultAnime=()=>({selected:TeamEngine.FRANCHISES.map(f=>f.id),levels:Object.fromEntries(TeamEngine.FRANCHISES.map(f=>[f.id,1]))});
-const DEFAULT_PREFS={anime:defaultAnime(),repetition:'recent',theme:'dark',accent:'violet',sound:45,music:0,timer:true,duration:30,motion:'subtle',reduced:false,difficulty:'adaptive',images:true,spoilers:true,textSize:100};
+const DEFAULT_PREFS={anime:defaultAnime(),repetition:'recent',questionHistoryResetAt:0,theme:'dark',accent:'violet',sound:45,music:0,timer:true,duration:30,motion:'subtle',reduced:false,difficulty:'adaptive',images:true,spoilers:true,textSize:100};
 const freshProgress=()=>({profile:{name:'خالد',avatar:'🦁',favorites:['anime','football','geo','games']},xp:0,games:0,wins:0,losses:0,answers:0,correct:0,points:0,bestStreak:0,imageCorrect:0,category:{},records:{},achievements:[],seen:{},solved:{},daily:{},history:[]});
 let prefs={...DEFAULT_PREFS,anime:defaultAnime()},soloRecovery=null,soloRecoveryProtected=false,progress=freshProgress(),session=null,route='home',setup=null,storageAvailable=true,storageConflict=false,timerHandle=null,audioContext=null,musicHandle=null,musicVoices=new Set(),toastHandle=null,lastFocus=null;
 const QUESTION_MAP=new Map(QUESTION_BANK.map(q=>[q.id,q]));
 function validateBank(bank){const errors=[],ids=new Set(),texts=new Set();for(const q of bank){if(!q.id||ids.has(q.id))errors.push('معرّف مكرر');ids.add(q.id);const text=normalizeArabic(q.q);if(texts.has(text))errors.push('سؤال مكرر');texts.add(text);if(!catById(q.category)||![1,2,3,4].includes(q.level)||!Array.isArray(q.options)||q.options.length!==4||new Set(q.options.map(normalizeArabic)).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||!q.explanation||!q.source?.title||!q.source?.reference||(q.source?.url?safeURL(q.source.url)==='#':!q.source?.bibliography?.trim())||!q.sub||!q.tags||![1,2,3].includes(q.version))errors.push(`بيانات غير مكتملة: ${q.id}`);if(q.image&&!VISUALS[q.image])errors.push(`صورة غير موجودة: ${q.id}`);if(/[٠-٩۰-۹]/.test(q.q+q.options.join('')+q.explanation+q.source.reference))errors.push(`أرقام غير مدعومة: ${q.id}`);}return errors;}
 function parseSafeJSON(text,max=1500000){if(typeof text!=='string'||text.length>max)throw Error('الملف أكبر من الحجم المسموح.');return JSON.parse(text,(key,value)=>{if(['__proto__','constructor','prototype'].includes(key))throw Error('الملف يحتوي على مفاتيح غير آمنة.');return value;});}
-function persist(){if(storageConflict||soloRecoveryProtected)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({version:APP_VERSION,prefs,progress,session}));storageAvailable=true;}catch{if(storageAvailable){storageAvailable=false;toast('تعذّر الحفظ في المتصفح. يمكنك تصدير تقدمك من الإعدادات.');}}}
+/* Portable host saves conceal incidental answer text; base64 is an encoding,
+   not encryption. The offline question bank is never a cryptographic secret. */
+function encodeMatchBackup(kind,data){
+if(!['solo','teams'].includes(kind))throw Error('نوع نسخة الاستئناف غير صالح.');
+const text=JSON.stringify(data);parseSafeJSON(text,20000000);
+const bytes=new TextEncoder().encode(text);if(bytes.length>20000000)throw Error('نسخة الاستئناف أكبر من الحجم المسموح.');let binary='';
+for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));
+const payload=btoa(binary);if(payload.length>28000000)throw Error('نسخة الاستئناف أكبر من الحجم المسموح.');
+return {format:'seen-khaled-resume',version:1,kind,encoding:'base64-utf8',payload};
+}
+function decodeMatchBackup(envelope,expectedKind){
+if(!envelope||envelope.format!=='seen-khaled-resume'||envelope.version!==1||envelope.encoding!=='base64-utf8'||!['solo','teams'].includes(envelope.kind)||expectedKind&&envelope.kind!==expectedKind||Object.keys(envelope).some(key=>!['format','version','kind','encoding','payload'].includes(key))||typeof envelope.payload!=='string'||!envelope.payload.length||envelope.payload.length>28000000||envelope.payload.length%4||!/^[A-Za-z0-9+/]*={0,2}$/.test(envelope.payload))throw Error('نسخة الاستئناف غير صالحة أو لا تطابق هذا النمط.');
+let text;try{const binary=atob(envelope.payload);if(btoa(binary)!==envelope.payload)throw Error();if(binary.length>20000000)throw Error();text=new TextDecoder('utf-8',{fatal:true}).decode(Uint8Array.from(binary,c=>c.charCodeAt(0)));}catch{throw Error('تعذّرت قراءة بيانات نسخة الاستئناف.');}
+return parseSafeJSON(text,20000000);
+}
+function persist(){if(storageConflict||soloRecoveryProtected)return false;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({version:APP_VERSION,prefs,progress,session}));storageAvailable=true;return true;}catch{if(storageAvailable)toast('تعذّر الحفظ في المتصفح. تبقى الجولة مفتوحة؛ صدّر نسخة استئناف قبل إغلاق الصفحة.');storageAvailable=false;return false;}}
 function validInt(n,max=1e9){return Number.isInteger(n)&&n>=0&&n<=max;}
 function cleanName(value,fallback='خالد'){return String(value||'').replace(/[\u0000-\u001f\u007f<>]/g,'').trim().slice(0,24)||fallback;}
-/* Strict allowlist import: no user-provided HTML, executable values, arbitrary keys,
-   answer keys, or arbitrary session structures enter the runtime. */
-function validateSave(data,includeSession=false){
+/* Legacy progress imports are allowlisted and ignore supplied sessions. Explicit
+   host-resume imports also validate their session and staged question library
+   before changing live state; all user text remains escaped in the UI. */
+function validateSave(data,includeSession=false,questionMap=QUESTION_MAP){
 if(!data||typeof data!=='object'||data.version!==1)throw Error('صيغة الحفظ أو إصدارها غير مدعوم.');
 const p=data.progress,s=data.prefs;if(!p||!s||!p.profile||!Array.isArray(p.profile.favorites))throw Error('ملف الحفظ غير مكتمل.');
 const clean=freshProgress();for(const k of ['xp','games','wins','losses','answers','correct','points','bestStreak','imageCorrect']){if(!validInt(p[k]))throw Error('إحصاءات الحفظ غير صالحة.');clean[k]=p[k];}
@@ -2296,29 +2498,32 @@ clean.profile={name:cleanName(p.profile.name),avatar:p.profile.avatar,favorites:
 if(!Array.isArray(p.achievements)||p.achievements.some(id=>!ACHIEVEMENTS.some(a=>a.id===id)))throw Error('بيانات الإنجازات غير صالحة.');clean.achievements=[...new Set(p.achievements)];
 for(const c of CATEGORIES){const item=p.category?.[c.id];if(item){if(!validInt(item.answered)||!validInt(item.correct)||item.correct>item.answered)throw Error('بيانات الفئات غير صالحة.');clean.category[c.id]={answered:item.answered,correct:item.correct};}}
 if(!p.seen||!p.daily||!p.records||!Array.isArray(p.history))throw Error('سجل الحفظ غير صالح.');
-for(const [id,at] of Object.entries(p.seen)){if(QUESTION_MAP.has(id)&&validInt(at,1e14))clean.seen[id]=at;}
-for(const [id,value] of Object.entries(p.solved||{})){if(QUESTION_MAP.has(id)&&value===true)clean.solved[id]=true;}
+for(const [id,at] of Object.entries(p.seen)){if(questionMap.has(id)&&validInt(at,1e14))clean.seen[id]=at;}
+for(const [id,value] of Object.entries(p.solved||{})){if(questionMap.has(id)&&value===true)clean.solved[id]=true;}
 for(const [date,d] of Object.entries(p.daily).slice(-730)){if(/^\d{4}-\d{2}-\d{2}$/.test(date)&&typeof d.completed==='boolean'&&validInt(d.score))clean.daily[date]={completed:d.completed,score:d.score};}
 for(const m of [...MODES,{id:'daily'}]){if(p.records[m.id]!==undefined){if(!validInt(p.records[m.id]))throw Error('رقم قياسي غير صالح.');clean.records[m.id]=p.records[m.id];}}
-clean.history=p.history.slice(0,100).filter(h=>QUESTION_MAP.has(h.id)&&typeof h.correct==='boolean'&&validInt(h.at,1e14)).map(h=>({id:h.id,correct:h.correct,at:h.at}));
-const settings={...DEFAULT_PREFS,anime:defaultAnime()};if(s.anime!==undefined){settings.anime=validatedAnime(s.anime);}if(s.repetition!==undefined){if(!['recent','unseen','all'].includes(s.repetition))throw Error('سياسة تكرار الأسئلة غير صالحة.');settings.repetition=s.repetition;}for(const [k,allowed] of Object.entries({theme:['dark','light'],accent:['violet','gold'],motion:['none','subtle','full'],difficulty:['adaptive','1','2','3','4']})){if(!allowed.includes(s[k]))throw Error('أحد خيارات الإعدادات غير صالح.');settings[k]=s[k];}
+clean.history=p.history.slice(0,100).filter(h=>questionMap.has(h.id)&&typeof h.correct==='boolean'&&validInt(h.at,1e14)).map(h=>({id:h.id,correct:h.correct,at:h.at}));
+const settings={...DEFAULT_PREFS,anime:defaultAnime()};if(s.questionHistoryResetAt!==undefined){if(!validInt(s.questionHistoryResetAt,1e14))throw Error('تاريخ دورة الأسئلة غير صالح.');settings.questionHistoryResetAt=s.questionHistoryResetAt;}if(s.anime!==undefined){settings.anime=validatedAnime(s.anime);}if(s.repetition!==undefined){if(!['recent','unseen','all'].includes(s.repetition))throw Error('سياسة تكرار الأسئلة غير صالحة.');settings.repetition=s.repetition;}for(const [k,allowed] of Object.entries({theme:['dark','light'],accent:['violet','gold'],motion:['none','subtle','full'],difficulty:['adaptive','1','2','3','4']})){if(!allowed.includes(s[k]))throw Error('أحد خيارات الإعدادات غير صالح.');settings[k]=s[k];}
 for(const k of ['sound','music']){if(!validInt(s[k],100))throw Error('مستوى صوت غير صالح.');settings[k]=s[k];}
 if(![15,20,30,45,60].includes(s.duration)||![90,100,115,130].includes(s.textSize))throw Error('إعداد عرض أو مؤقّت غير صالح.');settings.duration=s.duration;settings.textSize=s.textSize;
 for(const k of ['timer','reduced','images','spoilers']){if(typeof s[k]!=='boolean')throw Error('خيار إعداد غير صالح.');settings[k]=s[k];}
-let active=null;if(includeSession&&data.session){active=validateSession(data.session);}
+let active=null;if(includeSession&&data.session){active=validateSession(data.session,questionMap);}
 return {progress:clean,prefs:settings,session:active};
 }
 const AVATARS=['🦁','🦉','🐉','🦅','🐺','🚀','🌙','🎮'];
 function validatedAnime(value){const ids=TeamEngine.FRANCHISES.map(f=>f.id);if(!value||!Array.isArray(value.selected)||value.selected.some(id=>!ids.includes(id))||new Set(value.selected).size!==value.selected.length||!value.levels||ids.some(id=>![1,2,3].includes(value.levels[id])))throw Error('تفضيلات حرق الأنمي غير صالحة.');return {selected:[...value.selected],levels:Object.fromEntries(ids.map(id=>[id,value.levels[id]]))};}
-function validateSession(s){
+function validateSession(s,questionMap=QUESTION_MAP){
 try{
-if(!s||s.schema!==1||!['daily',...MODES.map(m=>m.id)].includes(s.mode)||!Array.isArray(s.cats)||!s.cats.length||new Set(s.cats).size!==s.cats.length||s.cats.some(id=>!catById(id))||!Array.isArray(s.players)||s.players.length<1||s.players.length>4||!Array.isArray(s.remaining)||s.remaining.length>QUESTION_BANK.length||new Set(s.remaining).size!==s.remaining.length||s.remaining.some(id=>!QUESTION_MAP.has(id))||!Array.isArray(s.board)||new Set(s.board.map(t=>t.key)).size!==s.board.length||!Array.isArray(s.results)||s.results.length>QUESTION_BANK.length||!validInt(s.turn,3)||s.turn>=s.players.length||!validInt(s.target,QUESTION_BANK.length)||!validInt(s.total)||!Array.isArray(s.bags)||s.bags.length!==s.players.length||!['active','done'].includes(s.status))return null;
+if(!s||s.schema!==1||!['daily',...MODES.map(m=>m.id)].includes(s.mode)||!Array.isArray(s.cats)||!s.cats.length||new Set(s.cats).size!==s.cats.length||s.cats.some(id=>!catById(id))||!Array.isArray(s.players)||s.players.length<1||s.players.length>4||!Array.isArray(s.remaining)||s.remaining.length>questionMap.size||new Set(s.remaining).size!==s.remaining.length||s.remaining.some(id=>!questionMap.has(id))||!Array.isArray(s.board)||new Set(s.board.map(t=>t.key)).size!==s.board.length||!Array.isArray(s.results)||s.results.length>questionMap.size||!validInt(s.turn,3)||s.turn>=s.players.length||!validInt(s.target,questionMap.size)||!validInt(s.total)||!Array.isArray(s.bags)||s.bags.length!==s.players.length||!['active','done'].includes(s.status))return null;
 for(const p of s.players)if(p.lives>3||typeof p.name!=='string'||p.name.length>24||['score','correct','answered','streak','lives'].some(k=>!validInt(p[k])))return null;
 for(const bag of s.bags)if(HELPERS.some(h=>!validInt(bag[h.id],h.id==='hint'?2:1)))return null;
-if(s.board.some(t=>!QUESTION_MAP.has(t.id)||!catById(t.category)||![100,200,300,400,500,600].includes(t.points)||QUESTION_MAP.get(t.id).category!==t.category||typeof t.done!=='boolean'||typeof t.key!=='string'||!/^[a-zA-Z0-9_-]{1,120}$/.test(t.key)))return null;
-if(s.results.some(r=>!QUESTION_MAP.has(r.id)||typeof r.correct!=='boolean'||!validInt(r.points)||!validInt(r.player,3)||r.player>=s.players.length)||new Set(s.results.map(r=>r.id)).size!==s.results.length||s.results.some(r=>s.remaining.includes(r.id)))return null;
+if(new Set(s.board.map(t=>t.id)).size!==s.board.length||s.board.some(t=>!questionMap.has(t.id)||!catById(t.category)||![100,200,300,400,500,600].includes(t.points)||questionMap.get(t.id).category!==t.category||typeof t.done!=='boolean'||typeof t.key!=='string'||!/^[a-zA-Z0-9_-]{1,120}$/.test(t.key)))return null;
+if(s.results.some(r=>!questionMap.has(r.id)||typeof r.correct!=='boolean'||!validInt(r.points)||!validInt(r.player,3)||r.player>=s.players.length)||new Set(s.results.map(r=>r.id)).size!==s.results.length||s.results.some(r=>s.remaining.includes(r.id)))return null;
+if(s.format!==undefined&&!['choice','text','boolean'].includes(s.format)||s.handoff!==undefined&&typeof s.handoff!=='boolean'||s.finished!==undefined&&typeof s.finished!=='boolean')return null;
+if(s.status==='done'&&s.current!==null||s.current&&s.remaining.includes(s.current.id)||s.current?.phase==='answer'&&s.results.some(r=>r.id===s.current.id)||s.current?.phase==='feedback'&&!s.results.some(r=>r.id===s.current.id&&r.correct===s.current.correct&&r.points===s.current.earned&&r.player===s.turn))return null;
+if(s.players.some((player,index)=>{const attempts=s.results.filter(result=>result.player===index);return player.answered!==attempts.length||player.correct!==attempts.filter(result=>result.correct).length||player.score!==attempts.reduce((sum,result)=>sum+result.points,0);}))return null;
 if(s.mode==='daily'){const pending=s.current?.phase==='answer'?1:0;if(!/^\d{4}-\d{2}-\d{2}$/.test(s.date)||s.players.length!==1||s.target!==s.total||s.total!==s.results.length+s.remaining.length+pending||s.total>10||s.current?.phase==='answer'&&(s.remaining.includes(s.current.id)||s.results.some(r=>r.id===s.current.id)))return null;}
-if(s.current){const c=s.current;if(!QUESTION_MAP.has(c.id)||!['answer','feedback'].includes(c.phase)||!['choice','text','boolean'].includes(c.format)||!Array.isArray(c.order)||c.order.length!==4||[0,1,2,3].some(x=>!c.order.includes(x))||!Array.isArray(c.eliminated)||c.eliminated.some(n=>!validInt(n,3))||!Array.isArray(c.used)||c.used.some(id=>!HELPERS.some(h=>h.id===id))||!Number.isFinite(c.remainingMs)||c.remainingMs<0||c.remainingMs>180000)return null;if(!Number.isFinite(c.base)||c.base<100||c.base>600||!['boolean'].includes(typeof c.timed)||typeof c.paused!=='boolean'||(c.deadline!==null&&(!Number.isFinite(c.deadline)||c.deadline<0||c.deadline>1e14))||!validInt(c.earned)||![null,true,false].includes(c.correct)||typeof c.text!=='string'||c.text.length>120||['hint','second','double','attempted'].some(k=>typeof c[k]!=='boolean'))return null;if(c.chosen!==null&&!validInt(c.chosen,3))return null;if(c.format==='boolean'&&!validInt(c.claimIndex,3))return null;}
+if(s.current){const c=s.current;if(!questionMap.has(c.id)||!['answer','feedback'].includes(c.phase)||!['choice','text','boolean'].includes(c.format)||!Array.isArray(c.order)||c.order.length!==4||[0,1,2,3].some(x=>!c.order.includes(x))||!Array.isArray(c.eliminated)||c.eliminated.some(n=>!validInt(n,3))||!Array.isArray(c.used)||c.used.some(id=>!HELPERS.some(h=>h.id===id))||!Number.isFinite(c.remainingMs)||c.remainingMs<0||c.remainingMs>180000)return null;if(!Number.isFinite(c.base)||c.base<100||c.base>600||!['boolean'].includes(typeof c.timed)||typeof c.paused!=='boolean'||(c.deadline!==null&&(!Number.isFinite(c.deadline)||c.deadline<0||c.deadline>1e14))||!validInt(c.earned)||![null,true,false].includes(c.correct)||typeof c.text!=='string'||c.text.length>120||['hint','second','double','attempted'].some(k=>typeof c[k]!=='boolean'))return null;if(c.chosen!==null&&!validInt(c.chosen,3))return null;if(c.format==='boolean'&&!validInt(c.claimIndex,3))return null;}
 return s;
 }catch{return null;}
 }
@@ -2379,12 +2584,13 @@ function pauseSession(save=true){if(session?.current?.phase==='answer'){const c=
 function resumeQuestion(){const c=session?.current;if(c?.phase==='answer'){c.paused=false;if(c.timed)c.deadline=Date.now()+c.remainingMs;persist();render();}}
 function resumeGame(){if(!session)return;if(session.status==='done'){navigate('result');return;}navigate('play');}
 function scoreStrip(){return `<div class="score-strip">${session.players.map((p,i)=>`<div class="player-score ${session.turn===i?'active':''}"><span class="player-dot">${i+1}</span><div><small>${esc(p.name)} ${session.turn===i?'· دورك':''}</small><strong>${num(p.score)} <span>نقطة</span></strong></div>${session.mode==='survival'?`<span class="lives" aria-label="${p.lives} قلوب">${'♥'.repeat(clamp(Math.floor(Number(p.lives)||0),0,3))}${'♡'.repeat(3-clamp(Math.floor(Number(p.lives)||0),0,3))}</span>`:''}</div>`).join('')}<button class="icon-btn" data-action="nav" data-route="home" aria-label="حفظ الجولة والعودة للرئيسية">${icon('home')}</button></div>`;}
-function renderPlay(){if(!session)return renderHome();if(session.status==='done')return renderResult();if(session.handoff)return `${scoreStrip()}<div class="panel handoff empty-state"><span class="mode-icon">${icon('users')}</span><span class="eyebrow">مرّر الجهاز</span><h1>الدور الآن على ${esc(session.players[session.turn].name)}</h1><p class="muted">لا يبدأ المؤقّت حتى تضغط «أنا جاهز».</p><button class="btn primary" data-action="ready">أنا جاهز ${icon('play')}</button></div>`;if(!session.current)return renderBoard();return renderQuestion();}
-function renderBoard(){const s=session;return `${scoreStrip()}${title('اختر سؤالك','لوحة التحدي',`أكملت ${s.results.length} من ${s.total} سؤالًا. الخانات الأعلى نقاطًا تكون أصعب غالبًا.`)}<div class="board-grid" style="--board-cols:${s.cats.length}">${s.cats.map(id=>{const c=catById(id);return `<section class="board-column" style="--accent:${c.color}"><div class="board-category"><div>${categoryArt(id)}</div><h2>${c.name}</h2></div>${s.board.filter(t=>t.category===id).map(t=>`<button class="point-tile ${t.done?'used':''}" data-action="tile" data-key="${esc(t.key)}" ${t.done?'disabled':''}>${t.done?icon('check'):t.points}<small>${t.done?'اكتمل':'نقطة'}</small></button>`).join('')}</section>`;}).join('')}</div><p class="footer-note">تُحفظ اللوحة تلقائيًا. يمكنك العودة للرئيسية ومتابعتها لاحقًا.</p>`;}
+function soloStorageNotice(){return !storageAvailable?'<section class="inline-note warning" role="status"><span>الحفظ التلقائي غير متاح هنا؛ الجولة مستمرة في هذه الصفحة.</span><button class="btn secondary" data-action="solo-export">حفظ نسخة استئناف</button></section>':'';}
+function renderPlay(){if(!session)return renderHome();if(session.status==='done')return renderResult();if(session.handoff)return `${soloStorageNotice()}${scoreStrip()}<div class="panel handoff empty-state"><span class="mode-icon">${icon('users')}</span><span class="eyebrow">مرّر الجهاز</span><h1>الدور الآن على ${esc(session.players[session.turn].name)}</h1><p class="muted">لا يبدأ المؤقّت حتى تضغط «أنا جاهز».</p><button class="btn primary" data-action="ready">أنا جاهز ${icon('play')}</button></div>`;if(!session.current)return soloStorageNotice()+renderBoard();return soloStorageNotice()+renderQuestion();}
+function renderBoard(){const s=session;return `${scoreStrip()}${title('اختر سؤالك','لوحة التحدي',`أكملت ${s.results.length} من ${s.total} سؤالًا. الخانات الأعلى نقاطًا تكون أصعب غالبًا.`)}<div class="board-grid" style="--board-cols:${s.cats.length}">${s.cats.map(id=>{const c=catById(id);return `<section class="board-column" style="--accent:${c.color}"><div class="board-category"><div>${categoryArt(id)}</div><h2>${c.name}</h2></div>${s.board.filter(t=>t.category===id).map(t=>`<button class="point-tile ${t.done?'used':''}" data-action="tile" data-key="${esc(t.key)}" ${t.done?'disabled':''}>${t.done?icon('check'):t.points}<small>${t.done?'اكتمل':'نقطة'}</small></button>`).join('')}</section>`;}).join('')}</div><p class="footer-note">${storageAvailable?'تُحفظ اللوحة تلقائيًا. يمكنك العودة للرئيسية ومتابعتها لاحقًا.':'الجولة محفوظة في هذه الصفحة فقط. صدّر نسخة استئناف قبل إغلاقها.'}</p>`;}
 function remainingSeconds(c){return Math.max(0,Math.ceil((c.deadline?c.deadline-Date.now():c.remainingMs)/1000));}
 function renderQuestion(){const s=session,c=s.current,q=QUESTION_MAP.get(c.id),cat=catById(q.category),feedback=c.phase==='feedback',p=s.players[s.turn],bag=s.bags[s.turn];const hasImage=q.image&&VISUALS[q.image];const timed=c.timed;
 return `${scoreStrip()}<div class="question-top"><div><span class="eyebrow">${modeById(s.mode).name}</span><div class="question-meta"><span class="pill" style="--accent:${cat.color}">${cat.name}</span><span class="badge">${LEVELS[q.level-1]}</span><span class="muted">سؤال ${s.results.length+(feedback?0:1)} من ${s.total}</span></div></div><div class="question-controls">${timed?`<div class="timer-ring" role="timer" aria-label="الوقت المتبقي"><span class="timer-number" id="timer-value">${remainingSeconds(c)}</span><small>ثانية</small></div>`:`<span class="pill">${icon('clock')} بلا مؤقّت</span>`}<button class="icon-btn" data-action="pause" aria-label="إيقاف الجولة مؤقتًا" ${feedback?'disabled':''}>${icon('pause')}</button></div></div><div class="progress-track" role="progressbar" aria-label="تقدم الجولة" aria-valuemin="0" aria-valuemax="${s.total}" aria-valuenow="${s.results.length}"><span style="width:${s.results.length/s.total*100}%"></span></div>
-${c.paused&&!feedback?`<section class="panel empty-state pause-panel"><span class="mode-icon">${icon('pause')}</span><h2>خذ وقتك… جولتك محفوظة</h2><p class="muted">اضغط للمتابعة عندما تكون جاهزًا. المؤقّت متوقف.</p><button class="btn primary" data-action="unpause">متابعة السؤال ${icon('play')}</button></section>`:`<div class="question-layout"><section class="question-main"><div class="question-card">${hasImage?(prefs.images?`<div class="question-media"><span class="image-placeholder">جارٍ عرض الصورة…</span><img src="${imageSrc(q.image)}" alt="${esc(questionAlt(q,feedback))}" width="600" height="360" loading="lazy" decoding="async"><button class="zoom-btn icon-btn" data-action="zoom" data-image="${q.image}" aria-label="تكبير الصورة">${icon('expand')}</button></div>`:`<div class="image-off"><p>تحميل الصور متوقف. هذا السؤال يعتمد على صورة.</p><button class="btn secondary" data-action="enable-images">إظهار الصور</button></div>`):''}<div class="question-label"><span>${esc(feedback?q.sub:cat.name)}</span><span>${num(c.base)} نقطة أساسية</span></div><h1 class="question-text" id="question-title" tabindex="-1">${esc(q.q)}</h1>${c.format==='boolean'?`<p class="claim-text">الإجابة المقترحة: <strong dir="auto">${esc(q.options[c.claimIndex])}</strong><br><span class="muted">هل هذه الإجابة صحيحة؟</span></p>`:''}${c.hint?`<div class="hint-box">${icon('help')} <span>${esc(safeHint(q))}</span></div>`:''}${c.second&&c.phase==='answer'?`<span class="badge">${c.attempted?'استخدمت محاولتك الأولى؛ بقيت محاولة.':'الفرصة الثانية مفعّلة'}</span>`:''}${c.double?'<span class="badge gold">مضاعفة النقاط مفعّلة</span>':''}</div>
+${c.paused&&!feedback?`<section class="panel empty-state pause-panel"><span class="mode-icon">${icon('pause')}</span><h2>خذ وقتك… الجولة متوقفة</h2><p class="muted">اضغط للمتابعة عندما تكون جاهزًا. المؤقّت متوقف.</p><button class="btn primary" data-action="unpause">متابعة السؤال ${icon('play')}</button></section>`:`<div class="question-layout"><section class="question-main"><div class="question-card">${hasImage?(prefs.images?`<div class="question-media"><span class="image-placeholder">جارٍ عرض الصورة…</span><img src="${imageSrc(q.image)}" alt="${esc(questionAlt(q,feedback))}" width="600" height="360" loading="lazy" decoding="async"><button class="zoom-btn icon-btn" data-action="zoom" data-image="${q.image}" aria-label="تكبير الصورة">${icon('expand')}</button></div>`:`<div class="image-off"><p>تحميل الصور متوقف. هذا السؤال يعتمد على صورة.</p><button class="btn secondary" data-action="enable-images">إظهار الصور</button></div>`):''}<div class="question-label"><span>${esc(feedback?q.sub:cat.name)}</span><span>${num(c.base)} نقطة أساسية</span></div><h1 class="question-text" id="question-title" tabindex="-1">${esc(q.q)}</h1>${c.format==='boolean'?`<p class="claim-text">الإجابة المقترحة: <strong dir="auto">${esc(q.options[c.claimIndex])}</strong><br><span class="muted">هل هذه الإجابة صحيحة؟</span></p>`:''}${c.hint?`<div class="hint-box">${icon('help')} <span>${esc(safeHint(q))}</span></div>`:''}${c.second&&c.phase==='answer'?`<span class="badge">${c.attempted?'استخدمت محاولتك الأولى؛ بقيت محاولة.':'الفرصة الثانية مفعّلة'}</span>`:''}${c.double?'<span class="badge gold">مضاعفة النقاط مفعّلة</span>':''}</div>
 ${c.format==='text'?`<form id="text-answer" class="panel stack"><label for="written-answer">اكتب إجابتك</label><input id="written-answer" name="answer" maxlength="120" value="${esc(c.text)}" autocomplete="off" ${feedback?'disabled':''} aria-describedby="text-guidance"><small id="text-guidance" class="muted">التشكيل وأشكال الألف والمسافات لا تؤثر. تظل ة وه، وى وي، متميزة.</small><button class="btn primary" type="submit" ${feedback?'disabled':''}>اعتماد الإجابة ${icon('check')}</button></form>`:`<div class="answers-grid" role="group" aria-labelledby="question-title">${(c.format==='boolean'?[1,0]:c.order).map((idx,pos)=>{let right=c.format==='boolean'?(q.answer===c.claimIndex?1:0):q.answer,label=c.format==='boolean'?(idx?'صح':'خطأ'):q.options[idx],selected=c.chosen===idx,eliminated=c.eliminated.includes(idx),cls=feedback?(idx===right?'is-correct':selected?'is-wrong':''):'';return `<button class="answer-card ${cls} ${eliminated?'eliminated':''}" data-action="answer" data-index="${idx}" ${feedback||eliminated?'disabled':''}><span class="answer-key">${pos+1}</span><span class="answer-label" dir="auto">${esc(label)}</span>${feedback&&idx===right?icon('check'):feedback&&selected?icon('close'):''}</button>`;}).join('')}</div>`}
 ${feedback?`<section class="feedback ${c.correct?'correct':'wrong'}" role="status"><div class="row"><span class="feedback-icon">${icon(c.correct?'check':c.outcome==='skip'?'arrow':'close')}</span><div><h2>${c.correct?'إجابة موفّقة!':c.outcome==='skip'?'انتقلنا إلى معرفة جديدة':c.outcome==='timeout'?'انتهى الوقت':'محاولة جيدة… تعلّمها للمرة القادمة'}</h2><p>${c.correct?`+${num(c.earned)} نقطة`:`الإجابة الصحيحة: ${esc(q.options[q.answer])}`}</p></div></div><p class="explanation">${esc(q.explanation)}</p><div class="source-line">${icon('book')} <span>المصدر: ${esc(q.source.title)} · ${esc(q.source.reference)}</span><a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">فتح المرجع</a></div>${hasImage?(window.SeenTeamUI?.mediaCredit(q.image)||`<small class="muted">الصورة: ${esc(VISUALS[q.image].credit)} · ${VISUALS[q.image].license}</small>`):''}<button class="btn primary" data-action="next">${s.results.length>=s.target||s.mode==='survival'&&p.lives<=0?'نتيجة الجولة':s.mode==='classic'?'العودة إلى اللوحة':'السؤال التالي'} ${icon('arrow')}</button></section>`:''}</section><aside class="question-aside"><div class="panel stack"><div class="section-heading"><h2>مساعداتك</h2><span class="muted">لكل جولة</span></div><div class="helpers-grid">${HELPERS.map(h=>{const disabled=feedback||!bag[h.id]||c.used.includes(h.id)||(h.id==='time'&&!timed)||(h.id==='fifty'&&c.format!=='choice')||(h.id==='double'&&s.mode==='practice');return `<button class="helper-btn" data-action="helper" data-helper="${h.id}" ${disabled?'disabled':''} title="${h.desc}">${icon(h.icon)}<span>${h.name}</span><small>${bag[h.id]} متبقية</small></button>`;}).join('')}</div><button class="text-btn" data-action="helper-rules">قواعد المساعدات ${icon('help')}</button></div><div class="panel streak-panel">${icon('bolt')}<span>سلسلتك الحالية</span><strong>${p.streak}</strong><small class="muted">${p.streak>=2?'الإجابة التالية ترفع مكافأتك':'كل إجابة صحيحة تقرّبك من المكافأة'}</small></div><p class="footer-note">خذ قرارك قبل اعتماد الإجابة.<br>لا تظهر الإجابة الصحيحة إلا بعد المحاولة.</p></aside></div>`}`;}
 function hasActiveTrivia(){const team=window.SeenTeamUI?.match;return session?.status==='active'||!!(team&&team.state!=='MATCH_COMPLETE');}
@@ -2416,19 +2622,68 @@ function renderSettings(){return `${title('راحتك أولًا','الإعدا�
 <section class="panel stack"><h2>${icon('spark')} العرض والحركة</h2>${selectPref('theme','المظهر',[['dark','ليلي'],['light','نهاري']])}${selectPref('accent','اللمسة اللونية',[['violet','البنفسجي الملكي'],['gold',progress.xp>=400?'الذهبي · مفتوح':'الذهبي · يُفتح عند المستوى 3',progress.xp<400]])}${selectPref('textSize','حجم النص',[[90,'90%'],[100,'100%'],[115,'115%'],[130,'130%']])}${selectPref('motion','كثافة الحركة',[['none','متوقفة'],['subtle','هادئة'],['full','كاملة']])}${togglePref('reduced','تقليل الحركة دائمًا')}${togglePref('images','عرض الصور المحلية')}<small class="muted">يُحترم خيار تقليل الحركة في نظام الجهاز تلقائيًا. لا تُحمّل أي صور من الإنترنت.</small></section>
 <section class="panel stack"><h2>${icon('sound')} الصوت والموسيقى</h2><div class="field"><label for="pref-sound">المؤثرات الصوتية <output>${prefs.sound}%</output></label><input id="pref-sound" type="range" min="0" max="100" data-pref="sound" value="${prefs.sound}"></div><div class="field"><label for="pref-music">الموسيقى الهادئة <output>${prefs.music}%</output></label><input id="pref-music" type="range" min="0" max="100" data-pref="music" value="${prefs.music}"></div><button class="btn secondary" data-action="test-sound">تجربة الصوت ${icon('sound')}</button><small class="muted">الموسيقى والمؤثرات ألحان توليدية أصلية داخل اللعبة، بلا ملفات خارجية. يبدأ الصوت بعد تفاعلك مع الصفحة.</small></section>
 <section class="panel stack"><h2>${icon('clock')} قواعد اللعب</h2>${togglePref('timer','تفعيل مؤقّت الأسئلة')}${selectPref('duration','زمن السؤال',[[15,'15 ثانية'],[20,'20 ثانية'],[30,'30 ثانية'],[45,'45 ثانية'],[60,'60 ثانية']])}${selectPref('difficulty','الصعوبة المفضلة',[['adaptive','متدرجة حسب الأداء'],['1','سهل'],['2','متوسط'],['3','صعب'],['4','خبير']])}${togglePref('spoilers','تطبيق مستويات حرق الأنمي المحددة')}${animePreferences()}${selectPref('repetition','تكرار الأسئلة',[['recent','تجنب الأسئلة الحديثة'],['unseen','تفضيل غير المشاهد'],['all','السماح بالجميع']])}<small class="muted">التحدي السريع: 12 ثانية دائمًا. التدريب بلا مؤقّت. الصعوبة المتدرجة تبدأ سهلة وترتفع كل 4 أسئلة؛ تزيد مع السلاسل وتنخفض عند دقة أقل من 40%.</small></section>
-<section class="panel stack"><h2>${icon('shield')} الحفظ والخصوصية</h2><p class="muted">${storageAvailable?'يُحفظ تقدمك محليًا. لا حسابات ولا تتبّع.':'التخزين المحلي غير متاح حاليًا. صدّر تقدمك قبل إغلاق الصفحة.'} قد تختلف مساحة الحفظ بين فتح الملف مباشرة وفتحه من رابط.</p>${soloRecovery?'<p class="muted">تعذّرت استعادة الجولة السابقة بأمان. بقيت نسخة خام محفوظة للمراجعة. يتاح تصديرها قبل بدء جولة جديدة أو بعد اكتمال جميع الجولات الجارية لحماية الحلول. لا يُمسح تقدمك الآخر.</p><button class="btn secondary" data-action="solo-recovery">تصدير نسخة الحفظ السابقة</button>':''}<button class="btn secondary" data-action="export">تصدير التقدم ${icon('download')}</button><button class="btn secondary" data-action="import">استيراد التقدم ${icon('upload')}</button><p class="muted">النسخة المصدّرة تشمل ملفك وإعداداتك وإحصاءاتك. الجولة الجارية تُستعاد من حفظ المتصفح، ولا تُنقل بالاستيراد.</p><button class="btn danger" data-action="reset">تصفير التقدم الفردي</button></section><section class="panel stack"><h2>${icon('help')} حول التجربة</h2><button class="btn secondary" data-action="help">دليل اللعب والمفاتيح</button><button class="btn secondary" data-action="about">المحتوى والمراجع والتراخيص</button><button class="btn secondary" data-action="fullscreen">ملء الشاشة ${icon('expand')}</button><p class="muted">يعمل الملف محليًا دون تثبيت أو خادم. الشاشة الكاملة حسب دعم متصفحك. لا تتغير الجولة عند تدوير الجهاز.</p></section></div>`;}
+<section class="panel stack"><h2>${icon('shield')} الحفظ والخصوصية</h2><p class="muted">${storageAvailable?'يُحفظ تقدمك محليًا. لا حسابات ولا تتبّع.':'التخزين المحلي غير متاح حاليًا. صدّر تقدمك قبل إغلاق الصفحة.'} قد تختلف مساحة الحفظ بين فتح الملف مباشرة وفتحه من رابط.</p>${soloRecovery?'<p class="muted">تعذّرت استعادة الجولة السابقة بأمان. بقيت نسخة خام محفوظة للمراجعة. يتاح تصديرها قبل بدء جولة جديدة أو بعد اكتمال جميع الجولات الجارية لحماية الحلول. لا يُمسح تقدمك الآخر.</p><button class="btn secondary" data-action="solo-recovery">تصدير نسخة الحفظ السابقة</button>':''}<button class="btn secondary" data-action="export">تصدير التقدم ${icon('download')}</button><button class="btn secondary" data-action="import">استيراد تقدم أو جولة ${icon('upload')}</button><button class="btn secondary" data-action="paste-save">استيراد من نص</button><button class="btn secondary" data-action="solo-export" ${session?'':'disabled'}>تصدير الجولة المحفوظة ${icon('download')}</button><p class="muted">تصدير التقدم يشمل ملفك وإعداداتك وإحصاءاتك فقط. نسخة الاستئناف تشمل الجولة المتوقفة والأسئلة المحلية اللازمة، وهي خاصة بالمقدم. عند تعذر الحفظ التلقائي نزّلها قبل إغلاق الصفحة.</p><button class="btn secondary" data-action="reset-seen">بدء دورة جديدة للأسئلة</button><p class="muted">يسمح بإعادة الأسئلة السابقة دون حذف النتائج أو الإنجازات أو سجل المباريات.</p><button class="btn danger" data-action="reset">تصفير التقدم الفردي</button></section><section class="panel stack"><h2>${icon('help')} حول التجربة</h2><button class="btn secondary" data-action="help">دليل اللعب والمفاتيح</button><button class="btn secondary" data-action="about">المحتوى والمراجع والتراخيص</button><button class="btn secondary" data-action="fullscreen">ملء الشاشة ${icon('expand')}</button><p class="muted">يعمل الملف محليًا دون تثبيت أو خادم. الشاشة الكاملة حسب دعم متصفحك. لا تتغير الجولة عند تدوير الجهاز.</p></section></div>`;}
 function openDialog(heading,body,actions=''){lastFocus=document.activeElement;const d=$('#dialog');d.innerHTML=`<div class="modal"><div class="dialog-head"><h2>${heading}</h2><button class="icon-btn" data-action="close-dialog" aria-label="إغلاق">${icon('close')}</button></div><div class="dialog-body">${body}</div>${actions?`<div class="dialog-actions">${actions}</div>`:''}</div>`;if(!d.open)d.showModal();d.querySelector('button, input')?.focus();}
 function closeDialog(){if(storageConflict)return;const d=$('#dialog');if(d.open)d.close();lastFocus?.focus?.();}
 function showHelp(){if(!['play','setup','result'].includes(route)&&window.SeenTeamUI?.ready()){window.SeenTeamUI.rules();return;}pauseSession();if(route==='play')render();openDialog('دليل اللعب',`<div class="stack"><p>اختر نمط اللعب والفئات، ثم اعتمد إجابتك. يظهر التفسير والمصدر بعد الإجابة. لا تتكرر الأسئلة داخل الجولة، وتُفضَّل الأسئلة التي لم تجب عنها في الجولات الجديدة.</p><p><strong>النقاط:</strong> 100 × مستوى الصعوبة، أو قيمة خانة اللوحة. كل إجابتين متتاليتين بعد الأولى تضيفان 50 نقطة، بحد 250. مضاعفة النقاط تضاعف المجموع. التدريب دون نقاط؛ الإجابة الصحيحة فيه تمنح 5 خبرة.</p><p><strong>الحفظ:</strong> يُحفظ كل جواب تلقائيًا. العودة للرئيسية أو إخفاء الصفحة يوقفان مؤقّت السؤال. استأنف من بطاقة الجولة المحفوظة.</p><p><strong>التحدي اليومي:</strong> حتى 10 أسئلة متاحة بلا حرق؛ يظهر العدد الفعلي قبل البدء. تتحدد الأسئلة بتاريخ الجهاز المحلي عند بدء الجولة. يبقى تاريخ الجولة ثابتًا حتى لو أكملتها بعد منتصف الليل، ولا تُمسح الأيام السابقة.</p><p><strong>المتعدد:</strong> التناوب على الجهاز نفسه، مع مساعدات مستقلة لكل لاعب. الإحصاءات في الملف تجمع محاولات جميع المشاركين.</p><p><strong>المفاتيح:</strong> الأرقام 1 إلى 4 للاختيارات، Enter للسؤال التالي بعد الكشف، وEscape لإيقاف السؤال. التنقل بـTab والاعتماد بـEnter أو المسافة.</p><p><strong>الإجابات الكتابية:</strong> تطابق الاسم الكامل بعد إزالة التشكيل وتوحيد الهمزات والمسافات. لا تستخدم تخمينًا لغويًا أو خدمة ذكاء اصطناعي.</p><p>تحدي الصور في هذا الإصدار مخصّص للأعلام والخرائط وصور المعالم والملاعب والآثار والأجهزة. لا يتضمن صور شخصيات أنمي أو لاعبين أو شعارات أندية مرخّصة حتى الآن.</p></div>`);}
 function showAbout(){pauseSession();if(route==='play')render();openDialog('سين جيم خالد · المحتوى والتراخيص',`<div class="stack"><p>الإصدار 3 · ${QUESTION_BANK.length} سؤالًا مكتملًا، موزعة على 8 فئات.</p><p>البنك يتوسع بإضافات موثقة مع الحفاظ على الأسئلة السابقة. صور التعرف على الشخصيات واللاعبين وشعارات الأندية غير مدرجة في هذا الإصدار؛ تحدي الصور يشمل أعلامًا وخرائط فعلية وصورًا مرخصة لمعالم وملاعب وآثار وأجهزة.</p><p>تتضمن الأسئلة مراجع للتتبّع والمراجعة. جرت مراجعة تحريرية ومطابقة لمصادر مختارة، وليست اعتمادًا أكاديميًا أو شرعيًا مستقلًا لكل سؤال. في الروايات الجاهلية نستخدم صياغة مقيّدة عندما تكون الأخبار أدبية أو مختلفًا فيها.</p><div class="grid-2">${CATEGORIES.map(c=>`<div><strong>${c.name}</strong><p class="muted">${QUESTION_BANK.filter(q=>q.category===c.id).length} سؤالًا</p></div>`).join('')}</div><p>رسوم الفئات والأعلام أصلية. خرائط الدول من Natural Earth ذات الملكية العامة، والصور الفوتوغرافية من مصادر مرخصة موضحة عند الكشف. رسوم الفئات رمزية وليست صورًا لشخصيات أو مواقع تاريخية بعينها. بعض الأعلام ذات الشعارات رُسمت بصورة مبسّطة، ويُذكر ذلك في وصف الصورة. لا توجد صور للأنبياء.</p><p>الرسوم والمؤثرات والموسيقى الأصلية متاحة وفق CC0-1.0. الأعلام رموز وطنية مستخدمة للتعليم؛ قد يخضع استخدامها خارج اللعبة لقواعد البلد المعني. أسماء الأعمال والعلامات لأصحابها.</p><p>خط Noto Sans Arabic مرخّص وفق SIL Open Font License 1.1. الخط مضمّن للعمل دون اتصال.</p><details><summary>رخصة الخط</summary><pre class="license-text" dir="ltr">${esc(FONT_LICENSE)}</pre></details><p>لفتح اللعبة دون إنترنت: احفظ ملف index.html وافتحه في متصفحك. لا توجد أصول مطلوبة خارجه، ولا حاجة إلى عامل خدمة.</p></div>`);}
 async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else toast('الشاشة الكاملة غير متاحة هنا. يمكنك اللعب بالعرض الحالي.');}catch{toast('تعذّر تفعيل ملء الشاشة. اللعبة متاحة بالعرض الحالي.');}}
-function exportProgress(){pauseSession();persist();const blob=new Blob([JSON.stringify({version:1,prefs,progress},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`seen-khaled-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000);toast('أُعدّت نسخة تقدمك للتنزيل.');}
-async function importFile(file){if(!file)return;try{if(file.size>1500000)throw Error('ملف الحفظ أكبر من الحجم المسموح.');const text=await file.text();const raw=parseSafeJSON(text);const checked=validateSave(raw);openDialog('استبدال التقدم المحفوظ؟',`<p>الملف باسم <strong>${esc(checked.progress.profile.name)}</strong> ويحتوي على ${checked.progress.answers} محاولة و${checked.progress.games} جولات. سيحل محل تقدمك الحالي والجولة الجارية.</p>`,`<button class="btn primary" id="confirm-import">استيراد النسخة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>`);$('#confirm-import').addEventListener('click',()=>{progress=checked.progress;prefs=checked.prefs;session=null;applyPrefs();persist();closeDialog();navigate('profile');toast('تم استيراد تقدمك بنجاح.');},{once:true});}catch(e){toast(e instanceof SyntaxError?'تعذّرت قراءة الملف. اختر ملف حفظ صالحًا.':/[\u0600-\u06ff]/.test(e.message)?e.message:'تعذّر استيراد الحفظ. الملف غير صالح.');}finally{$('#import-file').value='';}}
+function downloadLocalSave(data,filename){
+const text=typeof data==='string'?data:JSON.stringify(data,null,2);
+try{
+const a=document.createElement('a');
+if(typeof Blob!=='function'||typeof URL.createObjectURL!=='function'||!('download'in a))throw Error();
+const url=URL.createObjectURL(new Blob([text],{type:'application/json'}));a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);return true;
+}catch{
+openDialog('نسخة حفظ يدوية',`<p>هذا المتصفح لا يتيح التنزيل المباشر هنا. انسخ النص واحتفظ به خارج اللعبة، ثم استخدم «استيراد من نص» لاستعادته. ويمكن حفظه في ملف باسم <b dir="ltr">${esc(filename)}</b>.</p><label for="manual-save-text">بيانات نسخة الحفظ</label><textarea id="manual-save-text" dir="ltr" readonly spellcheck="false">${esc(text)}</textarea>`,'<button class="btn primary" data-action="copy-save">نسخ بيانات الحفظ</button>');return false;
+}
+}
+async function copyManualSave(){const input=$('#manual-save-text');if(!input)return;input.focus();input.select();try{if(!navigator.clipboard?.writeText)throw Error();await navigator.clipboard.writeText(input.value);toast('نُسخت بيانات الحفظ. احتفظ بها خارج اللعبة لاستيرادها لاحقًا.');}catch{toast('النص محدد؛ اضغط مطولًا واختر نسخ، ثم احتفظ به خارج اللعبة.');}}
+function pasteLocalSave(onFile){
+if(typeof onFile!=='function')return;
+pauseSession();openDialog('استيراد من نص','<p>الصق بيانات نسخة الحفظ التي صدّرتها اللعبة. تُفحص البيانات قبل عرض تأكيد الاستيراد؛ تبقى جولتك الحالية محفوظة حتى تعتمد النسخة.</p><label for="paste-save-text">بيانات نسخة الحفظ</label><textarea id="paste-save-text" dir="ltr" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>','<button class="btn primary" id="prepare-pasted-save">فحص النسخة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>');
+const input=$('#paste-save-text'),button=$('#prepare-pasted-save');input.focus();let pending=false;
+button.addEventListener('click',async()=>{if(pending)return;const text=input.value;if(!text.trim()){toast('الصق بيانات نسخة الحفظ أولًا.');input.focus();return;}if(text.length>28100000){toast('بيانات الحفظ أكبر من الحجم المسموح.');return;}const size=new TextEncoder().encode(text).length;if(size>28100000){toast('بيانات الحفظ أكبر من الحجم المسموح.');return;}pending=true;button.disabled=true;try{await onFile({name:'seen-pasted-save.json',size,text:async()=>text});}catch{toast('تعذّر استيراد النص. تبقى الجولة الحالية دون تغيير.');}finally{pending=false;if(button.isConnected)button.disabled=false;}});
+}
+function exportProgress(){pauseSession();persist();if(downloadLocalSave({version:1,prefs,progress},`seen-khaled-${localDate()}.json`))toast('أُعدّت نسخة تقدمك للتنزيل.');}
+function portableSoloSession(value){if(!value)return null;const out=JSON.parse(JSON.stringify(value));if(out.current?.phase==='answer'){const c=out.current;if(c.deadline!==null)c.remainingMs=clamp(c.deadline-Date.now(),0,180000);c.deadline=null;c.paused=true;}return out;}
+function exportSoloRound(){
+if(!session){toast('لا توجد جولة محفوظة لتصديرها.');return;}
+pauseSession();persist();
+try{const owner=window.SeenTeamUI?.store,library=owner?{edits:owner.edits,disabled:owner.disabled}:undefined;const data={version:1,prefs,progress,session:portableSoloSession(session),...(library?{library}:{})};if(downloadLocalSave(encodeMatchBackup('solo',data),`seen-solo-resume-${localDate()}.json`))toast('أُعدّت نسخة استئناف الجولة للمقدم. احتفظ بها قبل إغلاق الصفحة.');}catch(e){toast(/[\u0600-\u06ff]/.test(e.message)?e.message:'تعذّر إعداد نسخة الاستئناف. تبقى الجولة مفتوحة.');}
+if(route==='play')render();
+}
+function prepareSoloResume(raw){
+const data=decodeMatchBackup(raw,'solo');let library=null,questionMap=QUESTION_MAP;
+if(data.library!==undefined){if(!window.SeenTeamUI?.prepareResumeLibrary)throw Error('تعذّرت تهيئة مكتبة الأسئلة. أعد المحاولة بعد اكتمال تحميل اللعبة.');library=window.SeenTeamUI.prepareResumeLibrary(data.library);questionMap=new Map(library.questions.map(q=>[q.id,q]));}
+const checked=validateSave(data,true,questionMap);
+if(data.session&&!checked.session)throw Error('تعذّرت استعادة الجولة بأمان. بقي تقدمك والجولة الحالية دون تغيير.');
+checked.session=portableSoloSession(checked.session);return {checked,library};
+}
+async function importFile(file){
+if(!file)return;
+try{
+if(file.size>28100000)throw Error('ملف الحفظ أكبر من الحجم المسموح.');
+const raw=parseSafeJSON(await file.text(),28100000),resume=raw.format==='seen-khaled-resume';
+if(!resume&&file.size>1500000)throw Error('ملف التقدم أكبر من الحجم المسموح.');
+if(resume&&raw.kind!=='solo')throw Error('هذه نسخة مباراة فريقين. استوردها من حفظ الفريقين في سجل المباريات.');
+const prepared=resume?prepareSoloResume(raw):{checked:validateSave(raw),library:null},checked=prepared.checked;
+pauseSession();
+openDialog(resume?'استئناف الجولة من النسخة؟':'استبدال التقدم المحفوظ؟',`<p>الملف باسم <strong>${esc(checked.progress.profile.name)}</strong> ويحتوي على ${checked.progress.answers} محاولة و${checked.progress.games} جولات. ${resume?'تُستعاد الجولة متوقفة مع ترتيب أسئلتها ومساعداتها، وتحل محل الجولة الفردية الحالية.':'سيحل محل تقدمك الفردي الحالي والجولة الجارية.'} تبقى مباريات الفريقين وسجلاتها محفوظة.</p>`,'<button class="btn primary" id="confirm-import">استيراد النسخة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>');
+$('#confirm-import').addEventListener('click',()=>{
+if(prepared.library)window.SeenTeamUI.commitResumeLibrary(prepared.library);
+progress=checked.progress;prefs=checked.prefs;session=checked.session;soloRecoveryProtected=false;applyPrefs();const saved=persist();closeDialog();navigate(resume&&session?'play':'profile');toast(saved?'تم استيراد الحفظ بنجاح.':'استُعيد الحفظ في هذه الصفحة. التخزين التلقائي غير متاح؛ احتفظ بنسخة الاستئناف.');
+},{once:true});
+}catch(e){toast(e instanceof SyntaxError?'تعذّرت قراءة الملف. اختر ملف حفظ صالحًا.':/[\u0600-\u06ff]/.test(e.message)?e.message:'تعذّر استيراد الحفظ. الملف غير صالح.');}
+finally{$('#import-file').value='';}
+}
+function resetQuestionHistory(){progress.seen={};prefs.questionHistoryResetAt=Date.now();persist();}
+function requestQuestionHistoryReset(){pauseSession();openDialog('بدء دورة جديدة للأسئلة؟','<p>ستتوقف تفضيلات التكرار عن احتساب الأسئلة السابقة، فيمكن ظهورها مجددًا في المباريات والجولات الجديدة. لا تُحذف النتائج أو الإنجازات أو الأسئلة المعدلة أو سجل الإجابات والمباريات، ولا تتغير لوحة المباراة الجارية.</p>','<button class="btn primary" id="confirm-reset-seen">ابدأ دورة جديدة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>');$('#confirm-reset-seen').addEventListener('click',()=>{resetQuestionHistory();closeDialog();render();toast('بدأت دورة جديدة للأسئلة. بقيت نتائجك وسجلاتك محفوظة.');},{once:true});}
 function requestStart(mode,daily=false){if(session?.status==='active'){pauseSession();openDialog('لديك جولة محفوظة',`<p>بدء جولة جديدة سيستبدل الجولة الجارية. تبقى إجاباتك السابقة وخبرتك محفوظتين.</p>`,`<button class="btn primary" id="confirm-start">بدء جولة جديدة</button><button class="btn secondary" data-action="resume-dialog">متابعة المحفوظة</button>`);$('#confirm-start').addEventListener('click',()=>{closeDialog();startGame(mode,daily);},{once:true});}else startGame(mode,daily);}
 document.addEventListener('click',event=>{const b=event.target.closest('[data-action]');if(!b||b.disabled)return;if(b.dataset.action==='reload'){window.location.reload();return;}if(storageConflict)return;unlockAudio();sound('click');const action=b.dataset.action;
 if(action==='nav')navigate(b.dataset.route);
 else if(action==='solo-anime-all'||action==='solo-anime-none'){prefs.anime={...prefs.anime,selected:action==='solo-anime-all'?TeamEngine.FRANCHISES.map(f=>f.id):[]};persist();render();}
-else if(action==='solo-recovery'&&soloRecovery){if(hasActiveTrivia()){toast('تبقى نسخة الاسترداد محفوظة كما هي. يتاح تصديرها بعد اكتمال الجولة أو المباراة الجارية لحماية الحلول.');return;}const blob=new Blob([soloRecovery],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`seen-recovery-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000);}
+else if(action==='solo-recovery'&&soloRecovery){if(hasActiveTrivia()){toast('تبقى نسخة الاسترداد محفوظة كما هي. يتاح تصديرها بعد اكتمال الجولة أو المباراة الجارية لحماية الحلول.');return;}downloadLocalSave(soloRecovery,`seen-recovery-${localDate()}.json`);}
 else if(action==='setup'){if(b.dataset.mode==='classic'&&window.SeenTeamUI)window.SeenTeamUI.startSetup();else makeSetup(b.dataset.mode);}
 else if(action==='browse-category')makeSetup('solo',[b.dataset.id]);
 else if(action==='toggle-category'){const id=b.dataset.id;if(setup.cats.includes(id))setup.cats=setup.cats.filter(x=>x!==id);else setup.cats.push(id);render();}
@@ -2455,6 +2710,10 @@ else if(action==='test-sound'){sound('correct');ambient();}
 else if(action==='help')showHelp();
 else if(action==='about')showAbout();
 else if(action==='export')exportProgress();
+else if(action==='solo-export')exportSoloRound();
+else if(action==='copy-save')copyManualSave();
+else if(action==='paste-save')pasteLocalSave(importFile);
+else if(action==='reset-seen')requestQuestionHistoryReset();
 else if(action==='import'){$('#import-file').click();}
 else if(action==='reset'){pauseSession();openDialog('تصفير التقدم؟','<p>ستُحذف إحصاءات اللعب الفردي وإنجازاته وجولته المحفوظة من هذا المتصفح. لا يؤثر ذلك في مباريات الفريقين أو الأسئلة المعدلة. يمكنك تصدير نسخة قبل المتابعة. يبقى المظهر والصوت كما اخترتهما.</p>','<button class="btn danger" id="confirm-reset">نعم، احذف التقدم</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>');$('#confirm-reset').addEventListener('click',()=>{progress=freshProgress();session=null;persist();closeDialog();navigate('home');toast('تم تصفير التقدم.');},{once:true});}
 else if(action==='replay'){if(session.mode==='daily'){toast('اكتمل تحدي اليوم. جرّب التدريب أو عد غدًا.');makeSetup('practice',session.cats);}else makeSetup(session.mode,session.cats);}
@@ -2572,7 +2831,7 @@ const TeamUI = (() => {
     recoveryRaw = null,
     recoveryError = "",
     selectedPreset = "custom";
-  let lastTickSound = -1, lastScores = null;
+  let lastTickSound = -1, lastScores = null, armedPitTeam = null, resolutionBusy = false, resolutionToastTimer = null, storageIssue = false, lastScoreTapAt = 0, quietRestore = null, choosingSitout = false;
   const deep = (v) => JSON.parse(JSON.stringify(v));
   const m = () => store.match;
   const active = () => m() && m().state !== "MATCH_COMPLETE";
@@ -2580,17 +2839,23 @@ const TeamUI = (() => {
     return QUESTION_BANK;
   }
   function write() {
-    if (locked) return;
+    if (locked) return false;
     try {
       localStorage.setItem(KEY, JSON.stringify(store));
+      storageIssue = false;
+      return true;
     } catch {
-      toast(
-        "تعذّر حفظ المباراة محليًا. استخدم نسخة احتياطية من شاشة سجل المباريات.",
-      );
+      if (!storageIssue) toast("المباراة مستمرة في الذاكرة؛ تعذّر الحفظ التلقائي. صدّر حفظ متابعة للمقدم قبل إغلاق الصفحة.");
+      storageIssue = true;
+      return false;
     }
   }
+  function storageNotice() {
+    if (locked) return '<div class="match-storage-notice" role="status"><span>تغيّر حفظ المباراة في نافذة أخرى. حمّل أحدث نسخة قبل المتابعة.</span><button class="btn secondary small" data-team-action="reload">تحميل أحدث حفظ</button></div>';
+    return storageIssue ? '<div class="match-storage-notice" role="status"><span>الحفظ التلقائي غير متاح؛ المباراة مستمرة. احفظ نسخة متابعة قبل إغلاق الصفحة.</span><button class="btn secondary small" data-team-action="backup">حفظ متابعة للمقدم</button></div>' : '';
+  }
   function parseJSON(text) {
-    if (text.length > 20000000) throw Error("الملف أكبر من الحجم المسموح.");
+    if (text.length > 28100000) throw Error("الملف أكبر من الحجم المسموح.");
     return JSON.parse(text, (key, value) => {
       if (["__proto__", "prototype", "constructor"].includes(key))
         throw Error("مفاتيح غير آمنة في الملف.");
@@ -2627,47 +2892,118 @@ const TeamUI = (() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     $("#main").focus({ preventScroll: true });
   }
-  function dispatch(action) {
-    if (locked) {
-      toast("تغيرت المباراة في نافذة أخرى. حمّل أحدث حفظ.");
-      return;
+  function checkLatestSave() {
+    const current=m();
+    if (!current) return false;
+    // A failed write can leave an older, unrelated match on disk. The live
+    // memory-only match must remain playable until a successful save restores
+    // reliable cross-window comparisons.
+    if (storageIssue) return true;
+    let raw;
+    try { raw=localStorage.getItem(KEY); } catch { storageIssue=true; return true; }
+    if (!raw) return true;
+    let latest;
+    try { latest=parseJSON(raw)?.match; } catch {
+      preserveRecovery(raw,"تغيّر الحفظ المحلي إلى بيانات غير صالحة. الأصل محفوظ للاسترداد.");
+      locked=true; pause(false); render(); return false;
     }
-    const old = m();
-    if (!old) return;
+    if (latest && (latest.id !== current.id || Number.isFinite(latest.serial) && latest.serial > current.serial)) {
+      locked=true; pause(false); render();
+      toast("تغيّرت المباراة في نافذة أخرى. حمّل أحدث حفظ لحماية النقاط.");
+      return false;
+    }
+    return true;
+  }
+  function dismissResolutionToast() {
+    clearTimeout(resolutionToastTimer);
+    const el = $("#toast");
+    if (el?.classList.contains("with-undo")) {
+      el.classList.remove("show", "with-undo");
+      el.querySelector("[data-team-action=undo]")?.remove();
+    }
+  }
+  function resolutionToast(s) {
+    const r = s.lastResolution;
+    if (!r) return;
+    const message = r.winner === null
+      ? "محد جاوب صح — 0 نقطة" + (r.deltas?.some(delta => delta < 0) ? "؛ طُبّقت الخصومات المفعّلة" : "")
+      : `${s.teams[r.winner].name} حصل على ${num(r.earned)} نقطة${r.phase === "steal" ? " بالسرقة" : ""}`;
+    toast(message);
+    const el = $("#toast"), button = document.createElement("button");
+    button.className = "toast-undo";
+    button.type = "button";
+    button.textContent = "تراجع";
+    button.dataset.teamAction = "undo";
+    button.dataset.resolutionToken = r.token;
+    button.setAttribute("aria-label", "تراجع عن نتيجة السؤال الأخير");
+    el.classList.add("with-undo");
+    el.append(button);
+    clearTimeout(resolutionToastTimer);
+    resolutionToastTimer = setTimeout(() => {
+      if (button.isConnected) { button.remove(); el.classList.remove("with-undo"); }
+    }, 4300);
+  }
+  function presentTransition(old, next, action) {
+    if (next.state === "TURN_COMPLETE" && next.current?.resolved) next = TeamEngine.dispatch(next, {type:"NEXT_TURN"}, bank(), Date.now());
     const before = old.history?.length || 0;
-    const next = TeamEngine.dispatch(old, action, bank(), Date.now());
+    const resolved = (next.history?.length || 0) > before;
     store.match = next;
-    if (next.lastError) {
-      toast(next.lastError);
+    if (next.lastError) toast(next.lastError);
+    if (resolved) {
+      const h = next.history[next.history.length - 1];
+      if (h.questionId) { progress.seen[h.questionId] = Date.now(); persist(); }
+      if (next.config.sound) sound(h.winner !== null ? "correct" : "wrong");
+      armedPitTeam = null;
     }
-    if (next !== old) {
-      if ((next.history?.length || 0) > before) {
-        const h = next.history[next.history.length - 1];
-        if (h.questionId) {
-          progress.seen[h.questionId] = Date.now();
-          persist();
-        }
-      }
-      if (next.state === "TURN_COMPLETE" && old.state !== "TURN_COMPLETE") {
-        if (next.config.sound)
-          sound(next.current?.winner !== null ? "correct" : "wrong");
-        $("#announcer").textContent =
-          "حُسم السؤال. راجع حركة النقاط قبل العودة إلى اللوحة.";
-      }
-      if (next.state === "MATCH_COMPLETE") archive();
-      write();
+    if (action.type === "UNDO" && !next.lastError) {
+      store.history = store.history.filter(h => h.id !== old.id);
+      armedPitTeam = null;
     }
+    if (next.state === "MATCH_COMPLETE") archive();
+    write();
     render();
-    if (action.type === "START_QUESTION" || action.type === "START_STEAL")
-      $("#team-question-heading")?.focus({ preventScroll: true });
-    if (next.state === "ANSWER_REVEAL")
+    if (["START_QUESTION", "START_STEAL", "OPEN_QUESTION"].includes(action.type))
+      { window.scrollTo({top:0,behavior:"instant"}); $("#team-question-heading")?.focus({ preventScroll: true }); }
+    if (next.state === "ANSWER_REVEAL") {
       $(".canonical-answer")?.focus({ preventScroll: true });
-    if (next.state === "TURN_COMPLETE")
-      $("[data-team-action=engine][data-type=NEXT_TURN]")?.focus({
-        preventScroll: true,
-      });
-    if (next.state === "BOARD" && old.state !== "BOARD")
+      $(".answer-reveal")?.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+    if (next.state === "BOARD" && old.state !== "BOARD") {
+      window.scrollTo({ top: 0, behavior: "instant" });
       $("#team-match-heading")?.focus({ preventScroll: true });
+    }
+    if (resolved && action.type === "RESOLVE_QUESTION") {
+      const r = next.lastResolution;
+      $("#announcer").textContent = `${r?.winner === null ? "محد جاوب صح" : next.teams[r?.winner ?? 0].name + " حصل على " + num(r?.earned || 0) + " نقطة"}. ${next.state === "BOARD" ? "الدور على " + next.teams[next.turn].name : "اكتملت المباراة"}.`;
+      resolutionToast(next);
+    }
+    return next;
+  }
+  function dispatch(action) {
+    if (locked) { toast("تغيرت المباراة في نافذة أخرى. حمّل أحدث حفظ."); return null; }
+    const old = m();
+    if (!old) return null;
+    if (["RESOLVE_QUESTION","UNDO"].includes(action.type) && !checkLatestSave()) return null;
+    dismissResolutionToast();
+    return presentTransition(old, TeamEngine.dispatch(old, action, bank(), Date.now()), action);
+  }
+  function canArmPit(s) {
+    return s?.state === "BOARD" && s.config.assistEnabled.pit && s.teams[s.turn].assists.pit > 0;
+  }
+  function openTile(tileId) {
+    if (locked || !m() || m().state !== "BOARD" || Date.now()-lastScoreTapAt < 250) return;
+    const old = m(), now = Date.now();
+    dismissResolutionToast();
+    let next = TeamEngine.dispatch(old, {type:"SELECT_TILE", tileId}, bank(), now);
+    if (next.lastError) { toast(next.lastError); return; }
+    if (armedPitTeam === old.turn && canArmPit(old)) {
+      next = TeamEngine.dispatch(next, {type:"ASSIST",key:"pit",confirmed:true},bank(),now);
+      if (next.lastError) { toast(next.lastError); return; }
+    }
+    next = TeamEngine.dispatch(next,{type:"START_QUESTION"},bank(),now);
+    if (next.lastError) { toast(next.lastError); return; }
+    armedPitTeam = null;
+    presentTransition(old,next,{type:"OPEN_QUESTION"});
   }
   function archive() {
     const s = m();
@@ -2700,6 +3036,27 @@ const TeamUI = (() => {
     for (const q of QUESTION_BANK) q.disabled = store.disabled.includes(q.id);
     QUESTION_MAP.clear();
     QUESTION_BANK.forEach((q) => QUESTION_MAP.set(q.id, q));
+  }
+  function prepareResumeLibrary(raw) {
+    if (!raw || !Array.isArray(raw.edits) || raw.edits.length>1200 || !Array.isArray(raw.disabled) || raw.disabled.length>2000) throw Error("مكتبة الأسئلة في حفظ المتابعة غير صالحة.");
+    const ids=new Set(),texts=new Set();
+    const incoming=raw.edits.map(item=>{
+      const q=safeQuestion(item,ids,{legacy:true}),text=TeamEngine.normalizeAnswer(q.q);
+      if (texts.has(text)) throw Error("تكرار أسئلة داخل حفظ المتابعة.");
+      ids.add(q.id);texts.add(text);return q;
+    });
+    const merged=new Map(store.edits.map(q=>[q.id,q]));
+    incoming.forEach(q=>merged.set(q.id,q));
+    if (merged.size>1200) throw Error("دمج مكتبة المتابعة يتجاوز سعة 1200 سؤال محلي؛ صدّر المحتوى الحالي ونظّمه أولًا.");
+    const edits=[...merged.values()],questions=deep(baseBank),disabled=[...new Set([...store.disabled.filter(id=>!ids.has(id)),...raw.disabled.filter(id=>typeof id==="string"&&!['__proto__','prototype','constructor'].includes(id))])];
+    for(const q of edits){const index=questions.findIndex(item=>item.id===q.id);if(index>=0)questions[index]=deep(q);else questions.push(deep(q));}
+    const seenText=new Set();
+    for(const q of questions){const text=TeamEngine.normalizeAnswer(q.q);if(seenText.has(text))throw Error("دمج مكتبة المتابعة ينتج سؤالًا مكررًا؛ لم تتغير البيانات الحالية.");seenText.add(text);q.disabled=disabled.includes(q.id);}
+    return {edits,disabled,questions};
+  }
+  function commitResumeLibrary(prepared) {
+    if (!prepared || !Array.isArray(prepared.edits) || !Array.isArray(prepared.disabled)) throw Error("تعذّر اعتماد مكتبة المتابعة.");
+    store.edits=deep(prepared.edits);store.disabled=[...prepared.disabled];applyEdits();write();
   }
   function verificationLabel(status) {
     return ({"source-checked":"مدقق بمصدر",editorial:"مراجعة تحريرية",pending:"بانتظار التحقق",disputed:"مختلف فيه أو غير يقيني","owner-reviewed":"مراجعة المالك"})[status] || "بانتظار التحقق";
@@ -2849,8 +3206,13 @@ const TeamUI = (() => {
         store.version = 3;
       }
     } catch (e) {
-      preserveRecovery(raw, errText(e));
-      toast("تعذّرت استعادة حفظ الفريقين بالكامل. الأصل محفوظ للتصدير، وتقدمك الفردي مستقل.");
+      if (raw === null) {
+        storageIssue = true;
+        toast("التخزين التلقائي غير متاح في هذا المتصفح. يمكنك اللعب وحفظ ملف متابعة يدويًا.");
+      } else {
+        preserveRecovery(raw, errText(e));
+        toast("تعذّرت استعادة حفظ الفريقين بالكامل. الأصل محفوظ للتصدير، وتقدمك الفردي مستقل.");
+      }
     }
     load();
     ready = true;
@@ -2965,7 +3327,7 @@ const TeamUI = (() => {
       ? sanitizePreferred(store.preferred)
       : TeamEngine.defaults();
     step = 0;
-    selectedPreset = "custom";
+    selectedPreset = store.preferred ? "custom" : "classic";
     categoryTeam = 0;
     categorySearch = "";
     categoryFilter = "all";
@@ -3075,7 +3437,7 @@ const TeamUI = (() => {
   function wizardBody() {
     switch (step) {
       case 0:
-        return `<h2>اختر أجواء اللعب</h2>${presetControls()}<h3>طريقة إدارة المباراة</h3>${choices("mode", [
+        return `${draft.mode !== "solo" && !TeamEngine.validateConfig(draft,bank()).length ? `<section class="fast-start panel stack"><span class="eyebrow">جاهزة للعب</span><h2>${draft.board === "classic" ? "مباراة كلاسيكية" : "مباراة سريعة"} · ${draft.board === "classic" ? 36 : 18} سؤالًا</h2><p>${teamName(0)} × ${teamName(1)}</p><p class="muted">${draft.teams.flatMap(t=>t.categories).map(id=>catById(id).name).join(" · ")}</p><button class="btn primary" data-team-action="start-match">ابدأ ${draft.board === "classic" ? 36 : 18} سؤالًا</button><button class="btn secondary" data-team-action="customize">تخصيص الفريقين والقواعد</button></section>` : ""}<h2>اختر أجواء اللعب</h2>${presetControls()}<h3>طريقة إدارة المباراة</h3>${choices("mode", [
           {
             id: "teams",
             name: "منافسة فريقين",
@@ -3138,7 +3500,7 @@ const TeamUI = (() => {
         return `<h2>أي لوحة تفضلون؟</h2>${choices("board", [
           {
             id: "compact",
-            name: "المختصرة · الافتراضية",
+            name: "المختصرة · مباراة سريعة",
             icon: "bolt",
             desc: "18 سؤالًا. في كل فئة: 200 و400 و600، خانة واحدة لكل قيمة.",
           },
@@ -3176,7 +3538,7 @@ const TeamUI = (() => {
                 [3, "3 خيارات"],
               ])
             : ""
-        }<p class="muted">في الشفهي: استخدم «إجابة خاطئة · فرصة السرقة» عند المحاولة الخاطئة، أو «بلا إجابة · تمرير للمنافس» دون تسجيل خطأ قبل كشف الإجابة إذا أخفق الفريق. الكشف النهائي يغلق المحاولات حتى لا يتسرّب الحل.</p>`;
+        }<p class="muted">في الشفهي: استخدم «إجابة خاطئة · فرصة السرقة» عند المحاولة الخاطئة، أو «بلا إجابة · تمرير للمنافس» دون تسجيل خطأ قبل كشف الإجابة إذا أخفق الفريق. بعد الكشف، اختر الفريق أو «محد جاوب صح» للعودة إلى اللوحة مباشرة.</p>`;
       case 5:
         return `<h2>الوقت على راحتكم</h2>${toggleField("timer", "تفعيل مؤقّت الإجابة")}<div class="chips">${[15, 30, 45, 60, 90, 120].map((n) => `<button class="chip ${draft.duration === n ? "selected" : ""}" data-team-action="duration" data-value="${n}">${n} ثانية</button>`).join("")}</div><div class="team-settings-grid">${numberField("duration", "مدة الإجابة المخصصة · ثانية", 5, 600)}${numberField("stealDuration", "مدة السرقة المستقلة · ثانية", 5, 120)}${numberField("callDuration", "مهلة الاتصال بصديق · ثانية", 10, 300)}${selectField(
           "transition",
@@ -3299,13 +3661,13 @@ const TeamUI = (() => {
           seed: Date.now(),
           now: Date.now(),
           seen: progress.seen,
-          recentMatches: store.history.slice(0,3).map(h => ({ at: h.at, questionIds: h.history.map(r => r.questionId) })),
+          recentMatches: store.history.map(h => ({at:h.at,questionIds:h.history.filter(r=>r.at >= (prefs.questionHistoryResetAt || 0)).map(r=>r.questionId)})).filter(h=>h.questionIds.length).slice(0,3),
         });
         store.preferred = deep(draft);
         write();
         closeDialog();
         go("teamMatch");
-        if (store.match.selectionWarnings?.length) openDialog("تنبيه اختيار الأسئلة", `<div class="stack">${store.match.selectionWarnings.map(w => `<p>${esc(w)}</p>`).join("")}</div>`);
+        if (store.match.selectionWarnings?.length) toast("استُخدمت أسئلة قديمة عند نفاد البدائل؛ بقيت حدود الحرق مطبّقة.");
       } catch (e) {
         toast(errText(e));
       }
@@ -3313,7 +3675,7 @@ const TeamUI = (() => {
     if (active()) {
       openDialog(
         "استبدال المباراة المحفوظة؟",
-        "<p>المباراة الحالية لم تكتمل. استبدالها لا يمس تقدمك الفردي أو سجل المباريات المكتملة. يمكنك تصدير نسخة احتياطية أولًا.</p>",
+        "<p>المباراة الحالية لم تكتمل. استبدالها لا يمس تقدمك الفردي أو سجل المباريات المكتملة. يمكنك تصدير حفظ متابعة أولًا.</p>",
         '<button class="btn primary" id="team-confirm-start">بدء المباراة الجديدة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
       );
       $("#team-confirm-start").addEventListener("click", run, { once: true });
@@ -3325,13 +3687,13 @@ const TeamUI = (() => {
   }
   function toolbar(s) {
     const left = s.board.filter((t) => !t.done).length;
-    return `<div class="match-toolbar"><div><span class="eyebrow">${s.config.board === "compact" ? "اللوحة المختصرة" : "اللوحة الكلاسيكية"} · ${left} سؤالًا متبقيًا</span><h1 id="team-match-heading" tabindex="-1">${s.state === "BOARD" ? `الدور على ${esc(s.teams[s.turn].name)}` : "سين جيم خالد"}</h1></div><div class="match-controls"><button class="icon-btn" data-team-action="pause-menu" aria-label="قائمة المباراة">${icon("pause")}</button><button class="icon-btn" data-team-action="rules" aria-label="دليل القواعد">${icon("help")}</button><button class="icon-btn" data-action="fullscreen" aria-label="ملء الشاشة">${icon("expand")}</button></div></div>`;
+    return `<div class="match-toolbar"><div><span class="eyebrow">${s.config.board === "compact" ? "اللوحة المختصرة" : "اللوحة الكلاسيكية"} · ${left} سؤالًا متبقيًا</span><h1 id="team-match-heading" tabindex="-1">${s.state === "BOARD" ? `الدور على ${esc(s.teams[s.turn].name)}` : "سين جيم خالد"}</h1></div><div class="match-controls"><button class="icon-btn" data-team-action="quiet" aria-label="${prefs.sound || prefs.music ? "تفعيل الوضع الهادئ" : "إلغاء الوضع الهادئ"}" aria-pressed="${!prefs.sound && !prefs.music}">${icon("sound")}</button><button class="icon-btn" data-team-action="pause-menu" aria-label="قائمة المباراة">${icon("pause")}</button><button class="icon-btn" data-team-action="rules" aria-label="دليل القواعد">${icon("help")}</button><button class="icon-btn" data-action="fullscreen" aria-label="ملء الشاشة">${icon("expand")}</button></div></div>`;
   }
   function matchScreen() {
     const s = m();
     if (!s)
       return `<div class="panel match-empty"><h1>لنجهّز أول مباراة</h1><button class="btn primary" data-team-action="new">إعداد فريقين</button></div>`;
-    if (s.state === "MATCH_COMPLETE") return resultsScreen();
+    if (s.state === "MATCH_COMPLETE") return storageNotice() + resultsScreen();
     let content = "";
     if (s.state === "BOARD") content = boardScreen(s);
     else if (s.state === "QUESTION_PREVIEW") content = previewScreen(s);
@@ -3339,24 +3701,22 @@ const TeamUI = (() => {
       content = `<div class="panel pause-card stack"><span class="mode-icon">${icon("pause")}</span><h2>المباراة متوقفة مؤقتًا</h2><p class="muted">الوقت والنقاط محفوظة. لن تبدأ المهلة إلا عند المتابعة.</p><button class="btn primary" data-team-action="engine" data-type="RESUME">متابعة المباراة ${icon("play")}</button><button class="btn secondary" data-team-action="home">حفظ والعودة للرئيسية</button></div>`;
     else if (s.state === "TURN_COMPLETE") content = receiptScreen(s);
     else content = questionScreen(s);
-    return `<div class="team-page ${s.config.mode === "presenter" ? "presenter-view" : ""}">${toolbar(s)}${scoreboard(s)}${content}</div>`;
+    return `<div class="team-page ${s.config.mode === "presenter" ? "presenter-view" : ""}">${storageNotice()}${toolbar(s)}${scoreboard(s)}${content}</div>`;
+  }
+  function liveHistory(s) {
+    if (!s.history.length && !s.transactions.length) return "";
+    return `<details class="match-live-history panel"><summary>سجل هذه المباراة · ${s.history.length} سؤالًا مكتملًا</summary><div class="stack">${s.history.slice().reverse().map(h => `<div class="live-outcome"><span>${catById(s.board.find(t=>t.id===h.tileId)?.category)?.name || "سؤال"} · ${h.value} نقطة</span><strong>${h.winner === null ? "محد جاوب صح" : esc(s.teams[h.winner].name)}</strong>${h.phase === "steal" && h.winner !== null ? '<small>سرقة ناجحة</small>' : ""}</div>`).join("")}${transactionList(s)}<button class="btn secondary" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>تراجع عن آخر إجراء</button></div></details>`;
   }
   function boardScreen(s) {
-    return `${s.board.every(t=>!t.done) ? `<section class="team-introduction" aria-label="بداية المواجهة"><strong>${esc(s.teams[0].avatar)} ${esc(s.teams[0].name)}</strong><span>تبدأ المواجهة</span><strong>${esc(s.teams[1].avatar)} ${esc(s.teams[1].name)}</strong></section>` : ""}<div class="match-progress" role="progressbar" aria-label="تقدم المباراة" aria-valuemin="0" aria-valuemax="${s.board.length}" aria-valuenow="${s.board.filter((t) => t.done).length}"><span style="width:${(s.board.filter((t) => t.done).length / s.board.length) * 100}%"></span></div><div class="match-board" data-board="${s.config.board}" style="--columns:6">${s.categories
-      .map((id) => {
-        const cat = catById(id),
-          owner = s.config.teams.findIndex((t) => t.categories.includes(id));
-        return `<section class="match-category" style="--accent:${cat.color}"><div class="board-art">${categoryArt(id)}</div><h2 class="board-title">${cat.name}</h2><small class="muted">اختيار ${esc(s.teams[owner].name)}</small><div class="match-tiles ${s.config.board}">${s.board
-          .filter((t) => t.category === id)
-          .map(
-            (t) =>
-              `<button class="match-tile ${t.done ? "used" : ""}" data-team-action="tile" data-id="${esc(t.id)}" data-value="${t.value}" ${t.done ? "disabled" : ""} aria-label="${cat.name}، ${t.value} نقطة، السؤال ${t.slot + 1}${t.done ? "، مكتمل" : ""}"><strong>${t.done ? icon("check") : t.value}</strong><small>${t.done ? "مكتمل" : s.config.board === "classic" ? `السؤال ${t.slot + 1}` : "نقطة"}</small></button>`,
-          )
-          .join("")}</div></section>`;
-      })
-      .join(
-        "",
-      )}</div><p class="footer-note">الفئات الست للجميع. لا تُعاد خانة مكتملة، وتتناوب الفرق على اختيار الأسئلة مهما كانت نتيجة السرقة.</p>`;
+    const completed = s.board.filter(t=>t.done).length;
+    const outcomes = new Map(s.history.map(h=>[h.tileId,h]));
+    return `${!completed ? `<section class="team-introduction" aria-label="بداية المواجهة"><strong>${esc(s.teams[0].avatar)} ${esc(s.teams[0].name)}</strong><span>تبدأ المواجهة</span><strong>${esc(s.teams[1].avatar)} ${esc(s.teams[1].name)}</strong></section>` : ""}<div class="board-tools"><p class="board-progress-label">اكتمل <strong>${completed}</strong> من ${s.board.length} سؤالًا</p><div class="row"><button class="btn secondary board-undo" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>${icon("history")} تراجع عن آخر إجراء</button>${canArmPit(s) ? `<button class="btn secondary ${armedPitTeam === s.turn ? "pit-armed" : ""}" data-team-action="arm-pit" aria-pressed="${armedPitTeam === s.turn}">${icon("shield")} ${armedPitTeam === s.turn ? "الحفرة جاهزة · اضغط لإلغائها" : "الحفرة للسؤال التالي"}</button>` : ""}</div></div>${armedPitTeam === s.turn ? '<p class="inline-note" role="status">ستُفعّل الحفرة قبل فتح السؤال التالي. لن تُستهلك قبل اختيار خانة.</p>' : ""}<div class="match-progress" role="progressbar" aria-label="تقدم المباراة" aria-valuemin="0" aria-valuemax="${s.board.length}" aria-valuenow="${completed}"><span style="width:${completed / s.board.length * 100}%"></span></div><div class="match-board" data-board="${s.config.board}" style="--columns:6">${s.categories.map(id => {
+      const cat=catById(id), owner=s.config.teams.findIndex(t=>t.categories.includes(id)), tiles=s.board.filter(t=>t.category===id), allDone=tiles.every(t=>t.done);
+      return `<section class="match-category ${allDone ? "category-complete" : ""}" style="--accent:${cat.color}"><div class="board-art">${categoryArt(id)}</div><h2 class="board-title">${cat.name}${allDone ? '<span class="sr-only"> · اكتملت الفئة</span>' : ''}</h2><small class="muted">اختيار ${esc(s.teams[owner].name)}</small><div class="match-tiles ${s.config.board}">${tiles.map(t=>{
+        const h=outcomes.get(t.id), winner=h?.winner ?? null, label=t.done ? winner===null ? "محد جاوب صح" : s.teams[winner].name : s.config.board === "classic" ? `السؤال ${t.slot+1}` : "نقطة";
+        return `<button class="match-tile ${t.done ? "used" : ""} ${t.done && winner !== null ? "won-team-"+winner : ""}" data-team-action="tile" data-id="${esc(t.id)}" data-value="${t.value}" data-winner="${t.done ? winner ?? "none" : ""}" ${t.done ? "disabled" : ""} ${t.done && winner !== null ? `style="--tile-team-color:${s.teams[winner].color}"` : ""} aria-label="${cat.name}، ${t.value} نقطة، السؤال ${t.slot+1}${t.done ? "، مكتمل، "+esc(label) : ""}"><strong>${t.value}</strong><small>${t.done ? icon(winner===null ? "close" : "check") : ""}${esc(label)}</small></button>`;
+      }).join("")}</div></section>`;
+    }).join("")}</div>${liveHistory(s)}`;
   }
   function previewScreen(s) {
     const c = s.current,
@@ -3370,36 +3730,30 @@ const TeamUI = (() => {
     return `<figure class="match-media"><img src="${imageSrc(q.image)}" alt="${esc(questionAlt(q,revealed))}" width="600" height="360" decoding="async"><button class="zoom-btn icon-btn" data-team-action="zoom" data-key="${esc(q.image)}" aria-label="تكبير صورة السؤال">${icon("expand")}</button><figcaption>صورة محلية للسؤال · الإسناد والرخصة بعد الكشف</figcaption></figure>`;
   }
   function questionScreen(s) {
-    const c = s.current,
-      q = TeamEngine.getQuestion(s, c.questionId, bank()),
-      revealed =
-        c.revealed || ["ANSWER_REVEAL", "SCORE_ADJUDICATION"].includes(s.state),
-      steal = c.phase === "steal",
-      trap = c.phase === "trap";
-    if (s.state === "ASSISTANCE_ACTIVE")
-      return `<section class="panel pause-card stack"><span class="mode-icon">${icon("sound")}</span><h2>اتصال بصديق · ${esc(s.teams[c.responder].name)}</h2><p>يمكنكم التواصل مع شخص حقيقي الآن. لا تجري اللعبة اتصالًا نيابةً عنكم.</p><div class="panel stack"><h3>السؤال للصديق</h3><p>${esc(q.q)}</p>${questionMedia(q)}</div><div class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي للمساعدة">${timerLabel(s)}</div><p class="muted">${s.config.callPause ? "مؤقّت السؤال متوقف خلال المساعدة." : "مؤقّت السؤال يستمر خلال المساعدة."}</p><button class="btn primary" data-team-action="engine" data-type="RETURN_ASSISTANCE">العودة للسؤال</button></section>`;
-    return `${steal ? `<section class="steal-banner"><span>${icon("bolt")} فرصة السرقة</span><strong>${esc(s.teams[c.responder].name)}</strong><small>الإجابة السابقة مقفلة. الحل مخفي حتى تنتهي هذه المحاولة.</small></section>` : ""}${trap ? `<section class="trap-banner"><strong>${icon("flag")} سؤال الفخ · ${esc(s.teams[c.responder].name)}</strong><p>الإخفاق يخصم ${c.value} نقطة. لا توجد سرقة إضافية بعده.</p></section>` : ""}<div class="match-question-grid"><section class="match-question-panel panel stack"><div class="row"><span class="pill">${catById(q.category).name} · ${c.value} نقطة</span><span class="muted">المستجيب: ${esc(s.teams[c.responder].name)}</span>${!revealed ? `<span class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي">${timerLabel(s)}</span>` : ""}</div>${questionMedia(q,revealed)}<h2 class="match-question-text" id="team-question-heading" tabindex="-1">${esc(q.q)}</h2>${c.hint ? `<p class="hint-box">${icon("help")} ${esc(safeHint(q))}</p>` : ""}${c.twice ? '<p class="pill">جاوب جوابين: اقتراحان ضمن المهلة نفسها</p>' : ""}${c.doubleTeam === c.responder ? '<p class="pill">مضاعفة النقاط مفعّلة لهذا المستجيب</p>' : ""}${c.pitTeam !== null ? `<p class="pill">الحفرة مفعّلة لصالح ${esc(s.teams[c.pitTeam].name)}</p>` : ""}${c.knowledgeLocked ? '<p class="inline-note warning" role="status">سبق كشف الإجابة؛ التحكيم فقط. لا تعود محاولة جديدة أو سرقة بعد التراجع.</p>' : ""}${c.sitout ? `<p class="pill">استريح: ${esc(c.sitout.participant)} · ${esc(s.teams[c.sitout.teamId].name)}</p>` : ""}${revealed ? revealScreen(s, q) : answerControls(s, q)}</section><aside class="match-asside">${!revealed ? assists(s) : ""}<section class="panel stack"><h2>قرار واضح، ونقاط واضحة</h2><p class="muted">قبل الكشف النهائي، انقل السؤال للمنافس إذا أخفق المستجيب. بعد الكشف تُغلق كل المحاولات ويؤكد المقدم الفريق المستحق.</p><button class="text-btn" data-team-action="report" data-id="${esc(q.id)}">الإبلاغ عن سؤال ${icon("flag")}</button></section></aside></div>`;
+    const c=s.current, q=TeamEngine.getQuestion(s,c.questionId,bank()), revealed=c.revealed || ["ANSWER_REVEAL","SCORE_ADJUDICATION"].includes(s.state), steal=c.phase==="steal", trap=c.phase==="trap";
+    if (s.state === "ASSISTANCE_ACTIVE") return `<section class="panel pause-card stack"><span class="mode-icon">${icon("sound")}</span><h2>اتصال بصديق · ${esc(s.teams[c.responder].name)}</h2><p>استعينوا بصديق الآن؛ لا تجري اللعبة اتصالًا تلقائيًا.</p><div class="panel stack"><h3>السؤال للصديق</h3><p>${esc(q.q)}</p>${questionMedia(q)}</div><div class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي للمساعدة">${timerLabel(s)}</div><p class="muted">${s.config.callPause ? "مؤقّت السؤال متوقف خلال المساعدة." : "مؤقّت السؤال مستمر."}</p><button class="btn primary" data-team-action="engine" data-type="RETURN_ASSISTANCE">العودة للسؤال</button></section>`;
+    const question = `${questionMedia(q,revealed)}<h2 class="match-question-text" id="team-question-heading" tabindex="-1">${esc(q.q)}</h2>`;
+    const modifiers = `${c.hint && !revealed ? `<p class="hint-box">${icon("help")} ${esc(safeHint(q))}</p>` : ""}${c.twice && !revealed ? '<p class="pill">جاوب جوابين: اقتراحان ضمن المهلة نفسها</p>' : ""}${c.doubleTeam === c.responder ? '<p class="pill">مضاعفة النقاط مفعّلة</p>' : ""}${c.pitTeam !== null ? `<p class="pill">الحفرة لصالح ${esc(s.teams[c.pitTeam].name)}</p>` : ""}${c.sitout ? `<p class="pill">استريح: ${esc(c.sitout.participant)}</p>` : ""}`;
+    return `${steal && !revealed ? `<section class="steal-banner"><span>${icon("bolt")} فرصة السرقة</span><strong>${esc(s.teams[c.responder].name)}</strong></section>` : ""}${trap && !revealed ? `<section class="trap-banner"><strong>${icon("flag")} سؤال الفخ · ${esc(s.teams[c.responder].name)}</strong><p>تُطبّق عقوبة الإخفاق المفعّلة عند الحسم.</p></section>` : ""}<div class="match-question-grid ${revealed ? "answer-state" : ""}"><section class="match-question-panel panel stack"><div class="question-context row"><span class="pill">${catById(q.category).name} · ${c.value} نقطة</span><span class="muted">${revealed ? "صاحب الاختيار" : "المستجيب"}: ${esc(s.teams[revealed ? c.selector : c.responder].name)}</span>${!revealed ? `<span class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي">${timerLabel(s)}</span>` : ""}</div>${revealed ? `${revealScreen(s,q)}<details class="original-question"><summary>السؤال${q.image ? " والصورة" : ""}</summary><div class="stack">${question}</div></details>` : `${question}${modifiers}${answerControls(s,q)}`}</section><aside class="match-aside">${!revealed ? assists(s) : ""}<section class="panel question-report"><button class="text-btn" data-team-action="report" data-id="${esc(q.id)}">الإبلاغ عن سؤال ${icon("flag")}</button></section></aside></div>`;
   }
   function answerControls(s, q) {
     const c = s.current,
       extra = c.twiceTeam === c.responder || c.secondTeam === c.responder,
       attemptCount = c.attempts.filter((a) => a.teamId === c.responder).length;
-    if (
-      s.state === "STEAL_OPPORTUNITY" &&
-      !c.timerStarted &&
-      s.config.transition === "host"
-    )
-      return `<div class="question-actions"><p>استعدوا لبدء فرصة السرقة. لن يُستهلك الوقت قبل ضغط الزر.</p><button class="btn primary" data-team-action="engine" data-type="START_STEAL">ابدأ فرصة ${esc(s.teams[c.responder].name)}</button></div>`;
     let html = "";
     if (s.config.answerStyle === "choice")
       html = `<div class="answers-grid">${c.choices.map((idx, i) => `<button class="answer-card" data-team-action="answer" data-value="${idx}" ${c.attempts?.some((a) => a.teamId === c.responder && a.values?.includes(idx)) ? "disabled" : ""}><span class="answer-key">${i + 1}</span><span class="answer-label" dir="auto">${esc(q.options[idx])}</span></button>`).join("")}</div>`;
     if (s.config.answerStyle === "typed")
       html = `<form id="team-answer-form" class="stack"><label for="team-answer-input">إجابة ${esc(s.teams[c.responder].name)}</label><input id="team-answer-input" name="answer" maxlength="180" autocomplete="off" required><small class="muted">تُوحّد الهمزات ويُحذف التشكيل. تظل التاء المربوطة والهاء، والألف المقصورة والياء، حروفًا متميزة. للمقدم تصحيح المطابقة بعد الكشف.</small><button class="btn primary" type="submit">اعتماد الإجابة</button></form>`;
-    return `${extra && attemptCount === 1 ? '<p class="inline-note warning" role="status">الإجابة الأولى غير مطابقة. بقيت محاولة ثانية ضمن الوقت نفسه.</p>' : ""}${html}<div class="question-actions">${s.config.timer && !c.timerStarted ? '<button class="btn primary" data-team-action="engine" data-type="START_TIMER">ابدأ المؤقّت</button>' : ""}<button class="btn primary" data-team-action="reveal">${icon("eye")} كشف الإجابة</button><button class="btn secondary" data-team-action="incorrect">${extra && attemptCount === 0 ? "الاقتراح الأول غير صحيح · المحاولة الثانية" : c.phase === "first" && s.config.steal ? "إجابة خاطئة · فرصة السرقة" : "إجابة خاطئة · إنهاء المحاولة"}</button><button class="btn secondary" data-team-action="engine" data-type="PASS">${c.phase === "first" && s.config.steal ? "بلا إجابة · تمرير للمنافس" : "بلا إجابة · إنهاء السؤال"}</button><button class="btn secondary" data-team-action="pause-menu">${icon("pause")} إيقاف مؤقت</button></div>${s.config.answerStyle === "oral" ? '<p class="muted">أجيبوا شفهيًا. كشف الحل نهائي؛ إن لم يجب الفريق استخدموا زر فرصة السرقة أولًا.</p>' : ""}`;
+    return `${extra && attemptCount === 1 ? '<p class="inline-note" role="status">الاقتراح الأول غير مطابق؛ بقيت محاولة ثانية.</p>' : ""}${html}<div class="question-actions"><button class="btn primary reveal-primary" data-team-action="reveal">${icon("eye")} كشف الإجابة</button><div class="host-inline-controls">${s.config.timer && !c.timerStarted ? `<button class="btn secondary" data-team-action="engine" data-type="${s.state === "STEAL_OPPORTUNITY" ? "START_STEAL" : "START_TIMER"}">${icon("clock")} ابدأ المؤقّت</button>` : ""}<button class="btn secondary" data-team-action="pause-menu">${icon("pause")} إيقاف مؤقت</button></div><details class="attempt-controls"><summary>إدارة المحاولات والسرقة</summary><div class="row"><button class="btn secondary" data-team-action="incorrect">${extra && attemptCount === 0 ? "الاقتراح الأول غير صحيح" : c.phase === "first" && s.config.steal ? "إجابة خاطئة · فرصة السرقة" : "إجابة خاطئة · إنهاء المحاولة"}</button><button class="btn secondary" data-team-action="engine" data-type="PASS">${c.phase === "first" && s.config.steal ? "بلا إجابة · تمرير للمنافس" : "بلا إجابة · إنهاء السؤال"}</button></div></details></div>`;
   }
   function revealScreen(s, q) {
-    const c = s.current;
-    return `<section class="answer-reveal stack"><span class="eyebrow">الإجابة الصحيحة</span><strong class="canonical-answer" tabindex="-1" dir="auto">${esc(q.correctAnswer || q.options[q.answer])}</strong>${q.acceptedAnswers?.length ? `<p class="muted">بدائل مقبولة: ${q.acceptedAnswers.map(esc).join("، ")}</p>` : ""}${q.image ? mediaCredit(q.image) : ""}${s.config.explanations ? `<p>${esc(q.explanation)}</p><a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">${esc(q.source.title)} · ${esc(q.source.reference)}</a>` : ""}<h3>${c.skip ? "سؤال متخطّى · لا مكافأة عادية" : "من أجاب إجابة صحيحة؟"}</h3><p class="muted">سيظهر تأكيد باسم الفريق وقيمة السؤال قبل أي تسجيل. الكشف لا يمنح نقاطًا وحده.</p><div class="adjudication-grid">${(c.skip ? [] : s.teams).map((t, i) => `<button class="award-team btn" data-team-action="award" data-team="${i}" style="--team-color:${t.color}">${esc(t.avatar)} ${esc(t.name)} أجاب صح${i === c.responder ? " · المستجيب" : c.phase !== "first" ? " · تصحيح المقدم" : ""}</button>`).join("")}<button class="btn secondary" data-team-action="award" data-team="none">لا أحد أجاب</button></div></section>`;
+    const c=s.current;
+    const outcomes=s.teams.map((_,i)=>TeamEngine.scoreOutcome(s,i));
+    const nobody=TeamEngine.scoreOutcome(s,null);
+    const identity=`data-question-id="${esc(c.questionId)}" data-tile-id="${esc(c.tileId)}" data-token="${esc(c.token)}"`;
+    const notes=outcomes.map((outcome,i)=>`<p><strong>${esc(s.teams[i].name)}:</strong> ${outcome.deltas.map((delta,index)=>`${esc(s.teams[index].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>`).join("");
+    return `<section class="answer-reveal stack"><span class="eyebrow">الإجابة الصحيحة</span><strong class="canonical-answer" tabindex="-1" dir="auto">${esc(q.correctAnswer || q.options[q.answer])}</strong><div class="adjudication-grid scoring-actions" role="group" aria-label="حسم السؤال بضغطة واحدة">${s.teams.map((t,i)=>`<button class="award-team btn" data-team-action="award" data-team="${i}" ${identity} style="--team-color:${t.color}"><span class="scoring-team-name">${esc(t.avatar)} ${esc(t.name)}</span><strong class="scoring-points" dir="ltr">${outcomes[i].earned>0?"+":""}${num(outcomes[i].earned)}</strong></button>`).join("")}<button class="btn scoring-nobody" data-team-action="award" data-team="none" ${identity}><span>⚪ محد جاوب صح</span><strong class="scoring-points" dir="ltr">0</strong></button></div>${c.skip ? '<p class="muted">سؤال متخطّى؛ لا مكافأة نقاط لأي فريق.</p>' : ""}${s.config.explanations ? `<p class="answer-explanation">${esc(q.explanation)}</p>` : ""}<details class="answer-reference"><summary>المراجع وتفاصيل الاحتساب</summary><div class="stack">${q.acceptedAnswers?.length ? `<p>بدائل مقبولة: ${q.acceptedAnswers.map(esc).join("، ")}</p>` : ""}${s.config.explanations ? `<p>${esc(q.source.title)} · ${esc(q.source.reference)}</p>${q.source.url ? `<a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">فتح المرجع</a>` : `<p>${esc(q.source.bibliography || "")}</p>`}` : ""}${q.image ? mediaCredit(q.image) : ""}<p class="muted">اختيار الفريق المنافس يُسجّل سرقة عند تفعيلها، ما لم يكن السؤال فخًا. لا تُضاف إجابة خاطئة دون محاولة مسجلة. «محد جاوب صح» لا يضيف نقاطًا؛ الخصومات تتبع القواعد المفعّلة فقط.</p>${notes}${nobody.deltas.some(delta=>delta<0) ? `<p>عند عدم الإجابة: ${nobody.deltas.map((delta,i)=>`${esc(s.teams[i].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>` : ""}</div></details></section>`;
   }
   function assists(s, preview = false) {
     const c = s.current,
@@ -3421,7 +3775,8 @@ const TeamUI = (() => {
             c.secondTeam !== c.responder)),
     );
     if (!ids.length) return "";
-    return `<section class="assist-bar panel"><h2>مساعدات ${esc(t.name)}</h2><div class="assist-actions">${ids.map((id) => `<button class="assist-action" data-team-action="assist" data-key="${id}">${icon(HELP[id].icon)}<span>${HELP[id].name}</span><small>${t.assists[id]} متبقية</small></button>`).join("")}</div></section>`;
+    const sitout=choosingSitout && ids.includes("sitout") ? `<div class="inline-sitout" role="group" aria-label="اختيار المشارك المستريح"><label for="sitout-inline-participant">المشارك الذي يستريح من ${esc(s.teams[1-c.responder].name)}</label><select id="sitout-inline-participant">${s.teams[1-c.responder].players.map(name=>`<option>${esc(name)}</option>`).join("")}</select><div class="row"><button class="btn secondary" data-team-action="use-sitout">إراحة المشارك</button><button class="btn secondary" data-team-action="cancel-sitout">إلغاء</button></div></div>` : "";
+    return `<section class="assist-bar panel"><h2>مساعدات ${esc(t.name)}</h2><div class="assist-actions">${ids.map((id) => `<button class="assist-action" data-team-action="assist" data-key="${id}">${icon(HELP[id].icon)}<span>${HELP[id].name}</span><small>${t.assists[id]} متبقية</small></button>`).join("")}${sitout}</div></section>`;
   }
   function reasonLabel(reason) {
     const labels = {
@@ -3529,95 +3884,41 @@ const TeamUI = (() => {
     tickHandle = setInterval(tick, 200);
     tick();
   }
-  function confirmReveal() {
-    const s = m();
-    if (!s || !s.current) return;
-    if (s.config.mode === "presenter") { dispatch({type:"REVEAL"}); return; }
-    if (s.current.phase === "first" && s.config.steal) {
-      pause();
-      render();
-      openDialog(
-        "الكشف النهائي يغلق فرصة السرقة",
-        `<p>إذا أخطأ ${esc(s.teams[s.current.responder].name)} فابدأ فرصة المنافس قبل كشف الحل. بعد الكشف يستطيع المقدم تحكيم النتيجة، ولن تتاح محاولة سرقة جديدة لهذا السؤال.</p>`,
-        '<button class="btn primary" id="confirm-team-reveal">كشف الإجابة نهائيًا</button><button class="btn secondary" id="instead-team-steal">فرصة المنافس أولًا</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-      );
-      $("#confirm-team-reveal").addEventListener(
-        "click",
-        () => {
-          closeDialog();
-          if (m().state === "PAUSED") dispatch({ type: "RESUME" });
-          dispatch({ type: "REVEAL" });
-        },
-        { once: true },
-      );
-      $("#instead-team-steal").addEventListener(
-        "click",
-        () => {
-          closeDialog();
-          if (m().state === "PAUSED") dispatch({ type: "RESUME" });
-          dispatch({ type: "DECLARE_INCORRECT" });
-        },
-        { once: true },
-      );
-    } else dispatch({ type: "REVEAL" });
+  function revealAnswer() {
+    if (!m()?.current) return;
+    dispatch({type:"REVEAL"});
   }
-  function confirmAward(value) {
-    const s = m();
-    if (!s?.current || !s.current.revealed) return;
-    const team = value === "none" ? null : Number(value),
-      name = team === null ? "لا أحد" : s.teams[team].name;
-    openDialog(
-      "تأكيد نتيجة السؤال",
-      `<p>الفريق المستحق: <strong>${esc(name)}</strong></p>${team !== null && team !== s.current.responder && s.current.phase !== "first" ? '<p class="inline-note warning">هذا تصحيح يدوي لصالح فريق غير صاحب المحاولة الحالية، ولا يفتح محاولة إجابة جديدة. راجع الاختيار قبل التأكيد.</p>' : ""}<p>قيمة السؤال: <strong>${s.current.value} نقطة</strong>. ستُطبّق أي حفرة أو فخ أو مضاعفة وفق القواعد الثابتة، وتظهر كل حركة في إيصال التسجيل.</p>`,
-      '<button class="btn primary" id="confirm-team-award">تأكيد النتيجة</button><button class="btn secondary" data-action="close-dialog">مراجعة</button>',
-    );
-    $("#confirm-team-award").addEventListener(
-      "click",
-      () => {
-        closeDialog();
-        dispatch({ type: "ADJUDICATE", teamId: team });
-      },
-      { once: true },
-    );
+  function resolveAward(button) {
+    if (resolutionBusy) return;
+    const s = m(), c = s?.current;
+    if (!c?.revealed || c.resolved || button.dataset.questionId !== c.questionId || button.dataset.tileId !== c.tileId || button.dataset.token !== c.token) return;
+    const winner = button.dataset.team === "none" ? null : Number(button.dataset.team);
+    if (winner !== null && ![0,1].includes(winner)) return;
+    resolutionBusy = true;
+    lastScoreTapAt = Date.now();
+    try {
+      document.querySelectorAll('[data-team-action="award"]').forEach(el => { el.disabled = true; });
+      dispatch({type:"RESOLVE_QUESTION",teamId:winner,questionId:c.questionId,tileId:c.tileId,token:c.token});
+    } finally { resolutionBusy = false; }
   }
-  function confirmAssist(key) {
-    const s = m();
-    if (!s?.current || !HELP[key]) return;
-    const c = s.current;
-    const previous = s.state;
-    if (key !== "pit") pause();
-    render();
-    let extra = "";
+  function useAssist(key) {
+    if (!m()?.current || !HELP[key]) return;
     if (key === "sitout") {
-      const names = s.teams[1 - c.responder].players;
-      extra = `<label for="sitout-participant">المشارك المرشح من ${esc(s.teams[1 - c.responder].name)}</label>${names.length ? `<select id="sitout-participant">${names.map((n) => `<option>${esc(n)}</option>`).join("")}</select>` : '<input id="sitout-participant" maxlength="24" placeholder="اسم المشارك">'}`;
+      choosingSitout=true;render();$("#sitout-inline-participant")?.focus({preventScroll:true});return;
     }
-    openDialog(
-      HELP[key].name,
-      `<div class="stack"><p>${HELP[key].rule}</p>${extra}<p class="muted">لن تُستهلك المساعدة قبل التأكيد. إلغاء النافذة يبقي السؤال متوقفًا حتى استئنافه.</p></div>`,
-      '<button class="btn primary" id="confirm-team-assist">تأكيد الاستخدام</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-    );
-    $("#confirm-team-assist").addEventListener(
-      "click",
-      () => {
-        const participant = $("#sitout-participant")?.value;
-        if (key === "sitout" && !participant?.trim()) {
-          toast("أدخل اسم المشارك أولًا.");
-          return;
-        }
-        closeDialog();
-        if (m().state === "PAUSED") dispatch({ type: "RESUME" });
-        dispatch({ type: "ASSIST", key, confirmed: true, participant });
-      },
-      { once: true },
-    );
+    const next=dispatch({type:"ASSIST",key,confirmed:true});
+    if (next && !next.lastError) {
+      $("#announcer").textContent=HELP[key].name+" مفعّلة";
+      if (next.state === "ASSISTANCE_ACTIVE") $("[data-type=RETURN_ASSISTANCE]")?.focus({preventScroll:true});
+      else $("#team-question-heading")?.focus({preventScroll:true});
+    }
   }
   function pauseMenu() {
     pause();
     render();
     openDialog(
       "إدارة المباراة",
-      `<div class="stack"><p>الوقت متوقف أثناء هذه القائمة. القواعد واللوحة لا تتغير بعد البداية.</p><button class="btn primary" data-team-action="resume-menu">متابعة المباراة</button><button class="btn secondary" data-team-action="score-panel">تصحيح النقاط يدويًا</button><button class="btn secondary" data-team-action="assist-history">سجل استخدام المساعدات</button><button class="btn secondary" data-team-action="undo">التراجع عن آخر إجراء</button><button class="btn secondary" data-team-action="history">سجل المباريات</button><button class="btn secondary" data-team-action="backup">تصدير نسخة احتياطية</button><button class="btn secondary" data-team-action="home">حفظ والعودة للرئيسية</button></div>`,
+      `<div class="stack"><p>الوقت متوقف أثناء هذه القائمة. يمكنك تصدير حفظ متابعة الآن إذا كان الحفظ التلقائي غير متاح.</p><button class="btn primary" data-team-action="resume-menu">متابعة المباراة</button><button class="btn secondary" data-team-action="score-panel">تصحيح النقاط يدويًا</button><button class="btn secondary" data-team-action="assist-history">سجل استخدام المساعدات</button><button class="btn secondary" data-team-action="undo">التراجع عن آخر إجراء</button><button class="btn secondary" data-team-action="history">سجل المباريات</button><button class="btn secondary" data-team-action="backup">حفظ متابعة للمقدم</button><button class="btn secondary" data-team-action="home">حفظ والعودة للرئيسية</button></div>`,
     );
   }
   function scorePanel() {
@@ -3647,7 +3948,7 @@ const TeamUI = (() => {
       scores = s.teams.map((t) => t.score),
       tie = scores[0] === scores[1],
       winner = s.teams[scores[1] > scores[0] ? 1 : 0];
-    return `<div class="team-page">${scoreboard(s)}<section class="winner-card panel stack"><div class="result-trophy">${icon("cup")}</div><span class="eyebrow">اكتملت ${s.board.length} خانة</span><h1>${tie ? "تعادل يستحق جولة أخرى" : `الكأس لـ ${esc(winner.name)}`}</h1><p>${tie ? "معرفة متكافئة… والتحدي مستمر." : "مباراة جميلة، ومعرفة تستحق الاحتفال."}</p><div class="row"><button class="btn primary" data-team-action="rematch">إعادة بنفس القواعد</button><button class="btn secondary" data-team-action="new">تخصيص مباراة جديدة</button><button class="btn secondary" data-team-action="home">الرئيسية</button><button class="btn secondary" data-team-action="history">سجل المباريات</button></div></section><div class="section-heading"><h2>حصيلة المباراة</h2><button class="text-btn" data-team-action="match-summary">تصدير الملخص ${icon("download")}</button></div>${statisticsPanel(s)}${transactionList(s)}<div class="section-heading"><h2>الأسئلة وتفسيراتها</h2></div><div class="stack">${s.history
+    return `<div class="team-page">${scoreboard(s)}<section class="winner-card panel stack"><div class="result-trophy">${icon("cup")}</div><span class="eyebrow">اكتملت ${s.board.length} خانة</span><h1>${tie ? "تعادل يستحق جولة أخرى" : `الكأس لـ ${esc(winner.name)}`}</h1><p>${tie ? "معرفة متكافئة… والتحدي مستمر." : "مباراة جميلة، ومعرفة تستحق الاحتفال."}</p><div class="row"><button class="btn primary" data-team-action="rematch">إعادة بنفس القواعد</button><button class="btn secondary" data-team-action="new">تخصيص مباراة جديدة</button><button class="btn secondary" data-team-action="home">الرئيسية</button><button class="btn secondary" data-team-action="history">سجل المباريات</button><button class="btn secondary" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>تراجع عن آخر نتيجة</button></div></section><div class="section-heading"><h2>حصيلة المباراة</h2><button class="text-btn" data-team-action="match-summary">تصدير الملخص ${icon("download")}</button></div>${statisticsPanel(s)}${transactionList(s)}<div class="section-heading"><h2>الأسئلة وتفسيراتها</h2></div><div class="stack">${s.history
       .map((h) => {
         const q = TeamEngine.getQuestion(s, h.questionId, bank());
         if (!q) return "";
@@ -3660,11 +3961,11 @@ const TeamUI = (() => {
     return `<div class="stack">${s.transactions.map((t) => `<div class="panel match-transaction"><strong>${esc(s.teams[t.teamId === "team-0" || t.teamId === 0 ? 0 : 1].name)}</strong><span>${reasonLabel(t.reason)}${t.modifier === "double" ? " · مضاعفة النقاط" : t.modifier === "bonus" ? " · مكافأة 50 نقطة" : ""}${t.reason === "host-correction" ? " · " + esc(t.modifier) : ""}</span><b dir="ltr">${num(t.scoreBefore)} → ${num(t.scoreAfter)}</b></div>`).join("") || '<div class="panel">لم تسجل حركات نقاط.</div>'}</div>`;
   }
   function historyScreen() {
-    return `<div class="team-page">${recoveryNotice()}${title("كل مواجهة لها حكاية", "سجل مباريات الفريقين", "آخر 30 مباراة مكتملة محفوظة على هذا الجهاز.")}<div class="row"><button class="btn secondary" data-team-action="backup">تصدير حفظ الفريقين</button><button class="btn secondary" data-team-action="restore">استيراد نسخة احتياطية</button>${m() ? '<button class="btn primary" data-team-action="resume">العودة للمباراة</button>' : ""}</div><div class="stack">${store.history.map((h, i) => `<details class="panel match-history"><summary><strong>${esc(h.teams[0].name)} ${num(h.teams[0].score)} × ${num(h.teams[1].score)} ${esc(h.teams[1].name)}</strong><span>${h.config.board === "compact" ? "18" : "36"} سؤالًا · ${new Date(h.at).toLocaleDateString("en-GB")}</span></summary><div class="stack">${statisticsPanel(h)}${transactionList(h)}<button class="btn secondary" data-team-action="historic-summary" data-index="${i}">تصدير ملخص المباراة</button></div></details>`).join("") || '<div class="panel match-empty">ابدأ مباراة وأكملها لتظهر هنا نتيجتها وسجل تسجيلها.</div>'}</div></div>`;
+    return `<div class="team-page">${recoveryNotice()}${title("كل مواجهة لها حكاية", "سجل مباريات الفريقين", "آخر 30 مباراة مكتملة محفوظة على هذا الجهاز.")}<div class="row"><button class="btn secondary" data-team-action="backup">حفظ متابعة للمقدم</button><button class="btn secondary" data-team-action="restore">استيراد نسخة احتياطية</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button>${m() ? '<button class="btn primary" data-team-action="resume">العودة للمباراة</button>' : ""}</div><div class="stack">${store.history.map((h, i) => `<details class="panel match-history"><summary><strong>${esc(h.teams[0].name)} ${num(h.teams[0].score)} × ${num(h.teams[1].score)} ${esc(h.teams[1].name)}</strong><span>${h.config.board === "compact" ? "18" : "36"} سؤالًا · ${new Date(h.at).toLocaleDateString("en-GB")}</span></summary><div class="stack">${statisticsPanel(h)}${transactionList(h)}<button class="btn secondary" data-team-action="historic-summary" data-index="${i}">تصدير ملخص المباراة</button></div></details>`).join("") || '<div class="panel match-empty">ابدأ مباراة وأكملها لتظهر هنا نتيجتها وسجل تسجيلها.</div>'}</div></div>`;
   }
   function homeAddon() {
     if (!ready) return "";
-    return `${recoveryNotice()}${m() ? `<section class="match-resume-banner panel row"><div><span class="eyebrow">مباراتك محفوظة</span><h2>${esc(m().teams[0].name)} × ${esc(m().teams[1].name)}</h2><p class="muted">${m().board.filter((t) => t.done).length}/${m().board.length} سؤالًا مكتملًا · ${num(m().teams[0].score)} مقابل ${num(m().teams[1].score)}</p></div><button class="btn primary" data-team-action="resume">${m().state === "MATCH_COMPLETE" ? "عرض النتيجة" : "متابعة المباراة"}</button></section>` : ""}<section class="team-dashboard-card panel"><div><span class="eyebrow">منافسة أصلية، على جهاز واحد</span><h2>فريقان، 6 فئات، و18 سؤالًا.</h2><p class="muted">لوحة مختصرة افتراضيًا، إجابات شفهية، سرقة سؤال ومساعدات لكل فريق. خصّص كل قاعدة قبل البدء.</p></div><div class="hero-actions"><button class="btn primary" data-team-action="new">إعداد مباراة فريقين ${icon("cup")}</button><button class="btn secondary" data-team-action="random">مباراة بفئات عشوائية</button><button class="text-btn" data-team-action="history">سجل المباريات</button><button class="text-btn" data-team-action="library">مكتبة الأسئلة</button></div></section>`;
+    return `${recoveryNotice()}${m() ? `<section class="match-resume-banner panel row"><div><span class="eyebrow">مباراتك محفوظة</span><h2>${esc(m().teams[0].name)} × ${esc(m().teams[1].name)}</h2><p class="muted">${m().board.filter((t) => t.done).length}/${m().board.length} سؤالًا مكتملًا · ${num(m().teams[0].score)} مقابل ${num(m().teams[1].score)}</p></div><button class="btn primary" data-team-action="resume">${m().state === "MATCH_COMPLETE" ? "عرض النتيجة" : "متابعة المباراة"}</button></section>` : ""}<section class="team-dashboard-card panel"><div><span class="eyebrow">منافسة أصلية، على جهاز واحد</span><h2>فريقان، 6 فئات، و36 سؤالًا.</h2><p class="muted">مباراة كلاسيكية بإجابات شفهية وحسم بضغطة واحدة، مع سرقة ومساعدات اختيارية. تتوفر مباراة سريعة من 18 سؤالًا؛ خصّص القواعد قبل البدء.</p></div><div class="hero-actions"><button class="btn primary" data-team-action="new">إعداد مباراة فريقين ${icon("cup")}</button><button class="btn secondary" data-team-action="random">مباراة بفئات عشوائية</button><button class="text-btn" data-team-action="history">سجل المباريات</button><button class="text-btn" data-team-action="library">مكتبة الأسئلة</button></div></section>`;
   }
   function profileAddon() {
     const played = store.history.length,
@@ -3718,19 +4019,10 @@ const TeamUI = (() => {
     );
   }
   function downloadRaw(text, name) {
-    const blob=new Blob([text],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
-    a.href=url; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(url),3000);
+    downloadLocalSave(text,name);
   }
   function download(obj, name) {
-    const blob = new Blob([JSON.stringify(obj, null, 2)], {
-        type: "application/json",
-      }),
-      url = URL.createObjectURL(blob),
-      a = document.createElement("a");
-    a.href = url;
-    a.download = name;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 3000);
+    return downloadLocalSave(obj,name);
   }
   function pickFile(kind) {
     const input = document.createElement("input");
@@ -3744,8 +4036,12 @@ const TeamUI = (() => {
   async function readFile(file, kind) {
     if (!file) return;
     try {
-      if (file.size > 20000000) throw Error("الملف كبير جدًا.");
-      const data = parseJSON(await file.text());
+      if (file.size > 28100000) throw Error("الملف كبير جدًا.");
+      let data = parseJSON(await file.text());
+      if (data?.format === "seen-khaled-resume") {
+        if (kind === "pack" || data.kind !== "teams") throw Error("اختر حفظ متابعة خاصًا بمباراة الفريقين.");
+        data = decodeMatchBackup(data);
+      }
       if (kind === "pack") {
         if (active() || session?.status === "active")
           throw Error("أكمل المباراة أو الجولة قبل استيراد الأسئلة.");
@@ -3888,7 +4184,7 @@ const TeamUI = (() => {
     if (route === "teamMatch") render();
     openDialog(
       "دليل مباراة الفريقين",
-      `<div class="stack"><p>تجربة مستقلة أصلية مستلهمة من نوع مسابقات الفرق. اللوحة المختصرة ذات 18 سؤالًا اختيار خاص بهذه النسخة. الكلاسيكية 36 سؤالًا؛ القيم 200 و400 و600 ولكل قيمة خانتان مستقلتان.</p><p>تؤكد الصفحات الرسمية اختيار 3 فئات و3 مساعدات لكل فريق، وإتاحة الفئات الست للجميع، ومهلة 60 ثانية ثم 10 للمنافس. الحفرة قبل ظهور السؤال والمساعدات الأربع الأساسية الأخرى بعده.</p><p>يتناوب الفريقان على اختيار السؤال. السرقة والفخ لا يغيران هذا الجدول. كشف الإجابة نهائي ويغلق المحاولات؛ أتح فرصة المنافس قبل الكشف إذا أخفق الفريق. لا تُضاف نقاط حتى تؤكد نتيجة السؤال باسم الفريق.</p><p>الإجابة الصحيحة تمنح قيمة الخانة. عند تفعيل المكافأة، تضاف 50 نقطة لصحة إجابة صاحب الاختيار. مضاعفة النقاط تخص المكافأة فقط. الحفرة تخصم القيمة الأساسية من الخصم. الفخ: إخفاق المستجيب يخصم قيمة السؤال، ولا سرقة بعده؛ نجاحه يتبع الإعداد. خصم السرقة وإخفاق الحفرة والرصيد السالب والمكافآت خيارات مخصصة، وليست قواعد رسمية مؤكدة.</p>${Object.values(
+      `<div class="stack"><p>تجربة مستقلة أصلية مستلهمة من نوع مسابقات الفرق. اللوحة المختصرة ذات 18 سؤالًا اختيار خاص بهذه النسخة. الكلاسيكية 36 سؤالًا؛ القيم 200 و400 و600 ولكل قيمة خانتان مستقلتان.</p><p>تؤكد الصفحات الرسمية اختيار 3 فئات و3 مساعدات لكل فريق، وإتاحة الفئات الست للجميع، ومهلة 60 ثانية ثم 10 للمنافس. الحفرة قبل ظهور السؤال والمساعدات الأربع الأساسية الأخرى بعده.</p><p>يتناوب الفريقان على اختيار السؤال. السرقة والفخ لا يغيران هذا الجدول. اكشف الإجابة ثم اضغط الفريق أو «محد جاوب صح»؛ تُسجّل النتيجة وتعود اللوحة مباشرة. اختيار المنافس يُسجّل سرقة عند تفعيلها، باستثناء الفخ، دون افتراض أن صاحب الاختيار حاول وأخطأ.</p><p>الإجابة الصحيحة تمنح قيمة الخانة. عند تفعيل المكافأة، تضاف 50 نقطة لصحة إجابة صاحب الاختيار. المضاعفة تضاعف قيمة السؤال للفريق المؤهل دون الخصومات؛ تبقى مكافأة 50 إضافة ثابتة. الحفرة تخصم القيمة الأساسية من الخصم. الفخ: إخفاق المستجيب يخصم قيمة السؤال، ولا سرقة بعده؛ نجاحه يتبع الإعداد. خصم السرقة وإخفاق الحفرة والرصيد السالب والمكافآت خيارات مخصصة، وليست قواعد رسمية مؤكدة.</p>${Object.values(
         HELP,
       )
         .map((h) => `<p><strong>${h.name}:</strong> ${h.rule}</p>`)
@@ -3947,6 +4243,7 @@ const TeamUI = (() => {
       step = Math.max(0, step - 1);
       render();
       $("#team-wizard-heading")?.focus({ preventScroll: true });
+    } else if (a === "customize") { step=1;render();$("#team-wizard-heading")?.focus({preventScroll:true});window.scrollTo(0,0);
     } else if (a === "next-step") {
       if (!validateStep()) return;
       if (draft.mode === "solo") {
@@ -4001,20 +4298,36 @@ const TeamUI = (() => {
       else toast("وصلت إلى عدد المساعدات المختار. ألغِ واحدة أولًا.");
       render();
     } else if (a === "start-match") startMatch();
-    else if (a === "tile")
-      dispatch({ type: "SELECT_TILE", tileId: b.dataset.id });
+    else if (a === "tile") openTile(b.dataset.id);
+    else if (a === "arm-pit") {
+      if (!canArmPit(m())) return;
+      armedPitTeam = armedPitTeam === m().turn ? null : m().turn;
+      render();
+      document.querySelector('[data-team-action="arm-pit"]')?.focus({preventScroll:true});
+    }
     else if (a === "engine") dispatch({ type: b.dataset.type });
     else if (a === "answer")
       dispatch({ type: "ANSWER", value: Number(b.dataset.value) });
     else if (a === "incorrect") dispatch({ type: "DECLARE_INCORRECT" });
-    else if (a === "reveal") confirmReveal();
-    else if (a === "award") confirmAward(b.dataset.team);
-    else if (a === "assist") confirmAssist(b.dataset.key);
+    else if (a === "reveal") revealAnswer();
+    else if (a === "award") resolveAward(b);
+    else if (a === "assist") useAssist(b.dataset.key);
+    else if (a === "use-sitout") {
+      const participant=$("#sitout-inline-participant")?.value;
+      choosingSitout=false;
+      dispatch({type:"ASSIST",key:"sitout",confirmed:true,participant});
+      $("#team-question-heading")?.focus({preventScroll:true});
+    } else if (a === "cancel-sitout") { choosingSitout=false;render();document.querySelector('[data-team-action="assist"][data-key="sitout"]')?.focus({preventScroll:true}); }
     else if (a === "pause-menu") pauseMenu();
     else if (a === "resume-menu") {
       closeDialog();
       if (m().state === "PAUSED") dispatch({ type: "RESUME" });
       else go("teamMatch");
+    } else if (a === "quiet") {
+      if (prefs.sound || prefs.music) { quietRestore={sound:prefs.sound,music:prefs.music};prefs.sound=0;prefs.music=0; }
+      else { prefs.sound=quietRestore?.sound || 45;prefs.music=quietRestore?.music || 0; }
+      applyPrefs();persist();render();
+      document.querySelector('[data-team-action="quiet"]')?.focus({preventScroll:true});
     } else if (a === "score-panel") scorePanel();
     else if (a === "assist-history") {
       openDialog(
@@ -4027,19 +4340,9 @@ const TeamUI = (() => {
           .join("")}</div>`,
       );
     } else if (a === "undo") {
-      openDialog(
-        "التراجع عن آخر إجراء؟",
-        "<p>يُعكس آخر حسم أو تصحيح نقاط أو استخدام مساعدة. تُعكس مجموعة النقاط كلها مع دورها وسؤالها، ولا تعود محاولة جديدة بعد معرفة الحل.</p>",
-        '<button class="btn primary" id="confirm-team-undo">تأكيد التراجع</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-      );
-      $("#confirm-team-undo").addEventListener(
-        "click",
-        () => {
-          closeDialog();
-          dispatch({ type: "UNDO" });
-        },
-        { once: true },
-      );
+      if (b.dataset.resolutionToken && b.dataset.resolutionToken !== m()?.lastResolution?.token) return;
+      closeDialog();
+      dispatch({type:"UNDO"});
     } else if (a === "history") {
       closeDialog();
       go("teamHistory");
@@ -4056,13 +4359,15 @@ const TeamUI = (() => {
           `<img class="zoom-image" src="${imageSrc(b.dataset.key)}" alt="${esc(questionAlt(TeamEngine.getQuestion(m(), m()?.current?.questionId, bank()) || {},!!m()?.current?.revealed))}">${m()?.current?.revealed || !active() ? mediaCredit(b.dataset.key) : '<p class="muted">يمكن عرض الإسناد والرخصة بعد انتهاء المحاولة.</p>'}`,
         );
     } else if (a === "backup") {
-      if (active() || session?.status === "active") { toast("الحفظ التلقائي مستمر. يتاح تصدير نسخة تتضمن الحلول بعد اكتمال المباراة أو الجولة."); return; }
       pause();
-      download(
-        { version: 3, save: store },
-        `seen-teams-backup-${localDate()}.json`,
-      );
+      try {
+        if (download(encodeMatchBackup("teams",{version:3,save:store}),`seen-teams-resume-${localDate()}.json`))
+          toast("أُعدّت نسخة متابعة للمقدم للتنزيل؛ احتفظ بالملف بعيدًا عن اللاعبين.");
+      } catch (error) {
+        toast(/[\u0600-\u06ff]/.test(error.message) ? error.message : "تعذّر إعداد نسخة المتابعة. تبقى المباراة مفتوحة دون تغيير.");
+      }
     } else if (a === "restore") pickFile("backup");
+    else if (a === "paste-backup") pasteLocalSave(file=>readFile(file,"backup"));
     else if (a === "rematch") {
       draft = deep(m().config);
       startMatch();
@@ -4347,6 +4652,8 @@ const TeamUI = (() => {
     profileAddon,
     libraryScreen,
     mediaCredit,
+    prepareResumeLibrary,
+    commitResumeLibrary,
     rules,
     pause,
     startTicker,

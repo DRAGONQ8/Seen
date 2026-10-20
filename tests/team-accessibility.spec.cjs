@@ -84,12 +84,13 @@ async function renderAudit(page, screen, width, theme) {
       const focused = await page.evaluate(() => ({ tag: document.activeElement.tagName, inside: !!document.activeElement.closest('#main'), id: document.activeElement.id }));
       assert(focused.inside, `keyboard context lost to ${focused.tag}#${focused.id}`);
     });
-    await page.evaluate(() => { SeenTeamUI.draft.timer = false; });
+    await page.evaluate(() => { SeenTeamUI.draft.board = 'compact'; SeenTeamUI.draft.timer = false; });
     await page.locator('[data-team-action="step"][data-step="8"]').click();
     await page.locator('[data-team-action="start-match"]').click();
     await renderAudit(page, 'match-compact', width, theme);
-    await page.locator('[data-team-action="tile"]').first().click();
-    await renderAudit(page, 'match-preview', width, theme);
+    // Legacy saved previews still require an accessible restoration view.
+    await page.evaluate(() => SeenTeamUI.dispatch({type:'SELECT_TILE',tileId:SeenTeamUI.match.board[0].id}));
+    await renderAudit(page, 'match-legacy-preview', width, theme);
     await page.locator('[data-team-action="engine"][data-type="START_QUESTION"]').click();
     await renderAudit(page, 'match-question', width, theme);
     await check(`question hidden answer and screenreader focus / ${width} / ${theme}`, async () => {
@@ -97,6 +98,8 @@ async function renderAudit(page, screen, width, theme) {
       assert.equal(await page.evaluate(() => document.activeElement.id), 'team-question-heading');
       assert.equal(await page.locator('.match-question-panel .answers-grid').count(), 0, 'oral mode must not render options');
     });
+    await page.locator('.attempt-controls summary').click();
+    await renderAudit(page, 'match-attempt-controls', width, theme);
     await page.locator('[data-team-action="incorrect"]').click();
     await renderAudit(page, 'match-steal', width, theme);
     await check(`steal screen keeps solution hidden / ${width} / ${theme}`, async () => {
@@ -107,24 +110,46 @@ async function renderAudit(page, screen, width, theme) {
     await renderAudit(page, 'match-reveal', width, theme);
     await check(`reveal focuses canonical answer / ${width} / ${theme}`, async () => assert.equal(await page.evaluate(() => document.activeElement.classList.contains('canonical-answer')), true));
     await page.locator('[data-team-action="award"][data-team="1"]').click();
-    await renderAudit(page, 'adjudication-dialog', width, theme);
-    await check(`dialog keyboard stays in modal / ${width} / ${theme}`, async () => {
+    await renderAudit(page, 'match-one-tap-board', width, theme);
+    await check(`one-tap result returns to board with no modal / ${width} / ${theme}`, async () => {
+      assert.equal(await page.evaluate(() => SeenTeamUI.match.state), 'BOARD');
+      assert.equal(await page.locator('#dialog').evaluate(d => d.open), false);
+      assert.equal(await page.locator('#confirm-team-award').count(), 0);
+      assert.equal(await page.locator('[data-type="NEXT_TURN"]').count(), 0);
+      assert.equal(await page.evaluate(() => SeenTeamUI.match.teams[1].score), 200);
+    });
+    await check(`board Undo is keyboard-operable in one action / ${width} / ${theme}`, async () => {
+      const undo = page.locator('[data-team-action="undo"]:visible:not([disabled])').first();
+      await undo.focus(); await page.keyboard.press('Enter');
+      assert.equal(await page.evaluate(() => SeenTeamUI.match.state), 'ANSWER_REVEAL');
+      assert.equal(await page.evaluate(() => SeenTeamUI.match.teams[1].score), 0);
+      assert.equal(await page.locator('#dialog').evaluate(d => d.open), false);
+      assert.equal(await page.locator('[data-team-action="award"]').count(), 3);
+    });
+    await renderAudit(page, 'match-undo-reveal', width, theme);
+    await page.locator('[data-team-action="award"][data-team="1"]').focus();
+    await page.keyboard.press('Enter');
+    await page.locator('[data-team-action="pause-menu"]').first().click();
+    await renderAudit(page, 'presenter-menu-dialog', width, theme);
+    await check(`optional presenter dialog keeps keyboard focus / ${width} / ${theme}`, async () => {
       // Native Chromium may report BODY while focus visits browser chrome;
-      // it must never land on a background page control outside the modal.
+      // it must never land on a background page control outside this optional modal.
       for (let i = 0; i < 8; i++) { await page.keyboard.press('Tab'); assert.equal(await page.evaluate(() => document.activeElement === document.body || !!document.activeElement.closest('dialog')), true, 'Tab reached a background page control'); }
     });
-    await page.locator('#confirm-team-award').click();
-    await renderAudit(page, 'match-receipt', width, theme);
-    await page.locator('[data-team-action="engine"][data-type="NEXT_TURN"]').click();
-    // The core engine has a separate exhaustive suite. Complete its remaining
-    // already-validated transitions here to expose the real result/history UI.
+    await page.locator('[data-team-action="resume-menu"]').click();
+    // Score the remaining fixture with the same atomic production transition.
+    // The final action goes through the UI adapter to archive the real match.
     await page.evaluate(() => {
-      let s = SeenTeamUI.match;
-      for (const tile of s.board.filter(t => !t.done)) {
-        for (const action of [{ type: 'SELECT_TILE', tileId: tile.id }, { type: 'START_QUESTION' }, { type: 'REVEAL' }, { type: 'ADJUDICATE', teamId: 0 }]) s = TeamEngine.dispatch(s, action, QUESTION_BANK, Date.now());
-        if (!s.board.every(t => t.done)) s = TeamEngine.dispatch(s, { type: 'NEXT_TURN' }, QUESTION_BANK, Date.now());
+      let s = SeenTeamUI.match, finalAction;
+      const remaining = s.board.filter(t => !t.done);
+      for (const [index, tile] of remaining.entries()) {
+        for (const action of [{ type: 'SELECT_TILE', tileId: tile.id }, { type: 'START_QUESTION' }, { type: 'REVEAL' }]) s = TeamEngine.dispatch(s, action, QUESTION_BANK, Date.now());
+        const c = s.current;
+        const resolve = {type:'RESOLVE_QUESTION',teamId:0,questionId:c.questionId,tileId:c.tileId,token:c.token};
+        if (index === remaining.length - 1) finalAction = resolve;
+        else s = TeamEngine.dispatch(s, resolve, QUESTION_BANK, Date.now());
       }
-      SeenTeamUI.store.match = s; SeenTeamUI.dispatch({ type: 'NEXT_TURN' });
+      SeenTeamUI.store.match = s; SeenTeamUI.dispatch(finalAction);
     });
     await renderAudit(page, 'match-results', width, theme);
     await page.evaluate(() => SeenTeamUI.go('teamHistory'));

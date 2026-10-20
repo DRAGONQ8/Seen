@@ -1,0 +1,122 @@
+{
+  "checkedAt": "2026-10-20",
+  "scope": "تدقيق بنيوي آلي لجميع الأسئلة ومراجعة تحريرية لصياغة السؤال والجواب والأعلام المحتملة، مع إعادة قراءة التعليمات الرسمية العامة. لا يُعد فحصًا مستقلًا جديدًا لكل مرجع خارجي أو لكل حقيقة في البنك.",
+  "baselineQuestions": 648,
+  "baselineVisualQuestions": 63,
+  "questionAudit": {
+    "questions": 648,
+    "images": 63,
+    "categories": {
+      "anime": 106,
+      "arabia": 75,
+      "football": 92,
+      "games": 68,
+      "geo": 85,
+      "islamic": 74,
+      "prophets": 74,
+      "seerah": 74
+    },
+    "points": {
+      "200": 262,
+      "400": 258,
+      "600": 128
+    },
+    "verification": {
+      "disputed": 5,
+      "editorial": 400,
+      "pending": 88,
+      "source-checked": 155
+    },
+    "errors": [],
+    "reviewCandidates": [
+      {
+        "type": "possible-semantic-duplicate",
+        "questions": [
+          "seerah-008",
+          "seerah-040"
+        ]
+      }
+    ]
+  },
+  "defaultEligibleByCategoryAndPoints": {
+    "anime": {
+      "200": 32,
+      "400": 27,
+      "600": 13
+    },
+    "arabia": {
+      "200": 24,
+      "400": 27,
+      "600": 24
+    },
+    "football": {
+      "200": 32,
+      "400": 34,
+      "600": 26
+    },
+    "games": {
+      "200": 32,
+      "400": 24,
+      "600": 12
+    },
+    "geo": {
+      "200": 49,
+      "400": 26,
+      "600": 10
+    },
+    "islamic": {
+      "200": 22,
+      "400": 35,
+      "600": 17
+    },
+    "prophets": {
+      "200": 35,
+      "400": 33,
+      "600": 6
+    },
+    "seerah": {
+      "200": 32,
+      "400": 28,
+      "600": 14
+    }
+  },
+  "classicPoolCheck": "لكل فئة 2 على الأقل من الأسئلة المؤهلة لكل قيمة؛ لا حاجة لاستبدال مستوى نقاط بمستوى آخر لبناء لوحة كلاسيكية.",
+  "preservation": {
+    "questionIdsChanged": 0,
+    "questionsAdded": 0,
+    "questionsRemoved": 0,
+    "mediaAdded": 0,
+    "mediaRemoved": 0
+  },
+  "editorialFindings": [
+    {
+      "questionIds": [
+        "seerah-008",
+        "seerah-040"
+      ],
+      "outcome": "مرشح تشابه غير مكرر: الأول يسأل عن العمر عند البعثة، والثاني عن العمر عند الوفاة."
+    },
+    {
+      "questionIds": [
+        "prophets-020"
+      ],
+      "outcome": "الكشف الآلي عن «مدين» ضمن «المدينة» تطابق جزئي مضلل، وليس كشفًا للإجابة."
+    },
+    {
+      "questionIds": [
+        "football-047"
+      ],
+      "outcome": "السؤال يذكر الدولة المضيفة ويسأل عن البطل؛ الاستضافة لا تعني الفوز بالضرورة، ولا يظهر ترميز لمفتاح الإجابة. لم يُحذف السؤال بوصفه تسريبًا آليًا مؤكدًا."
+    }
+  ],
+  "confirmedNewFactualDefects": [],
+  "verificationNotes": [
+    "حالات التحقق الحالية: 155 مدققًا بالمصدر، 400 مراجعة تحريرية سابقة، 88 بانتظار إعادة التحقق، 5 روايات مؤطرة بوصفها محل خلاف.",
+    "لم يُرفع سؤال إلى حالة مدقق بالمصدر لمجرد وجود رابط. لم تُختلق مراجع أو تاريخ نشر.",
+    "لم تُضف فئات أو أسئلة شكلية لبلوغ حجم عددي؛ تُحفظ الفئات الثماني الحالية حتى تتوفر توسعة محررة ومفحوصة."
+  ],
+  "publicRulesReferences": [
+    "https://seenjeemkw.com/",
+    "https://seenjeemkw.com/start-game"
+  ]
+}

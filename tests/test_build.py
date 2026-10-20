@@ -40,8 +40,15 @@ class BuildTests(unittest.TestCase):
 
     def test_validated_bank_and_unique_ids(self):
         report = audit(load_bank(Path(__file__).resolve().parents[1]))
-        self.assertGreaterEqual(report['questions'], 488)
+        self.assertGreaterEqual(report['questions'], 648)
         self.assertEqual(report['errors'], [])
+
+    def test_existing_release_question_ids_are_preserved(self):
+        root = Path(__file__).resolve().parents[1]
+        baseline = json.loads((root / 'tests/fixtures/question-ids-v3.json').read_text())
+        current = {q['id'] for q in load_bank(root)}
+        self.assertEqual(len(baseline['ids']), 648)
+        self.assertFalse(set(baseline['ids']) - current, 'Existing progress depends on stable question IDs.')
 
     def test_source_checked_requires_supporting_evidence_metadata(self):
         q = load_bank(Path(__file__).resolve().parents[1])[0]
