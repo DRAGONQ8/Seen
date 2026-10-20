@@ -1,0 +1,934 @@
+[
+  {
+    "id": "visual-001",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "أي دولة خليجية تمثلها الحدود البرية والساحلية المرسومة في الصورة؟",
+    "options": [
+      "الكويت",
+      "قطر",
+      "البحرين",
+      "الإمارات"
+    ],
+    "answer": 0,
+    "correctAnswer": "الكويت",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود الكويت بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم KWT في بيانات الدول 1:50m"
+    },
+    "image": "map-kuwait",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تأمل امتداد الساحل والتجويف الواقع في شماله."
+  },
+  {
+    "id": "visual-002",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "ما الدولة التي تمثلها هذه الخريطة ذات الامتداد الواسع في شبه الجزيرة العربية؟",
+    "options": [
+      "السعودية",
+      "عمان",
+      "اليمن",
+      "الأردن"
+    ],
+    "answer": 0,
+    "correctAnswer": "السعودية",
+    "acceptedAnswers": [
+      "المملكة العربية السعودية"
+    ],
+    "explanation": "هذه حدود السعودية بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم SAU في بيانات الدول 1:50m"
+    },
+    "image": "map-saudi",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تضم سواحل على جهتين من شبه الجزيرة."
+  },
+  {
+    "id": "visual-003",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "أي دولة يوضح الرسم سلسلة جزرها الممتدة على هيئة قوس؟",
+    "options": [
+      "اليابان",
+      "الفلبين",
+      "إندونيسيا",
+      "نيوزيلندا"
+    ],
+    "answer": 0,
+    "correctAnswer": "اليابان",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود اليابان بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم JPN في بيانات الدول 1:50m"
+    },
+    "image": "map-japan",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تقع في شرق آسيا."
+  },
+  {
+    "id": "visual-004",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "إلى أي دولة يعود هذا الشكل الجغرافي الشبيه بالحذاء؟",
+    "options": [
+      "إيطاليا",
+      "اليونان",
+      "إسبانيا",
+      "كرواتيا"
+    ],
+    "answer": 0,
+    "correctAnswer": "إيطاليا",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود إيطاليا بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم ITA في بيانات الدول 1:50m"
+    },
+    "image": "map-italy",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تطل على البحر المتوسط."
+  },
+  {
+    "id": "visual-005",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "أي دولة في أمريكا الجنوبية تتخذ حدودها هذا الشكل الساحلي الطويل والضيق؟",
+    "options": [
+      "تشيلي",
+      "الأرجنتين",
+      "بيرو",
+      "الإكوادور"
+    ],
+    "answer": 0,
+    "correctAnswer": "تشيلي",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود تشيلي بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم CHL في بيانات الدول 1:50m"
+    },
+    "image": "map-chile",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تمتد بمحاذاة المحيط الهادئ وجبال الأنديز."
+  },
+  {
+    "id": "visual-006",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "ما الدولة التي تظهر حدودها في هذا الرسم، مع امتدادها إلى أقصى جنوب قارتها؟",
+    "options": [
+      "الأرجنتين",
+      "الأوروغواي",
+      "بوليفيا",
+      "كولومبيا"
+    ],
+    "answer": 0,
+    "correctAnswer": "الأرجنتين",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود الأرجنتين بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم ARG في بيانات الدول 1:50m"
+    },
+    "image": "map-argentina",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تقع إلى الشرق من جبال الأنديز."
+  },
+  {
+    "id": "visual-007",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "لأي دولة تنتمي الجزيرتان الرئيسيتان المتقابلتان في هذه الخريطة؟",
+    "options": [
+      "نيوزيلندا",
+      "اليابان",
+      "المملكة المتحدة",
+      "سريلانكا"
+    ],
+    "answer": 0,
+    "correctAnswer": "نيوزيلندا",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود نيوزيلندا بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم NZL في بيانات الدول 1:50m"
+    },
+    "image": "map-new-zealand",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تقع في جنوب غرب المحيط الهادئ."
+  },
+  {
+    "id": "visual-008",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "أي دولة في جنوب شرق آسيا تمثلها هذه الخريطة ذات الساحل الممتد بشكل متعرج؟",
+    "options": [
+      "فيتنام",
+      "لاوس",
+      "كمبوديا",
+      "تايلاند"
+    ],
+    "answer": 0,
+    "correctAnswer": "فيتنام",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود فيتنام بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم VNM في بيانات الدول 1:50m"
+    },
+    "image": "map-vietnam",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تمتد على بحر الصين الجنوبي."
+  },
+  {
+    "id": "visual-009",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "ما الدولة الجزرية التي تمثلها هذه الحدود الطويلة المائلة؟",
+    "options": [
+      "مدغشقر",
+      "سريلانكا",
+      "قبرص",
+      "آيسلندا"
+    ],
+    "answer": 0,
+    "correctAnswer": "مدغشقر",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود مدغشقر بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم MDG في بيانات الدول 1:50m"
+    },
+    "image": "map-madagascar",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تقع قبالة الساحل الجنوبي الشرقي لإفريقيا."
+  },
+  {
+    "id": "visual-010",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "أي دولة جزرية يوضح الرسم حدودها القريبة من شكل قطرة؟",
+    "options": [
+      "سريلانكا",
+      "مدغشقر",
+      "آيرلندا",
+      "قبرص"
+    ],
+    "answer": 0,
+    "correctAnswer": "سريلانكا",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود سريلانكا بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم LKA في بيانات الدول 1:50m"
+    },
+    "image": "map-sri-lanka",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تقع جنوبي شبه القارة الهندية."
+  },
+  {
+    "id": "visual-011",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "ما الدولة العربية التي تمثلها هذه الحدود، ويظهر في ركنها الشمالي الشرقي امتداد شبه جزيرة؟",
+    "options": [
+      "مصر",
+      "ليبيا",
+      "السودان",
+      "تونس"
+    ],
+    "answer": 0,
+    "correctAnswer": "مصر",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود مصر بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم EGY في بيانات الدول 1:50m"
+    },
+    "image": "map-egypt",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تصل أراضيها بين قارتي إفريقيا وآسيا."
+  },
+  {
+    "id": "visual-012",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "أي دولة واسعة المساحة تمثلها هذه الخريطة مع جزيرة جنوبية منفصلة؟",
+    "options": [
+      "أستراليا",
+      "البرازيل",
+      "الهند",
+      "جنوب إفريقيا"
+    ],
+    "answer": 0,
+    "correctAnswer": "أستراليا",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود أستراليا بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم AUS في بيانات الدول 1:50m"
+    },
+    "image": "map-australia",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "الجزيرة الجنوبية الظاهرة هي تسمانيا."
+  },
+  {
+    "id": "visual-013",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 200,
+    "q": "لأي دولة تعود هذه الحدود التي تبرز فيها شبه جزيرة طويلة غربًا وأخرى شرقًا؟",
+    "options": [
+      "المكسيك",
+      "كوبا",
+      "فنزويلا",
+      "بنما"
+    ],
+    "answer": 0,
+    "correctAnswer": "المكسيك",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود المكسيك بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم MEX في بيانات الدول 1:50m"
+    },
+    "image": "map-mexico",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تقع في أمريكا الشمالية."
+  },
+  {
+    "id": "visual-014",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "أي دولة آسيوية يوضح الرسم شبه جزيرتها الكبيرة المتجهة جنوبًا؟",
+    "options": [
+      "الهند",
+      "باكستان",
+      "بنغلاديش",
+      "ميانمار"
+    ],
+    "answer": 0,
+    "correctAnswer": "الهند",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود الهند بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم IND في بيانات الدول 1:50m"
+    },
+    "image": "map-india",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "تطل على خليج البنغال وبحر العرب."
+  },
+  {
+    "id": "visual-015",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 1,
+    "points": 200,
+    "q": "ما الدولة في أمريكا الجنوبية التي تحمل هذه الحدود الواسعة والبروز الشرقي نحو الأطلسي؟",
+    "options": [
+      "البرازيل",
+      "الأرجنتين",
+      "كولومبيا",
+      "بيرو"
+    ],
+    "answer": 0,
+    "correctAnswer": "البرازيل",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود البرازيل بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم BRA في بيانات الدول 1:50m"
+    },
+    "image": "map-brazil",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "يمر بها نهر الأمازون."
+  },
+  {
+    "id": "visual-016",
+    "category": "geo",
+    "sub": "خرائط الدول",
+    "level": 2,
+    "points": 400,
+    "q": "أي دولة إفريقية تمثلها هذه الحدود، مع فراغ داخلي لدولة محاطة بها؟",
+    "options": [
+      "جنوب إفريقيا",
+      "ناميبيا",
+      "بوتسوانا",
+      "موزمبيق"
+    ],
+    "answer": 0,
+    "correctAnswer": "جنوب إفريقيا",
+    "acceptedAnswers": [],
+    "explanation": "هذه حدود جنوب إفريقيا بحسب مجموعة Natural Earth للحدود الدولية بمقياس 1:50m. الرسم معمّم ويحافظ على اتجاه الشمال إلى أعلى.",
+    "source": {
+      "title": "Natural Earth — الحدود الدولية",
+      "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries/",
+      "reference": "المعلم ZAF في بيانات الدول 1:50m"
+    },
+    "image": "map-south-africa",
+    "imageAttribution": "بيانات جغرافية: Natural Earth؛ إعادة رسم وإسقاط محلي للعبة. الحدود معممة وليست للاستخدام الملاحي.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "خرائط الدول",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الشكل لاسم الدولة ورمزها في ملف Natural Earth؛ مراجعة المصدر والترخيص 2026-10-20"
+    },
+    "version": 1,
+    "hint": "الدولة الواقعة داخل حدودها هي ليسوتو."
+  },
+  {
+    "id": "visual-017",
+    "category": "geo",
+    "sub": "معالم العالم",
+    "level": 1,
+    "points": 400,
+    "q": "ما اسم هذا المدرج الروماني ذي الواجهة البيضاوية متعددة الطوابق؟",
+    "options": [
+      "الكولوسيوم",
+      "البارثينون",
+      "مسرح هيرودس أتيكوس",
+      "مدرج الجم"
+    ],
+    "answer": 0,
+    "correctAnswer": "الكولوسيوم",
+    "acceptedAnswers": [],
+    "explanation": "تُظهر الصورة الكولوسيوم في روما، ويُعرف أيضًا بالمدرج الفلافي.",
+    "source": {
+      "title": "ويكيميديا كومنز — وصف الصورة الأصلي",
+      "url": "https://commons.wikimedia.org/wiki/File:Colosseum_in_Rome,_Italy_-_April_2007.jpg",
+      "reference": "Colosseum in Rome, Italy - April 2007.jpg"
+    },
+    "image": "photo-colosseum",
+    "imageAttribution": "تصوير: Diliff؛ Wikimedia Commons؛ CC BY-SA 2.5. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "CC BY-SA 2.5",
+    "spoiler": false,
+    "tags": [
+      "معالم العالم",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20"
+    },
+    "version": 1,
+    "hint": "ركّز على الواجهة ذات صفوف الأقواس المتعددة."
+  },
+  {
+    "id": "visual-018",
+    "category": "football",
+    "sub": "الملاعب",
+    "level": 2,
+    "points": 400,
+    "q": "ما اسم الملعب الظاهر في هذه الصورة الأرشيفية قبل تجديد واجهته الحديثة؟",
+    "options": [
+      "سانتياغو برنابيو",
+      "كامب نو",
+      "ميستايا",
+      "سان سيرو"
+    ],
+    "answer": 0,
+    "correctAnswer": "سانتياغو برنابيو",
+    "acceptedAnswers": [
+      "برنابيو",
+      "ملعب سانتياغو برنابيو"
+    ],
+    "explanation": "هذه واجهة ملعب سانتياغو برنابيو في مدريد قبل مشروع إعادة تطويره الحديث؛ لذلك لا تمثل الصورة واجهته الحالية.",
+    "source": {
+      "title": "ويكيميديا كومنز — وصف الصورة الأصلي",
+      "url": "https://commons.wikimedia.org/wiki/File:Estadio_Santiago_Bernab%C3%A9u_12.jpg",
+      "reference": "Estadio Santiago Bernabéu 12.jpg"
+    },
+    "image": "photo-bernabeu",
+    "imageAttribution": "تصوير: Luis García (Zaqarbal)؛ Wikimedia Commons؛ CC BY-SA 3.0. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "CC BY-SA 3.0",
+    "spoiler": false,
+    "tags": [
+      "الملاعب",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20"
+    },
+    "version": 1,
+    "hint": "يقع في العاصمة الإسبانية."
+  },
+  {
+    "id": "visual-019",
+    "category": "games",
+    "sub": "أجهزة الألعاب",
+    "level": 1,
+    "points": 400,
+    "q": "ما اسم جهاز الألعاب المحمول أحادي اللون الظاهر في الصورة؟",
+    "options": [
+      "Game Boy",
+      "Game Gear",
+      "Atari Lynx",
+      "Neo Geo Pocket"
+    ],
+    "answer": 0,
+    "correctAnswer": "Game Boy",
+    "acceptedAnswers": [
+      "جيم بوي",
+      "غيم بوي"
+    ],
+    "explanation": "الصورة لجهاز Game Boy الأصلي من نينتندو، بواجهة رمادية وشاشة أحادية اللون.",
+    "source": {
+      "title": "ويكيميديا كومنز — وصف الصورة الأصلي",
+      "url": "https://commons.wikimedia.org/wiki/File:Game-Boy-FL.jpg",
+      "reference": "Game-Boy-FL.jpg"
+    },
+    "image": "photo-gameboy",
+    "imageAttribution": "تصوير: Evan-Amos؛ Wikimedia Commons؛ ملكية عامة. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "أجهزة الألعاب",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20"
+    },
+    "version": 1,
+    "hint": "الجهاز من إنتاج نينتندو."
+  },
+  {
+    "id": "visual-020",
+    "category": "geo",
+    "sub": "معالم العالم",
+    "level": 2,
+    "points": 600,
+    "q": "تُظهر الصورة الهرم الأكبر في الجيزة. إلى أي ملك مصري يُنسب هذا الهرم؟",
+    "options": [
+      "خوفو",
+      "خفرع",
+      "منقرع",
+      "زوسر"
+    ],
+    "answer": 0,
+    "correctAnswer": "خوفو",
+    "acceptedAnswers": [
+      "الملك خوفو"
+    ],
+    "explanation": "الهرم الأكبر في الجيزة هو هرم الملك خوفو، ويختلف عن هرمي خفرع ومنقرع المجاورين.",
+    "source": {
+      "title": "وزارة السياحة والآثار المصرية",
+      "url": "https://egymonuments.gov.eg/en/monuments/the-great-pyramid",
+      "reference": "الهرم الأكبر — مقبرة الملك خوفو"
+    },
+    "image": "photo-pyramid",
+    "imageAttribution": "تصوير: Wknight94؛ Wikimedia Commons؛ CC BY-SA 3.0. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "CC BY-SA 3.0",
+    "spoiler": false,
+    "tags": [
+      "معالم العالم",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20؛ مطابقة الشرح مع المرجع التعليمي أو الأثري المدرج"
+    },
+    "version": 1,
+    "hint": "ليس الهرم الأوسط ولا أصغر أهرامات المجموعة."
+  },
+  {
+    "id": "visual-021",
+    "category": "arabia",
+    "sub": "مملكة الأنباط",
+    "level": 2,
+    "points": 600,
+    "q": "ما اسم الواجهة المنحوتة في الصخر الظاهرة عند نهاية سيق البتراء في الصورة؟",
+    "options": [
+      "الخزنة",
+      "الدير",
+      "قصر البنت",
+      "القبر الكورنثي"
+    ],
+    "answer": 0,
+    "correctAnswer": "الخزنة",
+    "acceptedAnswers": [
+      "خزنة البتراء"
+    ],
+    "explanation": "تُظهر الصورة واجهة الخزنة في البتراء، وهي من أشهر معالم العمارة النبطية المنحوتة في الصخر.",
+    "source": {
+      "title": "اليونسكو — البتراء",
+      "url": "https://whc.unesco.org/en/list/326/",
+      "reference": "الوصف والقيمة العالمية الاستثنائية؛ واجهة الخزنة وممر السيق"
+    },
+    "image": "photo-petra",
+    "imageAttribution": "تصوير: Fjmustak؛ Wikimedia Commons؛ CC BY-SA 4.0. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "CC BY-SA 4.0",
+    "spoiler": false,
+    "tags": [
+      "مملكة الأنباط",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20؛ مطابقة الشرح مع المرجع التعليمي أو الأثري المدرج"
+    },
+    "version": 1,
+    "hint": "هذا المعلم هو أول واجهة ضخمة تستقبل زائر الموقع بعد السيق."
+  },
+  {
+    "id": "visual-022",
+    "category": "geo",
+    "sub": "آثار ومتاحف",
+    "level": 2,
+    "points": 200,
+    "q": "ما اسم الحجر الأثري الظاهر في الصورة، المعروف باحتوائه على ثلاثة أنظمة كتابة؟",
+    "options": [
+      "حجر رشيد",
+      "مسلة الأقصر",
+      "لوحة مرنبتاح",
+      "مسلة حمورابي"
+    ],
+    "answer": 0,
+    "correctAnswer": "حجر رشيد",
+    "acceptedAnswers": [
+      "حجر روزيتا"
+    ],
+    "explanation": "هذه صورة حجر رشيد؛ يحمل نصًا بالهيروغليفية والديموطيقية واليونانية القديمة.",
+    "source": {
+      "title": "المتحف البريطاني — قسم الإنسانيات الرقمية",
+      "url": "https://github.com/BritishMuseumDH/rosettaStone",
+      "reference": "وصف حجر رشيد وأنظمة الكتابة: الهيروغليفية والديموطيقية واليونانية"
+    },
+    "image": "photo-rosetta",
+    "imageAttribution": "تصوير: Hans Hillewaert؛ Wikimedia Commons؛ CC BY-SA 4.0. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "CC BY-SA 4.0",
+    "spoiler": false,
+    "tags": [
+      "آثار ومتاحف",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20؛ مطابقة الشرح مع المرجع التعليمي أو الأثري المدرج"
+    },
+    "version": 1,
+    "hint": "اكتُشف في مصر وحُفظ لاحقًا في المتحف البريطاني."
+  },
+  {
+    "id": "visual-023",
+    "category": "games",
+    "sub": "PlayStation",
+    "level": 1,
+    "points": 400,
+    "q": "ما اسم النسخة الصغيرة البيضاء من جهاز PlayStation الأصلي الظاهرة في الصورة؟",
+    "options": [
+      "PS one",
+      "PlayStation 2",
+      "GameCube",
+      "Sega Saturn"
+    ],
+    "answer": 0,
+    "correctAnswer": "PS one",
+    "acceptedAnswers": [
+      "PSone",
+      "بلايستيشن ون",
+      "بي اس ون"
+    ],
+    "explanation": "الجهاز الظاهر هو PS one، النسخة الأصغر المعاد تصميمها من جهاز PlayStation الأصلي.",
+    "source": {
+      "title": "ويكيميديا كومنز — وصف الصورة الأصلي",
+      "url": "https://commons.wikimedia.org/wiki/File:Sony-PSone-Console-FL.jpg",
+      "reference": "Sony-PSone-Console-FL.jpg"
+    },
+    "image": "photo-psone",
+    "imageAttribution": "تصوير: Evan-Amos؛ Wikimedia Commons؛ ملكية عامة. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "ملكية عامة",
+    "spoiler": false,
+    "tags": [
+      "PlayStation",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20"
+    },
+    "version": 1,
+    "hint": "ليست نسخة Slim من الجيل الثاني."
+  },
+  {
+    "id": "visual-024",
+    "category": "football",
+    "sub": "الملاعب",
+    "level": 1,
+    "points": 200,
+    "q": "ما اسم الملعب الإنجليزي الذي يظهر في الصورة بقوسه المعدني الكبير؟",
+    "options": [
+      "ويمبلي",
+      "أنفيلد",
+      "ستامفورد بريدج",
+      "الإمارات"
+    ],
+    "answer": 0,
+    "correctAnswer": "ويمبلي",
+    "acceptedAnswers": [
+      "ملعب ويمبلي"
+    ],
+    "explanation": "القوس الكبير الذي يعلو السقف من أبرز السمات المعمارية لملعب ويمبلي في لندن.",
+    "source": {
+      "title": "الموقع الرسمي لملعب ويمبلي",
+      "url": "https://wembleystadium.com/about/stadium-facts-and-features",
+      "reference": "حقائق الملعب وقوس السقف"
+    },
+    "image": "photo-wembley",
+    "imageAttribution": "تصوير: Billy Hicks؛ Wikimedia Commons؛ CC BY-SA 3.0. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
+    "imageLicense": "CC BY-SA 3.0",
+    "spoiler": false,
+    "tags": [
+      "الملاعب",
+      "تعرف بصري"
+    ],
+    "type": "image",
+    "verification": {
+      "status": "source-checked",
+      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20؛ مطابقة الشرح مع المرجع التعليمي أو الأثري المدرج"
+    },
+    "version": 1,
+    "hint": "يستضيف مباريات المنتخب الإنجليزي ونهائي كأس الاتحاد الإنجليزي."
+  }
+]

@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-20",
+  "notice": "الصور المدرجة تحت رخص المشاع الإبداعي تبقى تحت رخصها الأصلية. بعض أسماء المنتجات والعلامات الظاهرة لأصحابها، ويقتصر الاستخدام هنا على التعرف التعليمي.",
+  "items": [
+    {
+      "key": "map-kuwait",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-saudi",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-japan",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-italy",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-chile",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-argentina",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-new-zealand",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-vietnam",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-madagascar",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-sri-lanka",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-egypt",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-australia",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-mexico",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-india",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-brazil",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "map-south-africa",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "modifications": "تحويل حدود Natural Earth 1:50m إلى SVG بإسقاط محلي متساوي المستطيلات. الشمال إلى أعلى."
+    },
+    {
+      "key": "photo-colosseum",
+      "file": "photo-colosseum.jpg",
+      "originalTitle": "Colosseum in Rome, Italy - April 2007.jpg",
+      "creator": "Diliff",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Colosseum_in_Rome,_Italy_-_April_2007.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "True",
+      "attributionRequired": "true"
+    },
+    {
+      "key": "photo-bernabeu",
+      "file": "photo-bernabeu.jpg",
+      "originalTitle": "Estadio Santiago Bernabéu 12.jpg",
+      "creator": "Luis García (Zaqarbal)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Estadio_Santiago_Bernab%C3%A9u_12.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Estadio_Santiago_Bernab%C3%A9u_12.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "True",
+      "attributionRequired": "true"
+    },
+    {
+      "key": "photo-gameboy",
+      "file": "photo-gameboy.jpg",
+      "originalTitle": "Game-Boy-FL.jpg",
+      "creator": "Evan-Amos",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+      "source": "https://commons.wikimedia.org/wiki/File:Game-Boy-FL.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Game-Boy-FL.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "False",
+      "attributionRequired": "false"
+    },
+    {
+      "key": "photo-pyramid",
+      "file": "photo-pyramid.jpg",
+      "originalTitle": "Great Pyramid of Giza 2010.jpg",
+      "creator": "Wknight94",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza_2010.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/9/93/Great_Pyramid_of_Giza_2010.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "True",
+      "attributionRequired": "true"
+    },
+    {
+      "key": "photo-petra",
+      "file": "photo-petra.jpg",
+      "originalTitle": "Petra treasury.jpg",
+      "creator": "Fjmustak",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Petra_treasury.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/d/df/Petra_treasury.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "True",
+      "attributionRequired": "true"
+    },
+    {
+      "key": "photo-rosetta",
+      "file": "photo-rosetta.jpg",
+      "originalTitle": "Rosetta Stone.JPG",
+      "creator": "Hans Hillewaert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/2/23/Rosetta_Stone.JPG",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "True",
+      "attributionRequired": "true"
+    },
+    {
+      "key": "photo-psone",
+      "file": "photo-psone.jpg",
+      "originalTitle": "Sony-PSone-Console-FL.jpg",
+      "creator": "Evan-Amos",
+      "license": "ملكية عامة",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+      "source": "https://commons.wikimedia.org/wiki/File:Sony-PSone-Console-FL.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Sony-PSone-Console-FL.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "False",
+      "attributionRequired": "false"
+    },
+    {
+      "key": "photo-wembley",
+      "file": "photo-wembley.jpg",
+      "originalTitle": "Wembley Stadium closeup.jpg",
+      "creator": "Billy Hicks",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Wembley_Stadium_closeup.jpg",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Wembley_Stadium_closeup.jpg",
+      "modifications": "إعادة تحجيم إلى 880×720 كحد أقصى وضغط JPEG فقط؛ دون قص أو تغيير للمحتوى.",
+      "copyrightNotice": "True",
+      "attributionRequired": "true"
+    }
+  ]
+}

@@ -41,7 +41,9 @@ async function nav(page, route) {
   assert.equal((await state(page)).route, route);
 }
 async function start(page, mode, { format, cats, players } = {}) {
-  await page.locator(`[data-action="setup"][data-mode="${mode}"]`).first().click();
+  // Archived v1 boards remain restorable; the public classic card now opens team setup.
+  if (mode === 'classic') await page.evaluate(() => makeSetup('classic'));
+  else await page.locator(`[data-action="setup"][data-mode="${mode}"]`).first().click();
   if (cats) {
     const selected = (await state(page)).setup.cats;
     for (const id of [...new Set([...selected, ...cats])]) {
@@ -66,7 +68,7 @@ async function choose(page, correct = true, keyboard = false) {
     if (!correct) index = 1 - index;
   }
   if (a.format === 'text') {
-    const text = correct ? a.label.replace(/[أإآٱ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي') : 'إجابة خاطئة عمدًا';
+    const text = correct ? a.label.replace(/[أإآٱ]/g, 'ا') : 'إجابة خاطئة عمدًا';
     await page.locator('#written-answer').fill(`  ${text}  `);
     await page.locator('#written-answer').press('Enter');
   } else if (keyboard) {
@@ -161,7 +163,7 @@ async function complete(page, mode) {
     await context.close();
   });
   for (const mode of ['solo', 'quick', 'classic', 'images', 'survival', 'practice', 'duo', 'tournament']) {
-    await run(`complete mode: ${mode}`, async () => {
+    await run(mode === 'classic' ? 'archived v1 classic compatibility: complete saved-board format' : `complete mode: ${mode}`, async () => {
       const { page, context } = await fresh();
       await start(page, mode);
       if (mode === 'classic') {
@@ -174,7 +176,8 @@ async function complete(page, mode) {
       if (mode === 'images') {
         await page.locator('.question-media img').waitFor({ state: 'visible' });
         await page.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth > 0));
-        assert((await currentAnswer(page)).image.startsWith('flag-'));
+        assert(await page.evaluate(() => !!VISUALS[session.current && QUESTION_MAP.get(session.current.id).image]), 'Every visual clue must resolve to embedded media');
+        assert((await page.locator('.question-media img').getAttribute('src')).startsWith('data:image/'));
         await page.locator('[data-action="zoom"]').click();
         assert(await page.locator('.zoom-image').isVisible());
         await page.locator('[data-action="close-dialog"]').first().click();
@@ -185,9 +188,9 @@ async function complete(page, mode) {
       await context.close();
     });
   }
-  await run('classic category counts and exhausted series guard', async () => {
+  await run('archived v1 classic compatibility: category counts and exhausted series guard', async () => {
     const { page, context } = await fresh();
-    await page.locator('[data-mode="classic"]').first().click();
+    await page.evaluate(() => makeSetup('classic'));
     await page.locator('[data-action="toggle-category"][data-id="games"]').click();
     assert(await page.locator('[data-action="start"]').isDisabled());
     await page.locator('[data-action="toggle-category"][data-id="geo"]').click();
@@ -273,7 +276,7 @@ async function complete(page, mode) {
     assert.equal((await state(one.page)).session.current.paused, true);
     await one.context.close();
     const two = await fresh();
-    assert.equal(await two.page.evaluate(() => SeenDiagnostics.normalizeArabic(' إِجَابَةٌ  أُخْرَى ١٢ ')), 'اجابه اخري 12');
+    assert.equal(await two.page.evaluate(() => SeenDiagnostics.normalizeArabic(' إِجَابَةٌ  أُخْرَى ١٢ ')), 'اجابة اخرى 12');
     await start(two.page, 'solo', { format: 'text', cats: ['football'] });
     assert(await two.page.locator('[data-helper="fifty"]').isDisabled());
     await choose(two.page);
@@ -391,7 +394,7 @@ async function complete(page, mode) {
     await page.screenshot({ path: '/tmp/seen-settings-light-phone.png', fullPage: true });
     await context.close();
   });
-  await run('6-category board at phone and tablet sizes without document overflow', async () => {
+  await run('archived v1 classic compatibility: 6-category board at phone and tablet sizes', async () => {
     const { page, context } = await fresh({ width: 412, height: 915 });
     await start(page, 'classic', { cats: ['anime', 'football', 'geo', 'games', 'prophets', 'seerah'] });
     assert.equal((await state(page)).session.board.length, 36);
@@ -416,13 +419,13 @@ async function complete(page, mode) {
     assert.deepEqual(final.session.players.map(p => p.answered), [5, 5, 5]);
     await context.close();
   });
-  await run('insufficient classic filter preserves saved session', async () => {
+  await run('archived v1 classic compatibility: insufficient filter preserves saved session', async () => {
     const { page, context } = await fresh();
     await start(page, 'solo');
     await choose(page);
     const saved = (await state(page)).session.id;
     await nav(page, 'home');
-    await page.locator('[data-mode="classic"]').first().click();
+    await page.evaluate(() => makeSetup('classic'));
     for (const id of ['geo', 'games']) await page.locator(`[data-action="toggle-category"][data-id="${id}"]`).click();
     await page.locator('#series').selectOption('Solo Leveling');
     assert(await page.locator('[data-action="start"]').isDisabled());

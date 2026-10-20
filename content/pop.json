@@ -23,7 +23,8 @@
     "tags": [
       "Naruto"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-002",
@@ -49,7 +50,8 @@
     "tags": [
       "Naruto"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-003",
@@ -75,7 +77,8 @@
     "tags": [
       "Naruto"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-004",
@@ -101,7 +104,8 @@
     "tags": [
       "Naruto Shippuden"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-005",
@@ -127,7 +131,8 @@
     "tags": [
       "Naruto Shippuden"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-006",
@@ -153,7 +158,8 @@
     "tags": [
       "Naruto Shippuden"
     ],
-    "version": 1
+    "version": 1,
+    "points": 600
   },
   {
     "id": "anime-007",
@@ -179,7 +185,8 @@
     "tags": [
       "One Piece"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-008",
@@ -205,7 +212,8 @@
     "tags": [
       "One Piece"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-009",
@@ -231,7 +239,8 @@
     "tags": [
       "One Piece"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-010",
@@ -257,7 +266,8 @@
     "tags": [
       "One Piece"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-011",
@@ -283,7 +293,8 @@
     "tags": [
       "One Piece"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-012",
@@ -309,7 +320,8 @@
     "tags": [
       "One Piece"
     ],
-    "version": 1
+    "version": 1,
+    "points": 600
   },
   {
     "id": "anime-013",
@@ -335,7 +347,8 @@
     "tags": [
       "Dragon Ball"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-014",
@@ -361,7 +374,8 @@
     "tags": [
       "Dragon Ball"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-015",
@@ -387,7 +401,8 @@
     "tags": [
       "Dragon Ball"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-016",
@@ -413,7 +428,8 @@
     "tags": [
       "Dragon Ball"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-017",
@@ -439,7 +455,8 @@
     "tags": [
       "Bleach"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-018",
@@ -465,7 +482,8 @@
     "tags": [
       "Bleach"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-019",
@@ -491,7 +509,8 @@
     "tags": [
       "Bleach"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-020",
@@ -517,7 +536,8 @@
     "tags": [
       "Bleach"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-021",
@@ -543,7 +563,8 @@
     "tags": [
       "Attack on Titan"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-022",
@@ -569,7 +590,8 @@
     "tags": [
       "Attack on Titan"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-023",
@@ -595,7 +617,8 @@
     "tags": [
       "Attack on Titan"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-024",
@@ -621,7 +644,8 @@
     "tags": [
       "Attack on Titan"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-025",
@@ -647,7 +671,8 @@
     "tags": [
       "Demon Slayer"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-026",
@@ -673,7 +698,8 @@
     "tags": [
       "Demon Slayer"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-027",
@@ -699,7 +725,8 @@
     "tags": [
       "Demon Slayer"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-028",
@@ -725,7 +752,8 @@
     "tags": [
       "Demon Slayer"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-029",
@@ -751,7 +779,8 @@
     "tags": [
       "Jujutsu Kaisen"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-030",
@@ -777,7 +806,8 @@
     "tags": [
       "Jujutsu Kaisen"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-031",
@@ -803,7 +833,8 @@
     "tags": [
       "Jujutsu Kaisen"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-032",
@@ -829,7 +860,8 @@
     "tags": [
       "Jujutsu Kaisen"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-033",
@@ -855,7 +887,8 @@
     "tags": [
       "Hunter x Hunter"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-034",
@@ -881,7 +914,8 @@
     "tags": [
       "Hunter x Hunter"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-035",
@@ -907,7 +941,8 @@
     "tags": [
       "Hunter x Hunter"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-036",
@@ -933,7 +968,8 @@
     "tags": [
       "Hunter x Hunter"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-037",
@@ -959,7 +995,8 @@
     "tags": [
       "Death Note"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-038",
@@ -985,7 +1022,8 @@
     "tags": [
       "Death Note"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-039",
@@ -1011,7 +1049,8 @@
     "tags": [
       "Death Note"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-040",
@@ -1037,7 +1076,8 @@
     "tags": [
       "Death Note"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-041",
@@ -1063,7 +1103,8 @@
     "tags": [
       "Solo Leveling"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-042",
@@ -1089,7 +1130,8 @@
     "tags": [
       "Solo Leveling"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-043",
@@ -1115,7 +1157,8 @@
     "tags": [
       "Solo Leveling"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-044",
@@ -1141,7 +1184,8 @@
     "tags": [
       "Solo Leveling"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-045",
@@ -1167,7 +1211,8 @@
     "tags": [
       "Fullmetal Alchemist"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "anime-046",
@@ -1193,7 +1238,8 @@
     "tags": [
       "Fullmetal Alchemist"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-047",
@@ -1219,7 +1265,8 @@
     "tags": [
       "Fullmetal Alchemist"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-048",
@@ -1245,7 +1292,8 @@
     "tags": [
       "Fullmetal Alchemist"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-049",
@@ -1271,7 +1319,8 @@
     "tags": [
       "Fullmetal Alchemist"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "anime-050",
@@ -1297,7 +1346,8 @@
     "tags": [
       "Fullmetal Alchemist"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-001",
@@ -1323,7 +1373,8 @@
     "tags": [
       "Mario"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-002",
@@ -1349,7 +1400,8 @@
     "tags": [
       "Mario"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-003",
@@ -1375,7 +1427,8 @@
     "tags": [
       "Mario"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-004",
@@ -1401,7 +1454,8 @@
     "tags": [
       "Mario"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-005",
@@ -1427,7 +1481,8 @@
     "tags": [
       "The Legend of Zelda"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-006",
@@ -1453,7 +1508,8 @@
     "tags": [
       "The Legend of Zelda"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-007",
@@ -1479,7 +1535,8 @@
     "tags": [
       "The Legend of Zelda"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-008",
@@ -1505,7 +1562,8 @@
     "tags": [
       "The Legend of Zelda"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-009",
@@ -1531,7 +1589,8 @@
     "tags": [
       "Pokémon"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-010",
@@ -1557,7 +1616,8 @@
     "tags": [
       "Pokémon"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-011",
@@ -1583,7 +1643,8 @@
     "tags": [
       "Pokémon"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-012",
@@ -1609,7 +1670,8 @@
     "tags": [
       "Pokémon"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-013",
@@ -1635,7 +1697,8 @@
     "tags": [
       "Resident Evil"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-014",
@@ -1661,7 +1724,8 @@
     "tags": [
       "Resident Evil"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-015",
@@ -1687,7 +1751,8 @@
     "tags": [
       "Resident Evil"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-016",
@@ -1713,7 +1778,8 @@
     "tags": [
       "Resident Evil"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-017",
@@ -1739,7 +1805,8 @@
     "tags": [
       "God of War"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-018",
@@ -1765,7 +1832,8 @@
     "tags": [
       "God of War"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-019",
@@ -1791,7 +1859,8 @@
     "tags": [
       "God of War"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-020",
@@ -1817,7 +1886,8 @@
     "tags": [
       "God of War"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-021",
@@ -1843,7 +1913,8 @@
     "tags": [
       "Final Fantasy"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-022",
@@ -1869,7 +1940,8 @@
     "tags": [
       "Final Fantasy"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-023",
@@ -1895,7 +1967,8 @@
     "tags": [
       "Final Fantasy"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-024",
@@ -1921,7 +1994,8 @@
     "tags": [
       "Final Fantasy"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-025",
@@ -1947,7 +2021,8 @@
     "tags": [
       "Dynasty Warriors"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-026",
@@ -1973,7 +2048,8 @@
     "tags": [
       "Dynasty Warriors"
     ],
-    "version": 1
+    "version": 1,
+    "points": 600
   },
   {
     "id": "games-027",
@@ -1999,7 +2075,8 @@
     "tags": [
       "Dynasty Warriors"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-028",
@@ -2025,7 +2102,8 @@
     "tags": [
       "Dynasty Warriors"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-029",
@@ -2051,7 +2129,8 @@
     "tags": [
       "PlayStation"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-030",
@@ -2077,7 +2156,8 @@
     "tags": [
       "PlayStation"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-031",
@@ -2103,7 +2183,8 @@
     "tags": [
       "PlayStation"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-032",
@@ -2129,7 +2210,8 @@
     "tags": [
       "PlayStation"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-033",
@@ -2155,7 +2237,8 @@
     "tags": [
       "Nintendo"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-034",
@@ -2181,7 +2264,8 @@
     "tags": [
       "Nintendo"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-035",
@@ -2207,7 +2291,8 @@
     "tags": [
       "Nintendo"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-036",
@@ -2233,7 +2318,8 @@
     "tags": [
       "Nintendo"
     ],
-    "version": 1
+    "version": 1,
+    "points": 600
   },
   {
     "id": "games-037",
@@ -2259,7 +2345,8 @@
     "tags": [
       "ألعاب الحاسوب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-038",
@@ -2285,7 +2372,8 @@
     "tags": [
       "ألعاب الحاسوب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-039",
@@ -2311,7 +2399,8 @@
     "tags": [
       "ألعاب الحاسوب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-040",
@@ -2337,7 +2426,8 @@
     "tags": [
       "ألعاب الحاسوب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 600
   },
   {
     "id": "games-041",
@@ -2363,7 +2453,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-042",
@@ -2389,7 +2480,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-043",
@@ -2415,7 +2507,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-044",
@@ -2441,7 +2534,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 600
   },
   {
     "id": "games-045",
@@ -2467,7 +2561,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-046",
@@ -2493,7 +2588,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-047",
@@ -2519,7 +2615,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   },
   {
     "id": "games-048",
@@ -2545,7 +2642,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-049",
@@ -2571,7 +2669,8 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 200
   },
   {
     "id": "games-050",
@@ -2597,6 +2696,7 @@
     "tags": [
       "تاريخ الألعاب"
     ],
-    "version": 1
+    "version": 1,
+    "points": 400
   }
 ]

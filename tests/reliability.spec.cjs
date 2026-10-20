@@ -45,7 +45,9 @@ async function muted(page) {
   await page.evaluate(() => { prefs.sound = 0; prefs.music = 0; prefs.reduced = true; prefs.timer = false; applyPrefs(); });
 }
 async function begin(page, mode = 'solo') {
-  await page.locator(`[data-action="setup"][data-mode="${mode}"]`).first().click();
+  // Exercise only restored v1 board compatibility here; current team boards have their own suite.
+  if (mode === 'classic') await page.evaluate(() => makeSetup('classic'));
+  else await page.locator(`[data-action="setup"][data-mode="${mode}"]`).first().click();
   await page.locator('[data-action="start"]').click();
   assert.equal((await state(page)).route, 'play');
 }
@@ -72,12 +74,14 @@ async function run(name, test) {
   await run('Arabic normalization handles marks, hamza, tatweel, digits and proper names', async () => {
     const { page, context } = await fresh();
     const pairs = [
-      ['إِبْرَاهِيم', 'ابراهيم'], ['مُوسَى', 'موسي'], ['فَاطِمَة', 'فاطمه'],
+      ['إِبْرَاهِيم', 'ابراهيم'], ['مُوسَى', 'موسى'], ['فَاطِمَة', 'فاطمة'],
       ['خــالــد', 'خالد'], ['  أَبو   بَكر  ', 'ابو بكر'], ['١٢٣ ۴۵۶', '123 456'],
       ['NARUTO-SHIPPUDEN', 'naruto shippuden'], ['بِسْمِ ٱللَّهِ', 'بسم الله']
     ];
     for (const [value, expected] of pairs) assert.equal(await page.evaluate(v => normalizeArabic(v), value), expected);
     assert.notEqual(await page.evaluate(() => normalizeArabic('علي')), await page.evaluate(() => normalizeArabic('عمر')));
+    assert.notEqual(await page.evaluate(() => normalizeArabic('على')), await page.evaluate(() => normalizeArabic('علي')), 'Preserve distinct ى and ي');
+    assert.notEqual(await page.evaluate(() => normalizeArabic('فاطمة')), await page.evaluate(() => normalizeArabic('فاطمه')), 'Preserve distinct ة and ه');
     await context.close();
   });
 
@@ -210,7 +214,7 @@ async function run(name, test) {
     await context.close();
   });
 
-  await run('import requires confirmation, sanitizes names and duplicate favorites, and ignores external sessions', async () => {
+  await run('import confirmation and sanitization preserve archived v1 classic compatibility', async () => {
     const { page, context } = await fresh();
     await muted(page);
     const data = await snapshot(page);
