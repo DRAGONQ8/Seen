@@ -1,0 +1,3 @@
+FILE WORKFLOW Not executed: managed browser blocks file:// navigation
+PASS responsive board/question/reveal at portrait, landscape/tablets and 130% text, no action overlap
+{"passed":1,"failed":0,"report":"/tmp/seen-team-browser-focused-report.json"}

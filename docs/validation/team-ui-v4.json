@@ -1,0 +1,54 @@
+{
+  "testURL": "http://127.0.0.1:8765/index.html",
+  "environment": "Chromium touch/viewport emulation; no real-device testing",
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "solo has no navigation or executable setup path in the generated application",
+      "ok": true
+    },
+    {
+      "name": "category favorites work by keyboard, filter correctly, and survive reload",
+      "ok": true
+    },
+    {
+      "name": "team name presets and classic/enhanced assistance choices leave valid team configurations",
+      "ok": true
+    },
+    {
+      "name": "challenge and visual variants use the shared match engine with explicit host rules",
+      "ok": true
+    },
+    {
+      "name": "custom two-category match with selected point values scores, reloads, and fits mobile",
+      "ok": true
+    },
+    {
+      "name": "one-hand host controls remain usable in portrait/landscape and reveal exactly three awards",
+      "ok": true
+    },
+    {
+      "name": "malformed structured question imports never change the local bank or edits",
+      "ok": true
+    },
+    {
+      "name": "bundled ordering, multipart, and logic formats give explicit instructions, canonical answers, and judging",
+      "ok": true
+    },
+    {
+      "name": "progressive clue disclosure works by keyboard and survives reload without leaking the answer",
+      "ok": true
+    },
+    {
+      "name": "identical saved-storage notifications after reload do not block the host, while different writes still lock",
+      "ok": true
+    },
+    {
+      "name": "V4 host UX has no uncaught runtime errors or external gameplay requests",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "network": []
+}

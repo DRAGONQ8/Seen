@@ -1,0 +1,366 @@
+{
+  "passed": 16,
+  "failed": 0,
+  "skipped": 0,
+  "checks": [
+    {
+      "name": "Classic defaults to 36 unique positions and tile selection immediately opens the question",
+      "ok": true
+    },
+    {
+      "name": "Blue 200, Gold 400 and Nobody 600 each resolve in one tap without a result screen",
+      "ok": true
+    },
+    {
+      "name": "opposing-team award after ordinary reveal is a steal only when enabled, without an invented wrong attempt",
+      "ok": true
+    },
+    {
+      "name": "one-tap Undo reverses Blue, Gold and Nobody outcomes, tile completion and turn progression",
+      "ok": true
+    },
+    {
+      "name": "rapid double taps and stale result tokens cannot award twice, including after reload and Undo",
+      "ok": true
+    },
+    {
+      "name": "double-points preview and one-tap settlement are exactly 400 for a 200 question",
+      "ok": true
+    },
+    {
+      "name": "double-points preview and one-tap settlement are exactly 800 for a 400 question",
+      "ok": true
+    },
+    {
+      "name": "double-points preview and one-tap settlement are exactly 1200 for a 600 question",
+      "ok": true
+    },
+    {
+      "name": "Pit prearming resolves award and deduction atomically; Undo refunds helper and reverses both teams",
+      "ok": true
+    },
+    {
+      "name": "Trap failure applies only its configured deduction and Undo refunds delegation without inventing attempts",
+      "ok": true
+    },
+    {
+      "name": "timer expiry is nonblocking and Nobody completes the expired question without fabricated incorrect answers",
+      "ok": true
+    },
+    {
+      "name": "storage denial retains a live scored match and exports/imports a base64 UTF8 encoded host resume file",
+      "ok": true
+    },
+    {
+      "name": "complete all 36 questions with direct settlement: winner",
+      "ok": true
+    },
+    {
+      "name": "complete all 36 questions with direct settlement: tie",
+      "ok": true
+    },
+    {
+      "name": "three result choices remain readable and keyboard-operable across phone/tablet orientations and 130% text",
+      "ok": true
+    },
+    {
+      "name": "no uncaught runtime errors or external runtime requests",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "layouts": [
+    {
+      "label": "320x780 text100",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 108,
+          "height": 96.4375,
+          "left": 164,
+          "right": 272
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 108,
+          "height": 96.4375,
+          "left": 48,
+          "right": 156
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 224,
+          "height": 45,
+          "left": 48,
+          "right": 272
+        }
+      ]
+    },
+    {
+      "label": "412x915 text100",
+      "width": 412,
+      "scroll": 412,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 154,
+          "height": 73.640625,
+          "left": 210,
+          "right": 364
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 154,
+          "height": 73.640625,
+          "left": 48,
+          "right": 202
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 316,
+          "height": 45,
+          "left": 48,
+          "right": 364
+        }
+      ]
+    },
+    {
+      "label": "915x412 text100",
+      "width": 915,
+      "scroll": 915,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 252.328125,
+          "height": 62.875,
+          "left": 593.671875,
+          "right": 846
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 252.328125,
+          "height": 62.875,
+          "left": 331.34375,
+          "right": 583.671875
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 252.328125,
+          "height": 62.875,
+          "left": 69.015625,
+          "right": 321.34375
+        }
+      ]
+    },
+    {
+      "label": "1024x1536 text100",
+      "width": 1024,
+      "scroll": 1024,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 270,
+          "height": 86.796875,
+          "left": 657,
+          "right": 927
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 270,
+          "height": 86.796875,
+          "left": 377,
+          "right": 647
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 270,
+          "height": 86.796875,
+          "left": 97,
+          "right": 367
+        }
+      ]
+    },
+    {
+      "label": "1536x1024 text100",
+      "width": 1536,
+      "scroll": 1536,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 270,
+          "height": 86.796875,
+          "left": 794,
+          "right": 1064
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 270,
+          "height": 86.796875,
+          "left": 514,
+          "right": 784
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 270,
+          "height": 86.796875,
+          "left": 234,
+          "right": 504
+        }
+      ]
+    },
+    {
+      "label": "320x780 text130",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 108,
+          "height": 96.4375,
+          "left": 164,
+          "right": 272
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 108,
+          "height": 96.4375,
+          "left": 48,
+          "right": 156
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 224,
+          "height": 45,
+          "left": 48,
+          "right": 272
+        }
+      ]
+    },
+    {
+      "label": "412x915 text130",
+      "width": 412,
+      "scroll": 412,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 154,
+          "height": 87.90625,
+          "left": 210,
+          "right": 364
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 154,
+          "height": 87.90625,
+          "left": 48,
+          "right": 202
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 316,
+          "height": 52.28125,
+          "left": 48,
+          "right": 364
+        }
+      ]
+    },
+    {
+      "label": "915x412 text130",
+      "width": 915,
+      "scroll": 915,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 252.328125,
+          "height": 76.328125,
+          "left": 593.671875,
+          "right": 846
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 252.328125,
+          "height": 76.328125,
+          "left": 331.34375,
+          "right": 583.671875
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 252.328125,
+          "height": 76.328125,
+          "left": 69.015625,
+          "right": 321.34375
+        }
+      ]
+    },
+    {
+      "label": "1024x1536 text130",
+      "width": 1024,
+      "scroll": 1024,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 270,
+          "height": 103.25,
+          "left": 657,
+          "right": 927
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 270,
+          "height": 103.25,
+          "left": 377,
+          "right": 647
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 270,
+          "height": 103.25,
+          "left": 97,
+          "right": 367
+        }
+      ]
+    },
+    {
+      "label": "1536x1024 text130",
+      "width": 1536,
+      "scroll": 1536,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق\n+600",
+          "width": 270,
+          "height": 103.25,
+          "left": 794,
+          "right": 1064
+        },
+        {
+          "text": "🏆 الفريق الذهبي\n+600",
+          "width": 270,
+          "height": 103.25,
+          "left": 514,
+          "right": 784
+        },
+        {
+          "text": "⚪ محد جاوب صح\n0",
+          "width": 270,
+          "height": 103.25,
+          "left": 234,
+          "right": 504
+        }
+      ]
+    }
+  ],
+  "environment": "Chromium touch emulation; not physical Samsung hardware"
+}

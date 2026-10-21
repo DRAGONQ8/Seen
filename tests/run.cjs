@@ -14,7 +14,7 @@ function command(name,args){return new Promise(resolve=>{const child=spawn(name,
   catch{server=spawn('python',['-m','http.server','8765','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});for(let i=0;i<40;i++){try{const r=await fetch('http://127.0.0.1:8765/index.html');if(r.ok)break;}catch{}await new Promise(resolve=>setTimeout(resolve,100));}}
  }
  const commands=[['python',['-m','unittest','discover','-s','tests','-p','test_*.py']],
-  ...['team-engine','team-content','solo-v3','v3-media','one-tap','game','reliability','team-browser','solo-v3-browser','v3-team-ui','v3-build-browser','accessibility','team-accessibility'].map(name=>['node',[`tests/${name}.spec.cjs`]]),
+  ...['team-engine','v4-engine','team-content','v3-media','one-tap','team-browser','v3-team-ui','v3-build-browser','v4-ui','v4-browser','team-accessibility'].map(name=>['node',[`tests/${name}.spec.cjs`]]),
   ['node',['tests/team-content.spec.cjs','--browser']],['node',['tests/v3-media.spec.cjs','--browser']]];
  for(const [name,args]of commands){console.log('\nRUN',name,...args);results.push(await command(name,args));}
  await fs.writeFile('/tmp/seen-release-suites.json',JSON.stringify({results,passed:results.filter(r=>r.code===0).length,failed:results.filter(r=>r.code!==0).length},null,2));

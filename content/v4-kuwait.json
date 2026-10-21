@@ -1,0 +1,1053 @@
+[
+  {
+    "id": "v4-kwt-001",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما اسم العملة الرسمية لدولة الكويت؟",
+    "options": [
+      "الريال الكويتي",
+      "الدرهم الكويتي",
+      "الليرة الكويتية",
+      "الدينار الكويتي"
+    ],
+    "answer": 3,
+    "correctAnswer": "الدينار الكويتي",
+    "acceptedAnswers": [
+      "دينار"
+    ],
+    "explanation": "العملة الرسمية للكويت هي الدينار الكويتي.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "reference": "Currency"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "referenceUrl": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "section": "Currency",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-001"
+    }
+  },
+  {
+    "id": "v4-kwt-002",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما عاصمة دولة الكويت؟",
+    "options": [
+      "الأحمدي",
+      "حولي",
+      "مدينة الكويت",
+      "الجهراء"
+    ],
+    "answer": 2,
+    "correctAnswer": "مدينة الكويت",
+    "acceptedAnswers": [
+      "الكويت"
+    ],
+    "explanation": "مدينة الكويت هي عاصمة دولة الكويت.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "reference": "Capital City"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "referenceUrl": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "section": "Capital City",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-002"
+    }
+  },
+  {
+    "id": "v4-kwt-003",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "في أي يوم وشهر تحتفل الكويت بالعيد الوطني؟",
+    "options": [
+      "2 أغسطس",
+      "25 فبراير",
+      "26 فبراير",
+      "19 يونيو"
+    ],
+    "answer": 1,
+    "correctAnswer": "25 فبراير",
+    "acceptedAnswers": [
+      "25/2",
+      "25 فبراير من كل عام"
+    ],
+    "explanation": "يوافق العيد الوطني للكويت 25 فبراير؛ السؤال عن العيد الوطني تحديدًا.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "reference": "National Day"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "referenceUrl": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "section": "National Day",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-003"
+    }
+  },
+  {
+    "id": "v4-kwt-004",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما اللغة الرسمية لدولة الكويت؟",
+    "options": [
+      "العربية",
+      "الإنجليزية",
+      "الفارسية",
+      "الفرنسية"
+    ],
+    "answer": 0,
+    "correctAnswer": "العربية",
+    "acceptedAnswers": [
+      "اللغة العربية"
+    ],
+    "explanation": "اللغة الرسمية لدولة الكويت هي العربية.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "reference": "Religion and Language"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "referenceUrl": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "section": "Religion and Language",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-004"
+    }
+  },
+  {
+    "id": "v4-kwt-005",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما مفتاح الاتصال الدولي لدولة الكويت؟",
+    "options": [
+      "+966",
+      "+973",
+      "+974",
+      "+965"
+    ],
+    "answer": 3,
+    "correctAnswer": "+965",
+    "acceptedAnswers": [
+      "965",
+      "00965"
+    ],
+    "explanation": "مفتاح الاتصال الدولي للكويت هو +965.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "reference": "Telephone Code"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "referenceUrl": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "section": "Telephone Code",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-005"
+    }
+  },
+  {
+    "id": "v4-kwt-006",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "كم عدد محافظات دولة الكويت؟",
+    "options": [
+      "7",
+      "8",
+      "6",
+      "5"
+    ],
+    "answer": 2,
+    "correctAnswer": "6",
+    "acceptedAnswers": [
+      "ست",
+      "ست محافظات"
+    ],
+    "explanation": "تتكون الكويت من 6 محافظات: العاصمة وحولي والفروانية والأحمدي ومبارك الكبير والجهراء.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "reference": "Administrative Distribution"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — حقائق الكويت",
+      "referenceUrl": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+      "section": "Administrative Distribution",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-006"
+    }
+  },
+  {
+    "id": "v4-kwt-007",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "من لحّن النشيد الوطني الكويتي الحالي؟",
+    "options": [
+      "شادي الخليج",
+      "إبراهيم الصولة",
+      "عبد الله الرويشد",
+      "عبد الكريم عبد القادر"
+    ],
+    "answer": 1,
+    "correctAnswer": "إبراهيم الصولة",
+    "acceptedAnswers": [
+      "ابراهيم الصولة"
+    ],
+    "explanation": "لحّن إبراهيم الصولة النشيد الوطني الكويتي، ووزعه أحمد علي.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — النشيد الوطني",
+      "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+      "reference": "The National Anthem"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — النشيد الوطني",
+      "referenceUrl": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+      "section": "The National Anthem",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-007"
+    }
+  },
+  {
+    "id": "v4-kwt-008",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "كم فلسًا يساوي الدينار الكويتي الواحد؟",
+    "options": [
+      "1000",
+      "100",
+      "500",
+      "10"
+    ],
+    "answer": 0,
+    "correctAnswer": "1000",
+    "acceptedAnswers": [
+      "ألف فلس",
+      "1000 فلس"
+    ],
+    "explanation": "ينقسم الدينار الكويتي الواحد إلى 1000 فلس.",
+    "source": {
+      "title": "بنك الكويت المركزي — مقدمة الأوراق النقدية",
+      "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بنك الكويت المركزي — مقدمة الأوراق النقدية",
+      "referenceUrl": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-008"
+    }
+  },
+  {
+    "id": "v4-kwt-009",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما العملة التي حلّ الدينار الكويتي محلها عند بدء تداوله عام 1961 بحسب بنك الكويت المركزي؟",
+    "options": [
+      "الليرة العثمانية",
+      "الريال السعودي",
+      "الدرهم الإماراتي",
+      "الروبية الهندية"
+    ],
+    "answer": 3,
+    "correctAnswer": "الروبية الهندية",
+    "acceptedAnswers": [
+      "الروبية"
+    ],
+    "explanation": "بدأ تداول الإصدار الأول من الدينار في 1 أبريل 1961 بدلًا من الروبية الهندية المتداولة آنذاك.",
+    "source": {
+      "title": "بنك الكويت المركزي — الإصدار الأول",
+      "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+      "reference": "First Issue"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بنك الكويت المركزي — الإصدار الأول",
+      "referenceUrl": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+      "section": "First Issue",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-009"
+    }
+  },
+  {
+    "id": "v4-kwt-010",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي حقل اكتُشف النفط بكميات تجارية في الكويت عام 1938؟",
+    "options": [
+      "الصابرية",
+      "الرتقة",
+      "برقان",
+      "الروضتين"
+    ],
+    "answer": 2,
+    "correctAnswer": "برقان",
+    "acceptedAnswers": [
+      "حقل برقان",
+      "Burgan"
+    ],
+    "explanation": "عُثر على النفط بكميات تجارية في حقل برقان عام 1938.",
+    "source": {
+      "title": "شركة نفط الكويت — تاريخنا",
+      "url": "https://www.kockw.com/sites/AR/Pages/Profile/whoAreWe/KOC-History.aspx",
+      "reference": "تاريخنا"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "شركة نفط الكويت — تاريخنا",
+      "referenceUrl": "https://www.kockw.com/sites/AR/Pages/Profile/whoAreWe/KOC-History.aspx",
+      "section": "تاريخنا",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-010"
+    }
+  },
+  {
+    "id": "v4-kwt-011",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي عام صدّرت الكويت أول شحنة من النفط الخام؟",
+    "options": [
+      "1961",
+      "1946",
+      "1934",
+      "1938"
+    ],
+    "answer": 1,
+    "correctAnswer": "1946",
+    "acceptedAnswers": [
+      "عام 1946"
+    ],
+    "explanation": "صدّرت الكويت أول شحنة نفط خام في يونيو 1946.",
+    "source": {
+      "title": "شركة نفط الكويت — تاريخنا",
+      "url": "https://www.kockw.com/sites/AR/Pages/Profile/whoAreWe/KOC-History.aspx",
+      "reference": "تاريخنا"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "شركة نفط الكويت — تاريخنا",
+      "referenceUrl": "https://www.kockw.com/sites/AR/Pages/Profile/whoAreWe/KOC-History.aspx",
+      "section": "تاريخنا",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-011"
+    }
+  },
+  {
+    "id": "v4-kwt-012",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي عام انضمت الكويت إلى الأمم المتحدة؟",
+    "options": [
+      "1963",
+      "1961",
+      "1965",
+      "1971"
+    ],
+    "answer": 0,
+    "correctAnswer": "1963",
+    "acceptedAnswers": [
+      "عام 1963"
+    ],
+    "explanation": "اعتمدت الجمعية العامة قرار قبول الكويت عضوًا في الأمم المتحدة في 14 مايو 1963.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — الكويت والأمم المتحدة",
+      "url": "https://www.kuwaitmissionun.org/about-un.html",
+      "reference": "General Assembly Membership"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — الكويت والأمم المتحدة",
+      "referenceUrl": "https://www.kuwaitmissionun.org/about-un.html",
+      "section": "General Assembly Membership",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-012"
+    }
+  },
+  {
+    "id": "v4-kwt-013",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي عام بُث النشيد الوطني الكويتي الحالي لأول مرة؟",
+    "options": [
+      "1961",
+      "1951",
+      "1986",
+      "1978"
+    ],
+    "answer": 3,
+    "correctAnswer": "1978",
+    "acceptedAnswers": [
+      "عام 1978"
+    ],
+    "explanation": "بُث النشيد الوطني الحالي لأول مرة في 25 فبراير 1978.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — النشيد الوطني",
+      "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+      "reference": "The National Anthem"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — النشيد الوطني",
+      "referenceUrl": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+      "section": "The National Anthem",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-013"
+    }
+  },
+  {
+    "id": "v4-kwt-014",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي عام طُرح الإصدار الأول من الدينار الكويتي للتداول؟",
+    "options": [
+      "1969",
+      "1978",
+      "1961",
+      "1968"
+    ],
+    "answer": 2,
+    "correctAnswer": "1961",
+    "acceptedAnswers": [
+      "عام 1961"
+    ],
+    "explanation": "طُرح الإصدار الأول من الدينار الكويتي للتداول في 1 أبريل 1961.",
+    "source": {
+      "title": "بنك الكويت المركزي — الإصدار الأول",
+      "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+      "reference": "First Issue"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بنك الكويت المركزي — الإصدار الأول",
+      "referenceUrl": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+      "section": "First Issue",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-014"
+    }
+  },
+  {
+    "id": "v4-kwt-015",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما تاريخ طرح الإصدار السادس من الأوراق النقدية الكويتية للتداول؟",
+    "options": [
+      "25 فبراير 1978",
+      "29 يونيو 2014",
+      "1 أبريل 1961",
+      "1 أبريل 1969"
+    ],
+    "answer": 1,
+    "correctAnswer": "29 يونيو 2014",
+    "acceptedAnswers": [
+      "29/6/2014"
+    ],
+    "explanation": "طُرح الإصدار السادس للتداول في 29 يونيو 2014.",
+    "source": {
+      "title": "بنك الكويت المركزي — مقدمة الأوراق النقدية",
+      "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بنك الكويت المركزي — مقدمة الأوراق النقدية",
+      "referenceUrl": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-015"
+    }
+  },
+  {
+    "id": "v4-kwt-016",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "رتّب هذه المحطات في تاريخ النفط الكويتي من الأقدم إلى الأحدث.",
+    "options": [
+      "تأسيس شركة نفط الكويت، ثم اكتشاف النفط تجاريًا في برقان، ثم تصدير أول شحنة نفط خام",
+      "تصدير أول شحنة نفط خام، ثم تأسيس شركة نفط الكويت، ثم اكتشاف النفط تجاريًا في برقان",
+      "اكتشاف النفط تجاريًا في برقان، ثم تصدير أول شحنة نفط خام، ثم تأسيس شركة نفط الكويت",
+      "تأسيس شركة نفط الكويت، ثم تصدير أول شحنة نفط خام، ثم اكتشاف النفط تجاريًا في برقان"
+    ],
+    "answer": 0,
+    "correctAnswer": "تأسيس شركة نفط الكويت، ثم اكتشاف النفط تجاريًا في برقان، ثم تصدير أول شحنة نفط خام",
+    "acceptedAnswers": [],
+    "explanation": "تأسست شركة نفط الكويت عام 1934، واكتُشف النفط التجاري في برقان عام 1938، ثم صُدّرت أول شحنة عام 1946.",
+    "source": {
+      "title": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "url": "https://www.kpc.com.kw/OilHistory",
+      "reference": "1934 / 1938 / 1946"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "ordering",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "referenceUrl": "https://www.kpc.com.kw/OilHistory",
+      "section": "1934 / 1938 / 1946",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-016"
+    },
+    "items": [
+      "تصدير أول شحنة نفط خام",
+      "تأسيس شركة نفط الكويت",
+      "اكتشاف النفط تجاريًا في برقان"
+    ],
+    "correctOrder": [
+      "تأسيس شركة نفط الكويت",
+      "اكتشاف النفط تجاريًا في برقان",
+      "تصدير أول شحنة نفط خام"
+    ],
+    "instructions": "رتّب الأحداث من الأقدم إلى الأحدث. يمكن للمضيف تقييم الترتيب المنطوق كاملًا.",
+    "judging": "تُمنح النقاط فقط عند ذكر الأحداث الثلاثة بهذا الترتيب الكامل دون تبديل."
+  },
+  {
+    "id": "v4-kwt-017",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "في أي تاريخ باشر بنك الكويت المركزي أعماله؟",
+    "options": [
+      "1 أبريل 1961",
+      "25 فبراير 1968",
+      "29 يونيو 2014",
+      "1 أبريل 1969"
+    ],
+    "answer": 3,
+    "correctAnswer": "1 أبريل 1969",
+    "acceptedAnswers": [
+      "1/4/1969"
+    ],
+    "explanation": "باشر بنك الكويت المركزي أعماله في 1 أبريل 1969؛ يختلف ذلك عن سنة صدور قانون إنشائه، وهي 1968.",
+    "source": {
+      "title": "بنك الكويت المركزي — الرسالة والأهداف",
+      "url": "https://www.cbk.gov.kw/en/about-cbk/mission-and-objectives",
+      "reference": "Mission & Objectives"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بنك الكويت المركزي — الرسالة والأهداف",
+      "referenceUrl": "https://www.cbk.gov.kw/en/about-cbk/mission-and-objectives",
+      "section": "Mission & Objectives",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-017"
+    }
+  },
+  {
+    "id": "v4-kwt-018",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما أول مصفاة نفط في الكويت بحسب التاريخ المنشور لمؤسسة البترول الكويتية؟",
+    "options": [
+      "مصفاة الزور",
+      "مصفاة الشعيبة",
+      "مصفاة ميناء الأحمدي",
+      "مصفاة ميناء عبد الله"
+    ],
+    "answer": 2,
+    "correctAnswer": "مصفاة ميناء الأحمدي",
+    "acceptedAnswers": [
+      "ميناء الأحمدي"
+    ],
+    "explanation": "تذكر مؤسسة البترول أن مصفاة ميناء الأحمدي، أول مصفاة في الكويت، أُنشئت عام 1949.",
+    "source": {
+      "title": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "url": "https://www.kpc.com.kw/OilHistory",
+      "reference": "1949"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "referenceUrl": "https://www.kpc.com.kw/OilHistory",
+      "section": "1949",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-018"
+    }
+  },
+  {
+    "id": "v4-kwt-019",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما اسم الناقلة التي حملت أول صادرات الكويت من النفط الخام عام 1946؟",
+    "options": [
+      "السور",
+      "بريتش فيوزيلير",
+      "كاظمة",
+      "القرين"
+    ],
+    "answer": 1,
+    "correctAnswer": "بريتش فيوزيلير",
+    "acceptedAnswers": [
+      "British Fusilier",
+      "بريتيش فيوزيلير"
+    ],
+    "explanation": "يذكر التاريخ النفطي لمؤسسة البترول الكويتية الناقلة British Fusilier عند تصدير أول شحنة عام 1946.",
+    "source": {
+      "title": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "url": "https://www.kpc.com.kw/OilHistory",
+      "reference": "1946"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "referenceUrl": "https://www.kpc.com.kw/OilHistory",
+      "section": "1946",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-019"
+    }
+  },
+  {
+    "id": "v4-kwt-020",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما ترتيب الكويت بين الدول الأعضاء عند انضمامها إلى الأمم المتحدة؟",
+    "options": [
+      "111",
+      "101",
+      "121",
+      "131"
+    ],
+    "answer": 0,
+    "correctAnswer": "111",
+    "acceptedAnswers": [
+      "الدولة 111"
+    ],
+    "explanation": "أصبحت الكويت الدولة العضو رقم 111 في الأمم المتحدة عام 1963.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — الكويت والأمم المتحدة",
+      "url": "https://www.kuwaitmissionun.org/about-un.html",
+      "reference": "General Assembly Membership"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — الكويت والأمم المتحدة",
+      "referenceUrl": "https://www.kuwaitmissionun.org/about-un.html",
+      "section": "General Assembly Membership",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-020"
+    }
+  },
+  {
+    "id": "v4-kwt-021",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما أول فترة شغلت فيها الكويت مقعدًا غير دائم في مجلس الأمن؟",
+    "options": [
+      "1963-1964",
+      "1990-1991",
+      "2018-2019",
+      "1978-1979"
+    ],
+    "answer": 3,
+    "correctAnswer": "1978-1979",
+    "acceptedAnswers": [
+      "1978 إلى 1979",
+      "1978 و1979"
+    ],
+    "explanation": "كانت أول عضوية غير دائمة للكويت في مجلس الأمن للفترة 1978-1979، ثم شغلت المقعد مرة أخرى للفترة 2018-2019.",
+    "source": {
+      "title": "وفد دولة الكويت الدائم لدى الأمم المتحدة — الكويت والأمم المتحدة",
+      "url": "https://www.kuwaitmissionun.org/about-un.html",
+      "reference": "Security Council"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "وفد دولة الكويت الدائم لدى الأمم المتحدة — الكويت والأمم المتحدة",
+      "referenceUrl": "https://www.kuwaitmissionun.org/about-un.html",
+      "section": "Security Council",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-021"
+    }
+  },
+  {
+    "id": "v4-kwt-022",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "رتّب هذه المحطات النقدية الكويتية من الأقدم إلى الأحدث.",
+    "options": [
+      "مباشرة بنك الكويت المركزي أعماله، ثم بدء تداول الدينار الكويتي، ثم طرح الإصدار السادس",
+      "بدء تداول الدينار الكويتي، ثم طرح الإصدار السادس، ثم مباشرة بنك الكويت المركزي أعماله",
+      "بدء تداول الدينار الكويتي، ثم مباشرة بنك الكويت المركزي أعماله، ثم طرح الإصدار السادس",
+      "طرح الإصدار السادس، ثم بدء تداول الدينار الكويتي، ثم مباشرة بنك الكويت المركزي أعماله"
+    ],
+    "answer": 2,
+    "correctAnswer": "بدء تداول الدينار الكويتي، ثم مباشرة بنك الكويت المركزي أعماله، ثم طرح الإصدار السادس",
+    "acceptedAnswers": [],
+    "explanation": "بدأ تداول الدينار في 1961، وباشر بنك الكويت المركزي أعماله في 1969، وطُرح الإصدار السادس في 2014.",
+    "source": {
+      "title": "بنك الكويت المركزي — مقدمة الأوراق النقدية",
+      "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "ordering",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "بنك الكويت المركزي — مقدمة الأوراق النقدية",
+      "referenceUrl": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-022"
+    },
+    "items": [
+      "مباشرة بنك الكويت المركزي أعماله",
+      "طرح الإصدار السادس",
+      "بدء تداول الدينار الكويتي"
+    ],
+    "correctOrder": [
+      "بدء تداول الدينار الكويتي",
+      "مباشرة بنك الكويت المركزي أعماله",
+      "طرح الإصدار السادس"
+    ],
+    "instructions": "رتّب المحطات من الأقدم إلى الأحدث؛ يُقبل الترتيب المنطوق الكامل.",
+    "judging": "النقاط للترتيب الصحيح الكامل للأحداث الثلاثة فقط."
+  },
+  {
+    "id": "v4-kwt-023",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "تعرّف إلى الشخصية الكويتية من القرائن المتتابعة.",
+    "options": [
+      "الشيخ صباح الأحمد الصباح",
+      "الشيخ أحمد الجابر الصباح",
+      "الشيخ عبد الله السالم الصباح",
+      "الشيخ جابر الأحمد الصباح"
+    ],
+    "answer": 1,
+    "correctAnswer": "الشيخ أحمد الجابر الصباح",
+    "acceptedAnswers": [
+      "أحمد الجابر",
+      "احمد الجابر الصباح"
+    ],
+    "explanation": "أدار الشيخ أحمد الجابر الصباح العجلة الفضية لبدء تصدير أول شحنة نفط خام كويتية عام 1946.",
+    "source": {
+      "title": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "url": "https://www.kpc.com.kw/OilHistory",
+      "reference": "1946"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "clues",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "مؤسسة البترول الكويتية — التاريخ النفطي",
+      "referenceUrl": "https://www.kpc.com.kw/OilHistory",
+      "section": "1946",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من المرجع الأولي في هذه الجلسة. سجل الدليل: docs/kuwait-source-evidence.json#v4-kwt-023"
+    },
+    "clues": [
+      "حاكم كويتي كان يتولى الحكم عند تصدير أول شحنة نفط خام عام 1946.",
+      "أدار العجلة الفضية إيذانًا ببدء ذلك التصدير."
+    ],
+    "instructions": "اعرض القرائن بالتتابع. تُقبل الإجابة الصحيحة عند أي قرينة.",
+    "judging": "تُمنح النقاط عند تسمية الشيخ أحمد الجابر الصباح؛ الاسم الأول وحده غير كافٍ."
+  },
+  {
+    "id": "v4-kwt-024",
+    "category": "kuwait",
+    "sub": "تاريخ الكويت وثقافتها",
+    "subcategory": "تاريخ الكويت وثقافتها",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "من الشاعر المقصود في القرائن المتتابعة؟",
+    "options": [
+      "أحمد مشاري العدواني",
+      "فهد العسكر",
+      "عبد الله العتيبي",
+      "خالد الفرج"
+    ],
+    "answer": 0,
+    "correctAnswer": "أحمد مشاري العدواني",
+    "acceptedAnswers": [
+      "أحمد العدواني",
+      "احمد مشاري العدواني",
+      "مشاري العدواني"
+    ],
+    "explanation": "الشاعر أحمد مشاري العدواني هو كاتب النشيد الوطني الكويتي. ورد الاسم الكامل في تقرير كونا المنشور بالراي؛ وتؤكد صفحة البعثة الرسمية قرائن النشيد وتاريخ بثه وملحنه.",
+    "source": {
+      "title": "كونا، كما نشرته الراي — مؤلف النشيد الوطني",
+      "url": "https://www.alraimedia.com/article/248663/محليات/الأمير-منح-الصولة-والعدواني-وسام-الكويت-لمناسبة-الأعياد-الوطنية",
+      "reference": "خبر تكريم ملحن النشيد ونجل مؤلفه، 19 أبريل 2011؛ يذكر الاسم الكامل أحمد مشاري العدواني"
+    },
+    "spoiler": false,
+    "tags": [
+      "الكويت",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "clues",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "كونا، كما نشرته الراي — مؤلف النشيد الوطني",
+      "referenceUrl": "https://www.alraimedia.com/article/248663/محليات/الأمير-منح-الصولة-والعدواني-وسام-الكويت-لمناسبة-الأعياد-الوطنية",
+      "section": "خبر تكريم ملحن النشيد ونجل مؤلفه، 19 أبريل 2011؛ يذكر الاسم الكامل أحمد مشاري العدواني",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت قرائن النشيد بصفحة بعثة الكويت الرسمية. استُكمل الاسم الكامل من تقرير كونا المنشور بالراي بعد أن اختصرت البعثة الاسم بالإنجليزية؛ سجل الأدلة يوضح المرجعين."
+    },
+    "clues": [
+      "شاعر كتب نصًا وطنيًا لحّنه إبراهيم الصولة.",
+      "بُث النص الملحّن لأول مرة في 25 فبراير 1978.",
+      "النص هو النشيد الوطني الكويتي الحالي."
+    ],
+    "instructions": "اقرأ القرائن تباعًا للتعرّف إلى الشاعر. لا تنقص النقاط بكشف القرائن.",
+    "judging": "تُقبل مشاري العدواني أو أحمد مشاري العدواني. لا يكفي اسم مشاري وحده."
+  }
+]

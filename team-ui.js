@@ -98,7 +98,7 @@ const TeamUI = (() => {
     recoveryRaw = null,
     recoveryError = "",
     selectedPreset = "custom";
-  let lastTickSound = -1, lastScores = null, armedPitTeam = null, resolutionBusy = false, resolutionToastTimer = null, storageIssue = false, lastScoreTapAt = 0, quietRestore = null, choosingSitout = false;
+  let lastTickSound = -1, lastScores = null, armedPitTeam = null, resolutionBusy = false, resolutionToastTimer = null, storageIssue = false, lastScoreTapAt = 0, quietRestore = null, choosingSitout = false, lastObservedRaw = null;
   const deep = (v) => JSON.parse(JSON.stringify(v));
   const m = () => store.match;
   const active = () => m() && m().state !== "MATCH_COMPLETE";
@@ -108,7 +108,9 @@ const TeamUI = (() => {
   function write() {
     if (locked) return false;
     try {
-      localStorage.setItem(KEY, JSON.stringify(store));
+      const raw=JSON.stringify(store);
+      localStorage.setItem(KEY, raw);
+      lastObservedRaw=raw;
       storageIssue = false;
       return true;
     } catch {
@@ -219,7 +221,7 @@ const TeamUI = (() => {
     if (resolved) {
       const h = next.history[next.history.length - 1];
       if (h.questionId) { progress.seen[h.questionId] = Date.now(); persist(); }
-      if (next.config.sound) sound(h.winner !== null ? "correct" : "wrong");
+      if (next.config.sound) sound(h.winner === null ? "wrong" : h.phase === "steal" ? "steal" : "correct");
       armedPitTeam = null;
     }
     if (action.type === "UNDO" && !next.lastError) {
@@ -271,6 +273,7 @@ const TeamUI = (() => {
     if (next.lastError) { toast(next.lastError); return; }
     armedPitTeam = null;
     presentTransition(old,next,{type:"OPEN_QUESTION"});
+    if (next.config.sound) sound("select");
   }
   function archive() {
     const s = m();
@@ -292,6 +295,7 @@ const TeamUI = (() => {
     store.history.unshift(entry);
     store.history = store.history.slice(0, 30);
     if (s.config.animations) confetti();
+    if (s.config.sound) sound("complete");
   }
   function applyEdits() {
     QUESTION_BANK.splice(0, QUESTION_BANK.length, ...deep(baseBank));
@@ -300,7 +304,7 @@ const TeamUI = (() => {
       if (i >= 0) QUESTION_BANK[i] = deep(q);
       else QUESTION_BANK.push(deep(q));
     }
-    for (const q of QUESTION_BANK) q.disabled = store.disabled.includes(q.id);
+    for (const q of QUESTION_BANK) q.disabled = q.disabled === true || store.disabled.includes(q.id);
     QUESTION_MAP.clear();
     QUESTION_BANK.forEach((q) => QUESTION_MAP.set(q.id, q));
   }
@@ -318,7 +322,7 @@ const TeamUI = (() => {
     const edits=[...merged.values()],questions=deep(baseBank),disabled=[...new Set([...store.disabled.filter(id=>!ids.has(id)),...raw.disabled.filter(id=>typeof id==="string"&&!['__proto__','prototype','constructor'].includes(id))])];
     for(const q of edits){const index=questions.findIndex(item=>item.id===q.id);if(index>=0)questions[index]=deep(q);else questions.push(deep(q));}
     const seenText=new Set();
-    for(const q of questions){const text=TeamEngine.normalizeAnswer(q.q);if(seenText.has(text))throw Error("دمج مكتبة المتابعة ينتج سؤالًا مكررًا؛ لم تتغير البيانات الحالية.");seenText.add(text);q.disabled=disabled.includes(q.id);}
+    for(const q of questions){const text=TeamEngine.normalizeAnswer(q.q);if(seenText.has(text))throw Error("دمج مكتبة المتابعة ينتج سؤالًا مكررًا؛ لم تتغير البيانات الحالية.");seenText.add(text);q.disabled=q.disabled===true || disabled.includes(q.id);}
     return {edits,disabled,questions};
   }
   function commitResumeLibrary(prepared) {
@@ -329,12 +333,19 @@ const TeamUI = (() => {
     return ({"source-checked":"مدقق بمصدر",editorial:"مراجعة تحريرية",pending:"بانتظار التحقق",disputed:"مختلف فيه أو غير يقيني","owner-reviewed":"مراجعة المالك"})[status] || "بانتظار التحقق";
   }
   function verificationData(raw, source) {
-    const v = raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {};
-    const status = ["source-checked","editorial","pending","disputed"].includes(v.status) ? v.status : "editorial";
+    if (raw!==undefined && (!raw || typeof raw!=="object" || Array.isArray(raw))) throw Error("بيانات التحقق غير صالحة.");
+    const v = raw || {};
+    const statuses=["source-checked","editorial","pending","disputed"];
+    if (v.status!==undefined && !statuses.includes(v.status)) throw Error("حالة التحقق غير مدعومة؛ لم يُستورد السؤال.");
+    const status = v.status || "editorial";
     const out = { status, notes: String(v.notes || v.note || "تحرير محلي بواسطة مالك النسخة").slice(0,1000) };
     for(const [key,max] of [["referenceTitle",180],["referenceUrl",1000],["bibliography",600],["section",600],["verifiedAt",10]]) if(typeof v[key] === "string")out[key]=v[key].trim().slice(0,max);
     if(out.referenceUrl && safeURL(out.referenceUrl)==="#")throw Error("رابط التحقق غير آمن.");
     if(status==="source-checked" && (!out.referenceTitle || !(out.referenceUrl || out.bibliography) || !out.section || !/^\d{4}-\d{2}-\d{2}$/.test(out.verifiedAt || "") || !out.notes.trim())) throw Error("حالة مدقق بمصدر تتطلب عنوان المرجع ورابطًا أو توثيقًا ببليوغرافيًا ومقطعًا وتاريخًا وملاحظات تحقق فعلية.");
+    if(status==="source-checked") {
+      const date=new Date(out.verifiedAt+"T00:00:00Z"),today=new Date().toISOString().slice(0,10);
+      if(Number.isNaN(date.valueOf()) || date.toISOString().slice(0,10)!==out.verifiedAt || out.verifiedAt>today) throw Error("تاريخ التحقق يجب أن يكون يومًا فعليًا لا يتجاوز اليوم.");
+    }
     return out;
   }
   function similarQuestions(q) {
@@ -392,7 +403,8 @@ const TeamUI = (() => {
     )
       throw Error("بديل الإجابة غير صالح أو يطابق خيارًا خاطئًا.");
     const oldClaim = options.legacy && raw.verification?.status === "source-checked" && !(raw.verification.referenceTitle && (raw.verification.referenceUrl || raw.verification.bibliography) && raw.verification.section && raw.verification.verifiedAt && raw.verification.notes);
-    const verified = oldClaim ? {status:"pending",notes:"ادعاء تحقق من إصدار سابق محفوظ تاريخيًا؛ يحتاج مراجعة مستقلة."} : raw.verification;
+    const legacyOwnerReview=options.legacy && raw.verification?.status==="owner-reviewed";
+    const verified = legacyOwnerReview ? {status:"editorial",notes:String(raw.verification.notes || raw.verification.note || "مراجعة محلية بواسطة مالك النسخة السابقة؛ ليست تحققًا مستقلًا من المصدر.").slice(0,1000)} : oldClaim ? {status:"pending",notes:"ادعاء تحقق من إصدار سابق محفوظ تاريخيًا؛ يحتاج مراجعة مستقلة."} : raw.verification;
     const q = {
       id,
       category: raw.category,
@@ -419,10 +431,34 @@ const TeamUI = (() => {
       tags: Array.isArray(raw.tags) ? raw.tags.filter(t=>typeof t==="string"&&t.length<80).slice(0,20) : ["تحرير محلي"],
       version: 1,
       hint: text("hint", 300, true),
-      type: raw.image ? "image" : "text",
+      type: raw.type || (raw.image ? "image" : "text"),
       verification: verificationData(verified,raw.source),
     };
-    if (oldClaim) q.historicalVerification=deep(raw.verification);
+    const formats = ["text","image","ordering","clues","multipart","logic"];
+    if (!formats.includes(q.type)) throw Error("نوع السؤال غير مدعوم في هذه النسخة.");
+    const sequence = (key,min,max) => {
+      const value=raw[key];
+      if (!Array.isArray(value) || value.length<min || value.length>max || value.some(item=>typeof item!=="string" || !item.trim() || item.length>300)) throw Error("عناصر صيغة السؤال غير صالحة.");
+      return value.map(item=>item.trim());
+    };
+    if (raw.instructions !== undefined) q.instructions=text("instructions",600);
+    if (raw.judging !== undefined) q.judging=text("judging",900);
+    if (["ordering","clues","multipart","logic"].includes(q.type) && (!q.instructions || !q.judging)) throw Error("هذه الصيغة تحتاج تعليمات واضحة وقاعدة تحكيم كاملة.");
+    if (q.type === "ordering") {
+      q.items=sequence("items",3,6); q.correctOrder=sequence("correctOrder",3,6);
+      if (new Set(q.items.map(TeamEngine.normalizeAnswer)).size!==q.items.length || q.correctOrder.length!==q.items.length || new Set(q.correctOrder.map(TeamEngine.normalizeAnswer)).size!==q.items.length || q.correctOrder.some(item=>!q.items.includes(item))) throw Error("الترتيب الصحيح يجب أن يضم العناصر نفسها مرة واحدة.");
+      if (TeamEngine.normalizeAnswer(q.correctOrder.join("، ثم "))!==canonical) throw Error("الإجابة الصحيحة لا تطابق ترتيب العناصر الموثق.");
+    }
+    if (raw.publicEligible!==undefined) {
+      if (typeof raw.publicEligible!=="boolean") throw Error("إتاحة السؤال العامة غير صالحة.");
+      q.publicEligible=raw.publicEligible;
+    }
+    if (q.type === "clues") q.clues=sequence("clues",2,5);
+    if (q.type === "multipart") q.parts=sequence("parts",2,5);
+    if (q.type === "image" && !raw.image) throw Error("الصيغة المرئية تحتاج صورة محلية.");
+    const formatText=[q.q,...q.options,q.explanation,q.instructions||"",q.judging||"",...(q.items||[]),...(q.clues||[]),...(q.parts||[])].join(" ");
+    if (/[٠-٩۰-۹]/.test(formatText)) throw Error("استخدم الأرقام 0-9 في محتوى السؤال.");
+    if (oldClaim || legacyOwnerReview) q.historicalVerification=deep(raw.verification);
     else if (raw.historicalVerification) q.historicalVerification = deep(raw.historicalVerification);
     if (raw.franchiseId) {
       if (!TeamEngine.FRANCHISES.some(f=>f.id===raw.franchiseId) || raw.category!=="anime")throw Error("العمل المختار لا يطابق فئة الأنمي.");
@@ -451,6 +487,7 @@ const TeamUI = (() => {
     try {
       recoveryRaw = localStorage.getItem(KEY + "-recovery");
       raw = localStorage.getItem(KEY);
+      lastObservedRaw=raw;
       if (raw) {
         const data = parseJSON(raw);
         if (![2,3].includes(data.version)) throw Error("إصدار حفظ الفريقين غير مدعوم. احتُفظ بالنسخة الأصلية للتصدير.");
@@ -478,7 +515,7 @@ const TeamUI = (() => {
         toast("التخزين التلقائي غير متاح في هذا المتصفح. يمكنك اللعب وحفظ ملف متابعة يدويًا.");
       } else {
         preserveRecovery(raw, errText(e));
-        toast("تعذّرت استعادة حفظ الفريقين بالكامل. الأصل محفوظ للتصدير، وتقدمك الفردي مستقل.");
+        toast("تعذّرت استعادة حفظ الفريقين بالكامل. الأصل محفوظ للتصدير والاسترداد.");
       }
     }
     load();
@@ -560,6 +597,8 @@ const TeamUI = (() => {
       d.anime = { selected: Array.isArray(c.anime.selected) ? [...new Set(c.anime.selected.filter(id => ids.includes(id)))] : [...ids], levels: Object.fromEntries(ids.map(id => [id, [1,2,3].includes(c.anime.levels?.[id]) ? c.anime.levels[id] : 1])) };
     }
     if (!["recent", "unseen", "all"].includes(d.repetition)) d.repetition = "recent";
+    d.categoryCount=d.variant==="custom"&&[2,4,6].includes(c.categoryCount)?c.categoryCount:6;
+    d.pointValues=d.variant==="custom"&&Array.isArray(c.pointValues)&&c.pointValues.length&&c.pointValues.every(v=>[200,400,600].includes(v))?[...new Set(c.pointValues)].sort((a,b)=>a-b):[200,400,600];
     if (Array.isArray(c.teams) && c.teams.length === 2) {
       d.teams = c.teams.map((rawTeam, i) => {
         if (!rawTeam || typeof rawTeam !== "object" || Array.isArray(rawTeam))
@@ -577,7 +616,7 @@ const TeamUI = (() => {
                 .slice(0, 12)
             : [],
           categories: Array.isArray(t.categories)
-            ? [...new Set(t.categories.filter((id) => catById(id)))].slice(0, 3)
+            ? [...new Set(t.categories.filter((id) => catById(id)))].slice(0, categoryQuota(d))
             : [],
           assists: Array.isArray(t.assists)
             ? [...new Set(t.assists.filter((id) => HELP[id]))].slice(0, 5)
@@ -588,30 +627,33 @@ const TeamUI = (() => {
     return d;
   }
   function startSetup(random = false) {
-    pauseSession();
     pause();
     draft = store.preferred
       ? sanitizePreferred(store.preferred)
-      : TeamEngine.defaults();
+      : {...TeamEngine.defaults(), repetition:prefs.repetition};
     step = 0;
-    selectedPreset = store.preferred ? "custom" : "classic";
+    selectedPreset = store.preferred && ["classic","quick","challenge","visual","custom"].includes(draft.variant) ? draft.variant : store.preferred ? "custom" : "classic";
     categoryTeam = 0;
     categorySearch = "";
     categoryFilter = "all";
     if (random) randomCategories();
     go("teamSetup");
   }
+  function categoryQuota(config = draft) { return config?.variant === "custom" ? (config.categoryCount || 6) / 2 : 3; }
+  function pointValues(config = draft) { return config?.variant === "custom" && Array.isArray(config.pointValues) ? config.pointValues : [200,400,600]; }
+  function boardSize(config = draft) { return categoryQuota(config) * 2 * pointValues(config).length * (config.board === "classic" ? 2 : 1); }
+  function boardPoints(config = draft) { return categoryQuota(config) * 2 * pointValues(config).reduce((total,value)=>total+value,0) * (config.board === "classic" ? 2 : 1); }
+  function resizeCategories(total) {
+    draft.categoryCount = total;
+    const quota=categoryQuota(),used=new Set();
+    draft.teams.forEach(t=> { t.categories=t.categories.filter(id=>catById(id)&&!used.has(id)).slice(0,quota);t.categories.forEach(id=>used.add(id)); });
+    const available=CATEGORIES.filter(c=>!used.has(c.id)&&pointValues().every(value=>countsFor(c.id)[value]>=(draft.board==="classic"?2:1)));
+    draft.teams.forEach(t=> { while(t.categories.length<quota && available.length) t.categories.push(available.shift().id); });
+  }
   function randomCategories() {
-    const selected = shuffled(
-      CATEGORIES.filter((c) => {
-        const counts = countsFor(c.id);
-        return [200, 400, 600].every(
-          (v) => counts[v] >= (draft.board === "classic" ? 2 : 1),
-        );
-      }),
-    ).slice(0, 6);
-    draft.teams[0].categories = selected.slice(0, 3).map((c) => c.id);
-    draft.teams[1].categories = selected.slice(3, 6).map((c) => c.id);
+    const quota=categoryQuota(),selected = shuffled(CATEGORIES.filter(c=>pointValues().every(value=>countsFor(c.id)[value]>=(draft.board === "classic" ? 2 : 1)))).slice(0,quota*2);
+    draft.teams[0].categories = selected.slice(0,quota).map(c=>c.id);
+    draft.teams[1].categories = selected.slice(quota,quota*2).map(c=>c.id);
   }
   function countsFor(category) {
     const counts = { 200: 0, 400: 0, 600: 0 };
@@ -646,20 +688,51 @@ const TeamUI = (() => {
     return `<div class="preset-grid" role="group" aria-label="قوالب إعداد المباراة">${[
       ["quick", "مباراة سريعة", "18 سؤالًا · إجابة شفهية · إعداد بسيط"],
       ["classic", "مباراة كلاسيكية", "36 سؤالًا · تحكم المقدم · سرقة ومساعدات"],
-      ["custom", "تخصيص كامل", "تحكم بكل القواعد مع الحفاظ على اختياراتك"]
+      ["challenge", "تحدي المخاطرة", "18 سؤالًا · تفضيل الصعوبة الأعلى المتاحة · 30 ثانية ومخاطرة"],
+      ["visual", "المواجهة البصرية", "18 سؤالًا · أولوية للصور المحلية مع بديل نصي واضح"],
+      ["custom", "تخصيص كامل", "المؤقّت والسرقة واللوحة والمساعدات ضمن حدود آمنة"]
     ].map(([id, name, description]) => `<button class="team-choice ${selectedPreset === id ? "selected" : ""}" data-team-action="preset" data-value="${id}" aria-pressed="${selectedPreset === id}"><strong>${name}</strong><small>${description}</small></button>`).join("")}</div>${store.presets.length ? `<div class="saved-presets row"><label for="saved-team-preset">قوالبك المحفوظة</label><select id="saved-team-preset"><option value="">اختر قالبًا</option>${store.presets.map((p,i) => `<option value="${i}">${esc(p.name)}</option>`).join("")}</select><button class="btn secondary small" data-team-action="load-preset">تطبيق القالب</button><button class="btn secondary small" data-team-action="delete-preset">حذف القالب المختار</button></div>` : ""}`;
   }
   function applyPreset(kind) {
+    if (!["classic","quick","challenge","visual","custom"].includes(kind)) return;
     selectedPreset = kind;
+    draft.variant = kind;
     if (kind === "custom") return;
+    draft.categoryCount=6; draft.pointValues=[200,400,600];
     draft.board = kind === "classic" ? "classic" : "compact";
     draft.answerStyle = "oral";
     draft.mode = kind === "classic" ? "presenter" : "teams";
     draft.transition = kind === "classic" ? "host" : "auto";
     draft.steal = true;
-    draft.negative = false;
+    draft.negative = kind === "challenge";
     draft.bonus = false;
-    // Names, categories, timers, spoiler limits and saved assist choices remain the host's.
+    if (kind === "challenge") {
+      draft.timer = true;
+      draft.duration = 30;
+      applyAssistPreset("enhanced");
+    }
+    resizeCategories(6);
+    // Names, existing category choices, spoiler limits and ordinary preset timers remain the host's.
+  }
+  function applyAssistPreset(kind) {
+    const classic = ["call","twice","pit","sitout","trap"];
+    if (!["classic","enhanced"].includes(kind)) return;
+    for (const key of Object.keys(HELP)) {
+      draft.assistEnabled[key] = kind === "enhanced" || classic.includes(key);
+      draft.assistLimits[key] = 1;
+    }
+    draft.assistSlots = 3;
+    if (kind === "enhanced") draft.hints = true;
+    draft.teams.forEach(t => { t.assists = kind === "classic" ? ["call","twice","pit"] : ["hint","double","second"]; });
+  }
+  function categorySelection() {
+    const favorites = new Set(progress.profile.favorites);
+    const search = normalizeArabic(categorySearch);
+    const categories = CATEGORIES.filter(c => (!search || normalizeArabic(`${c.name} ${c.label || ""} ${c.desc || ""}`).includes(search)) && (categoryFilter === "all" || categoryFilter === "favorites" && favorites.has(c.id) || categoryFilter === "play" && ["anime","football","games"].includes(c.id) || categoryFilter === "culture" && !["anime","football","games"].includes(c.id)));
+    return `<h2>${categoryQuota()} ${categoryQuota()===1?"فئة":"فئات"} لكل فريق</h2><p class="muted">اختر للفريق الأول ثم للفريق الثاني فئات مختلفة. يمكن للفريقين فتح أي خانة من الفئات المشتركة.</p><div class="chips">${draft.teams.map((t,i) => `<button class="chip ${categoryTeam === i ? "selected" : ""}" data-team-action="category-team" data-team="${i}" aria-pressed="${categoryTeam === i}">${esc(t.name)} · ${t.categories.length}/${categoryQuota()}</button>`).join("")}<button class="btn secondary small" data-team-action="random-categories">${icon("spark")} توزيع تلقائي</button></div><div class="searchbar"><label class="sr-only" for="team-category-search">بحث الفئات</label><input id="team-category-search" placeholder="ابحث باسم الفئة…" value="${esc(categorySearch)}" data-team-search="categories"><label class="sr-only" for="team-category-filter">موضوع الفئات</label><select id="team-category-filter" data-team-category-filter>${[["all","كل المواضيع"],["favorites","المفضلة"],["culture","التاريخ والمعرفة"],["play","الرياضة والترفيه"]].map(([id,label])=>`<option value="${id}" ${categoryFilter===id?"selected":""}>${label}</option>`).join("")}</select></div><p class="sr-only" role="status">${categories.length} فئة مطابقة</p><div class="team-category-grid">${categories.map(c => {
+      const owner = draft.teams.findIndex(t=>t.categories.includes(c.id)), counts = countsFor(c.id), enough = pointValues().every(value=>counts[value] >= (draft.board === "classic" ? 2 : 1)), favorite = favorites.has(c.id);
+      return `<div class="category-option"><button id="team-category-${c.id}" class="team-category-card ${owner>=0?"owned-"+owner:""}" data-team-action="category" data-id="${c.id}" style="--accent:${c.color}" aria-pressed="${owner>=0}" ${!enough&&owner<0?"disabled":""}><div class="category-art">${categoryArt(c.id)}</div><strong class="category-name">${esc(c.name)}</strong><small class="category-count">200: ${counts[200]} · 400: ${counts[400]} · 600: ${counts[600]}</small><span class="owner-label">${owner>=0?teamName(owner):enough?"متاحة":"أسئلة غير كافية"}</span></button><button class="category-favorite ${favorite?"selected":""}" data-team-action="favorite-category" data-id="${c.id}" aria-label="${favorite?"إزالة":"إضافة"} ${esc(c.name)} ${favorite?"من":"إلى"} المفضلة" aria-pressed="${favorite}">${icon("star")}</button></div>`;
+    }).join("") || '<p class="inline-note">لا توجد فئات مطابقة. غيّر البحث أو أضف فئات إلى المفضلة بالنجمة.</p>'}</div>${animeControls()}`;
   }
   function animeControls() {
     const anime = draft.anime, franchises = TeamEngine.FRANCHISES;
@@ -699,23 +772,17 @@ const TeamUI = (() => {
   function setupScreen() {
     if (!draft) draft = TeamEngine.defaults();
     const errors = TeamEngine.validateConfig(draft, bank());
-    return `<div class="team-page"><div class="wizard-header"><span class="eyebrow">مباراتكم… بقواعدكم</span><h1 id="team-wizard-heading" tabindex="-1">${STEPS[step]}</h1><p class="muted">الخطوة ${step + 1} من 9 · يمكنك مراجعة كل الخيارات قبل البداية.</p></div><nav class="wizard-steps" aria-label="خطوات تجهيز المباراة">${STEPS.map((s, i) => `<button id="team-step-${i}" class="step-dot ${step === i ? "active" : step > i ? "done" : ""}" data-team-action="step" data-step="${i}" aria-label="الخطوة ${i + 1}: ${s}" ${step === i ? 'aria-current="step"' : ""}><span>${i + 1}</span><small>${s}</small></button>`).join("")}</nav><div class="wizard-grid"><section class="wizard-content panel stack">${wizardBody()}<div class="wizard-footer"><button class="btn secondary" data-team-action="${step ? "back" : "home"}">${step ? "السابق" : "الرئيسية"}</button><button class="btn primary" data-team-action="${step === 8 ? "start-match" : "next-step"}">${step === 8 ? "ابدأ المباراة" : "التالي"} ${icon("arrow")}</button></div>${step === 8 && errors.length ? `<div class="inline-note warning" role="status">${errors.map(esc).join("<br>")}</div>` : ""}</section><aside class="wizard-summary panel stack"><span class="eyebrow">نظرة سريعة</span><h2>${teamName(0)} <span class="muted">×</span> ${teamName(1)}</h2><p>${draft.board === "compact" ? "لوحة مختصرة · 18 سؤالًا" : "لوحة كلاسيكية · 36 سؤالًا"}</p><p class="muted">القيم ثابتة: 200 · 400 · 600</p><div class="summary-line"><span>الفئات المختارة</span><strong>${draft.teams.reduce((n, t) => n + t.categories.length, 0)} / 6</strong></div><div class="summary-line"><span>الإجابة</span><strong>${answerLabel(draft)}</strong></div><div class="summary-line"><span>الوقت</span><strong>${draft.timer ? `${draft.duration} ثانية` : "بلا مؤقّت"}</strong></div><p class="muted">يمكن لكل فريق اختيار أي سؤال متاح من الفئات الست. تُقفل القواعد بعد بداية المباراة.</p><button class="text-btn" data-team-action="rules">دليل القواعد والمساعدات ${icon("help")}</button></aside></div></div>`;
+    return `<div class="team-page"><div class="wizard-header"><span class="eyebrow">مباراتكم… بقواعدكم</span><h1 id="team-wizard-heading" tabindex="-1">${STEPS[step]}</h1><p class="muted">الخطوة ${step + 1} من 9 · يمكنك مراجعة كل الخيارات قبل البداية.</p></div><nav class="wizard-steps" aria-label="خطوات تجهيز المباراة">${STEPS.map((s, i) => `<button id="team-step-${i}" class="step-dot ${step === i ? "active" : step > i ? "done" : ""}" data-team-action="step" data-step="${i}" aria-label="الخطوة ${i + 1}: ${s}" ${step === i ? 'aria-current="step"' : ""}><span>${i + 1}</span><small>${s}</small></button>`).join("")}</nav><div class="wizard-grid"><section class="wizard-content panel stack">${wizardBody()}<div class="wizard-footer"><button class="btn secondary" data-team-action="${step ? "back" : "home"}">${step ? "السابق" : "الرئيسية"}</button><button class="btn primary" data-team-action="${step === 8 ? "start-match" : "next-step"}">${step === 8 ? "ابدأ المباراة" : "التالي"} ${icon("arrow")}</button></div>${step === 8 && errors.length ? `<div class="inline-note warning" role="status">${errors.map(esc).join("<br>")}</div>` : ""}</section><aside class="wizard-summary panel stack"><span class="eyebrow">نظرة سريعة</span><h2>${teamName(0)} <span class="muted">×</span> ${teamName(1)}</h2><p>${draft.board === "compact" ? "خانة واحدة لكل قيمة" : "خانتان لكل قيمة"} · ${boardSize()} سؤالًا</p><p class="muted">قيم الخانات: ${pointValues().join(" · ")}</p><div class="summary-line"><span>الفئات المختارة</span><strong>${draft.teams.reduce((n, t) => n + t.categories.length, 0)} / ${categoryQuota()*2}</strong></div><div class="summary-line"><span>الإجابة</span><strong>${answerLabel(draft)}</strong></div><div class="summary-line"><span>الوقت</span><strong>${draft.timer ? `${draft.duration} ثانية` : "بلا مؤقّت"}</strong></div><p class="muted">يمكن لكل فريق اختيار أي سؤال متاح من الفئات المشتركة. تُقفل القواعد بعد بداية المباراة.</p><button class="text-btn" data-team-action="rules">دليل القواعد والمساعدات ${icon("help")}</button></aside></div></div>`;
   }
   function wizardBody() {
     switch (step) {
       case 0:
-        return `${draft.mode !== "solo" && !TeamEngine.validateConfig(draft,bank()).length ? `<section class="fast-start panel stack"><span class="eyebrow">جاهزة للعب</span><h2>${draft.board === "classic" ? "مباراة كلاسيكية" : "مباراة سريعة"} · ${draft.board === "classic" ? 36 : 18} سؤالًا</h2><p>${teamName(0)} × ${teamName(1)}</p><p class="muted">${draft.teams.flatMap(t=>t.categories).map(id=>catById(id).name).join(" · ")}</p><button class="btn primary" data-team-action="start-match">ابدأ ${draft.board === "classic" ? 36 : 18} سؤالًا</button><button class="btn secondary" data-team-action="customize">تخصيص الفريقين والقواعد</button></section>` : ""}<h2>اختر أجواء اللعب</h2>${presetControls()}<h3>طريقة إدارة المباراة</h3>${choices("mode", [
+        return `${!TeamEngine.validateConfig(draft,bank()).length ? `<section class="fast-start panel stack"><span class="eyebrow">جاهزة للعب</span><h2>${draft.board === "classic" ? "مباراة كلاسيكية" : "مباراة سريعة"} · ${boardSize()} سؤالًا</h2><p>${teamName(0)} × ${teamName(1)}</p><p class="muted">${draft.teams.flatMap(t=>t.categories).map(id=>catById(id).name).join(" · ")}</p><button class="btn primary" data-team-action="start-match">ابدأ ${boardSize()} سؤالًا</button><button class="btn secondary" data-team-action="customize">تخصيص الفريقين والقواعد</button></section>` : ""}<h2>اختر أجواء اللعب</h2>${presetControls()}<h3>طريقة إدارة المباراة</h3>${choices("mode", [
           {
             id: "teams",
             name: "منافسة فريقين",
             icon: "cup",
             desc: "التجربة الأساسية: فريقان ولوحة مشتركة.",
-          },
-          {
-            id: "solo",
-            name: "تدريب فردي",
-            icon: "book",
-            desc: "انتقل إلى التجربة الفردية والفئات والصعوبة.",
           },
           {
             id: "party",
@@ -731,7 +798,7 @@ const TeamUI = (() => {
           },
         ])}`;
       case 1:
-        return `<h2>عرّفنا بالفريقين</h2><div class="team-config-grid">${draft.teams.map((t, i) => `<section class="team-config-card stack" style="--team-color:${t.color}"><h3>${i ? "الفريق الثاني" : "الفريق الأول"}</h3>${teamField("اسم الفريق", `team-name-${i}`, `<input id="team-name-${i}" maxlength="24" value="${esc(t.name)}" data-team-index="${i}" data-team-field="name">`)}${teamField("اللون", `team-color-${i}`, `<select id="team-color-${i}" data-team-index="${i}" data-team-field="color">${COLORS.map((c, j) => `<option value="${c}" ${c === t.color ? "selected" : ""}>${["أزرق", "ذهبي", "أخضر", "بنفسجي", "وردي", "برتقالي"][j]}</option>`).join("")}</select>`)}<div class="team-avatar-picks">${TEAM_AVATARS.map((a) => `<button class="team-avatar ${t.avatar === a ? "selected" : ""}" data-team-action="team-avatar" data-team="${i}" data-value="${a}" aria-label="رمز الفريق ${a}" aria-pressed="${t.avatar === a}">${a}</button>`).join("")}</div>${teamField("أسماء المشاركين · اسم في كل سطر", `team-players-${i}`, `<textarea id="team-players-${i}" rows="3" maxlength="400" data-team-index="${i}" data-team-field="players">${esc(t.players.join("\n"))}</textarea>`)}</section>`).join("")}</div>${selectField(
+        return `<h2>عرّفنا بالفريقين</h2><div class="chips team-name-presets" role="group" aria-label="أسماء جاهزة للفريقين">${[["colors","الأزرق والذهبي"],["kuwait","الديرة والبحر"],["friends","النجوم والأبطال"]].map(([id,label])=>`<button class="chip" data-team-action="team-name-preset" data-value="${id}">${label}</button>`).join("")}</div><div class="team-config-grid">${draft.teams.map((t, i) => `<section class="team-config-card stack" style="--team-color:${t.color}"><h3>${i ? "الفريق الثاني" : "الفريق الأول"}</h3>${teamField("اسم الفريق", `team-name-${i}`, `<input id="team-name-${i}" maxlength="24" value="${esc(t.name)}" data-team-index="${i}" data-team-field="name">`)}${teamField("اللون", `team-color-${i}`, `<select id="team-color-${i}" data-team-index="${i}" data-team-field="color">${COLORS.map((c, j) => `<option value="${c}" ${c === t.color ? "selected" : ""}>${["أزرق", "ذهبي", "أخضر", "بنفسجي", "وردي", "برتقالي"][j]}</option>`).join("")}</select>`)}<div class="team-avatar-picks">${TEAM_AVATARS.map((a) => `<button class="team-avatar ${t.avatar === a ? "selected" : ""}" data-team-action="team-avatar" data-team="${i}" data-value="${a}" aria-label="رمز الفريق ${a}" aria-pressed="${t.avatar === a}">${a}</button>`).join("")}</div>${teamField("أسماء المشاركين · اسم في كل سطر", `team-players-${i}`, `<textarea id="team-players-${i}" rows="3" maxlength="400" data-team-index="${i}" data-team-field="players">${esc(t.players.join("\n"))}</textarea>`)}</section>`).join("")}</div>${selectField(
           "starter",
           "من يبدأ؟",
           [
@@ -741,43 +808,22 @@ const TeamUI = (() => {
           ],
         )}`;
       case 2:
-        return `<h2>3 فئات لكل فريق</h2><p class="muted">اختر للفريق الأول ثم للفريق الثاني فئات مختلفة. الملكية تحدد الاختيار فقط، واللعب متاح في الجميع.</p><div class="chips">${draft.teams.map((t, i) => `<button class="chip ${categoryTeam === i ? "selected" : ""}" data-team-action="category-team" data-team="${i}">${esc(t.name)} · ${t.categories.length}/3</button>`).join("")}<button class="btn secondary small" data-team-action="random-categories">${icon("spark")} توزيع تلقائي</button></div><div class="searchbar"><label class="sr-only" for="team-category-search">بحث الفئات</label><input id="team-category-search" placeholder="ابحث باسم الفئة…" value="${esc(categorySearch)}" data-team-search="categories"><label class="sr-only" for="team-category-filter">موضوع الفئات</label><select id="team-category-filter" data-team-category-filter><option value="all">كل المواضيع</option><option value="culture" ${categoryFilter === "culture" ? "selected" : ""}>التاريخ والمعرفة</option><option value="play" ${categoryFilter === "play" ? "selected" : ""}>الرياضة والترفيه</option></select></div><div class="team-category-grid">${CATEGORIES.filter(
-          (c) =>
-            (!categorySearch ||
-              normalizeArabic(c.name).includes(
-                normalizeArabic(categorySearch),
-              )) &&
-            (categoryFilter === "all" ||
-              (categoryFilter === "play"
-                ? ["anime", "football", "games"].includes(c.id)
-                : !["anime", "football", "games"].includes(c.id))),
-        )
-          .map((c) => {
-            const owner = draft.teams.findIndex((t) =>
-                t.categories.includes(c.id),
-              ),
-              counts = countsFor(c.id),
-              enough = Object.values(counts).every(
-                (n) => n >= (draft.board === "classic" ? 2 : 1),
-              );
-            return `<button id="team-category-${c.id}" class="team-category-card ${owner >= 0 ? "owned-" + owner : ""}" data-team-action="category" data-id="${c.id}" style="--accent:${c.color}" aria-pressed="${owner >= 0}"><div class="category-art">${categoryArt(c.id)}</div><strong class="category-name">${c.name}</strong><small class="category-count">200: ${counts[200]} · 400: ${counts[400]} · 600: ${counts[600]}</small><span class="owner-label">${owner >= 0 ? teamName(owner) : enough ? "متاحة" : "أسئلة غير كافية"}</span></button>`;
-          })
-          .join("")}</div>${animeControls()}`;
+        return categorySelection();
       case 3:
-        return `<h2>أي لوحة تفضلون؟</h2>${choices("board", [
+        return `<h2>أي لوحة تفضلون؟</h2>${draft.variant==="custom"?`<section class="custom-board-options stack"><h3>حجم المباراة المخصصة</h3><div class="chips" role="group" aria-label="عدد الفئات">${[2,4,6].map(n=>`<button class="chip ${draft.categoryCount===n?"selected":""}" data-team-action="category-count" data-value="${n}" aria-pressed="${draft.categoryCount===n}">${n} فئات</button>`).join("")}</div><div class="chips" role="group" aria-label="قيم النقاط">${[200,400,600].map(value=>`<button class="chip ${pointValues().includes(value)?"selected":""}" data-team-action="point-value" data-value="${value}" aria-pressed="${pointValues().includes(value)}">${value} نقطة</button>`).join("")}</div><p class="muted">فئتان أو 4 أو 6 بالتساوي بين الفريقين، وقيمة واحدة على الأقل. لكل قيمة خانة واحدة أو خانتان حسب اللوحة.</p></section>`:""}${choices("board", [
           {
             id: "compact",
             name: "المختصرة · مباراة سريعة",
             icon: "bolt",
-            desc: "18 سؤالًا. في كل فئة: 200 و400 و600، خانة واحدة لكل قيمة.",
+            desc: "خانة واحدة لكل قيمة مختارة في الفئة. الافتراضي: 18 سؤالًا من 6 فئات.",
           },
           {
             id: "classic",
             name: "الكلاسيكية",
             icon: "cup",
-            desc: "36 سؤالًا. في كل فئة: سؤالان مختلفان لكل قيمة من 200 و400 و600.",
+            desc: "خانتان بسؤالين مختلفين لكل قيمة مختارة. الافتراضي: 36 سؤالًا من 6 فئات.",
           },
-        ])}<p class="muted">المجموع الأساسي المتاح: ${num(draft.board === "compact" ? 7200 : 14400)} نقطة، قبل أي مساعدات أو مكافآت. لا تُغيّر اللوحة أثناء المباراة.</p>`;
+        ])}<p class="muted">المجموع الأساسي المتاح: ${num(boardPoints())} نقطة، قبل أي مساعدات أو مكافآت. لا تُغيّر اللوحة أثناء المباراة.</p>`;
       case 4:
         return `<h2>طريقة الإجابة</h2>${choices("answerStyle", [
           {
@@ -816,7 +862,7 @@ const TeamUI = (() => {
           ],
         )}</div>${toggleField("callPause", "إيقاف مؤقّت السؤال أثناء الاتصال")}<p class="muted">الافتراضي 60 ثانية للفريق و10 للمنافس. لا يعمل المؤقّت أثناء كشف الإجابة أو شرح النقاط أو اللوحة.</p>`;
       case 6:
-        return `<h2>اختاروا أدواتكم</h2><div class="row"><button class="btn secondary small" data-team-action="helpers-all" data-value="on">إتاحة الجميع</button><button class="btn secondary small" data-team-action="helpers-all" data-value="off">تعطيل الجميع</button></div>${selectField(
+        return `<h2>اختاروا أدواتكم</h2><div class="assist-presets" role="group" aria-label="قوالب المساعدات"><button class="team-choice" data-team-action="assist-preset" data-value="classic"><strong>كلاسيكي</strong><small>المفاهيم الأصلية الخمسة؛ لكل فريق 3 أنواع. تفاصيل الحسم غير الموثقة قواعد منزلية.</small></button><button class="team-choice" data-team-action="assist-preset" data-value="enhanced"><strong>موسّع</strong><small>يضيف التلميح والمضاعفة والوقت والفرصة الثانية والتخطي كقواعد مخصصة واضحة.</small></button></div><details class="assist-advanced" id="team-assist-custom"><summary>تخصيص المساعدات لكل فريق</summary><div class="row"><button class="btn secondary small" data-team-action="helpers-all" data-value="on">إتاحة الجميع</button><button class="btn secondary small" data-team-action="helpers-all" data-value="off">تعطيل الجميع</button></div>${selectField(
           "assistSlots",
           "عدد أنواع المساعدات لكل فريق",
           Array.from({ length: 6 }, (_, i) => [i, String(i)]),
@@ -843,7 +889,7 @@ const TeamUI = (() => {
           )
           .join(
             "",
-          )}<small class="muted">لكل فريق رصيد مستقل. المساعدات المعطلة أو النافدة لا تظهر أثناء اللعب، ولا تُستهلك إلا بعد التأكيد.</small>`;
+          )}<small class="muted">لكل فريق رصيد مستقل. المساعدات المعطلة أو النافدة لا تظهر أثناء اللعب، ولا تُستهلك إلا عند تفعيلها.</small></details>`;
       case 7:
         return `<h2>قواعد إضافية واضحة</h2>${toggleField("steal", "إتاحة سرقة السؤال")}${toggleField("stealPenalty", "خصم قيمة السؤال عند إخفاق السرقة", "متوقف افتراضيًا. لا يغيّر عقوبة الفخ المستقلة.")}${toggleField("negative", "السماح بالأرصدة السالبة", "عند التعطيل يتوقف أي خصم عند 0.")}${toggleField("bonus", "مكافأة صاحب الاختيار", "قاعدة مخصصة: +50 نقطة إذا أجاب صاحب الاختيار إجابة صحيحة، قبل أي خصم مستقل. ليست مكافأة زمنية.")}${toggleField("sound", "مؤثرات المباراة الصوتية")}${toggleField("animations", "حركات المباراة")}${toggleField("explanations", "عرض الشروح والمصادر بعد الكشف")}${toggleField("hints", "إتاحة التلميحات")}${selectField("repetition", "تكرار الأسئلة", [["recent","تجنب الأسئلة الحديثة · الافتراضي"],["unseen","تفضيل غير المشاهد"],["all","السماح بالجميع"]])}<p class="muted">تُتجنب أسئلة آخر 3 مباريات أو آخر 30 يومًا متى كفى البديل. عند نفاد البدائل، تُستخدم أقدم الأسئلة المسموح بها مع تنبيه؛ لا تتغير حدود الحرق.</p>${toggleField("pitFailPenalty", "خصم قيمة السؤال عند إخفاق مستخدم الحفرة")}${selectField(
           "trapSuccess",
@@ -877,10 +923,9 @@ const TeamUI = (() => {
       )
       .join(
         "",
-      )}</div><div class="grid-2"><p>اللوحة: <strong>${c.board === "compact" ? "مختصرة · 18 سؤالًا" : "كلاسيكية · 36 سؤالًا"}</strong></p><p>النقاط الأساسية: <strong>${num(c.board === "compact" ? 7200 : 14400)}</strong></p><p>الإجابة: <strong>${answerLabel(c)}</strong></p><p>البداية: <strong>${c.starter === "random" ? "اختيار عشوائي" : teamName(Number(c.starter), c)}</strong></p><p>المؤقّت: <strong>${c.timer ? `${c.duration} ثانية` : "معطل"}</strong></p><p>السرقة: <strong>${c.steal ? `${c.stealDuration} ثانية${c.timer ? "" : " · بلا مؤقّت"}` : "معطلة"}</strong></p><p>الرصيد السالب: <strong>${c.negative ? "مسموح" : "غير مسموح"}</strong></p><p>المكافآت: <strong>${c.bonus ? "مفعلة" : "معطلة"}</strong></p></div>`;
+      )}</div><div class="grid-2"><p>اللوحة: <strong>${c.board === "compact" ? "خانة واحدة لكل قيمة" : "خانتان لكل قيمة"} · ${boardSize(c)} سؤالًا</strong></p><p>النقاط الأساسية: <strong>${num(boardPoints(c))}</strong></p><p>الإجابة: <strong>${answerLabel(c)}</strong></p><p>البداية: <strong>${c.starter === "random" ? "اختيار عشوائي" : teamName(Number(c.starter), c)}</strong></p><p>المؤقّت: <strong>${c.timer ? `${c.duration} ثانية` : "معطل"}</strong></p><p>السرقة: <strong>${c.steal ? `${c.stealDuration} ثانية${c.timer ? "" : " · بلا مؤقّت"}` : "معطلة"}</strong></p><p>الرصيد السالب: <strong>${c.negative ? "مسموح" : "غير مسموح"}</strong></p><p>المكافآت: <strong>${c.bonus ? "مفعلة" : "معطلة"}</strong></p></div>`;
   }
   function validateStep() {
-    if (draft.mode === "solo") return true;
     if (step === 1) {
       if (draft.teams.some((t) => !t.name.trim())) {
         toast("أدخل اسمًا لكل فريق.");
@@ -890,10 +935,10 @@ const TeamUI = (() => {
     if (step === 2) {
       const cats = draft.teams.flatMap((t) => t.categories);
       if (
-        draft.teams.some((t) => t.categories.length !== 3) ||
-        new Set(cats).size !== 6
+        draft.teams.some((t) => t.categories.length !== categoryQuota()) ||
+        new Set(cats).size !== categoryQuota()*2
       ) {
-        toast("اختر 3 فئات مختلفة لكل فريق.");
+        toast(`اختر ${categoryQuota()} ${categoryQuota()===1?"فئة":"فئات"} مختلفة لكل فريق.`);
         return false;
       }
     }
@@ -912,10 +957,6 @@ const TeamUI = (() => {
     return true;
   }
   function startMatch() {
-    if (draft.mode === "solo") {
-      makeSetup("solo");
-      return;
-    }
     const errors = TeamEngine.validateConfig(draft, bank());
     if (errors.length) {
       toast(errors[0]);
@@ -934,7 +975,7 @@ const TeamUI = (() => {
         write();
         closeDialog();
         go("teamMatch");
-        if (store.match.selectionWarnings?.length) toast("استُخدمت أسئلة قديمة عند نفاد البدائل؛ بقيت حدود الحرق مطبّقة.");
+        if (store.match.selectionWarnings?.length) toast(store.match.selectionWarnings[0]);
       } catch (e) {
         toast(errText(e));
       }
@@ -942,7 +983,7 @@ const TeamUI = (() => {
     if (active()) {
       openDialog(
         "استبدال المباراة المحفوظة؟",
-        "<p>المباراة الحالية لم تكتمل. استبدالها لا يمس تقدمك الفردي أو سجل المباريات المكتملة. يمكنك تصدير حفظ متابعة أولًا.</p>",
+        "<p>المباراة الحالية لم تكتمل. استبدالها لا يمس سجل المباريات المكتملة. يمكنك تصدير حفظ متابعة أولًا.</p>",
         '<button class="btn primary" id="team-confirm-start">بدء المباراة الجديدة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
       );
       $("#team-confirm-start").addEventListener("click", run, { once: true });
@@ -977,9 +1018,9 @@ const TeamUI = (() => {
   function boardScreen(s) {
     const completed = s.board.filter(t=>t.done).length;
     const outcomes = new Map(s.history.map(h=>[h.tileId,h]));
-    return `${!completed ? `<section class="team-introduction" aria-label="بداية المواجهة"><strong>${esc(s.teams[0].avatar)} ${esc(s.teams[0].name)}</strong><span>تبدأ المواجهة</span><strong>${esc(s.teams[1].avatar)} ${esc(s.teams[1].name)}</strong></section>` : ""}<div class="board-tools"><p class="board-progress-label">اكتمل <strong>${completed}</strong> من ${s.board.length} سؤالًا</p><div class="row"><button class="btn secondary board-undo" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>${icon("history")} تراجع عن آخر إجراء</button>${canArmPit(s) ? `<button class="btn secondary ${armedPitTeam === s.turn ? "pit-armed" : ""}" data-team-action="arm-pit" aria-pressed="${armedPitTeam === s.turn}">${icon("shield")} ${armedPitTeam === s.turn ? "الحفرة جاهزة · اضغط لإلغائها" : "الحفرة للسؤال التالي"}</button>` : ""}</div></div>${armedPitTeam === s.turn ? '<p class="inline-note" role="status">ستُفعّل الحفرة قبل فتح السؤال التالي. لن تُستهلك قبل اختيار خانة.</p>' : ""}<div class="match-progress" role="progressbar" aria-label="تقدم المباراة" aria-valuemin="0" aria-valuemax="${s.board.length}" aria-valuenow="${completed}"><span style="width:${completed / s.board.length * 100}%"></span></div><div class="match-board" data-board="${s.config.board}" style="--columns:6">${s.categories.map(id => {
+    return `${!completed ? `<section class="team-introduction" aria-label="بداية المواجهة"><strong>${esc(s.teams[0].avatar)} ${esc(s.teams[0].name)}</strong><span>تبدأ المواجهة</span><strong>${esc(s.teams[1].avatar)} ${esc(s.teams[1].name)}</strong></section>` : ""}<div class="board-tools"><p class="board-progress-label">اكتمل <strong>${completed}</strong> من ${s.board.length} سؤالًا</p><div class="row"><button class="btn secondary board-undo" data-team-action="undo" ${s.undo.length ? "" : "disabled"}>${icon("history")} تراجع عن آخر إجراء</button>${canArmPit(s) ? `<button class="btn secondary ${armedPitTeam === s.turn ? "pit-armed" : ""}" data-team-action="arm-pit" aria-pressed="${armedPitTeam === s.turn}">${icon("shield")} ${armedPitTeam === s.turn ? "الحفرة جاهزة · اضغط لإلغائها" : "الحفرة للسؤال التالي"}</button>` : ""}</div></div>${armedPitTeam === s.turn ? '<p class="inline-note" role="status">ستُفعّل الحفرة قبل فتح السؤال التالي. لن تُستهلك قبل اختيار خانة.</p>' : ""}<div class="match-progress" role="progressbar" aria-label="تقدم المباراة" aria-valuemin="0" aria-valuemax="${s.board.length}" aria-valuenow="${completed}"><span style="width:${completed / s.board.length * 100}%"></span></div><div class="match-board" data-board="${s.config.board}" data-category-count="${s.categories.length}" style="--columns:${s.categories.length}">${s.categories.map(id => {
       const cat=catById(id), owner=s.config.teams.findIndex(t=>t.categories.includes(id)), tiles=s.board.filter(t=>t.category===id), allDone=tiles.every(t=>t.done);
-      return `<section class="match-category ${allDone ? "category-complete" : ""}" style="--accent:${cat.color}"><div class="board-art">${categoryArt(id)}</div><h2 class="board-title">${cat.name}${allDone ? '<span class="sr-only"> · اكتملت الفئة</span>' : ''}</h2><small class="muted">اختيار ${esc(s.teams[owner].name)}</small><div class="match-tiles ${s.config.board}">${tiles.map(t=>{
+      return `<section class="match-category ${allDone ? "category-complete" : ""}" style="--accent:${cat.color}"><div class="board-art">${categoryArt(id)}</div><h2 class="board-title">${cat.name}${allDone ? '<span class="sr-only"> · اكتملت الفئة</span>' : ''}</h2><small class="muted">اختيار ${esc(s.teams[owner].name)}</small><div class="match-tiles ${s.config.board}" style="--value-count:${pointValues(s.config).length}">${tiles.map(t=>{
         const h=outcomes.get(t.id), winner=h?.winner ?? null, label=t.done ? winner===null ? "محد جاوب صح" : s.teams[winner].name : s.config.board === "classic" ? `السؤال ${t.slot+1}` : "نقطة";
         return `<button class="match-tile ${t.done ? "used" : ""} ${t.done && winner !== null ? "won-team-"+winner : ""}" data-team-action="tile" data-id="${esc(t.id)}" data-value="${t.value}" data-winner="${t.done ? winner ?? "none" : ""}" ${t.done ? "disabled" : ""} ${t.done && winner !== null ? `style="--tile-team-color:${s.teams[winner].color}"` : ""} aria-label="${cat.name}، ${t.value} نقطة، السؤال ${t.slot+1}${t.done ? "، مكتمل، "+esc(label) : ""}"><strong>${t.value}</strong><small>${t.done ? icon(winner===null ? "close" : "check") : ""}${esc(label)}</small></button>`;
       }).join("")}</div></section>`;
@@ -990,6 +1031,18 @@ const TeamUI = (() => {
       q = TeamEngine.getQuestion(s, c.questionId, bank());
     return `<section class="panel pause-card stack"><span class="eyebrow">قبل كشف السؤال</span><h2>${catById(q.category).name} · ${c.value} نقطة</h2><p>يجيب ${esc(s.teams[c.responder].name)}. يمكن تفعيل الحفرة الآن فقط؛ بعد ظهور السؤال تُغلق هذه المساعدة.</p>${assists(s, true)}<button class="btn primary" data-team-action="engine" data-type="START_QUESTION">${icon("eye")} إظهار السؤال${s.config.timer && s.config.mode !== "presenter" ? " وبدء الوقت" : ""}</button></section>`;
   }
+  function formatInstructions(q, s, revealed = false) {
+    const labels={ordering:"ترتيب العناصر",clues:"من صاحب القرائن؟",multipart:"سؤال متعدد الأجزاء",logic:"منطق واستنتاج"};
+    const instructions=q.instructions ? `<p class="question-instructions">${esc(q.instructions)}</p>` : "";
+    let content="";
+    if (q.type === "ordering" && q.items) content=`<ul class="ordering-items" aria-label="العناصر المطلوب ترتيبها">${(revealed?q.correctOrder:q.items).map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`;
+    if (q.type === "multipart" && q.parts) content=`<ol class="multipart-parts" aria-label="أجزاء السؤال">${q.parts.map(part=>`<li>${esc(part)}</li>`).join("")}</ol>`;
+    if (q.type === "clues" && q.clues) {
+      const shown=revealed?q.clues.length:Math.max(1,Math.min(q.clues.length,s?.current?.revealedClues || 1));
+      content=`<div class="progressive-clues" id="progressive-clues" tabindex="-1"><ol aria-label="القرائن المكشوفة">${q.clues.slice(0,shown).map(clue=>`<li>${esc(clue)}</li>`).join("")}</ol>${!revealed&&shown<q.clues.length&&["QUESTION_ACTIVE","STEAL_OPPORTUNITY"].includes(s?.state)?`<button class="btn secondary" data-team-action="next-clue" data-token="${esc(s.current.token)}">القرينة التالية · ${shown}/${q.clues.length}</button>`:""}<span class="sr-only" role="status">${shown} من ${q.clues.length} قرائن مكشوفة</span></div>`;
+    }
+    return `${labels[q.type]?`<span class="pill format-label">${labels[q.type]}</span>`:""}${instructions}${content}`;
+  }
   function questionMedia(q, revealed = false) {
     if (!q.image) return "";
     if (!VISUALS[q.image]) return '<p class="inline-note warning" role="alert">الصورة اللازمة لهذا السؤال غير متاحة في هذه النسخة. أوقف المؤقّت ومرّر السؤال بلا إجابة إذا تعذّر حسمه بعدل؛ حُفظ نصه وسجل المباراة.</p>';
@@ -998,8 +1051,8 @@ const TeamUI = (() => {
   }
   function questionScreen(s) {
     const c=s.current, q=TeamEngine.getQuestion(s,c.questionId,bank()), revealed=c.revealed || ["ANSWER_REVEAL","SCORE_ADJUDICATION"].includes(s.state), steal=c.phase==="steal", trap=c.phase==="trap";
-    if (s.state === "ASSISTANCE_ACTIVE") return `<section class="panel pause-card stack"><span class="mode-icon">${icon("sound")}</span><h2>اتصال بصديق · ${esc(s.teams[c.responder].name)}</h2><p>استعينوا بصديق الآن؛ لا تجري اللعبة اتصالًا تلقائيًا.</p><div class="panel stack"><h3>السؤال للصديق</h3><p>${esc(q.q)}</p>${questionMedia(q)}</div><div class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي للمساعدة">${timerLabel(s)}</div><p class="muted">${s.config.callPause ? "مؤقّت السؤال متوقف خلال المساعدة." : "مؤقّت السؤال مستمر."}</p><button class="btn primary" data-team-action="engine" data-type="RETURN_ASSISTANCE">العودة للسؤال</button></section>`;
-    const question = `${questionMedia(q,revealed)}<h2 class="match-question-text" id="team-question-heading" tabindex="-1">${esc(q.q)}</h2>`;
+    if (s.state === "ASSISTANCE_ACTIVE") return `<section class="panel pause-card stack"><span class="mode-icon">${icon("sound")}</span><h2>اتصال بصديق · ${esc(s.teams[c.responder].name)}</h2><p>استعينوا بصديق الآن؛ لا تجري اللعبة اتصالًا تلقائيًا.</p><div class="panel stack"><h3>السؤال للصديق</h3><p>${esc(q.q)}</p>${questionMedia(q)}${formatInstructions(q,s)}</div><div class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي للمساعدة">${timerLabel(s)}</div><p class="muted">${s.config.callPause ? "مؤقّت السؤال متوقف خلال المساعدة." : "مؤقّت السؤال مستمر."}</p><button class="btn primary" data-team-action="engine" data-type="RETURN_ASSISTANCE">العودة للسؤال</button></section>`;
+    const question = `${questionMedia(q,revealed)}<h2 class="match-question-text" id="team-question-heading" tabindex="-1">${esc(q.q)}</h2>${formatInstructions(q,s,revealed)}`;
     const modifiers = `${c.hint && !revealed ? `<p class="hint-box">${icon("help")} ${esc(safeHint(q))}</p>` : ""}${c.twice && !revealed ? '<p class="pill">جاوب جوابين: اقتراحان ضمن المهلة نفسها</p>' : ""}${c.doubleTeam === c.responder ? '<p class="pill">مضاعفة النقاط مفعّلة</p>' : ""}${c.pitTeam !== null ? `<p class="pill">الحفرة لصالح ${esc(s.teams[c.pitTeam].name)}</p>` : ""}${c.sitout ? `<p class="pill">استريح: ${esc(c.sitout.participant)}</p>` : ""}`;
     return `${steal && !revealed ? `<section class="steal-banner"><span>${icon("bolt")} فرصة السرقة</span><strong>${esc(s.teams[c.responder].name)}</strong></section>` : ""}${trap && !revealed ? `<section class="trap-banner"><strong>${icon("flag")} سؤال الفخ · ${esc(s.teams[c.responder].name)}</strong><p>تُطبّق عقوبة الإخفاق المفعّلة عند الحسم.</p></section>` : ""}<div class="match-question-grid ${revealed ? "answer-state" : ""}"><section class="match-question-panel panel stack"><div class="question-context row"><span class="pill">${catById(q.category).name} · ${c.value} نقطة</span><span class="muted">${revealed ? "صاحب الاختيار" : "المستجيب"}: ${esc(s.teams[revealed ? c.selector : c.responder].name)}</span>${!revealed ? `<span class="match-timer" id="team-timer" role="timer" aria-label="الوقت المتبقي">${timerLabel(s)}</span>` : ""}</div>${revealed ? `${revealScreen(s,q)}<details class="original-question"><summary>السؤال${q.image ? " والصورة" : ""}</summary><div class="stack">${question}</div></details>` : `${question}${modifiers}${answerControls(s,q)}`}</section><aside class="match-aside">${!revealed ? assists(s) : ""}<section class="panel question-report"><button class="text-btn" data-team-action="report" data-id="${esc(q.id)}">الإبلاغ عن سؤال ${icon("flag")}</button></section></aside></div>`;
   }
@@ -1020,7 +1073,7 @@ const TeamUI = (() => {
     const nobody=TeamEngine.scoreOutcome(s,null);
     const identity=`data-question-id="${esc(c.questionId)}" data-tile-id="${esc(c.tileId)}" data-token="${esc(c.token)}"`;
     const notes=outcomes.map((outcome,i)=>`<p><strong>${esc(s.teams[i].name)}:</strong> ${outcome.deltas.map((delta,index)=>`${esc(s.teams[index].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>`).join("");
-    return `<section class="answer-reveal stack"><span class="eyebrow">الإجابة الصحيحة</span><strong class="canonical-answer" tabindex="-1" dir="auto">${esc(q.correctAnswer || q.options[q.answer])}</strong><div class="adjudication-grid scoring-actions" role="group" aria-label="حسم السؤال بضغطة واحدة">${s.teams.map((t,i)=>`<button class="award-team btn" data-team-action="award" data-team="${i}" ${identity} style="--team-color:${t.color}"><span class="scoring-team-name">${esc(t.avatar)} ${esc(t.name)}</span><strong class="scoring-points" dir="ltr">${outcomes[i].earned>0?"+":""}${num(outcomes[i].earned)}</strong></button>`).join("")}<button class="btn scoring-nobody" data-team-action="award" data-team="none" ${identity}><span>⚪ محد جاوب صح</span><strong class="scoring-points" dir="ltr">0</strong></button></div>${c.skip ? '<p class="muted">سؤال متخطّى؛ لا مكافأة نقاط لأي فريق.</p>' : ""}${s.config.explanations ? `<p class="answer-explanation">${esc(q.explanation)}</p>` : ""}<details class="answer-reference"><summary>المراجع وتفاصيل الاحتساب</summary><div class="stack">${q.acceptedAnswers?.length ? `<p>بدائل مقبولة: ${q.acceptedAnswers.map(esc).join("، ")}</p>` : ""}${s.config.explanations ? `<p>${esc(q.source.title)} · ${esc(q.source.reference)}</p>${q.source.url ? `<a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">فتح المرجع</a>` : `<p>${esc(q.source.bibliography || "")}</p>`}` : ""}${q.image ? mediaCredit(q.image) : ""}<p class="muted">اختيار الفريق المنافس يُسجّل سرقة عند تفعيلها، ما لم يكن السؤال فخًا. لا تُضاف إجابة خاطئة دون محاولة مسجلة. «محد جاوب صح» لا يضيف نقاطًا؛ الخصومات تتبع القواعد المفعّلة فقط.</p>${notes}${nobody.deltas.some(delta=>delta<0) ? `<p>عند عدم الإجابة: ${nobody.deltas.map((delta,i)=>`${esc(s.teams[i].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>` : ""}</div></details></section>`;
+    return `<section class="answer-reveal stack"><span class="eyebrow">الإجابة الصحيحة</span><strong class="canonical-answer" tabindex="-1" dir="auto">${esc(q.correctAnswer || q.options[q.answer])}</strong><div class="adjudication-grid scoring-actions" role="group" aria-label="حسم السؤال بضغطة واحدة">${s.teams.map((t,i)=>`<button class="award-team btn" data-team-action="award" data-team="${i}" ${identity} style="--team-color:${t.color}"><span class="scoring-team-name">${esc(t.avatar)} ${esc(t.name)}<span class="sr-only"> أجاب إجابة صحيحة</span></span><strong class="scoring-points" dir="ltr">${outcomes[i].earned>0?"+":""}${num(outcomes[i].earned)}</strong></button>`).join("")}<button class="btn scoring-nobody" data-team-action="award" data-team="none" ${identity}><span>⚪ محد جاوب صح</span><strong class="scoring-points" dir="ltr">0</strong></button></div>${c.skip ? '<p class="muted">سؤال متخطّى؛ لا مكافأة نقاط لأي فريق.</p>' : ""}${q.judging ? `<p class="full-credit-judging"><strong>التحكيم:</strong> ${esc(q.judging)}</p>` : ""}${s.config.explanations ? `<p class="answer-explanation">${esc(q.explanation)}</p>` : ""}<details class="answer-reference"><summary>المراجع وتفاصيل الاحتساب</summary><div class="stack">${q.acceptedAnswers?.length ? `<p>بدائل مقبولة: ${q.acceptedAnswers.map(esc).join("، ")}</p>` : ""}${s.config.explanations ? `<p>${esc(q.source.title)} · ${esc(q.source.reference)}</p>${q.source.url ? `<a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">فتح المرجع</a>` : `<p>${esc(q.source.bibliography || "")}</p>`}` : ""}${q.image ? mediaCredit(q.image) : ""}<p class="muted">اختيار الفريق المنافس يُسجّل سرقة عند تفعيلها، ما لم يكن السؤال فخًا. لا تُضاف إجابة خاطئة دون محاولة مسجلة. «محد جاوب صح» لا يضيف نقاطًا؛ الخصومات تتبع القواعد المفعّلة فقط.</p>${notes}${nobody.deltas.some(delta=>delta<0) ? `<p>عند عدم الإجابة: ${nobody.deltas.map((delta,i)=>`${esc(s.teams[i].name)} ${delta>0?"+":""}${num(delta)}`).join(" · ")}</p>` : ""}</div></details></section>`;
   }
   function assists(s, preview = false) {
     const c = s.current,
@@ -1153,7 +1206,8 @@ const TeamUI = (() => {
   }
   function revealAnswer() {
     if (!m()?.current) return;
-    dispatch({type:"REVEAL"});
+    const next=dispatch({type:"REVEAL"});
+    if (next?.state === "ANSWER_REVEAL" && next.config.sound) sound("reveal");
   }
   function resolveAward(button) {
     if (resolutionBusy) return;
@@ -1176,6 +1230,7 @@ const TeamUI = (() => {
     const next=dispatch({type:"ASSIST",key,confirmed:true});
     if (next && !next.lastError) {
       $("#announcer").textContent=HELP[key].name+" مفعّلة";
+      if (next.config.sound) sound("assist");
       if (next.state === "ASSISTANCE_ACTIVE") $("[data-type=RETURN_ASSISTANCE]")?.focus({preventScroll:true});
       else $("#team-question-heading")?.focus({preventScroll:true});
     }
@@ -1228,13 +1283,13 @@ const TeamUI = (() => {
     return `<div class="stack">${s.transactions.map((t) => `<div class="panel match-transaction"><strong>${esc(s.teams[t.teamId === "team-0" || t.teamId === 0 ? 0 : 1].name)}</strong><span>${reasonLabel(t.reason)}${t.modifier === "double" ? " · مضاعفة النقاط" : t.modifier === "bonus" ? " · مكافأة 50 نقطة" : ""}${t.reason === "host-correction" ? " · " + esc(t.modifier) : ""}</span><b dir="ltr">${num(t.scoreBefore)} → ${num(t.scoreAfter)}</b></div>`).join("") || '<div class="panel">لم تسجل حركات نقاط.</div>'}</div>`;
   }
   function historyScreen() {
-    return `<div class="team-page">${recoveryNotice()}${title("كل مواجهة لها حكاية", "سجل مباريات الفريقين", "آخر 30 مباراة مكتملة محفوظة على هذا الجهاز.")}<div class="row"><button class="btn secondary" data-team-action="backup">حفظ متابعة للمقدم</button><button class="btn secondary" data-team-action="restore">استيراد نسخة احتياطية</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button>${m() ? '<button class="btn primary" data-team-action="resume">العودة للمباراة</button>' : ""}</div><div class="stack">${store.history.map((h, i) => `<details class="panel match-history"><summary><strong>${esc(h.teams[0].name)} ${num(h.teams[0].score)} × ${num(h.teams[1].score)} ${esc(h.teams[1].name)}</strong><span>${h.config.board === "compact" ? "18" : "36"} سؤالًا · ${new Date(h.at).toLocaleDateString("en-GB")}</span></summary><div class="stack">${statisticsPanel(h)}${transactionList(h)}<button class="btn secondary" data-team-action="historic-summary" data-index="${i}">تصدير ملخص المباراة</button></div></details>`).join("") || '<div class="panel match-empty">ابدأ مباراة وأكملها لتظهر هنا نتيجتها وسجل تسجيلها.</div>'}</div></div>`;
+    return `<div class="team-page">${recoveryNotice()}${title("كل مواجهة لها حكاية", "سجل مباريات الفريقين", "آخر 30 مباراة مكتملة محفوظة على هذا الجهاز.")}<div class="row"><button class="btn secondary" data-team-action="backup">حفظ متابعة للمقدم</button><button class="btn secondary" data-team-action="restore">استيراد نسخة احتياطية</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button>${m() ? '<button class="btn primary" data-team-action="resume">العودة للمباراة</button>' : ""}</div>${historyOverview()}<div class="stack">${store.history.map((h, i) => `<details class="panel match-history"><summary><strong>${esc(h.teams[0].name)} ${num(h.teams[0].score)} × ${num(h.teams[1].score)} ${esc(h.teams[1].name)}</strong><span>${h.history.length} سؤالًا · ${new Date(h.at).toLocaleDateString("en-GB")}</span></summary><div class="stack">${statisticsPanel(h)}${transactionList(h)}<button class="btn secondary" data-team-action="historic-summary" data-index="${i}">تصدير ملخص المباراة</button></div></details>`).join("") || '<div class="panel match-empty">ابدأ مباراة وأكملها لتظهر هنا نتيجتها وسجل تسجيلها.</div>'}</div></div>`;
   }
   function homeAddon() {
     if (!ready) return "";
     return `${recoveryNotice()}${m() ? `<section class="match-resume-banner panel row"><div><span class="eyebrow">مباراتك محفوظة</span><h2>${esc(m().teams[0].name)} × ${esc(m().teams[1].name)}</h2><p class="muted">${m().board.filter((t) => t.done).length}/${m().board.length} سؤالًا مكتملًا · ${num(m().teams[0].score)} مقابل ${num(m().teams[1].score)}</p></div><button class="btn primary" data-team-action="resume">${m().state === "MATCH_COMPLETE" ? "عرض النتيجة" : "متابعة المباراة"}</button></section>` : ""}<section class="team-dashboard-card panel"><div><span class="eyebrow">منافسة أصلية، على جهاز واحد</span><h2>فريقان، 6 فئات، و36 سؤالًا.</h2><p class="muted">مباراة كلاسيكية بإجابات شفهية وحسم بضغطة واحدة، مع سرقة ومساعدات اختيارية. تتوفر مباراة سريعة من 18 سؤالًا؛ خصّص القواعد قبل البدء.</p></div><div class="hero-actions"><button class="btn primary" data-team-action="new">إعداد مباراة فريقين ${icon("cup")}</button><button class="btn secondary" data-team-action="random">مباراة بفئات عشوائية</button><button class="text-btn" data-team-action="history">سجل المباريات</button><button class="text-btn" data-team-action="library">مكتبة الأسئلة</button></div></section>`;
   }
-  function profileAddon() {
+  function historyOverview() {
     const played = store.history.length,
       steals = store.history.reduce(
         (n, h) => n + h.teams.reduce((n, t) => n + (t.steals || 0), 0),
@@ -1244,7 +1299,7 @@ const TeamUI = (() => {
         (n, h) => n + h.teams.reduce((n, t) => n + (t.correct || 0), 0),
         0,
       );
-    return `<div class="section-heading"><h2>إنجازات مواجهات الفريقين</h2><button class="text-btn" data-team-action="history">سجل المباريات</button></div><div class="grid-3"><div class="panel achievement-card ${played ? "" : "locked"}"><h3>أولى المواجهات</h3><p>${played} مباراة مكتملة محفوظة</p></div><div class="panel achievement-card ${steals ? "" : "locked"}"><h3>اقتناص الفرصة</h3><p>${steals} سرقة ناجحة</p></div><div class="panel achievement-card ${correct >= 50 ? "" : "locked"}"><h3>معرفة مشتركة</h3><p>${correct} إجابة صحيحة · الهدف 50</p></div></div><p class="muted">إحصاءات مواجهات الفرق مستقلة عن سجل اللعب الفردي السابق، وتُستخرج من المباريات المحفوظة.</p>`;
+    return `<div class="section-heading"><h2>حصيلة مواجهات الفريقين</h2></div><div class="grid-3"><div class="panel achievement-card ${played ? "" : "locked"}"><h3>أولى المواجهات</h3><p>${played} مباراة مكتملة محفوظة</p></div><div class="panel achievement-card ${steals ? "" : "locked"}"><h3>اقتناص الفرصة</h3><p>${steals} سرقة ناجحة</p></div><div class="panel achievement-card ${correct >= 50 ? "" : "locked"}"><h3>معرفة مشتركة</h3><p>${correct} إجابة صحيحة · الهدف 50</p></div></div><p class="muted">تُستخرج إحصاءات الفريقين من المباريات المكتملة المحفوظة على هذا الجهاز.</p>`;
   }
   function libraryScreen() {
     const qs = bank().filter(
@@ -1255,16 +1310,16 @@ const TeamUI = (() => {
             normalizeArabic(librarySearch),
           )),
     );
-    return `<div class="team-page team-library">${title("محتوى يمكن مراجعته", "مكتبة الأسئلة", `${bank().filter((q) => !q.disabled).length} سؤالًا متاحًا · الصور والمراجع محلية ما عدا فتح المصدر الاختياري`)}<div class="library-tools row"><button class="btn primary" data-team-action="edit-question">إضافة سؤال</button><button class="btn secondary" data-team-action="export-pack">تصدير بنك الأسئلة</button><button class="btn secondary" data-team-action="import-pack">استيراد حزمة أسئلة</button><button class="btn secondary" data-team-action="reports">بلاغاتي المحلية</button></div>${active() || session?.status === "active" ? '<p class="inline-note warning">لمنع تسريب حلول المباراة وتغيير أسئلتها، تتوقف إدارة المحتوى وكشف الحلول حتى اكتمال المباراة.</p>' : ""}<div class="searchbar"><label class="sr-only" for="library-search">بحث الأسئلة</label><input id="library-search" data-team-search="library" value="${esc(librarySearch)}" placeholder="ابحث في الأسئلة…"><label class="sr-only" for="library-category">فئة الأسئلة</label><select id="library-category" data-library-category><option value="all">كل الفئات</option>${CATEGORIES.map((c) => `<option value="${c.id}" ${c.id === libraryCategory ? "selected" : ""}>${c.name}</option>`).join("")}</select></div><p class="muted">${qs.length} نتيجة · تعرض أول 60، ضيّق البحث للوصول إلى بقية الأسئلة.</p><div class="stack">${qs
+    return `<div class="team-page team-library">${title("أدوات المالك المحلية", "مكتبة الأسئلة", `${bank().length} سؤالًا في المكتبة · ${TeamEngine.eligibleQuestions(bank(),TeamEngine.defaults()).length} مؤهلًا للإعداد الافتراضي`)}<p class="muted owner-tools-note">هذه مساحة مقدم اللعبة ومالك الجهاز لمراجعة الحلول والمراجع وإدارة المحتوى محليًا. لا توجد حسابات أو مصادقة في ملف اللعبة دون إنترنت.</p><div class="library-tools row"><button class="btn primary" data-team-action="edit-question">إضافة سؤال</button><button class="btn secondary" data-team-action="export-pack">تصدير بنك الأسئلة</button><button class="btn secondary" data-team-action="import-pack">استيراد حزمة أسئلة</button><button class="btn secondary" data-team-action="reports">بلاغاتي المحلية</button></div>${active() ? '<p class="inline-note warning">لمنع تسريب حلول المباراة وتغيير أسئلتها، تتوقف إدارة المحتوى وكشف الحلول حتى اكتمال المباراة.</p>' : ""}<div class="searchbar"><label class="sr-only" for="library-search">بحث الأسئلة</label><input id="library-search" data-team-search="library" value="${esc(librarySearch)}" placeholder="ابحث في الأسئلة…"><label class="sr-only" for="library-category">فئة الأسئلة</label><select id="library-category" data-library-category><option value="all">كل الفئات</option>${CATEGORIES.map((c) => `<option value="${c.id}" ${c.id === libraryCategory ? "selected" : ""}>${c.name}</option>`).join("")}</select></div><p class="muted">${qs.length} نتيجة · تعرض أول 60، ضيّق البحث للوصول إلى بقية الأسئلة.</p><div class="stack">${qs
       .slice(0, 60)
       .map(
         (q) =>
-          `<details class="library-card panel"><summary><span class="badge">${catById(q.category).name} · ${q.points || (q.level === 1 ? 200 : q.level === 2 ? 400 : 600)}</span><strong>${esc(q.q)}</strong><small>${q.disabled ? "معطل محليًا" : verificationLabel(q.verification?.status)}</small></summary>${!isAnswerProtected(q.id) ? `<div class="stack">${questionMedia(q)}<p><strong>${esc(q.correctAnswer || q.options[q.answer])}</strong></p><p>${esc(q.explanation)}</p><a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">${esc(q.source.title)} · ${esc(q.source.reference)}</a><div class="row"><button class="btn secondary" data-team-action="edit-question" data-id="${esc(q.id)}">تعديل السؤال</button><button class="btn secondary" data-team-action="toggle-question" data-id="${esc(q.id)}">${q.disabled ? "إعادة التفعيل" : "تعطيل السؤال"}</button><button class="btn secondary" data-team-action="report" data-id="${esc(q.id)}">إبلاغ محلي</button></div></div>` : ""}</details>`,
+          `<details class="library-card panel"><summary><span class="badge">${catById(q.category).name} · ${q.points || (q.level === 1 ? 200 : q.level === 2 ? 400 : 600)}</span><strong>${esc(q.q)}</strong><small>${q.disabled ? "معطل محليًا" : verificationLabel(q.verification?.status)}</small></summary>${!isAnswerProtected(q.id) ? `<div class="stack">${questionMedia(q)}<p><strong>${esc(q.correctAnswer || q.options[q.answer])}</strong></p><p>${esc(q.explanation)}</p><p>${esc(q.source.title)} · ${esc(q.source.reference)}</p>${q.source.url?`<a class="source-link" href="${esc(safeURL(q.source.url))}" target="_blank" rel="noopener noreferrer">فتح المرجع</a>`:`<p class="muted">${esc(q.source.bibliography || "")}</p>`}<div class="row"><button class="btn secondary" data-team-action="edit-question" data-id="${esc(q.id)}">تعديل السؤال</button><button class="btn secondary" data-team-action="toggle-question" data-id="${esc(q.id)}">${q.disabled ? "إعادة التفعيل" : "تعطيل السؤال"}</button><button class="btn secondary" data-team-action="report" data-id="${esc(q.id)}">إبلاغ محلي</button></div></div>` : ""}</details>`,
       )
       .join("")}</div></div>`;
   }
   function editor(id) {
-    if (active() || session?.status === "active") {
+    if (active()) {
       toast("أكمل المباراة أو الجولة الجارية قبل تعديل الأسئلة.");
       return;
     }
@@ -1272,7 +1327,7 @@ const TeamUI = (() => {
     const source = q?.source || {};
     openDialog(
       q ? "تعديل سؤال محليًا" : "سؤال جديد",
-      `<form id="question-editor" class="stack"><input type="hidden" name="id" value="${esc(q?.id || "owner-" + Date.now())}"><label for="edit-q">السؤال</label><textarea id="edit-q" name="q" required maxlength="900">${esc(q?.q || "")}</textarea><label for="edit-cat">الفئة</label><select id="edit-cat" name="category">${CATEGORIES.map((c) => `<option value="${c.id}" ${q?.category === c.id ? "selected" : ""}>${c.name}</option>`).join("")}</select><label for="edit-sub">الموضوع الفرعي</label><input id="edit-sub" name="sub" required maxlength="100" value="${esc(q?.sub || "")}"><label for="edit-points">القيمة</label><select id="edit-points" name="points">${[200, 400, 600].map((n) => `<option ${n === (q?.points || (q?.level === 1 ? 200 : q?.level === 2 ? 400 : 600)) ? "selected" : ""}>${n}</option>`).join("")}</select>${Array.from({ length: 4 }, (_, i) => `<label for="edit-option-${i}">الإجابة ${i + 1}</label><input id="edit-option-${i}" name="option${i}" required maxlength="180" value="${esc(q?.options[i] || "")}">`).join("")}<label for="edit-answer">رقم الإجابة الصحيحة</label><select id="edit-answer" name="answer">${[0, 1, 2, 3].map((i) => `<option value="${i}" ${q?.answer === i ? "selected" : ""}>${i + 1}</option>`).join("")}</select><label for="edit-aliases">بدائل صحيحة موثقة · سطر لكل بديل</label><textarea id="edit-aliases" name="aliases" maxlength="1500">${esc(q?.acceptedAnswers?.join("\n") || "")}</textarea><label for="edit-explanation">التفسير</label><textarea id="edit-explanation" name="explanation" required maxlength="1600">${esc(q?.explanation || "")}</textarea><label for="edit-hint">التلميح</label><input id="edit-hint" name="hint" maxlength="300" value="${esc(q?.hint || "")}"><label for="edit-source">اسم المصدر</label><input id="edit-source" name="sourceTitle" required maxlength="180" value="${esc(source.title || "")}"><label for="edit-url">رابط المصدر</label><input id="edit-url" name="sourceURL" type="url" dir="ltr" value="${esc(source.url || "")}"><label for="edit-reference">الإحالة الدقيقة</label><input id="edit-reference" name="sourceReference" required maxlength="350" value="${esc(source.reference || "")}"><label for="edit-bibliography">توثيق ببليوغرافي · عند عدم وجود رابط</label><input id="edit-bibliography" name="bibliography" maxlength="600" value="${esc(source.bibliography || "")}"><label for="edit-verification">حالة التحقق</label><select id="edit-verification" name="verificationStatus">${["source-checked","editorial","pending","disputed"].map(status=>`<option value="${status}" ${(q?.verification?.status || "editorial")===status?"selected":""}>${verificationLabel(status)}</option>`).join("")}</select><label for="edit-verified-date">تاريخ المراجعة الفعلية</label><input id="edit-verified-date" name="verifiedAt" type="date" value="${esc(q?.verification?.verifiedAt || "")}"><label for="edit-verified-section">الآية أو المقطع أو الصفحة التي تدعم الإجابة</label><input id="edit-verified-section" name="verifiedSection" maxlength="600" value="${esc(q?.verification?.section || "")}"><label for="edit-verification-notes">ملاحظات التحقق</label><textarea id="edit-verification-notes" name="verificationNotes" maxlength="1000">${esc(q?.verification?.notes || q?.verification?.note || "")}</textarea><label class="team-toggle"><span>راجعت المرجع فعليًا ووجدت أنه يدعم الإجابة · لازم لحالة مدقق بمصدر</span><input type="checkbox" name="verifiedAttestation"></label><label for="edit-franchise">عمل الأنمي · عند اختيار فئة الأنمي</label><select id="edit-franchise" name="franchiseId"><option value="">غير مصنف</option>${TeamEngine.FRANCHISES.map(f=>`<option value="${f.id}" ${q?.franchiseId===f.id?"selected":""}>${esc(f.title)}</option>`).join("")}</select><label for="edit-spoiler-level">حد الحرق</label><select id="edit-spoiler-level" name="spoilerLevel">${[[1,"بلا حرق"],[2,"أحداث الأنمي"],[3,"كامل العمل"]].map(([level,title])=>`<option value="${level}" ${(q?.spoilerLevel || (q?.spoiler?2:1))===level?"selected":""}>${title}</option>`).join("")}</select><label for="edit-cutoff">حد المحتوى المتحقق منه · إصدار أو فصل عند الحاجة</label><input id="edit-cutoff" name="contentCutoff" maxlength="100" value="${esc(q?.contentCutoff || "")}"><label for="edit-image">صورة من الحزمة · تظهر الرخصة والإسناد أدناه</label><select id="edit-image" name="image"><option value="">بلا صورة</option>${Object.keys(
+      `<form id="question-editor" class="stack">${q && !["text","image"].includes(q.type) ? `<p class="inline-note">صيغة ${esc(q.type)} محفوظة. لتعديل العناصر أو القرائن والتعليمات، صدّر الحزمة ثم أعد استيراد ملف JSON بعد التعديل والتحقق.</p>` : ""}<input type="hidden" name="id" value="${esc(q?.id || "owner-" + Date.now())}"><label for="edit-q">السؤال</label><textarea id="edit-q" name="q" required maxlength="900">${esc(q?.q || "")}</textarea><label for="edit-cat">الفئة</label><select id="edit-cat" name="category">${CATEGORIES.map((c) => `<option value="${c.id}" ${q?.category === c.id ? "selected" : ""}>${c.name}</option>`).join("")}</select><label for="edit-sub">الموضوع الفرعي</label><input id="edit-sub" name="sub" required maxlength="100" value="${esc(q?.sub || "")}"><label for="edit-points">القيمة</label><select id="edit-points" name="points">${[200, 400, 600].map((n) => `<option ${n === (q?.points || (q?.level === 1 ? 200 : q?.level === 2 ? 400 : 600)) ? "selected" : ""}>${n}</option>`).join("")}</select>${Array.from({ length: 4 }, (_, i) => `<label for="edit-option-${i}">الإجابة ${i + 1}</label><input id="edit-option-${i}" name="option${i}" required maxlength="180" value="${esc(q?.options[i] || "")}">`).join("")}<label for="edit-answer">رقم الإجابة الصحيحة</label><select id="edit-answer" name="answer">${[0, 1, 2, 3].map((i) => `<option value="${i}" ${q?.answer === i ? "selected" : ""}>${i + 1}</option>`).join("")}</select><label for="edit-aliases">بدائل صحيحة موثقة · سطر لكل بديل</label><textarea id="edit-aliases" name="aliases" maxlength="1500">${esc(q?.acceptedAnswers?.join("\n") || "")}</textarea><label for="edit-explanation">التفسير</label><textarea id="edit-explanation" name="explanation" required maxlength="1600">${esc(q?.explanation || "")}</textarea><label for="edit-hint">التلميح</label><input id="edit-hint" name="hint" maxlength="300" value="${esc(q?.hint || "")}"><label for="edit-source">اسم المصدر</label><input id="edit-source" name="sourceTitle" required maxlength="180" value="${esc(source.title || "")}"><label for="edit-url">رابط المصدر</label><input id="edit-url" name="sourceURL" type="url" dir="ltr" value="${esc(source.url || "")}"><label for="edit-reference">الإحالة الدقيقة</label><input id="edit-reference" name="sourceReference" required maxlength="350" value="${esc(source.reference || "")}"><label for="edit-bibliography">توثيق ببليوغرافي · عند عدم وجود رابط</label><input id="edit-bibliography" name="bibliography" maxlength="600" value="${esc(source.bibliography || "")}"><label for="edit-verification">حالة التحقق</label><select id="edit-verification" name="verificationStatus">${["source-checked","editorial","pending","disputed"].map(status=>`<option value="${status}" ${(q?.verification?.status || "editorial")===status?"selected":""}>${verificationLabel(status)}</option>`).join("")}</select><label for="edit-verified-date">تاريخ المراجعة الفعلية</label><input id="edit-verified-date" name="verifiedAt" type="date" value="${esc(q?.verification?.verifiedAt || "")}"><label for="edit-verified-section">الآية أو المقطع أو الصفحة التي تدعم الإجابة</label><input id="edit-verified-section" name="verifiedSection" maxlength="600" value="${esc(q?.verification?.section || "")}"><label for="edit-verification-notes">ملاحظات التحقق</label><textarea id="edit-verification-notes" name="verificationNotes" maxlength="1000">${esc(q?.verification?.notes || q?.verification?.note || "")}</textarea><label class="team-toggle"><span>راجعت المرجع فعليًا ووجدت أنه يدعم الإجابة · لازم لحالة مدقق بمصدر</span><input type="checkbox" name="verifiedAttestation"></label><label for="edit-franchise">عمل الأنمي · عند اختيار فئة الأنمي</label><select id="edit-franchise" name="franchiseId"><option value="">غير مصنف</option>${TeamEngine.FRANCHISES.map(f=>`<option value="${f.id}" ${q?.franchiseId===f.id?"selected":""}>${esc(f.title)}</option>`).join("")}</select><label for="edit-spoiler-level">حد الحرق</label><select id="edit-spoiler-level" name="spoilerLevel">${[[1,"بلا حرق"],[2,"أحداث الأنمي"],[3,"كامل العمل"]].map(([level,title])=>`<option value="${level}" ${(q?.spoilerLevel || (q?.spoiler?2:1))===level?"selected":""}>${title}</option>`).join("")}</select><label for="edit-cutoff">حد المحتوى المتحقق منه · إصدار أو فصل عند الحاجة</label><input id="edit-cutoff" name="contentCutoff" maxlength="100" value="${esc(q?.contentCutoff || "")}"><label for="edit-image">صورة من الحزمة · تظهر الرخصة والإسناد أدناه</label><select id="edit-image" name="image"><option value="">بلا صورة</option>${Object.keys(
         VISUALS,
       )
         .filter((key) => !key.startsWith("symbol-"))
@@ -1310,7 +1365,7 @@ const TeamUI = (() => {
         data = decodeMatchBackup(data);
       }
       if (kind === "pack") {
-        if (active() || session?.status === "active")
+        if (active())
           throw Error("أكمل المباراة أو الجولة قبل استيراد الأسئلة.");
         if (
           data.version !== 2 ||
@@ -1356,8 +1411,6 @@ const TeamUI = (() => {
       } else {
         if (![2,3].includes(data.version) || !data.save)
           throw Error("النسخة الاحتياطية غير صالحة.");
-        if (session?.status === "active")
-          throw Error("أكمل الجولة الفردية قبل استعادة محتوى نسخة أخرى.");
         const s = data.save;
         if (
           !s ||
@@ -1393,6 +1446,15 @@ const TeamUI = (() => {
           if (i >= 0) candidate[i] = q;
           else candidate.push(q);
         }
+        const candidateIds=new Set(candidate.map(q=>q.id)),candidateTexts=new Set();
+        for (const question of candidate) {
+          const text=TeamEngine.normalizeAnswer(question.q);
+          if (candidateTexts.has(text)) throw Error("تكرار سؤال بعد دمج النسخة؛ لم يتغير الحفظ الحالي.");
+          candidateTexts.add(text);
+        }
+        if (new Set(s.disabled).size!==s.disabled.length || s.disabled.some(id=>typeof id!=="string" || !candidateIds.has(id))) throw Error("قائمة الأسئلة المعطلة في النسخة غير صالحة.");
+        if (s.reports.some(r=>!r || typeof r!=="object" || Array.isArray(r) || !candidateIds.has(r.id) || typeof r.note!=="string" || r.note.length>600 || !Number.isFinite(r.at) || r.at<0 || r.at>1e14)) throw Error("البلاغات المحلية في النسخة غير صالحة.");
+        if (s.presets!==undefined && (!Array.isArray(s.presets) || s.presets.length>12 || restorePresets(s.presets).length!==s.presets.length)) throw Error("قوالب المباراة في النسخة غير صالحة.");
         const restored = s.match
           ? TeamEngine.validateState(s.match, candidate)
           : null;
@@ -1408,7 +1470,7 @@ const TeamUI = (() => {
           : [];
         openDialog(
           "استبدال حفظ مباريات الفريقين؟",
-          "<p>سيستبدل هذا حفظ الفريقين والمحتوى المحلي. لا يُمس الحفظ الفردي السابق.</p>",
+          "<p>سيستبدل هذا حفظ الفريقين والمحتوى المحلي. صدّر النسخة الحالية أولًا إذا احتجتها.</p>",
           '<button class="btn primary" id="confirm-team-backup">استعادة النسخة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
         );
         $("#confirm-team-backup").addEventListener(
@@ -1513,14 +1575,26 @@ const TeamUI = (() => {
     } else if (a === "customize") { step=1;render();$("#team-wizard-heading")?.focus({preventScroll:true});window.scrollTo(0,0);
     } else if (a === "next-step") {
       if (!validateStep()) return;
-      if (draft.mode === "solo") {
-        makeSetup("solo");
-        return;
-      }
       step = Math.min(8, step + 1);
       render();
       $("#team-wizard-heading")?.focus({ preventScroll: true });
       window.scrollTo(0, 0);
+    } else if (a === "team-name-preset") {
+      const names = {colors:["الفريق الأزرق","الفريق الذهبي"],kuwait:["الديرة","البحر"],friends:["النجوم","الأبطال"]}[b.dataset.value];
+      if (!names) return;
+      draft.teams.forEach((t,i)=>t.name=names[i]); render();
+      document.querySelector(`[data-team-action="team-name-preset"][data-value="${b.dataset.value}"]`)?.focus({preventScroll:true});
+    } else if (a === "assist-preset") {
+      applyAssistPreset(b.dataset.value); render();
+      document.querySelector(`[data-team-action="assist-preset"][data-value="${b.dataset.value}"]`)?.focus({preventScroll:true});
+      toast("طُبّق قالب المساعدات. يمكنك تخصيص اختيارات كل فريق.");
+    } else if (a === "favorite-category") {
+      const id=b.dataset.id;
+      if (!catById(id)) return;
+      const favorites = new Set(progress.profile.favorites);
+      favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+      progress.profile.favorites = [...favorites]; persist(); render();
+      document.querySelector(`[data-team-action="favorite-category"][data-id="${id}"]`)?.focus({preventScroll:true});
     } else if (a === "team-avatar") {
       draft.teams[Number(b.dataset.team)].avatar = b.dataset.value;
       render();
@@ -1539,16 +1613,27 @@ const TeamUI = (() => {
         draft.teams[owner].categories = draft.teams[owner].categories.filter(
           (x) => x !== id,
         );
-      } else if (draft.teams[categoryTeam].categories.length < 3) {
+      } else if (catById(id) && pointValues().every(value=>countsFor(id)[value] >= (draft.board === "classic" ? 2 : 1)) && draft.teams[categoryTeam].categories.length < categoryQuota()) {
         draft.teams[categoryTeam].categories.push(id);
         if (
-          draft.teams[categoryTeam].categories.length === 3 &&
-          draft.teams[1 - categoryTeam].categories.length < 3
+          draft.teams[categoryTeam].categories.length === categoryQuota() &&
+          draft.teams[1 - categoryTeam].categories.length < categoryQuota()
         )
           categoryTeam = 1 - categoryTeam;
       } else toast("اكتملت فئات هذا الفريق. اختر الفريق الآخر أو ألغِ فئة.");
       render();
       document.getElementById("team-category-" + id)?.focus({preventScroll:true});
+    } else if (a === "category-count") {
+      if (draft.variant!=="custom" || ![2,4,6].includes(Number(b.dataset.value))) return;
+      resizeCategories(Number(b.dataset.value)); render();
+      document.querySelector(`[data-team-action="category-count"][data-value="${b.dataset.value}"]`)?.focus({preventScroll:true});
+    } else if (a === "point-value") {
+      if (draft.variant!=="custom" || ![200,400,600].includes(Number(b.dataset.value))) return;
+      const value=Number(b.dataset.value),values=new Set(pointValues());
+      if (values.has(value) && values.size===1) { toast("اختر قيمة نقاط واحدة على الأقل.");return; }
+      values.has(value)?values.delete(value):values.add(value);
+      draft.pointValues=[...values].sort((a,b)=>a-b); render();
+      document.querySelector(`[data-team-action="point-value"][data-value="${value}"]`)?.focus({preventScroll:true});
     } else if (a === "duration") {
       draft.duration = Number(b.dataset.value);
       render();
@@ -1577,6 +1662,12 @@ const TeamUI = (() => {
       dispatch({ type: "ANSWER", value: Number(b.dataset.value) });
     else if (a === "incorrect") dispatch({ type: "DECLARE_INCORRECT" });
     else if (a === "reveal") revealAnswer();
+    else if (a === "next-clue") {
+      const next=dispatch({type:"NEXT_CLUE",token:b.dataset.token});
+      const current=next?.current,question=current&&TeamEngine.getQuestion(next,current.questionId,bank());
+      if (current && !next.lastError) $("#announcer").textContent=`القرينة ${current.revealedClues}: ${question?.clues?.[current.revealedClues-1] || ""}`;
+      (document.querySelector('[data-team-action="next-clue"]') || $("#progressive-clues"))?.focus({preventScroll:true});
+    }
     else if (a === "award") resolveAward(b);
     else if (a === "assist") useAssist(b.dataset.key);
     else if (a === "use-sitout") {
@@ -1639,7 +1730,7 @@ const TeamUI = (() => {
       draft = deep(m().config);
       startMatch();
     } else if (a === "match-summary") {
-      if(active() || session?.status === "active") {toast("يتاح تصدير الملخص بعد اكتمال المباراة والجولة الجارية.");return;}
+      if(active()) {toast("يتاح تصدير الملخص بعد اكتمال المباراة والجولة الجارية.");return;}
       download(
         {
           version: 3,
@@ -1649,38 +1740,25 @@ const TeamUI = (() => {
         `seen-match-${localDate()}.json`,
       );
     } else if (a === "historic-summary") {
-      if(active() || session?.status === "active") {toast("يتاح تصدير الملخص بعد اكتمال المباراة والجولة الجارية.");return;}
+      if(active()) {toast("يتاح تصدير الملخص بعد اكتمال المباراة والجولة الجارية.");return;}
       download(
         { version: 3, match: store.history[Number(b.dataset.index)], statistics: matchStatistics(store.history[Number(b.dataset.index)]) },
         `seen-match-${localDate()}.json`,
       );
     } else if (a === "edit-question") editor(b.dataset.id);
     else if (a === "toggle-question") {
-      if (active() || session?.status === "active") {
+      if (active()) {
         toast("أكمل الجولة قبل تغيير المحتوى.");
         return;
       }
       const id = b.dataset.id;
-      openDialog(
-        "تغيير إتاحة السؤال؟",
-        "<p>يظل السؤال محفوظًا محليًا، ويمكنك إعادة تفعيله من المكتبة. لا يُحذف المحتوى الأصلي.</p>",
-        '<button class="btn primary" id="confirm-disable-question">تأكيد التغيير</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>',
-      );
-      $("#confirm-disable-question").addEventListener(
-        "click",
-        () => {
-          store.disabled = store.disabled.includes(id)
-            ? store.disabled.filter((x) => x !== id)
-            : [...store.disabled, id];
-          applyEdits();
-          write();
-          closeDialog();
-          render();
-        },
-        { once: true },
-      );
+      store.disabled = store.disabled.includes(id)
+        ? store.disabled.filter(x=>x!==id)
+        : [...store.disabled,id];
+      applyEdits(); write(); render();
+      toast(store.disabled.includes(id) ? "عُطّل السؤال محليًا. يمكن إعادة تفعيله من المكتبة." : "أُعيد تفعيل السؤال محليًا.");
     } else if (a === "export-pack") {
-      if (active() || session?.status === "active") {
+      if (active()) {
         toast("أكمل المباراة أو الجولة قبل تصدير حلولها.");
         return;
       }
@@ -1833,7 +1911,10 @@ const TeamUI = (() => {
       try {
         const d = new FormData(f);
         if(d.get("verificationStatus")==="source-checked" && !d.has("verifiedAttestation")) throw Error("أكد مراجعتك الفعلية للمرجع قبل تسجيل حالة مدقق بمصدر.");
+        const previous = QUESTION_MAP.get(d.get("id"));
+        const format = previous ? Object.fromEntries(["type","instructions","judging","items","correctOrder","clues","parts"].filter(key=>previous[key]!==undefined).map(key=>[key,deep(previous[key])])) : {};
         const q = safeQuestion({
+            ...format,
             id: d.get("id"),
             category: d.get("category"),
             sub: d.get("sub"),
@@ -1899,7 +1980,7 @@ const TeamUI = (() => {
   window.addEventListener("pagehide", () => pause());
   window.addEventListener("beforeunload", () => pause());
   window.addEventListener("storage", (e) => {
-    if (e.key === KEY && e.newValue && !locked) {
+    if (e.key === KEY && e.newValue && e.newValue !== lastObservedRaw && !locked) {
       locked = true;
       pause(false);
       openDialog(
@@ -1916,7 +1997,6 @@ const TeamUI = (() => {
     matchScreen,
     historyScreen,
     homeAddon,
-    profileAddon,
     libraryScreen,
     mediaCredit,
     prepareResumeLibrary,

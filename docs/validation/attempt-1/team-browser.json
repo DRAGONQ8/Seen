@@ -1,0 +1,271 @@
+{
+  "testURL": "http://127.0.0.1:8765/index.html",
+  "filter": null,
+  "fileWorkflow": "Not executed: managed browser blocks file:// navigation",
+  "environment": "Chromium touch/viewport emulation; no actual Samsung hardware",
+  "passed": 29,
+  "failed": 1,
+  "checks": [
+    {
+      "name": "initial Arabic launch, self-contained bank and defaults",
+      "ok": true
+    },
+    {
+      "name": "nine-step wizard, custom teams, manual three categories each, compact 18",
+      "ok": true
+    },
+    {
+      "name": "automatic category selection, Classic 36 unique six tiles each",
+      "ok": true
+    },
+    {
+      "name": "oral question hides solution; one winner tap scores once and returns directly to board",
+      "ok": true
+    },
+    {
+      "name": "wrong first attempt opens hidden-answer 10-second steal; awards opposing team once",
+      "ok": true
+    },
+    {
+      "name": "stealing disabled, timer disabled, no unavailable assistance",
+      "ok": true
+    },
+    {
+      "name": "real configurable timer expires to steal then reveal, never runs on explanations",
+      "ok": true
+    },
+    {
+      "name": "host-controlled steal waits before timer start",
+      "ok": true
+    },
+    {
+      "name": "presenter explicitly starts and pauses the timer without exposing the answer",
+      "ok": true
+    },
+    {
+      "name": "Pit can be armed or cancelled on board; next question consumes it and resolves 500/900 to 900/500",
+      "ok": true
+    },
+    {
+      "name": "Pit deduction respects zero floor and assistance exhaustion",
+      "ok": true
+    },
+    {
+      "name": "Trap transfer once, negative deduction, no further steal or turn loop",
+      "ok": true
+    },
+    {
+      "name": "Answer Twice permits two proposals, hides solution after first wrong, consumes once",
+      "ok": true
+    },
+    {
+      "name": "Call a Friend, extra time, hints, double points and sit out are actionable",
+      "ok": true
+    },
+    {
+      "name": "Skip and Second Chance are distinct confirmed consumable actions",
+      "ok": true
+    },
+    {
+      "name": "3-option question contains exactly one correct answer and awards only after the host selects the result",
+      "ok": true
+    },
+    {
+      "name": "4-option question contains exactly one correct answer and awards only after the host selects the result",
+      "ok": true
+    },
+    {
+      "name": "typed Arabic matching, manual host override, and distinct Arabic letters",
+      "ok": true
+    },
+    {
+      "name": "score correction and undo preserve original turn and reopen only adjudication",
+      "ok": true
+    },
+    {
+      "name": "undo after Skip preserves known answer and never restores a stealable hidden attempt",
+      "ok": true
+    },
+    {
+      "name": "save, refresh during active question, resume paused, completed tiles/config remain locked",
+      "ok": true
+    },
+    {
+      "name": "complete all 18 tiles, winner, history and rematch",
+      "ok": true
+    },
+    {
+      "name": "complete all 18 tiles, tie, history and rematch",
+      "ok": true
+    },
+    {
+      "name": "encoded host backup round trip and malformed restore rejection preserve the match and host preferences",
+      "ok": true
+    },
+    {
+      "name": "owner question editor, local report, disable/re-enable and pack round trip validate safely",
+      "ok": true
+    },
+    {
+      "name": "all embedded visual clues load offline and zoom has no solution leakage",
+      "ok": true
+    },
+    {
+      "name": "responsive board/question/reveal at portrait, landscape/tablets and 130% text, no action overlap",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: board 320: small target 200نقطة: 38.5x44",
+      "stack": "AssertionError [ERR_ASSERTION]: board 320: small target 200نقطة: 38.5x44\n    at layout (/workspace/Seen/tests/team-browser.spec.cjs:30:932)\n    at async /workspace/Seen/tests/team-browser.spec.cjs:58:441\n    at async check (/workspace/Seen/tests/team-browser.spec.cjs:16:130)\n    at async /workspace/Seen/tests/team-browser.spec.cjs:58:2"
+    },
+    {
+      "name": "supported navigation works and no removed solo gameplay entry remains",
+      "ok": true
+    },
+    {
+      "name": "no uncaught browser errors",
+      "ok": true
+    },
+    {
+      "name": "no outbound network requests in offline gameplay",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "screens": [
+    {
+      "label": "compact custom teams",
+      "width": 1470,
+      "scroll": 1470,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 1128.890625,
+          "right": 1177,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 1072.78125,
+          "right": 1120.890625,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 1016.671875,
+          "right": 1064.78125,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 936.5625,
+          "right": 984.671875,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 880.453125,
+          "right": 928.5625,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 824.34375,
+          "right": 872.453125,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 744.234375,
+          "right": 792.34375,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 688.125,
+          "right": 736.234375,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 632.015625,
+          "right": 680.125,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 551.90625,
+          "right": 600.015625,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 495.796875,
+          "right": 543.90625,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 439.6875,
+          "right": 487.796875,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 359.5625,
+          "right": 407.671875,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 303.453125,
+          "right": 351.5625,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 247.34375,
+          "right": 295.453125,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 167.234375,
+          "right": 215.34375,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 111.125,
+          "right": 159.234375,
+          "width": 48.109375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 55.015625,
+          "right": 103.125,
+          "width": 48.109375,
+          "height": 44
+        }
+      ]
+    }
+  ]
+}

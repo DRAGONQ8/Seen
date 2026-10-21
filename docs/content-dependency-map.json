@@ -1,0 +1,80 @@
+{
+  "baselineCommit": "980d233",
+  "questions": 648,
+  "images": 63,
+  "sourceFiles": {
+    "expansion.json": 64,
+    "history.json": 100,
+    "pop.json": 100,
+    "religion.json": 100,
+    "v3-history.json": 64,
+    "v3-pop.json": 96,
+    "visual-pack.json": 24,
+    "world.json": 100
+  },
+  "dependencies": [
+    "content/*.json -> content_tools.load_bank normalize stable IDs/canonical answers/verification",
+    "content_tools.audit -> build.py fail on structural errors -> inline QUESTION_BANK in generated index.html",
+    "graphics.js + media-v2.js -> local VISUALS media keys; assets/media/* retain source/license records",
+    "QUESTION_BANK -> app.js QUESTION_MAP/CATEGORIES -> TeamUI.bank owner edits -> TeamEngine.eligibleQuestions -> match frozen snapshots",
+    "TeamUI owner library uses safeQuestion/parseJSON import boundary and local edits; generated bank never mutated",
+    "tests/test_build.py validates content/build; team-content.spec validates media/import/Arabic data; engine tests selection"
+  ],
+  "findings": [
+    "No new verification inferred from URL presence. 88 records retain historical incomplete source-checked claim and normalize pending.",
+    "Source-checked records from prior releases have metadata but are not independently reverified in this audit.",
+    "Engine.isEligible did not exclude pending/disputed records before V4; fix assigned to engine owner.",
+    "Disputed history contains explicitly qualified literary traditions; preserve archive and exclude default.",
+    "Four-option canonical answer remains compatibility contract even for host-judged typed formats.",
+    "Point allocation 262/258/128 is unbalanced but each current category has at least2 public eligible questions at each point level.",
+    "No prerecorded licensed audio found; do not fabricate audio identification content."
+  ],
+  "verification": {
+    "pending": 88,
+    "editorial": 400,
+    "source-checked": 155,
+    "disputed": 5
+  },
+  "defaultEligible": {
+    "anime": {
+      "200": 31,
+      "400": 27,
+      "600": 13
+    },
+    "arabia": {
+      "200": 23,
+      "400": 22,
+      "600": 16
+    },
+    "football": {
+      "200": 30,
+      "400": 29,
+      "600": 23
+    },
+    "games": {
+      "200": 30,
+      "400": 19,
+      "600": 9
+    },
+    "geo": {
+      "200": 31,
+      "400": 19,
+      "600": 8
+    },
+    "islamic": {
+      "200": 21,
+      "400": 31,
+      "600": 14
+    },
+    "prophets": {
+      "200": 35,
+      "400": 28,
+      "600": 3
+    },
+    "seerah": {
+      "200": 31,
+      "400": 23,
+      "600": 12
+    }
+  }
+}

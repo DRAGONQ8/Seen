@@ -3,7 +3,6 @@
 Run: python build.py. Only Python's standard library is required.
 """
 import base64
-import html
 import json
 import re
 from pathlib import Path
@@ -34,17 +33,17 @@ page = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#090d1e">
-<meta name="description" content="سين جيم خالد: لعبة مسابقات عربية تعمل دون إنترنت، مع لوحتي فريقين و8 فئات وتحديات فردية ومحلية للأصدقاء.">
+<meta name="description" content="سين جيم خالد: مسابقة عربية للفريقين تعمل دون إنترنت، مع تحكيم سريع ولوحة كلاسيكية أو مختصرة وأسئلة موثقة للمراجعة.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data:; media-src blob:; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23eac57e'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='40' fill='%23291e12'%3Eس%3C/text%3E%3C/svg%3E">
-<title>سين جيم خالد | كل سؤال فرصة للتألّق</title>
+<title>سين جيم خالد | معرفة تجمعنا</title>
 <style>{css}</style>
 </head>
 <body>
 <a href="#main" class="skip-link">انتقل إلى المحتوى</a>
 <div class="app-shell">
 <header class="topbar">
-<button class="brand" data-action="nav" data-route="home" aria-label="سين جيم خالد، الرئيسية"><b>س</b><div><strong>سين جيم خالد</strong><small>اختبر معرفتك… واصنع لحظة الفوز</small></div></button>
+<button class="brand" data-action="nav" data-route="home" aria-label="سين جيم خالد، الرئيسية"><b>س</b><div><strong>سين جيم خالد</strong><small>فريقان… ومعرفة تجمعنا</small></div></button>
 <div class="nav-actions" id="header-actions"></div>
 </header>
 <div class="layout"><aside class="sidebar" id="sidebar" aria-label="التنقل الرئيسي"></aside><main id="main" tabindex="-1"></main></div>
@@ -54,7 +53,7 @@ page = f'''<!doctype html>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 <div id="confetti" class="confetti" aria-hidden="true"></div>
-<input type="file" id="import-file" accept="application/json,.json" hidden aria-label="اختيار ملف التقدم">
+<input type="file" id="import-file" accept="application/json,.json" hidden aria-label="اختيار ملف حفظ المباراة">
 <noscript><p>تحتاج اللعبة إلى تفعيل جافاسكربت في متصفحك.</p></noscript>
 <script>{script}</script>
 </body>

@@ -1,0 +1,204 @@
+{
+  "scope": "24 new Arabic science/astronomy questions; each listed factual claim checked individually. Does not certify the existing bank. NASA facts are paraphrased; no NASA imagery is redistributed in this pack.",
+  "retrievedAt": "2026-10-21",
+  "questions": [
+    {
+      "questionId": "v4-sci-001",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Our Sun is a 4.5 billion-year-old yellow dwarf star",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-002",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Mercury is the smallest planet in our solar system and nearest to the Sun.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-003",
+      "url": "https://science.nasa.gov/venus/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "It's the hottest planet in our solar system",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-004",
+      "url": "https://science.nasa.gov/earth/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "is the third planet from the Sun",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-005",
+      "url": "https://science.nasa.gov/mars/facts/",
+      "section": "Namesake",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "it is frequently called the \"Red Planet\"",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-006",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "It's the largest planet in our solar system",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-007",
+      "url": "https://science.nasa.gov/neptune/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Neptune is the eighth and most distant planet in our solar system.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-008",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "section": "Size and Distance",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "The Moon is Earth's only natural satellite.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-009",
+      "url": "https://science.nasa.gov/earth/facts/",
+      "section": "Atmosphere",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "an atmosphere that consists of 78% nitrogen, 21% oxygen",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-010",
+      "url": "https://science.nasa.gov/venus/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "The atmosphere is mostly carbon dioxide",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-011",
+      "url": "https://science.nasa.gov/mars/facts/",
+      "section": "Moons",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Phobos, the larger of Mars' two moons",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-012",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "section": "Moons",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Ganymede is the largest moon in the solar system",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-013",
+      "url": "https://science.nasa.gov/saturn/facts/",
+      "section": "Structure",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Saturn is the only planet in our solar system with an average density that is less than water.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-014",
+      "url": "https://science.nasa.gov/uranus/facts/",
+      "section": "Orbit and Rotation",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "with a tilt of 97.77 degrees",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-015",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "It is located in the distant Kuiper Belt.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-016",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "section": "Structure",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "hot enough to sustain nuclear fusion",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-017",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "section": "Orbit and Rotation",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "One Mercury solar day (one full day-night cycle) equals 176 Earth days",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-018",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "section": "Introduction",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Pluto is orbited by five known moons, the largest of which is Charon.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-019",
+      "url": "https://science.nasa.gov/neptune/facts/",
+      "section": "Discovery and Namesake",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "the ice giant became the first planet located through mathematical predictions",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-020",
+      "url": "https://science.nasa.gov/saturn/facts/",
+      "section": "Atmosphere",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "Saturn's north pole has an interesting atmospheric feature – a six-sided jet stream.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-021",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "section": "Orbit and Rotation",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "The Moon is rotating at the same rate that it revolves around Earth (called synchronous rotation )",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-022",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "section": "Surface",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "The part of the Sun we see from Earth – the part we call the surface – is the photosphere.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-023",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "section": "Moons",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "were first observed by the astronomer Galileo Galilei in 1610",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    },
+    {
+      "questionId": "v4-sci-024",
+      "url": "https://science.nasa.gov/uranus/facts/",
+      "section": "Atmosphere",
+      "retrievedAt": "2026-10-21",
+      "evidenceExcerpt": "The methane gives Uranus its signature blue color.",
+      "method": "Read exact factual passage from the HTTPS NASA Science page body; Arabic formulation checked against that passage."
+    }
+  ],
+  "unavailableSources": [
+    {
+      "url": "https://www.nist.gov/pml/owm/si-units-temperature",
+      "result": "HTTP 403; no question or verification claim depends on this source."
+    }
+  ]
+}

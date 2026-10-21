@@ -1,0 +1,472 @@
+
+> seen@4.0.0 test
+> python build.py && node tests/run.cjs
+
+Built index.html: 720 questions, 2,558,651 bytes; all fonts, images and logic embedded.
+
+RUN python -m unittest discover -s tests -p test_*.py
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 0.287s
+
+OK
+
+RUN node tests/team-engine.spec.cjs
+PASS default rules: classic36, values200400600, exactlythreecategorieseach
+PASS classic36 has six independentquestions percategory, eachvaluetwice
+PASS strict configuration rejects repeatedteamcategories, disabledpool and unfitrules
+PASS custom teamnames/colors/participants persist; allcategories selectable bybothteams
+PASS questionpreview hides answer andclock, thenquestionstarts
+PASS normal award touches onlycorrectteam, isidempotent andadvancesscheduledturnonce
+PASS stealing preserveshiddenanswer and awardsopponent withoutdoubleturn
+PASS stealdisabled ends firstfailedattempt; nobodycorrect awardsnopoints
+PASS revealing answer permanentlyclosesattempts and preventslatesteal
+PASS timers: expiredfirstopens10ssteal, staleclockcannotmodifynewphase
+PASS disabledtimer neverexpires; hosttransition waitsmanualstealstart
+PASS lateanswer/reveal cannotwintimer race
+PASS presenter revealsquestionwithoutstartingclockuntilmanualSTART_TIMER
+PASS presenter extra-timebeforemanualclock ispreserved
+PASS pause/resume preservesremainingtime and rotates token
+PASS assistancefullydisabled is notusable andconsumesnothing
+PASS pit mustbeconfirmedbeforequestion; correct addsownbaseanddeductsopponent
+PASS pit failednormallydeductsnothing; optionalfailurepenaltyandnegativepolicies
+PASS trap transfersonce, failswithdeduction, nofurthersteal; nextselectorunchanged
+PASS trap success configurable: respondentpoints ornone
+PASS answertwice oral permits2attempts, preservesclock, cannotbereused
+PASS three/fouroptionquestions containoneanswer andcorrectauto-suggestswithoutscoring
+PASS choiceanswertwice acceptstwoverifiedproposalsandrequiresadjudication
+PASS typednormalization preservesdistinctletters andacceptsverifiedaliasesonly
+PASS callfriend pausesconfigurablemainclock andreturnswithoutfakecall
+PASS callwithoutpause respectsmainexpiration; completedassistancecannotreturnagain
+PASS sitout requiresrealnominatedopponent+hostconfirmation andlogsparticipant
+PASS extra-time adds15seconds; hint/double/second/skip haveindependentrules
+PASS assistanceusage limitsallow0..5butneverreuseconsumeditem
+PASS transactionscontainfullaudit andimmutableinputs
+PASS undo reversescompletepitresolution,turnstatsandbothtransactions atomically
+PASS manualscorecorrection clamp/negative policies andundo
+PASS fullcompactmatch completes18uniquequestions,winnerandtiecorrect
+PASS fullclassicmatch completes36uniquequestions andstablealternatingturns
+PASS repetitionprotectionprefersunseenwithinexactdifficultybucket
+PASS configuration snapshotlocked againstexternalobjectmutations
+PASS savedboard/questionrestorevalidated,paused,completedtilesremainclosed
+PASS corruptedrestore rejectsduplicatetiles,scores,config,assistsandunsafesnapshots
+PASS skip thenUNDO cannotmakealreadyrevealedquestion stealableagain
+PASS multi-levelUNDO afterhelper/reveal/scoring retainsdurableanswerknowledge
+PASS deepUNDOtoboard reopeningknownquestion opensonlyadjudication
+PASS revealknowledge survivesrefreshandlegacyledger migration
+PASS storedknownanswer cannotbehiddenagainandoldcallbacks cannotreopenattempt
+PASS V3 manualsteal extra-time survives start pause reload resume withoutduplication
+PASS V3 trapdelegation neverrecordsincorrect fordelegator onsuccess orfailure
+PASS V3 doubleentitlement survives bothteams activating andhostcorrectingwinner
+PASS V3 revealwithoutattempt skip timeout andpass donotfabricateincorrectanswers
+PASS V3 finalhostdecision overrides automaticcorrectness withoutinventingattempts
+PASS V3 questionsnapshots survive library edits removal sourceandmedia changes
+PASS V3 snapshot input isdetached fromownerbank includingnestedmetadata
+PASS V3 legacyversion2 migratesprogress scoresassists andundowithoutduplicatedsnapshots
+PASS V3 failedmigration preservesbackupanddoesnotresetunrelateduserdata
+PASS V3 threespoilerlevels independent franchise filters alwaysstrict
+PASS V3 sharedeligibility drives preview validation andgeneration withoutspoilerfallback
+PASS V3 recentselectionavoids30daysandlastthreematcheswithdeterministicoldestfallback
+PASS V3 measuredtime excludes pausesandundodoesnotrollbackorstopduration
+PASS V3 invalidfranchisepreferencesrejectwithoutthrowingandlegacytimerbonusmigrates
+PASS V3 dangerousquestionidentifiersandsnapshotssourcesrejected
+PASS V3 legacymigrationpreservesassignedpointsevenwhenlibrarypointswerelateredited
+PASS V3 selectorprefersvariedanswersandsubtopicswithineligiblepriority
+PASS V3 snapshotansweraliasesandexplicitpointsrejectcontradictionswithoutrepair
+PASS V3 missinglegacylibraryanswerfieldsnormalizedbutinvalidexplicitvaluesrejected
+PASS one-tap resolution awards200400600 andreturnsboard atomicallywithoutmutatinginput
+PASS one-tap opposingwinner usesexplicitdefaultstealconvention onlywhenenabled
+PASS one-tap nobodycompleteswithnoinventedattempts andUndo reversescompletion
+PASS one-tap duplicate andstaleresolutions cannot score afterreloadornewquestion
+PASS one-tap requiresfreshcompletequestionidentity andUndo invalidatesoldbuttons
+PASS one-tap sharedpreview matchesDoubleBonusPit transactionsandzerofloor
+PASS one-tap trap successfailure andUndo retainconfiguredruleswithoutsteal
+PASS one-tap configuredPitandstealpenalties runonce andUndo restoresbothteams
+PASS one-tap Doubleentitlement surviveswrongwinnerUndoreloadandcorrection foreachteam
+PASS one-tap Undo refundsallquestionhelpers andreadjudication consumesexactlyonce
+PASS one-tap Skip remainsanunscorablequestion andrefundshelperonUndo
+PASS one-tap Undo preservesinterleavedmanualadjustments anddoesnotresurrecthelperusage
+PASS one-tap pendinghelpersandresultmetadatarejectcorruptionwithoutlosingbackup
+PASS one-tap timeoutrecordsnoinventedwronganswers andcanresolvewithoutanextraaction
+PASS one-tap completeClassic36 supportsfinalwinner tiesandlastquestionUndo
+PASS one-tap postresolutionmanualadjustUndo preserveshelpercostuntilquestionUndo
+PASS one-tap restorationrejectsunearnedmodifiers withoutconsumedordeferredhelperledger
+{"passed":79,"failed":0,"questions":720}
+
+RUN node tests/v4-engine.spec.cjs
+PASS restoration rejects forged award amounts even when score chains and summary agree
+PASS every resolved transaction belongs to exactly one matching question and history group
+PASS board slot identities are unique and points stay bound to the saved question
+PASS completion and winner metadata cannot contradict the board and scores
+PASS helper identity and question linkage cannot be duplicated across histories
+PASS pending disputed excluded and verification requires actual structured evidence
+PASS editorial disable after match creation never discards immutable saved questions
+PASS visual variant preferentially chooses images without relaxing eligibility and reports fallback
+PASS progressive clues persist bounded progress and stale rapid taps cannot skip clues
+PASS all helper outcome and floor combinations restore after award undo and corrected award
+PASS correction ceiling preserves room for all remaining scoring transactions
+PASS challenge selects harder eligible questions within the same point and repetition bucket
+PASS custom two four and six category boards share atomic scoring recovery and final undo
+PASS custom limits reject malformed point and category selection before any match is built
+PASS historical V2 fixture retains prior double ownership and opposite-team award semantics
+PASS ordering restore rejects permutations that contradict the canonical answer
+PASS restored serial cannot fall below minted score helper clock resolution and undo identities
+PASS extreme imported serial fails safely before any state or score mutation
+{"passed":18,"failed":0,"questions":720}
+
+RUN node tests/team-content.spec.cjs
+PASS original400questionIDs all preserved
+PASS unique question IDs and normalized question text
+PASS every question has four distinct choices and exactlyone canonical key
+PASS all categories have enough200400600 questions forclassic with spoilerprotection
+PASS source URLs and metadata complete without fabricated verification claim
+PASS Westerndigits in question content
+PASS accepted spelling aliases never make a distractor correct
+PASS meaningful offline media all resolved and imagealtdoesnotrevealanswer
+PASS 24expandedclues retain source/license metadata
+PASS licensedphotos eachunder100KB andJPEG files match embeddedbytes
+PASS HTML is singlefile with no external script/stylesheet/font
+PASS importJSON rejects prototype pollution keys and sizeabuse
+PASS safeQuestion rejects incorrect choices points media and duplicate IDs
+PASS safeQuestion rejects normalized duplicate question text
+PASS unsafeURLs rejected and invalidhttpscannotbeasource
+PASS acceptedaliases conflictingwithwrongchoices rejected atimport
+PASS malformedhistorytransactions rejected before rendering
+PASS untrustedHTML stays escaped text
+PASS preferrednullteams rejected with localized validation error
+PASS importedteamemblems are escaped in renderedscoreboard
+PASS Arabic normalization preserves distinct letters while accepting diacritics/hamza
+PASS every implemented structured format survives owner validation
+PASS unplayable and malformed formats rejected before import
+PASS source checked importer rejects impossible and future verification dates
+PASS owner import never silently certifies unknown verification status
+PASS authentic legacy owner review migrates without a factual verification upgrade
+PASS unknown legacy verification states remain rejected
+{"passed":27,"failed":0,"questions":720,"mediaQuestions":63}
+
+RUN node tests/v3-media.spec.cjs
+PASS 24 new meaningful diagrams retain the approved category distribution
+PASS every visual retains its offline source bytes and SHA-256 provenance
+PASS all original SVGs have explicit license, authorship and stable source paths
+PASS SVGs contain no executable content, network references or hidden answer metadata
+PASS each diagram belongs to a unique question in its intended category
+{"passed":5,"failed":0,"skipped":0,"newImages":24}
+
+RUN node tests/one-tap.spec.cjs
+PASS Classic defaults to 36 unique positions and tile selection immediately opens the question
+PASS Blue 200, Gold 400 and Nobody 600 each resolve in one tap without a result screen
+PASS opposing-team award after ordinary reveal is a steal only when enabled, without an invented wrong attempt
+PASS one-tap Undo reverses Blue, Gold and Nobody outcomes, tile completion and turn progression
+PASS rapid double taps and stale result tokens cannot award twice, including after reload and Undo
+PASS double-points preview and one-tap settlement are exactly 400 for a 200 question
+PASS double-points preview and one-tap settlement are exactly 800 for a 400 question
+PASS double-points preview and one-tap settlement are exactly 1200 for a 600 question
+PASS Pit prearming resolves award and deduction atomically; Undo refunds helper and reverses both teams
+PASS Trap failure applies only its configured deduction and Undo refunds delegation without inventing attempts
+PASS timer expiry is nonblocking and Nobody completes the expired question without fabricated incorrect answers
+PASS storage denial retains a live scored match and exports/imports a base64 UTF8 encoded host resume file
+PASS complete all 36 questions with direct settlement: winner
+PASS complete all 36 questions with direct settlement: tie
+PASS three result choices remain readable and keyboard-operable across phone/tablet orientations and 130% text
+PASS no uncaught runtime errors or external runtime requests
+{"passed":16,"failed":0,"report":"/tmp/seen-one-tap-report.json"}
+
+RUN node tests/team-browser.spec.cjs
+FILE WORKFLOW Not executed: managed browser blocks file:// navigation
+PASS initial Arabic launch, self-contained bank and defaults
+PASS nine-step wizard, custom teams, manual three categories each, compact 18
+PASS automatic category selection, Classic 36 unique six tiles each
+PASS oral question hides solution; one winner tap scores once and returns directly to board
+PASS wrong first attempt opens hidden-answer 10-second steal; awards opposing team once
+PASS stealing disabled, timer disabled, no unavailable assistance
+PASS real configurable timer expires to steal then reveal, never runs on explanations
+PASS host-controlled steal waits before timer start
+PASS presenter explicitly starts and pauses the timer without exposing the answer
+PASS Pit can be armed or cancelled on board; next question consumes it and resolves 500/900 to 900/500
+PASS Pit deduction respects zero floor and assistance exhaustion
+PASS Trap transfer once, negative deduction, no further steal or turn loop
+PASS Answer Twice permits two proposals, hides solution after first wrong, consumes once
+PASS Call a Friend, extra time, hints, double points and sit out are actionable
+PASS Skip and Second Chance are distinct confirmed consumable actions
+PASS 3-option question contains exactly one correct answer and awards only after the host selects the result
+PASS 4-option question contains exactly one correct answer and awards only after the host selects the result
+PASS typed Arabic matching, manual host override, and distinct Arabic letters
+PASS score correction and undo preserve original turn and reopen only adjudication
+PASS undo after Skip preserves known answer and never restores a stealable hidden attempt
+PASS save, refresh during active question, resume paused, completed tiles/config remain locked
+PASS complete all 18 tiles, winner, history and rematch
+PASS complete all 18 tiles, tie, history and rematch
+PASS encoded host backup round trip and malformed restore rejection preserve the match and host preferences
+PASS owner question editor, local report, disable/re-enable and pack round trip validate safely
+PASS all embedded visual clues load offline and zoom has no solution leakage
+PASS responsive board/question/reveal at portrait, landscape/tablets and 130% text, no action overlap
+PASS supported navigation works and no removed solo gameplay entry remains
+PASS no uncaught browser errors
+PASS no outbound network requests in offline gameplay
+{"passed":30,"failed":0,"report":"/tmp/seen-team-browser-report.json"}
+
+RUN node tests/v3-team-ui.spec.cjs
+PASS quick/classic presets preserve identity and custom timers; named preset survives reload
+PASS independent anime levels and exact preview counts persist without silently widening an insufficient pool
+PASS active host backups use an encoded envelope and library solutions remain hidden; pass records no invented incorrect attempt
+PASS question snapshots remain unchanged in actual question UI when the library changes
+PASS failed legacy restore preserves the exact original and unrelated owner edits, then permits a new match
+PASS new source-check editor cannot certify a URL alone, and supports bibliography, spoiler and local image attribution fields
+PASS new setup and presenter interactions fit required mobile/tablet orientations and text130
+PASS new UI produces no uncaught browser exceptions
+{"passed":8,"failed":0,"skipped":0,"checks":[{"name":"quick/classic presets preserve identity and custom timers; named preset survives reload","ok":true},{"name":"independent anime levels and exact preview counts persist without silently widening an insufficient pool","ok":true},{"name":"active host backups use an encoded envelope and library solutions remain hidden; pass records no invented incorrect attempt","ok":true},{"name":"question snapshots remain unchanged in actual question UI when the library changes","ok":true},{"name":"failed legacy restore preserves the exact original and unrelated owner edits, then permits a new match","ok":true},{"name":"new source-check editor cannot certify a URL alone, and supports bibliography, spoiler and local image attribution fields","ok":true},{"name":"new setup and presenter interactions fit required mobile/tablet orientations and text130","ok":true},{"name":"new UI produces no uncaught browser exceptions","ok":true}],"errors":[]}
+
+RUN node tests/v3-build-browser.spec.cjs
+PASS generated HTML starts from local bytes with network disabled before startup
+PASS malicious mixed-case script, comments and Unicode survive actual Python build without execution
+PASS long Arabic visual snapshot can open through actual team controls
+PASS long visual interaction 412x915 text 100%
+PASS long visual interaction 915x412 text 100%
+PASS long visual interaction 1024x1536 text 100%
+PASS long visual interaction 1536x1024 text 100%
+PASS long visual interaction 320x780 text 100%
+PASS long visual interaction 412x915 text 130%
+PASS long visual interaction 915x412 text 130%
+PASS long visual interaction 1024x1536 text 130%
+PASS long visual interaction 1536x1024 text 130%
+PASS long visual interaction 320x780 text 130%
+PASS long visual answer exposes exactly three reachable scoring choices and completes without another screen
+PASS no uncaught errors and no external runtime requests
+{"passed":15,"failed":0}
+
+RUN node tests/v4-ui.spec.cjs
+PASS solo has no navigation or executable setup path in the generated application
+PASS category favorites work by keyboard, filter correctly, and survive reload
+PASS team name presets and classic/enhanced assistance choices leave valid team configurations
+PASS challenge and visual variants use the shared match engine with explicit host rules
+PASS custom two-category match with selected point values scores, reloads, and fits mobile
+PASS one-hand host controls remain usable in portrait/landscape and reveal exactly three awards
+PASS malformed structured question imports never change the local bank or edits
+PASS bundled ordering, multipart, and logic formats give explicit instructions, canonical answers, and judging
+PASS progressive clue disclosure works by keyboard and survives reload without leaking the answer
+PASS identical saved-storage notifications after reload do not block the host, while different writes still lock
+PASS V4 host UX has no uncaught runtime errors or external gameplay requests
+{"passed":11,"failed":0,"report":"/tmp/seen-v4-ui-report.json"}
+
+RUN node tests/v4-browser.spec.cjs
+PASS chromium removed individual-play APIs and UI cannot open a game
+PASS chromium legacy data migrates only display preferences, favorites and seen IDs after a safe write
+PASS chromium interrupted migration preserves the exact legacy save until new persistence succeeds
+PASS chromium corrupt legacy storage leaves the independently saved team match intact
+PASS chromium question reload, rapid award, persisted board and atomic undo preserve identity
+PASS chromium storage interruption during scoring retains usable in-memory game and a backup
+PASS chromium repeated storage events for an already loaded or written save do not lock the host
+PASS chromium a stale second host window cannot overwrite an awarded question
+PASS chromium malformed untrusted backups never mutate the active game or library
+PASS chromium long Arabic reveal and three scoring targets fit phone and tablet orientations
+PASS chromium touch hosting works at explicit phone and tablet viewport sizes and pixel ratios
+PASS chromium local HTML bytes boot and play with network disabled before startup
+PASS firefox removed individual-play APIs and UI cannot open a game
+PASS firefox legacy data migrates only display preferences, favorites and seen IDs after a safe write
+PASS firefox interrupted migration preserves the exact legacy save until new persistence succeeds
+PASS firefox corrupt legacy storage leaves the independently saved team match intact
+PASS firefox question reload, rapid award, persisted board and atomic undo preserve identity
+PASS firefox storage interruption during scoring retains usable in-memory game and a backup
+PASS firefox repeated storage events for an already loaded or written save do not lock the host
+PASS firefox a stale second host window cannot overwrite an awarded question
+PASS firefox malformed untrusted backups never mutate the active game or library
+PASS firefox long Arabic reveal and three scoring targets fit phone and tablet orientations
+PASS firefox touch hosting works at explicit phone and tablet viewport sizes and pixel ratios
+PASS firefox local HTML bytes boot and play with network disabled before startup
+PASS firefox actual file URL offline startup and scoring
+UNAVAILABLE webkit Error: browserType.launch:
+╔══════════════════════════════════════════════════════╗
+║ Host system is missing dependencies to run browsers. ║
+║ Missing libraries:                                   ║
+║     libgtk-4.so.1                                    ║
+║     libgraphene-1.0.so.0                             ║
+║     libharfbuzz-icu.so.0                             ║
+║     libmanette-0.2.so.0                              ║
+║     libhyphen.so.0                                   ║
+║     libwoff2dec.so.1.0.2                             ║
+║     libGLESv2.so.2                                   ║
+╚══════════════════════════════════════════════════════╝
+PASS all available engines no uncaught runtime errors or external requests
+{"passed":26,"failed":0,"unavailable":[{"browser":"chromium","feature":"file URL startup"},{"browser":"webkit"}],"report":"/tmp/seen-v4-browser-report.json"}
+
+RUN node tests/team-accessibility.spec.cjs
+PASS home / 320 / dark
+PASS wizard-1 / 320 / dark
+PASS wizard-2 / 320 / dark
+PASS wizard-3 / 320 / dark
+PASS wizard-4 / 320 / dark
+PASS wizard-5 / 320 / dark
+PASS wizard-6 / 320 / dark
+PASS wizard-7 / 320 / dark
+PASS wizard-8 / 320 / dark
+PASS wizard-9 / 320 / dark
+PASS wizard select retains keyboard focus / 320 / dark
+PASS wizard keyboard step keeps navigation context / 320 / dark
+PASS match-compact / 320 / dark
+PASS match-legacy-preview / 320 / dark
+PASS match-question / 320 / dark
+PASS question hidden answer and screenreader focus / 320 / dark
+PASS match-attempt-controls / 320 / dark
+PASS match-steal / 320 / dark
+PASS steal screen keeps solution hidden / 320 / dark
+PASS match-reveal / 320 / dark
+PASS reveal focuses canonical answer / 320 / dark
+PASS match-one-tap-board / 320 / dark
+PASS one-tap result returns to board with no modal / 320 / dark
+PASS board Undo is keyboard-operable in one action / 320 / dark
+PASS match-undo-reveal / 320 / dark
+PASS presenter-menu-dialog / 320 / dark
+PASS optional presenter dialog keeps keyboard focus / 320 / dark
+PASS match-results / 320 / dark
+PASS history / 320 / dark
+PASS library / 320 / dark
+PASS every visual clue has an Arabic non-answer alt / 320 / dark
+PASS match-classic / 320 / dark
+PASS home / 320 / light
+PASS wizard-1 / 320 / light
+PASS wizard-2 / 320 / light
+PASS wizard-3 / 320 / light
+PASS wizard-4 / 320 / light
+PASS wizard-5 / 320 / light
+PASS wizard-6 / 320 / light
+PASS wizard-7 / 320 / light
+PASS wizard-8 / 320 / light
+PASS wizard-9 / 320 / light
+PASS wizard select retains keyboard focus / 320 / light
+PASS wizard keyboard step keeps navigation context / 320 / light
+PASS match-compact / 320 / light
+PASS match-legacy-preview / 320 / light
+PASS match-question / 320 / light
+PASS question hidden answer and screenreader focus / 320 / light
+PASS match-attempt-controls / 320 / light
+PASS match-steal / 320 / light
+PASS steal screen keeps solution hidden / 320 / light
+PASS match-reveal / 320 / light
+PASS reveal focuses canonical answer / 320 / light
+PASS match-one-tap-board / 320 / light
+PASS one-tap result returns to board with no modal / 320 / light
+PASS board Undo is keyboard-operable in one action / 320 / light
+PASS match-undo-reveal / 320 / light
+PASS presenter-menu-dialog / 320 / light
+PASS optional presenter dialog keeps keyboard focus / 320 / light
+PASS match-results / 320 / light
+PASS history / 320 / light
+PASS library / 320 / light
+PASS every visual clue has an Arabic non-answer alt / 320 / light
+PASS match-classic / 320 / light
+PASS home / 1470 / dark
+PASS wizard-1 / 1470 / dark
+PASS wizard-2 / 1470 / dark
+PASS wizard-3 / 1470 / dark
+PASS wizard-4 / 1470 / dark
+PASS wizard-5 / 1470 / dark
+PASS wizard-6 / 1470 / dark
+PASS wizard-7 / 1470 / dark
+PASS wizard-8 / 1470 / dark
+PASS wizard-9 / 1470 / dark
+PASS wizard select retains keyboard focus / 1470 / dark
+PASS wizard keyboard step keeps navigation context / 1470 / dark
+PASS match-compact / 1470 / dark
+PASS match-legacy-preview / 1470 / dark
+PASS match-question / 1470 / dark
+PASS question hidden answer and screenreader focus / 1470 / dark
+PASS match-attempt-controls / 1470 / dark
+PASS match-steal / 1470 / dark
+PASS steal screen keeps solution hidden / 1470 / dark
+PASS match-reveal / 1470 / dark
+PASS reveal focuses canonical answer / 1470 / dark
+PASS match-one-tap-board / 1470 / dark
+PASS one-tap result returns to board with no modal / 1470 / dark
+PASS board Undo is keyboard-operable in one action / 1470 / dark
+PASS match-undo-reveal / 1470 / dark
+PASS presenter-menu-dialog / 1470 / dark
+PASS optional presenter dialog keeps keyboard focus / 1470 / dark
+PASS match-results / 1470 / dark
+PASS history / 1470 / dark
+PASS library / 1470 / dark
+PASS every visual clue has an Arabic non-answer alt / 1470 / dark
+PASS match-classic / 1470 / dark
+PASS home / 1470 / light
+PASS wizard-1 / 1470 / light
+PASS wizard-2 / 1470 / light
+PASS wizard-3 / 1470 / light
+PASS wizard-4 / 1470 / light
+PASS wizard-5 / 1470 / light
+PASS wizard-6 / 1470 / light
+PASS wizard-7 / 1470 / light
+PASS wizard-8 / 1470 / light
+PASS wizard-9 / 1470 / light
+PASS wizard select retains keyboard focus / 1470 / light
+PASS wizard keyboard step keeps navigation context / 1470 / light
+PASS match-compact / 1470 / light
+PASS match-legacy-preview / 1470 / light
+PASS match-question / 1470 / light
+PASS question hidden answer and screenreader focus / 1470 / light
+PASS match-attempt-controls / 1470 / light
+PASS match-steal / 1470 / light
+PASS steal screen keeps solution hidden / 1470 / light
+PASS match-reveal / 1470 / light
+PASS reveal focuses canonical answer / 1470 / light
+PASS match-one-tap-board / 1470 / light
+PASS one-tap result returns to board with no modal / 1470 / light
+PASS board Undo is keyboard-operable in one action / 1470 / light
+PASS match-undo-reveal / 1470 / light
+PASS presenter-menu-dialog / 1470 / light
+PASS optional presenter dialog keeps keyboard focus / 1470 / light
+PASS match-results / 1470 / light
+PASS history / 1470 / light
+PASS library / 1470 / light
+PASS every visual clue has an Arabic non-answer alt / 1470 / light
+PASS match-classic / 1470 / light
+PASS axe WCAG A/AA and best-practice findings
+PASS no uncaught browser errors
+PASS no outbound network dependencies
+{"passed":131,"failed":0,"skipped":0,"report":"/tmp/seen-team-accessibility-report.json"}
+
+RUN node tests/team-content.spec.cjs --browser
+PASS original400questionIDs all preserved
+PASS unique question IDs and normalized question text
+PASS every question has four distinct choices and exactlyone canonical key
+PASS all categories have enough200400600 questions forclassic with spoilerprotection
+PASS source URLs and metadata complete without fabricated verification claim
+PASS Westerndigits in question content
+PASS accepted spelling aliases never make a distractor correct
+PASS meaningful offline media all resolved and imagealtdoesnotrevealanswer
+PASS 24expandedclues retain source/license metadata
+PASS licensedphotos eachunder100KB andJPEG files match embeddedbytes
+PASS HTML is singlefile with no external script/stylesheet/font
+PASS importJSON rejects prototype pollution keys and sizeabuse
+PASS safeQuestion rejects incorrect choices points media and duplicate IDs
+PASS safeQuestion rejects normalized duplicate question text
+PASS unsafeURLs rejected and invalidhttpscannotbeasource
+PASS acceptedaliases conflictingwithwrongchoices rejected atimport
+PASS malformedhistorytransactions rejected before rendering
+PASS untrustedHTML stays escaped text
+PASS preferrednullteams rejected with localized validation error
+PASS importedteamemblems are escaped in renderedscoreboard
+PASS Arabic normalization preserves distinct letters while accepting diacritics/hamza
+PASS every implemented structured format survives owner validation
+PASS unplayable and malformed formats rejected before import
+PASS source checked importer rejects impossible and future verification dates
+PASS owner import never silently certifies unknown verification status
+PASS authentic legacy owner review migrates without a factual verification upgrade
+PASS unknown legacy verification states remain rejected
+{"passed":27,"failed":0,"questions":720,"mediaQuestions":63}
+PASS invalidbackupshapeandduplicateeditsrejected
+PASS malformedsourceandconflictingaliasesrejectedbeforepackconfirmation
+PASS questionpackHTMLescapedandreloadpreservesownerquestion
+PASS backupnullpreferredteamsrejectedbeforeconfirmation
+PASS localeditorformsubmitsdespitehiddenidfieldandreloads
+PASS legacyv2ownerreviewpreservesquestionandeditorialhistoryafterreload
+PASS mergedpackandeditor1200capacitydonotdropquestiondata
+{"passed":7,"failed":0,"errors":[],"network":[]}
+
+RUN node tests/v3-media.spec.cjs --browser
+PASS 24 new meaningful diagrams retain the approved category distribution
+PASS every visual retains its offline source bytes and SHA-256 provenance
+PASS all original SVGs have explicit license, authorship and stable source paths
+PASS SVGs contain no executable content, network references or hidden answer metadata
+PASS each diagram belongs to a unique question in its intended category
+PASS all 24 SVGs decode offline and retain proportions at 320 pixels
+{"passed":6,"failed":0,"skipped":0,"newImages":24}
+Suites: 14 passed, 0 failed
