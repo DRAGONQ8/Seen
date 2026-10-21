@@ -868,7 +868,7 @@
     "category": "football",
     "sub": "قوانين اللعبة",
     "level": 1,
-    "q": "كم لاعبًا يبدأ بهم كل فريق مباراة كرة قدم رسمية مكتملة العدد؟",
+    "q": "وفق قوانين IFAB لموسم 2025/26، كم لاعبًا يبدأ بهم كل فريق مكتمل العدد مباراة كرة قدم؟",
     "options": [
       "11",
       "10",
@@ -878,7 +878,7 @@
     "answer": 0,
     "explanation": "يتكون كل فريق من 11 لاعبًا كحد أقصى، أحدهم حارس مرمى.",
     "source": {
-      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "title": "IFAB — قوانين كرة القدم 2025/26",
       "url": "https://www.theifab.com/laws/2025-26/the-players/",
       "reference": "قانون 3، نسخة 2025/26"
     },
@@ -888,7 +888,31 @@
     ],
     "version": 1,
     "hint": "احسب حارس المرمى ضمن العدد.",
-    "points": 200
+    "points": 200,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "IFAB — قوانين كرة القدم 2025/26",
+      "referenceUrl": "https://www.theifab.com/laws/2025-26/the-players/",
+      "section": "قانون 3.1؛ عدد اللاعبين؛ إصدار 2025/26",
+      "notes": "قراءة مباشرة لقانون IFAB: الحد الأقصى للفريق 11 لاعبًا، أحدهم حارس مرمى. طابقت السؤال عن الفريق مكتمل العدد مع هذا النص.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "قوانين اللعبة",
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "قواعد رياضية وتاريخ أندية وملاعب دون عنف؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
   },
   {
     "id": "football-034",
@@ -922,7 +946,7 @@
     "category": "football",
     "sub": "قوانين اللعبة",
     "level": 2,
-    "q": "كم تبعد علامة ركلة الجزاء عن منتصف خط المرمى بالمتر؟",
+    "q": "وفق قوانين IFAB لموسم 2025/26، كم تبعد علامة ركلة الجزاء عن منتصف خط المرمى بالمتر؟",
     "options": [
       "11 مترًا",
       "9 أمتار",
@@ -932,7 +956,7 @@
     "answer": 0,
     "explanation": "تقع علامة ركلة الجزاء على بعد 11 مترًا من منتصف المرمى.",
     "source": {
-      "title": "مرجع كرة القدم: الاتحاد أو الجهة المنظمة",
+      "title": "IFAB — قوانين كرة القدم 2025/26",
       "url": "https://www.theifab.com/laws/2025-26/the-field-of-play/",
       "reference": "قانون 1، نسخة 2025/26"
     },
@@ -942,7 +966,22 @@
     ],
     "version": 1,
     "hint": "تعادل المسافة 12 ياردة تقريبًا.",
-    "points": 200
+    "points": 200,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "IFAB — قوانين كرة القدم 2025/26",
+      "referenceUrl": "https://www.theifab.com/laws/2025-26/the-field-of-play/",
+      "section": "قانون 1.6؛ منطقة الجزاء؛ إصدار 2025/26",
+      "notes": "قراءة مباشرة لقانون IFAB: علامة الجزاء على بعد 11 مترًا من منتصف المسافة بين القائمين؛ طابقت القيمة والوحدة مع الإجابة.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "قوانين اللعبة"
   },
   {
     "id": "football-036",
@@ -1892,9 +1931,9 @@
     "answer": 0,
     "explanation": "دودوما هي العاصمة، بينما تعد دار السلام مركزًا اقتصاديًا رئيسيًا.",
     "source": {
-      "title": "مرجع جغرافي",
-      "url": "https://www.tanzania.go.tz/",
-      "reference": "بوابة حكومة تنزانيا"
+      "title": "المفوضية العليا التنزانية في كيغالي — معلومات عن تنزانيا",
+      "url": "https://www.rw.tzembassy.go.tz/tanzania/about-tanzania",
+      "reference": "About Tanzania؛ فقرة العاصمة والميناء التجاري"
     },
     "spoiler": false,
     "tags": [
@@ -1902,7 +1941,31 @@
     ],
     "version": 1,
     "hint": "ليست المدينة الساحلية الكبرى على المحيط الهندي.",
-    "points": 600
+    "points": 600,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "المفوضية العليا التنزانية في كيغالي — معلومات عن تنزانيا",
+      "referenceUrl": "https://www.rw.tzembassy.go.tz/tanzania/about-tanzania",
+      "section": "About Tanzania؛ فقرة العاصمة والميناء التجاري",
+      "notes": "قراءة مستقلة لصفحة بعثة تنزانيا الحكومية: دودوما العاصمة ودار السلام العاصمة التجارية. طابقت التفريق الوارد في السؤال.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "العواصم",
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "جغرافيا طبيعية وعاصمة دولة؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
   },
   {
     "id": "geo-021",
@@ -2621,9 +2684,9 @@
     "answer": 0,
     "explanation": "تقع كيرغولين في جنوب المحيط الهندي، وتتبع الأراضي الفرنسية الجنوبية والقطبية.",
     "source": {
-      "title": "مرجع جغرافي",
+      "title": "إدارة الأراضي الفرنسية الجنوبية والقطبية TAAF",
       "url": "https://taaf.fr/collectivites/presentation-des-territoires/les-iles-australes/",
-      "reference": "الأراضي الفرنسية الجنوبية والقطبية: كيرغولين"
+      "reference": "Les îles Australes؛ الفقرة الافتتاحية وقسم Les îles Kerguelen"
     },
     "spoiler": false,
     "tags": [
@@ -2631,7 +2694,22 @@
     ],
     "version": 1,
     "hint": "تقع جنوب المحيط الذي تطل عليه الهند.",
-    "points": 600
+    "points": 600,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "إدارة الأراضي الفرنسية الجنوبية والقطبية TAAF",
+      "referenceUrl": "https://taaf.fr/collectivites/presentation-des-territoires/les-iles-australes/",
+      "section": "Les îles Australes؛ الفقرة الافتتاحية وقسم Les îles Kerguelen",
+      "notes": "قراءة مستقلة لصفحة الإدارة الفرنسية TAAF؛ تضع كيرغولين وجزر الأراضي الجنوبية في جنوب المحيط الهندي.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "الجزر"
   },
   {
     "id": "geo-048",

@@ -1,0 +1,965 @@
+[
+  {
+    "id": "v4-space-001",
+    "category": "space",
+    "sub": "النظام الشمسي",
+    "subcategory": "النظام الشمسي",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "كم عدد الكواكب في النظام الشمسي وفق التصنيف الحالي؟",
+    "options": [
+      "8",
+      "7",
+      "9",
+      "10"
+    ],
+    "answer": 0,
+    "correctAnswer": "8",
+    "acceptedAnswers": [],
+    "explanation": "يضم النظام الشمسي 8 كواكب؛ ويصنف بلوتو كوكبًا قزمًا.",
+    "source": {
+      "title": "NASA Science — About the Planets",
+      "url": "https://science.nasa.gov/solar-system/planets/",
+      "reference": "About the Planets / Introduction"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/solar-system/planets/",
+      "section": "About the Planets / Introduction",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "معرفة أساسية شائعة بالكواكب والنجوم."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "النظام الشمسي"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-002",
+    "category": "space",
+    "sub": "الكواكب الداخلية",
+    "subcategory": "الكواكب الداخلية",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما أقرب كواكب النظام الشمسي إلى الشمس؟",
+    "options": [
+      "الأرض",
+      "الزهرة",
+      "عطارد",
+      "المريخ"
+    ],
+    "answer": 2,
+    "correctAnswer": "عطارد",
+    "acceptedAnswers": [
+      "Mercury"
+    ],
+    "explanation": "عطارد أول الكواكب ترتيبًا من الشمس.",
+    "source": {
+      "title": "NASA Science — Mercury Facts",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "reference": "Mercury Facts / Introduction"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/mercury/facts/",
+      "section": "Mercury Facts / Introduction",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "معرفة أساسية شائعة بالكواكب والنجوم."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الكواكب الداخلية"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-003",
+    "category": "space",
+    "sub": "الكواكب العملاقة",
+    "subcategory": "الكواكب العملاقة",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما أكبر كواكب النظام الشمسي؟",
+    "options": [
+      "زحل",
+      "المشتري",
+      "نبتون",
+      "أورانوس"
+    ],
+    "answer": 1,
+    "correctAnswer": "المشتري",
+    "acceptedAnswers": [
+      "Jupiter"
+    ],
+    "explanation": "المشتري أكبر كواكب النظام الشمسي حجمًا.",
+    "source": {
+      "title": "NASA Science — Jupiter Facts",
+      "url": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "reference": "Jupiter Facts / Introduction"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "section": "Jupiter Facts / Introduction",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "معرفة أساسية شائعة بالكواكب والنجوم."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الكواكب العملاقة"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-004",
+    "category": "space",
+    "sub": "ترتيب الكواكب",
+    "subcategory": "ترتيب الكواكب",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما ترتيب الأرض بين الكواكب بدءًا من الشمس؟",
+    "options": [
+      "الثاني",
+      "الرابع",
+      "الخامس",
+      "الثالث"
+    ],
+    "answer": 3,
+    "correctAnswer": "الثالث",
+    "acceptedAnswers": [
+      "3",
+      "الثالثة"
+    ],
+    "explanation": "تأتي الأرض بعد عطارد والزهرة.",
+    "source": {
+      "title": "NASA Science — Inner Planets",
+      "url": "https://science.nasa.gov/solar-system/planets/",
+      "reference": "Inner Planets / Earth Facts"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/solar-system/planets/",
+      "section": "Inner Planets / Earth Facts",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "معرفة أساسية شائعة بالكواكب والنجوم."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "ترتيب الكواكب"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-005",
+    "category": "space",
+    "sub": "الكواكب الخارجية",
+    "subcategory": "الكواكب الخارجية",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما الكوكب الثامن والأبعد عن الشمس بين كواكب النظام الشمسي؟",
+    "options": [
+      "نبتون",
+      "أورانوس",
+      "زحل",
+      "المشتري"
+    ],
+    "answer": 0,
+    "correctAnswer": "نبتون",
+    "acceptedAnswers": [
+      "Neptune"
+    ],
+    "explanation": "نبتون الكوكب الثامن؛ ولا يدخل بلوتو ضمن الكواكب الثمانية.",
+    "source": {
+      "title": "NASA Science — Outer Planets",
+      "url": "https://science.nasa.gov/solar-system/planets/",
+      "reference": "Outer Planets / Neptune Facts"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/solar-system/planets/",
+      "section": "Outer Planets / Neptune Facts",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "معرفة أساسية شائعة بالكواكب والنجوم."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الكواكب الخارجية"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-006",
+    "category": "space",
+    "sub": "الشمس والنجوم",
+    "subcategory": "الشمس والنجوم",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "كيف يصنف علماء الفلك الشمس؟",
+    "options": [
+      "كوكب صخري",
+      "نجم",
+      "قمر طبيعي",
+      "مذنب"
+    ],
+    "answer": 1,
+    "correctAnswer": "نجم",
+    "acceptedAnswers": [
+      "نجمة"
+    ],
+    "explanation": "الشمس نجم النظام الشمسي، وليست كوكبًا.",
+    "source": {
+      "title": "NASA Science — Our Sun: Facts",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "reference": "Our Sun: Facts / Introduction"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/sun/facts/",
+      "section": "Our Sun: Facts / Introduction",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "معرفة أساسية شائعة بالكواكب والنجوم."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الشمس والنجوم"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-007",
+    "category": "space",
+    "sub": "الغلاف الجوي للكواكب",
+    "subcategory": "الغلاف الجوي للكواكب",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما طبيعة البقعة الحمراء العظيمة على المشتري؟",
+    "options": [
+      "بحيرة حمم",
+      "حفرة اصطدام",
+      "عاصفة ضخمة",
+      "قمة جبلية"
+    ],
+    "answer": 2,
+    "correctAnswer": "عاصفة ضخمة",
+    "acceptedAnswers": [
+      "عاصفة",
+      "إعصار",
+      "اعصار"
+    ],
+    "explanation": "البقعة الحمراء العظيمة عاصفة في غلاف المشتري الجوي.",
+    "source": {
+      "title": "NASA Science — Introduction",
+      "url": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "reference": "Introduction / Great Red Spot"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "section": "Introduction / Great Red Spot",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب معرفة ظاهرة أو مدار أو اسم علمي محدد."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الغلاف الجوي للكواكب"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-008",
+    "category": "space",
+    "sub": "مدارات الكواكب",
+    "subcategory": "مدارات الكواكب",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "كم يومًا أرضيًا تقريبًا يستغرق عطارد لإتمام دورة حول الشمس؟",
+    "options": [
+      "365",
+      "225",
+      "687",
+      "88"
+    ],
+    "answer": 3,
+    "correctAnswer": "88",
+    "acceptedAnswers": [
+      "88 يومًا",
+      "88 يوما"
+    ],
+    "explanation": "سنة عطارد نحو 88 يومًا أرضيًا.",
+    "source": {
+      "title": "NASA Science — Orbit and Rotation",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "reference": "Orbit and Rotation / orbital period"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/mercury/facts/",
+      "section": "Orbit and Rotation / orbital period",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب معرفة ظاهرة أو مدار أو اسم علمي محدد."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "مدارات الكواكب"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-009",
+    "category": "space",
+    "sub": "أقمار المريخ",
+    "subcategory": "أقمار المريخ",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما اسما قمري المريخ؟",
+    "options": [
+      "فوبوس وديموس",
+      "آيو وأوروبا",
+      "تيتان وإنسيلادوس",
+      "تريتون وشارون"
+    ],
+    "answer": 0,
+    "correctAnswer": "فوبوس وديموس",
+    "acceptedAnswers": [
+      "Phobos and Deimos",
+      "ديموس وفوبوس"
+    ],
+    "explanation": "يدور فوبوس وديموس حول المريخ.",
+    "source": {
+      "title": "NASA Science — Moons",
+      "url": "https://science.nasa.gov/mars/facts/",
+      "reference": "Moons / Phobos and Deimos"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/mars/facts/",
+      "section": "Moons / Phobos and Deimos",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب معرفة ظاهرة أو مدار أو اسم علمي محدد."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "أقمار المريخ"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-010",
+    "category": "space",
+    "sub": "دوران الكواكب",
+    "subcategory": "دوران الكواكب",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "أي كوكب صخري في النظام الشمسي يدور حول محوره بعكس اتجاه دوران الأرض؟",
+    "options": [
+      "المريخ",
+      "الزهرة",
+      "المشتري",
+      "عطارد"
+    ],
+    "answer": 1,
+    "correctAnswer": "الزهرة",
+    "acceptedAnswers": [
+      "Venus"
+    ],
+    "explanation": "يدور الزهرة دورانًا تراجعيًا مقارنة بالأرض؛ لذا تشرق الشمس هناك من الغرب.",
+    "source": {
+      "title": "NASA Science — Orbit and Rotation",
+      "url": "https://science.nasa.gov/venus/venus-facts/",
+      "reference": "Orbit and Rotation / retrograde rotation"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/venus/venus-facts/",
+      "section": "Orbit and Rotation / retrograde rotation",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب معرفة ظاهرة أو مدار أو اسم علمي محدد."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "دوران الكواكب"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-011",
+    "category": "space",
+    "sub": "طاقة النجوم",
+    "subcategory": "طاقة النجوم",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما العملية التي تولد طاقة الشمس في قلبها؟",
+    "options": [
+      "الاحتراق الكيميائي",
+      "الانشطار النووي",
+      "الاندماج النووي",
+      "احتكاك الصخور"
+    ],
+    "answer": 2,
+    "correctAnswer": "الاندماج النووي",
+    "acceptedAnswers": [
+      "اندماج نووي"
+    ],
+    "explanation": "يندمج الهيدروجين لتكوين الهيليوم في قلب الشمس.",
+    "source": {
+      "title": "NASA Science — Structure",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "reference": "Structure / nuclear reactions in the core"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/sun/facts/",
+      "section": "Structure / nuclear reactions in the core",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب معرفة ظاهرة أو مدار أو اسم علمي محدد."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "طاقة النجوم"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-012",
+    "category": "space",
+    "sub": "الكواكب القزمة",
+    "subcategory": "الكواكب القزمة",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي سنة أعاد الاتحاد الفلكي الدولي تصنيف بلوتو كوكبًا قزمًا؟",
+    "options": [
+      "1969",
+      "1986",
+      "2015",
+      "2006"
+    ],
+    "answer": 3,
+    "correctAnswer": "2006",
+    "acceptedAnswers": [],
+    "explanation": "صدر تعريف الاتحاد الفلكي الدولي الذي غيّر تصنيف بلوتو عام 2006.",
+    "source": {
+      "title": "NASA Science — Introduction",
+      "url": "https://science.nasa.gov/solar-system/planets/",
+      "reference": "Introduction / 2006 IAU definition"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/solar-system/planets/",
+      "section": "Introduction / 2006 IAU definition",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب معرفة ظاهرة أو مدار أو اسم علمي محدد."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الكواكب القزمة"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-013",
+    "category": "space",
+    "sub": "الزمن على عطارد",
+    "subcategory": "الزمن على عطارد",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "كم يومًا أرضيًا تقريبًا تستغرق دورة النهار والليل الكاملة على عطارد، أي يومه الشمسي؟",
+    "options": [
+      "176",
+      "59",
+      "88",
+      "365"
+    ],
+    "answer": 0,
+    "correctAnswer": "176",
+    "acceptedAnswers": [
+      "176 يومًا",
+      "176 يوما"
+    ],
+    "explanation": "اليوم الشمسي لعطارد نحو 176 يومًا أرضيًا؛ وهو يختلف عن مدة دورانه حول محوره.",
+    "source": {
+      "title": "NASA Science — Orbit and Rotation",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "reference": "Orbit and Rotation / solar day"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/mercury/facts/",
+      "section": "Orbit and Rotation / solar day",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب التمييز بين مصطلحات تخصصية أو معرفة تفصيل في استكشاف الكواكب وتكوينها."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الزمن على عطارد"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-014",
+    "category": "space",
+    "sub": "الزمن على الزهرة",
+    "subcategory": "الزمن على الزهرة",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "كم يومًا أرضيًا تقريبًا يستغرق الزهرة لإكمال دورة واحدة حول محوره بالنسبة إلى النجوم؟",
+    "options": [
+      "225",
+      "243",
+      "117",
+      "365"
+    ],
+    "answer": 1,
+    "correctAnswer": "243",
+    "acceptedAnswers": [
+      "243 يومًا",
+      "243 يوما"
+    ],
+    "explanation": "الدوران المحوري للزهرة نحو 243 يومًا أرضيًا؛ أما سنته فنحو 225 يومًا.",
+    "source": {
+      "title": "NASA Science — Orbit and Rotation",
+      "url": "https://science.nasa.gov/venus/venus-facts/",
+      "reference": "Orbit and Rotation / axial rotation"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/venus/venus-facts/",
+      "section": "Orbit and Rotation / axial rotation",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب التمييز بين مصطلحات تخصصية أو معرفة تفصيل في استكشاف الكواكب وتكوينها."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "الزمن على الزهرة"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-015",
+    "category": "space",
+    "sub": "محاور الكواكب",
+    "subcategory": "محاور الكواكب",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "أي كوكب يبلغ ميل محوره نحو 98 درجة، فيبدو كأنه يتدحرج على جانبه؟",
+    "options": [
+      "نبتون",
+      "زحل",
+      "أورانوس",
+      "المشتري"
+    ],
+    "answer": 2,
+    "correctAnswer": "أورانوس",
+    "acceptedAnswers": [
+      "Uranus"
+    ],
+    "explanation": "ميل محور أورانوس 97.77 درجة تقريبًا، وهو سبب مظهر دورانه الجانبي.",
+    "source": {
+      "title": "NASA Science — Orbit and Rotation",
+      "url": "https://science.nasa.gov/uranus/facts/",
+      "reference": "Orbit and Rotation / 97.77-degree tilt"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/uranus/facts/",
+      "section": "Orbit and Rotation / 97.77-degree tilt",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب التمييز بين مصطلحات تخصصية أو معرفة تفصيل في استكشاف الكواكب وتكوينها."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "محاور الكواكب"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-016",
+    "category": "space",
+    "sub": "استكشاف الكواكب",
+    "subcategory": "استكشاف الكواكب",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "أي مركبة اكتشفت حلقات المشتري عام 1979؟",
+    "options": [
+      "مارينر 10",
+      "كاسيني",
+      "نيو هورايزنز",
+      "فوياجر 1"
+    ],
+    "answer": 3,
+    "correctAnswer": "فوياجر 1",
+    "acceptedAnswers": [
+      "Voyager 1",
+      "فويجر 1",
+      "فوياجر1"
+    ],
+    "explanation": "اكتشفت فوياجر 1 حلقات المشتري الخافتة عام 1979.",
+    "source": {
+      "title": "NASA Science — Rings",
+      "url": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "reference": "Rings / Voyager 1 discovery"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "section": "Rings / Voyager 1 discovery",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب التمييز بين مصطلحات تخصصية أو معرفة تفصيل في استكشاف الكواكب وتكوينها."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "استكشاف الكواكب"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-017",
+    "category": "space",
+    "sub": "طبقات الشمس",
+    "subcategory": "طبقات الشمس",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما اسم طبقة الشمس التي نراها بوصفها سطحها المضيء؟",
+    "options": [
+      "الغلاف الضوئي",
+      "الهالة الشمسية",
+      "الغلاف اللوني",
+      "المنطقة الإشعاعية"
+    ],
+    "answer": 0,
+    "correctAnswer": "الغلاف الضوئي",
+    "acceptedAnswers": [
+      "الفوتوسفير",
+      "Photosphere",
+      "غلاف ضوئي"
+    ],
+    "explanation": "الغلاف الضوئي هو الطبقة المرئية التي يطلق عليها سطح الشمس، رغم أنه ليس صلبًا.",
+    "source": {
+      "title": "NASA Science — Surface",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "reference": "Surface / photosphere"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/sun/facts/",
+      "section": "Surface / photosphere",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب التمييز بين مصطلحات تخصصية أو معرفة تفصيل في استكشاف الكواكب وتكوينها."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "طبقات الشمس"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  },
+  {
+    "id": "v4-space-018",
+    "category": "space",
+    "sub": "تسمية الأجرام",
+    "subcategory": "تسمية الأجرام",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "من أعمال أي كاتبين استمدت أسماء أقمار أورانوس المعروفة؟",
+    "options": [
+      "دانتي وبترارك",
+      "شكسبير وألكسندر بوب",
+      "هوميروس وهسيود",
+      "تولستوي ودوستويفسكي"
+    ],
+    "answer": 1,
+    "correctAnswer": "شكسبير وألكسندر بوب",
+    "acceptedAnswers": [
+      "وليم شكسبير وألكسندر بوب",
+      "ويليام شكسبير وألكسندر بوب",
+      "Shakespeare and Alexander Pope"
+    ],
+    "explanation": "تستمد أقمار أورانوس أسماءها من شخصيات أدبية عند شكسبير وألكسندر بوب.",
+    "source": {
+      "title": "NASA Science — Moons",
+      "url": "https://science.nasa.gov/uranus/facts/",
+      "reference": "Moons / literary names"
+    },
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "NASA Science",
+      "referenceUrl": "https://science.nasa.gov/uranus/facts/",
+      "section": "Moons / literary names",
+      "notes": "قراءة مستقلة للفقرة المحددة ومطابقة الحقيقة مع السؤال والإجابة؛ الصياغة العربية أصلية.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "يتطلب التمييز بين مصطلحات تخصصية أو معرفة تفصيل في استكشاف الكواكب وتكوينها."
+    },
+    "spoiler": false,
+    "tags": [
+      "الفضاء والفلك",
+      "تسمية الأجرام"
+    ],
+    "type": "text",
+    "version": 4,
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "حقائق الكواكب والشمس؛ لا عنف أو محتوى للبالغين؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
+  }
+]

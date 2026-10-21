@@ -1,0 +1,163 @@
+{
+  "format": "seen-standalone-build",
+  "version": 4,
+  "output": "index.html",
+  "bytes": 2488143,
+  "sha256": "f7b87869f54fff5d1a9541f161c554992edd4f5ed8c3e8a1f703d0b858b342ed",
+  "inputs": {
+    "graphics.js": "62aa8bedc605c40cd5aca04674cac287b95474da56938e24294c013faf63dcfe",
+    "media-v2.js": "f720ce00ab604ff732cee8ca63d3c475444d239f758e0e0ca5067515589bd2ee",
+    "team-engine.js": "ce2622169b5de36e1a3cefe9f4c9d044f34cfd4960ffba294cde584d59c575fa",
+    "tournament.js": "08048dc0da7274753ab2186b6433548f9cdc6bdf246132632f9fd1293ca2855d",
+    "app.js": "7961f20bcbf943ebac30072a6738e238e0249d5d8f60e660beb4c53f19c834f7",
+    "team-ui.js": "c0907d1ddd9354f1642dd6886791a82aed575cfcd382661fcb574ee25afec0ab",
+    "tournament-ui.js": "b4fa8a4f6af992c2b0d5fcd625e2f1c3cf0c52a22dd4912ee9643811cabef062",
+    "ui.css": "5c1e31d610dde5bf54248298f8bcaf6bd1fce01b17239304840d7b0aedcfea6b",
+    "team-ui.css": "f5b801d495d4d89cb7c5036d3e37dbcc960ae6ee87b476d58599d383075695ca",
+    "tournament-ui.css": "4af96534c1a9a6d249697a53db4cc2b307eaf47bf335d2494ed451d089d93a04",
+    "build.py": "1374ac3b7fe9d7ff9eeaac8fbbef27548ef5158fc0e7de21ab9781d5b77408cc",
+    "content_tools.py": "22d3234c4a1147608e628b32e7cec602c6313a246b627cc1eb455a5eea29cd9c",
+    "assets/NotoSansArabic-Regular.ttf": "146b2193f4aee343a8da5e2295255b04db547d74339a12be51763b3a0081868d",
+    "assets/OFL.txt": "a783ea143e23dc0374b472b79d3b76a369e57a28eb599d19535073c0a4b3aa4d",
+    "content/expansion.json": "81c48768af6c121f07ea783b31b60b0443d4fcb480752149bfb1cc0718ec6d35",
+    "content/history.json": "039bf204289edd01b32f563ee3cb753b3eddcbf84cec837dad66724e958e5c93",
+    "content/pop.json": "fd5c24a4f2828e3f05d6aea496af308c8ab977d67db4c51b65f99d49451cb60a",
+    "content/religion.json": "260a2006319ef97aaa9d98b1680fce0a31719fef27e600fa5cc1054dc264a390",
+    "content/v3-history.json": "ae331bb5b8feb2bf4437a38a9bea1ea8e072ca41dda20cda4b6ed619c7be39e6",
+    "content/v3-pop.json": "410781968825658b9ca56f46b7ef544fafb75919c7da59718c05c634156aebb1",
+    "content/v4-space.json": "bdc7cc8c54e90b57d84343dc17b1ab8c597ad386a83c9173da366fcc174df8db",
+    "content/visual-pack.json": "e934620d532cb5144015c068caa45210c7cfa1ae69f494ced164bb71433dcb2f",
+    "content/world.json": "4a7b4e457e1f915496986b01c718098c40d1d90b78b6dc2e644e71cfc90fe12d"
+  },
+  "content": {
+    "questions": 666,
+    "images": 63,
+    "categories": {
+      "anime": 106,
+      "arabia": 75,
+      "football": 92,
+      "games": 68,
+      "geo": 85,
+      "islamic": 74,
+      "prophets": 74,
+      "seerah": 74,
+      "space": 18
+    },
+    "points": {
+      "200": 269,
+      "400": 264,
+      "600": 133
+    },
+    "verification": {
+      "disputed": 5,
+      "editorial": 389,
+      "pending": 83,
+      "source-checked": 189
+    },
+    "defaultEligibleQuestions": 179,
+    "defaultInventory": {
+      "anime": {
+        "eligibleByPoints": {
+          "200": 5,
+          "400": 20,
+          "600": 13
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "arabia": {
+        "eligibleByPoints": {
+          "200": 5,
+          "400": 4,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "football": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 14,
+          "600": 17
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "games": {
+        "eligibleByPoints": {
+          "200": 2,
+          "400": 3,
+          "600": 5
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "geo": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 5,
+          "600": 4
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "islamic": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 7,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "prophets": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 11,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "seerah": {
+        "eligibleByPoints": {
+          "200": 4,
+          "400": 7,
+          "600": 5
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "space": {
+        "eligibleByPoints": {
+          "200": 6,
+          "400": 6,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      }
+    },
+    "errors": [],
+    "reviewCandidates": [
+      {
+        "type": "possible-semantic-duplicate",
+        "questions": [
+          "seerah-008",
+          "seerah-040"
+        ]
+      }
+    ]
+  },
+  "runtimeDependencies": [],
+  "deterministic": true
+}

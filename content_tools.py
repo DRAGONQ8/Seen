@@ -51,12 +51,46 @@ def https_url(value):
 
 
 def verification_complete(v):
+    if not isinstance(v, dict):
+        return False
     try:
         datetime.date.fromisoformat(v.get('verifiedAt', ''))
     except (TypeError, ValueError):
         return False
-    return (bool(v.get('referenceTitle') and v.get('section') and v.get('notes'))
-            and (https_url(v.get('referenceUrl')) or bool(v.get('bibliography'))))
+    def meaningful(key):
+        return isinstance(v.get(key), str) and bool(v[key].strip())
+    return (all(meaningful(key) for key in ('referenceTitle', 'section', 'notes'))
+            and (https_url(v.get('referenceUrl')) or meaningful('bibliography')))
+
+
+def default_eligible(q):
+    """Release selection policy; structural validity alone never proves a fact.
+
+    This mirrors the standard engine's conservative spoiler policy. A checked
+    status is historical evidence, not a claim of a new independent recheck.
+    """
+    verification = q.get('verification', {})
+    if (verification.get('status') != 'source-checked'
+            or not verification_complete(verification)
+            or q.get('disabled') or q.get('unavailable') or q.get('available') is False):
+        return False
+    if q.get('category') == 'anime':
+        return q.get('spoilerLevel', 2 if q.get('spoiler') else 1) <= 1
+    return not q.get('spoiler')
+
+
+def category_inventory(bank):
+    """Advertise availability only when every exact point tier can be filled."""
+    result = {}
+    for category in sorted({q['category'] for q in bank}):
+        counts = {str(value): sum(q['category'] == category and q['points'] == value
+                                  and default_eligible(q) for q in bank)
+                  for value in POINTS}
+        result[category] = {'eligibleByPoints': counts,
+                            'quickAvailable': min(counts.values()) >= 1,
+                            'classicAvailable': min(counts.values()) >= 2,
+                            'classicShortages': [value for value, count in counts.items() if count < 2]}
+    return result
 
 
 def normalize_question(original):
@@ -107,7 +141,7 @@ def audit(bank):
             if any(normalized(a) in wrong for a in q.get('acceptedAnswers', [])):
                 fail('accepted answer conflicts with distractor')
         if q.get('points') not in POINTS or q.get('level') not in (1, 2, 3, 4):
-            fail('invalid points or solo difficulty')
+            fail('invalid points or difficulty')
         if not q.get('category') or not q.get('sub') or not q.get('explanation') or not isinstance(q.get('tags'), list):
             fail('missing category/subcategory/explanation/tags')
         source = q.get('source', {})
@@ -138,6 +172,8 @@ def audit(bank):
             'categories': dict(sorted(Counter(q['category'] for q in bank).items())),
             'points': dict(sorted(Counter(q['points'] for q in bank).items())),
             'verification': dict(sorted(Counter(q['verification']['status'] for q in bank).items())),
+            'defaultEligibleQuestions': sum(default_eligible(q) for q in bank),
+            'defaultInventory': category_inventory(bank),
             'errors': errors, 'reviewCandidates': warnings}
 
 

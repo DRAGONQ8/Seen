@@ -11,7 +11,7 @@ let clock = Date.now();
 function run(name, fn) { try { fn(); count++; console.log('PASS', name); } catch (e) { failures++; console.error('FAIL', name, e); } }
 function config(extra = {}) { const c = E.defaults(); c.board = 'compact'; c.timer = false; Object.assign(c, extra); return c; }
 function create(c = config(), seed = 8) { return E.create(c, bank, { seed, now: clock }); }
-function act(s, type, fields = {}, at = clock += 50) { return E.dispatch(s, { type, ...fields }, bank, at); }
+function act(s, type, fields = {}, at = clock += 50) { const identity = type === 'ADJUDICATE' && s.current ? {tileId:s.current.tileId,questionId:s.current.questionId,token:s.current.token} : {}; return E.dispatch(s, { type, ...identity, ...fields }, bank, at); }
 function question(s, value = 200) { s = act(s, 'SELECT_TILE', { tileId: s.board.find(t => !t.done && t.value === value).id }); return act(s, 'START_QUESTION'); }
 function oralWin(s, team = s.current.responder) { s = act(s, 'REVEAL'); return act(s, 'ADJUDICATE', { teamId: team }); }
 function helpers(keys, extra = {}) { const c = config(extra); c.assistSlots = 5; c.teams.forEach(t => t.assists = [...keys]); return c; }
@@ -136,7 +136,7 @@ run('fullclassicmatch completes36uniquequestions andstablealternatingturns',()=>
  let s=create(config({board:'classic'}));let expected=0;while(s.state!=='MATCH_COMPLETE'){assert.equal(s.turn,expected);s=question(s,s.board.find(t=>!t.done).value);s=oralWin(s,expected);s=act(s,'NEXT_TURN');expected=1-expected;}assert.equal(s.history.length,36);assert.equal(s.board.reduce((a,t)=>a+t.value,0),14400);
 });
 run('repetitionprotectionprefersunseenwithinexactdifficultybucket',()=>{
- const first=create(config(),100),seen=first.board.map(t=>t.questionId),second=E.create(config(),bank,{seed:100,now:clock,seen});assert(second.board.every(t=>!seen.includes(t.questionId)));assert.deepEqual(second.board.map(t=>t.value),first.board.map(t=>t.value));
+ const first=create(config(),100),seen=first.board.map(t=>t.questionId),second=E.create(config(),bank,{seed:100,now:clock,seen});for(const tile of second.board){const pool=E.eligibleQuestions(bank,config(),{category:tile.category,value:tile.value});assert(!seen.includes(tile.questionId)||pool.every(q=>seen.includes(q.id)));}assert.deepEqual(second.board.map(t=>t.value),first.board.map(t=>t.value));
 });
 run('configuration snapshotlocked againstexternalobjectmutations',()=>{
  const c=config();const s=create(c);c.board='classic';c.teams[0].name='اسم آخر';c.assistLimits.pit=5;assert.equal(s.config.board,'compact');assert.equal(s.teams[0].name,'الفريق الأزرق');assert.equal(s.config.assistLimits.pit,1);assert.equal(s.board.length,18);
@@ -176,7 +176,7 @@ run('V3 revealwithoutattempt skip timeout andpass donotfabricateincorrectanswers
  let s=question(create());s=act(s,'PASS');assert.equal(s.current.phase,'steal');s=oralWin(s,1);assert.equal(s.teams[0].incorrect,0);assert.equal(s.teams[1].steals,1);
 });
 run('V3 finalhostdecision overrides automaticcorrectness withoutinventingattempts',()=>{
- let s=question(create(config({answerStyle:'choice',steal:false})));const q=E.getQuestion(s,s.current.questionId,bank);s=act(s,'ANSWER',{value:q.answer});s=act(s,'ADJUDICATE',{teamId:null});assert.equal(s.teams[0].incorrect,1);assert.equal(s.teams[0].correct,0);s=act(s,'UNDO');assert.equal(s.teams[0].incorrect,0);s=act(s,'ADJUDICATE',{teamId:0});assert.equal(s.teams[0].incorrect,0);assert.equal(s.teams[0].correct,1);const restored=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(restored);assert.equal(restored.teams[0].correct,1);
+ let s=question(create(config({answerStyle:'choice',steal:false})));const q=E.getQuestion(s,s.current.questionId,bank);s=act(s,'ANSWER',{value:q.answer});s=act(s,'ADJUDICATE',{teamId:null});assert.equal(s.teams[0].incorrect,0);assert.equal(s.teams[0].correct,0);s=act(s,'UNDO');assert.equal(s.teams[0].incorrect,0);s=act(s,'ADJUDICATE',{teamId:0});assert.equal(s.teams[0].incorrect,0);assert.equal(s.teams[0].correct,1);const restored=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(restored);assert.equal(restored.teams[0].correct,1);
 });
 run('V3 questionsnapshots survive library edits removal sourceandmedia changes',()=>{
  let s=create();const id=s.board[0].questionId,original=E.getQuestion(s,id,bank),changed=bank.filter(q=>q.id!==id);assert(Object.isFrozen(s.questions));assert(Object.isFrozen(original));assert(Object.isFrozen(original.options));assert(!s.undo.some(h=>Object.hasOwn(h,'questions')));s=E.dispatch(s,{type:'SELECT_TILE',tileId:s.board[0].id},changed,clock);s=E.dispatch(s,{type:'START_QUESTION'},changed,clock);assert.equal(E.getQuestion(s,id,changed).q,original.q);const restored=E.validateState(JSON.parse(JSON.stringify(s)),[]);assert(restored);assert.equal(E.getQuestion(restored,id,[]).q,original.q);s=act(s,'REVEAL');s=act(s,'ADJUDICATE',{teamId:0});assert(s.undo.length);assert(s.undo.every(h=>!Object.hasOwn(h,'questions')));const undone=act(s,'UNDO');assert.equal(undone.questions,s.questions);assert.equal(E.getQuestion(undone,id,[]).options[original.answer],original.options[original.answer]);
@@ -191,13 +191,13 @@ run('V3 failedmigration preservesbackupanddoesnotresetunrelateduserdata',()=>{
  let s=create();const old=JSON.parse(JSON.stringify(s));old.version=2;delete old.questions;const missing=old.board[0].questionId,result=E.restore(old,bank.filter(q=>q.id!==missing));assert.equal(result.state,null);assert(result.error.includes('لم تُحذف'));assert.equal(result.backup,old);assert.equal(old.version,2);const bad=JSON.parse(JSON.stringify(s));bad.questions[missing].options=['مكرر','مكرر','ثالث','رابع'];assert.equal(E.validateState(bad,bank),null);const polluted=JSON.parse(JSON.stringify(s));polluted.questions[missing].source=JSON.parse('{"__proto__":{"polluted":true}}');assert.equal(E.validateState(polluted,bank),null);assert.equal({}.polluted,undefined);
 });
 run('V3 threespoilerlevels independent franchise filters alwaysstrict',()=>{
- const template={...bank.find(q=>q.category==='anime'),id:'anime-v3-test',sub:'Naruto',franchiseId:'naruto',spoiler:false};const c=config();c.anime.selected=['naruto'];c.anime.levels.naruto=1;assert(E.isEligible({...template,spoilerLevel:1},c));assert(!E.isEligible({...template,spoilerLevel:2},c));c.spoilerProtection=false;assert(!E.isEligible({...template,spoilerLevel:2},c));c.anime.levels.naruto=2;assert(E.isEligible({...template,spoilerLevel:2},c));assert(!E.isEligible({...template,spoilerLevel:3},c));c.anime.levels.naruto=3;assert(E.isEligible({...template,spoilerLevel:3},c));assert(!E.isEligible({...template,franchiseId:'bleach',spoilerLevel:1},c));c.anime.selected.push('bleach');assert(E.isEligible({...template,franchiseId:'bleach',spoilerLevel:1},c));assert(!E.isEligible({...template,franchiseId:'bleach',spoilerLevel:2},c));assert.equal(E.FRANCHISES.length,12);
+ const template={...bank.find(q=>q.category==='anime'&&E.verifiedForPlay(q)),id:'anime-v3-test',sub:'Naruto',franchiseId:'naruto',spoiler:false};const c=config();c.anime.selected=['naruto'];c.anime.levels.naruto=1;assert(E.isEligible({...template,spoilerLevel:1},c));assert(!E.isEligible({...template,spoilerLevel:2},c));c.spoilerProtection=false;assert(!E.isEligible({...template,spoilerLevel:2},c));c.anime.levels.naruto=2;assert(E.isEligible({...template,spoilerLevel:2},c));assert(!E.isEligible({...template,spoilerLevel:3},c));c.anime.levels.naruto=3;assert(E.isEligible({...template,spoilerLevel:3},c));assert(!E.isEligible({...template,franchiseId:'bleach',spoilerLevel:1},c));c.anime.selected.push('bleach');assert(E.isEligible({...template,franchiseId:'bleach',spoilerLevel:1},c));assert(!E.isEligible({...template,franchiseId:'bleach',spoilerLevel:2},c));assert.equal(E.FRANCHISES.length,12);
 });
 run('V3 sharedeligibility drives preview validation andgeneration withoutspoilerfallback',()=>{
  const c=config();c.anime.selected=[];assert.equal(E.eligibleQuestions(bank,c,{category:'anime'}).length,0);assert(E.validateConfig(c,bank).length);assert.throws(()=>E.create(c,bank));const c2=config();const enabled=E.eligibleQuestions(bank,c2,{category:'anime',value:600});assert(enabled.every(q=>!q.spoiler));assert.equal(E.eligibleQuestions(bank.map(q=>({...q,unavailable:true})),c2).length,0);assert.equal(E.eligibleQuestions(bank.map(q=>({...q,disabled:true})),c2).length,0);
 });
 run('V3 recentselectionavoids30daysandlastthreematcheswithdeterministicoldestfallback',()=>{
- const c=config(),first=create(c,50),ids=first.board.map(t=>t.questionId),seen=Object.fromEntries(ids.map(id=>[id,clock-1000]));const next=E.create(c,bank,{now:clock,seed:50,seen});assert(next.board.every(t=>!ids.includes(t.questionId)));const recent=E.create(c,bank,{now:clock,seed:50,recentMatches:[{at:clock-40*86400000,questionIds:ids}]});assert(recent.board.every(t=>!ids.includes(t.questionId)));const stale=Object.fromEntries(bank.map((q,i)=>[q.id,clock-1000-i*10]));const fallback=E.create(c,bank,{now:clock,seed:50,seen:stale});assert(fallback.selectionWarnings.length);assert.deepEqual(fallback.board,E.create(c,bank,{now:clock,seed:50,seen:stale}).board);for(const tile of fallback.board){const candidates=E.eligibleQuestions(bank,c,{category:tile.category,value:tile.value});assert.equal(tile.questionId,candidates.sort((a,b)=>stale[a.id]-stale[b.id])[0].id);}c.repetition='all';const all=E.create(c,bank,{now:clock,seed:50,seen:stale});assert.deepEqual(all.board,E.create(c,bank,{now:clock,seed:50}).board);
+ const c=config(),first=create(c,50),ids=first.board.map(t=>t.questionId),seen=Object.fromEntries(ids.map(id=>[id,clock-1000]));const next=E.create(c,bank,{now:clock,seed:50,seen});for(const tile of next.board){const pool=E.eligibleQuestions(bank,c,{category:tile.category,value:tile.value});assert(!ids.includes(tile.questionId)||pool.every(q=>ids.includes(q.id)));}const recent=E.create(c,bank,{now:clock,seed:50,recentMatches:[{at:clock-40*86400000,questionIds:ids}]});for(const tile of recent.board){const pool=E.eligibleQuestions(bank,c,{category:tile.category,value:tile.value});assert(!ids.includes(tile.questionId)||pool.every(q=>ids.includes(q.id)));}const stale=Object.fromEntries(bank.map((q,i)=>[q.id,clock-1000-i*10]));const fallback=E.create(c,bank,{now:clock,seed:50,seen:stale});assert(fallback.selectionWarnings.length);assert.deepEqual(fallback.board,E.create(c,bank,{now:clock,seed:50,seen:stale}).board);for(const tile of fallback.board){const candidates=E.eligibleQuestions(bank,c,{category:tile.category,value:tile.value});assert.equal(tile.questionId,candidates.sort((a,b)=>stale[a.id]-stale[b.id])[0].id);}c.repetition='all';const all=E.create(c,bank,{now:clock,seed:50,seen:stale});assert.deepEqual(all.board,E.create(c,bank,{now:clock,seed:50}).board);
 });
 run('V3 measuredtime excludes pausesandundodoesnotrollbackorstopduration',()=>{
  const at=clock+1000;let s=E.create(config(),bank,{now:at,seed:8});s=E.dispatch(s,{type:'ADJUST_SCORE',teamId:0,delta:100,reason:'تصحيح'},bank,at+5000);assert.equal(s.timing.elapsedMs,5000);s=E.dispatch(s,{type:'UNDO'},bank,at+10000);assert.equal(s.state,'BOARD');assert.equal(s.timing.elapsedMs,10000);s=E.dispatch(s,{type:'PAUSE'},bank,at+15000);assert.equal(s.timing.elapsedMs,15000);s=E.dispatch(s,{type:'RESUME'},bank,at+115000);assert.equal(s.timing.elapsedMs,15000);s=E.dispatch(s,{type:'SELECT_TILE',tileId:s.board[0].id},bank,at+120000);assert.equal(s.timing.elapsedMs,20000);s=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(s);assert.equal(s.timing.elapsedMs,20000);assert.equal(s.timing.lastActiveAt,null);
@@ -213,7 +213,7 @@ run('V3 legacymigrationpreservesassignedpointsevenwhenlibrarypointswerelateredit
  let s=create();const old=JSON.parse(JSON.stringify(s));old.version=2;delete old.questions;const id=s.board[0].questionId,edited=bank.map(q=>q.id===id?{...q,points:600}:q);const restored=E.validateState(old,edited);assert(restored);assert.equal(restored.board[0].value,200);assert.equal(E.getQuestion(restored,id,edited).points,200);
 });
 run('V3 selectorprefersvariedanswersandsubtopicswithineligiblepriority',()=>{
- const c=config(),template=bank.find(q=>q.category==='football'),synthetic=[];for(const category of c.teams.flatMap(t=>t.categories))for(const points of [200,400,600])for(let i=0;i<4;i++)synthetic.push({...template,id:`variety-${category}-${points}-${i}`,category,sub:`موضوع ${i}`,q:`سؤال ${category} ${points} ${i}`,points,level:points/200,franchiseId:'naruto',spoilerLevel:1,spoiler:false,image:undefined,correctAnswer:`${category} إجابة ${i}`,acceptedAnswers:[],options:[`${category} إجابة ${i}`,'خيار أول','خيار ثان','خيار ثالث'],answer:0});
+ const c=config(),template=bank.find(q=>q.category==='football'&&E.verifiedForPlay(q)),synthetic=[];for(const category of c.teams.flatMap(t=>t.categories))for(const points of [200,400,600])for(let i=0;i<4;i++)synthetic.push({...template,id:`variety-${category}-${points}-${i}`,category,sub:`موضوع ${i}`,q:`سؤال ${category} ${points} ${i}`,points,level:points/200,franchiseId:'naruto',spoilerLevel:1,spoiler:false,image:undefined,correctAnswer:`${category} إجابة ${i}`,acceptedAnswers:[],options:[`${category} إجابة ${i}`,'خيار أول','خيار ثان','خيار ثالث'],answer:0});
  const s=E.create(c,synthetic,{now:clock,seed:120});for(const category of s.categories){const qs=s.board.filter(t=>t.category===category).map(t=>E.getQuestion(s,t.questionId,synthetic));assert.equal(new Set(qs.map(q=>q.sub)).size,3);assert.equal(new Set(qs.map(q=>q.options[q.answer])).size,3);}assert.deepEqual(s.board,E.create(c,synthetic,{now:clock,seed:120}).board);
 });
 run('V3 snapshotansweraliasesandexplicitpointsrejectcontradictionswithoutrepair',()=>{
@@ -268,10 +268,10 @@ run('one-tap trap successfailure andUndo retainconfiguredruleswithoutsteal',()=>
  for(const trapSuccess of ['responder','none'])for(const success of [true,false]){
   let s=question(create(helpers(['trap'],{trapSuccess,negative:true})),600);s=use(s,'trap');if(!success)s=act(s,'DECLARE_INCORRECT');s=resolved(s,success?1:null);assert.equal(s.state,'BOARD');assert.equal(s.teams[0].incorrect,0);assert.equal(s.teams[1].incorrect,success?0:1);assert.equal(s.teams[1].correct,success?1:0);assert.equal(s.teams[1].score,success?(trapSuccess==='responder'?600:0):-600);assert.equal(s.teams[1].steals,0);assert(E.validateState(s,bank));s=act(s,'UNDO');assert.equal(s.teams[0].assists.trap,1);assert.equal(s.current.pendingAssists.length,1);assert.equal(s.current.phase,'trap');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert(E.validateState(s,bank));s=resolved(s,1);assert.equal(s.teams[0].assists.trap,0);assert.equal(s.teams[1].score,trapSuccess==='responder'?600:0);assert.equal(s.teams[1].steals,0);
  }
- let floored=question(create(helpers(['trap'])),600);floored=act(floored,'ADJUST_SCORE',{teamId:1,delta:100,reason:'رصيد'});floored=use(floored,'trap');floored=act(floored,'REVEAL');assert.deepEqual(E.scoreOutcome(floored,null).deltas,[0,-100]);floored=resolved(floored,null);assert.equal(floored.teams[1].score,0);
+ let floored=question(create(helpers(['trap'])),600);floored=act(floored,'ADJUST_SCORE',{teamId:1,delta:100,reason:'رصيد'});floored=use(floored,'trap');floored=act(floored,'REVEAL');assert.deepEqual(E.scoreOutcome(floored,null).deltas,[0,0]);floored=resolved(floored,null);assert.equal(floored.teams[1].score,100);
 });
 run('one-tap configuredPitandstealpenalties runonce andUndo restoresbothteams',()=>{
- let s=create(helpers(['pit'],{negative:true,pitFailPenalty:true,stealPenalty:true}));s=act(s,'SELECT_TILE',{tileId:s.board.find(t=>t.value===400).id});s=use(s,'pit');s=act(s,'START_QUESTION');s=act(s,'DECLARE_INCORRECT');s=act(s,'PASS');const preview=E.scoreOutcome(s,null);assert.deepEqual(preview.deltas,[-400,-400]);s=resolved(s,null);assert.deepEqual(s.teams.map(t=>t.score),[-400,-400]);assert.deepEqual(s.teams.map(t=>t.incorrect),[1,0]);assert.equal(s.transactions.length,2);s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);assert.equal(s.teams[0].assists.pit,1);assert(E.validateState(s,bank));s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[-400,400]);assert.equal(s.teams[0].assists.pit,0);assert.equal(s.history.length,1);
+ let s=create(helpers(['pit'],{negative:true,pitFailPenalty:true,stealPenalty:true}));s=act(s,'SELECT_TILE',{tileId:s.board.find(t=>t.value===400).id});s=use(s,'pit');s=act(s,'START_QUESTION');s=act(s,'DECLARE_INCORRECT');s=act(s,'PASS');const preview=E.scoreOutcome(s,null);assert.deepEqual(preview.deltas,[-400,0]);s=resolved(s,null);assert.deepEqual(s.teams.map(t=>t.score),[-400,0]);assert.deepEqual(s.teams.map(t=>t.incorrect),[1,0]);assert.equal(s.transactions.length,1);s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);assert.equal(s.teams[0].assists.pit,1);assert(E.validateState(s,bank));s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[-400,400]);assert.equal(s.teams[0].assists.pit,0);assert.equal(s.history.length,1);
 });
 run('one-tap Doubleentitlement surviveswrongwinnerUndoreloadandcorrection foreachteam',()=>{
  let s=question(create(helpers(['double'])),600);s=use(s,'double');s=act(s,'DECLARE_INCORRECT');s=use(s,'double');s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[0,1200]);s=act(s,'UNDO');assert.deepEqual(s.teams.map(t=>t.assists.double),[1,1]);assert.deepEqual(s.teams.map(t=>t.assistHistory.length),[0,0]);assert.equal(s.current.pendingAssists.length,2);assert.equal(E.scoreOutcome(s,0).earned,1200);assert.equal(E.scoreOutcome(s,1).earned,1200);s=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(s);if(s.state==='PAUSED')s=act(s,'RESUME');s=resolved(s,0);assert.deepEqual(s.teams.map(t=>t.score),[1200,0]);assert.deepEqual(s.teams.map(t=>t.assists.double),[0,0]);assert.deepEqual(s.teams.map(t=>t.assistHistory.length),[1,1]);assert.equal(s.teams[0].incorrect,0);assert(E.validateState(s,bank));
@@ -304,6 +304,89 @@ run('one-tap restorationrejectsunearnedmodifiers withoutconsumedordeferredhelper
  const active=question(create(helpers(['pit','double','hint','skip','second'])));
  for(const mutate of [t=>t.current.pitTeam=0,t=>t.current.doubleTeam=0,t=>t.current.twiceTeam=0,t=>t.current.secondTeam=0,t=>t.current.trapTeam=0,t=>t.current.hint=true,t=>t.current.skip=true]){const bad=JSON.parse(JSON.stringify(active));mutate(bad);assert.equal(E.validateState(bad,bank),null);}
  let s=use(active,'double');s=resolved(s,0);s=act(s,'UNDO');const bad=JSON.parse(JSON.stringify(s));bad.current.pendingAssists=Array.from({length:11},(_,i)=>({...bad.current.pendingAssists[0],id:'pending-'+i}));assert.equal(E.validateState(bad,bank),null);
+});
+
+
+run('checked-only eligibility rejects editorial pending disputed and incomplete evidence without mutating snapshots',()=>{
+ const template=bank.find(q=>E.verifiedForPlay(q));assert(template);
+ for(const status of ['editorial','pending','disputed'])assert(!E.isEligible({...template,verification:{...template.verification,status}},config()));
+ for(const field of ['referenceTitle','section','notes','verifiedAt']){const verification={...template.verification};delete verification[field];assert(!E.isEligible({...template,verification},config()));}
+ for(const verifiedAt of ['2026-02-30','invalid','2026-1-01'])assert(!E.isEligible({...template,verification:{...template.verification,verifiedAt}},config()));
+ assert(!E.isEligible({...template,verification:{status:'source-checked'},source:{title:'رابط فقط',url:'https://example.com/',reference:'صفحة'}},config()));
+ const s=create(),saved=JSON.parse(JSON.stringify(s)),id=s.board[0].questionId; saved.questions[id].verification={status:'pending'};
+ // An already assigned legacy team question remains resumable, without enabling
+ // pending material for any newly allocated board.
+ assert(E.validateState(saved,bank));assert(!E.isEligible(saved.questions[id],s.config));
+});
+run('exact-tier shortages reject before allocating any broken or substituted board slot',()=>{
+ const c=config(),category=c.teams[0].categories[0],thin=bank.filter(q=>q.category!==category||E.pointValue(q)!==600);
+ assert(E.validateConfig(c,thin).some(message=>message.includes('600')));assert.throws(()=>E.create(c,thin));
+ const s=create();assert(s.board.every(tile=>E.pointValue(E.getQuestion(s,tile.questionId,bank))===tile.value&&E.isEligible(E.getQuestion(s,tile.questionId,bank),s.config)));
+});
+run('attempt-specific penalties require explicit wrong answers rather than winner inference pass or expiration',()=>{
+ for(const step of ['REVEAL','PASS','timeout']){
+  let s=question(create(helpers(['trap'],{timer:true,negative:true,stealPenalty:true})));s=use(s,'trap');
+  if(step==='timeout')s=act(s,'TICK',{token:s.current.token},s.current.deadline);else s=act(s,step);
+  if(!s.current.revealed)s=act(s,'REVEAL');assert.deepEqual(E.scoreOutcome(s,null).deltas,[0,0]);s=resolved(s,null);assert.deepEqual(s.teams.map(t=>[t.score,t.incorrect]),[[0,0],[0,0]]);
+ }
+ let s=create(helpers(['pit'],{pitFailPenalty:true,negative:true}));s=act(s,'SELECT_TILE',{tileId:s.board[0].id});s=use(s,'pit');s=act(s,'START_QUESTION');s=resolved(s,1);assert.deepEqual(s.teams.map(t=>t.score),[0,200]);assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);
+ s=question(create(helpers(['trap'],{negative:true})));s=use(s,'trap');s=act(s,'DECLARE_INCORRECT');s=resolved(s,null);assert.deepEqual(s.teams.map(t=>t.score),[0,-200]);assert.equal(s.teams[1].incorrect,1);
+});
+run('correct automatic answer overridden by host never becomes an invented wrong attempt',()=>{
+ let s=question(create(config({answerStyle:'choice',steal:false})));const q=E.getQuestion(s,s.current.questionId,bank);s=act(s,'ANSWER',{value:q.answer});s=resolved(s,null);assert.equal(s.history[0].attempts[0].correct,true);assert.deepEqual(s.history[0].incorrectTeams,[]);assert.deepEqual(s.teams.map(t=>t.incorrect),[0,0]);assert(E.validateState(s,bank));
+});
+run('resolution identifiers are question-specific persisted and invalidated by correction',()=>{
+ let s=question(create());s=act(s,'REVEAL');const c={...s.current};assert(c.resolutionId);let rejected=act(s,'RESOLVE_QUESTION',{teamId:0,tileId:c.tileId,questionId:c.questionId,token:c.token,resolutionId:'other-judgment'});assert(rejected.lastError);assert.equal(rejected.history.length,0);
+ s=act(s,'RESOLVE_QUESTION',{teamId:0,tileId:c.tileId,questionId:c.questionId,token:c.token,resolutionId:c.resolutionId});assert.equal(s.history[0].resolutionId,c.resolutionId);assert.equal(s.lastResolution.id,c.resolutionId);assert.equal(s.transactions[0].groupId,c.resolutionId);assert(E.validateState(s,bank));
+ s=act(s,'UNDO');assert.notEqual(s.current.resolutionId,c.resolutionId);assert.notEqual(s.current.token,c.token);assert(s.current.revealed);assert(E.validateState(s,bank));
+ const bad=JSON.parse(JSON.stringify(s));bad.current.resolutionId='<invalid>';assert.equal(E.validateState(bad,bank),null);
+});
+run('legacy adjudication and stale question handlers cannot bypass current question identity',()=>{
+ let s=question(create());const active={...s.current};s=act(s,'REVEAL');assert(E.dispatch(s,{type:'ADJUDICATE',teamId:0},bank,clock).lastError);
+ for(const type of ['REVEAL','ANSWER','ASSIST','RETURN_ASSISTANCE']){const rejected=act(s,type,{token:active.token,questionId:active.questionId,tileId:active.tileId,value:0,key:'hint',confirmed:true});assert(rejected.lastError);assert.deepEqual(rejected.teams.map(t=>t.score),[0,0]);}
+ const old={...s.current};s=act(s,'ADJUDICATE',{teamId:0});s=act(s,'UNDO');assert.notEqual(s.current.token,old.token);assert(E.dispatch(s,{type:'ADJUDICATE',teamId:1,token:old.token,tileId:old.tileId,questionId:old.questionId},bank,clock).lastError);
+});
+run('score corrections require reason reject duplicate operation and validate ledger deltas',()=>{
+ let s=create();for(const reason of ['',undefined,'   ']){const rejected=act(s,'ADJUST_SCORE',{teamId:0,delta:200,reason});assert(rejected.lastError);assert.equal(rejected.transactions.length,0);}
+ s=act(s,'ADJUST_SCORE',{teamId:0,delta:500,reason:'تصحيح الجولة',operationId:'host-correction-one'});assert.equal(s.teams[0].score,500);const before=JSON.stringify({teams:s.teams,transactions:s.transactions,undo:s.undo});s=act(s,'ADJUST_SCORE',{teamId:0,delta:500,reason:'تصحيح الجولة',operationId:'host-correction-one'});assert(s.lastError);assert.equal(JSON.stringify({teams:s.teams,transactions:s.transactions,undo:s.undo}),before);assert(E.validateState(s,bank));
+ const bad=JSON.parse(JSON.stringify(s));bad.transactions[0].delta=600;assert.equal(E.validateState(bad,bank),null);
+});
+run('complete one-tap compact matches support either winner nobody and mid-question reload',()=>{
+ for(const winner of [0,1,null]){let s=create(),n=0;while(s.state!=='MATCH_COMPLETE'){s=question(s,s.board.find(t=>!t.done).value);s=act(s,'REVEAL');const id=s.current.questionId;s=E.validateState(JSON.parse(JSON.stringify(s)),bank);assert(s);s=act(s,'RESUME');assert.equal(s.current.questionId,id);assert(s.current.revealed);s=resolved(s,winner);assert(!s.lastError);n++;assert(n<=18);}assert.equal(n,18);assert.equal(s.winner,winner);assert.deepEqual(s.teams.map(t=>t.score),winner===0?[7200,0]:winner===1?[0,7200]:[0,0]);assert.equal(new Set(s.history.map(h=>h.resolutionId)).size,18);assert(E.validateState(s,bank));}
+});
+
+
+run('presenter timer changes require pause preserve hidden question and undo clock configuration safely',()=>{
+ let s=question(create(config({timer:true})));const oldToken=s.current.token,remaining=s.current.remainingMs;
+ assert(act(s,'SET_TIMER',{seconds:30}).lastError);s=act(s,'PAUSE');s=act(s,'SET_TIMER',{seconds:30});assert.equal(s.state,'PAUSED');assert.equal(s.current.remainingMs,30000);assert.equal(s.current.deadline,null);assert.notEqual(s.current.token,oldToken);assert(!s.current.revealed);assert(E.validateState(s,bank));
+ const editedToken=s.current.token;s=act(s,'RESUME');assert.equal(s.current.deadline,clock+30000);s=act(s,'TICK',{token:editedToken},clock+60000);assert.equal(s.state,'QUESTION_ACTIVE');s=act(s,'UNDO');assert.equal(s.state,'PAUSED');assert(s.current.remainingMs<=remaining);assert(E.validateState(s,bank));
+ s=act(s,'RESUME');s=act(s,'REVEAL');s=act(s,'PAUSE');assert(act(s,'SET_TIMER',{seconds:30}).lastError);
+});
+run('explicit end-match preserves true partial results no invented tiles and can be undone or resumed from save',()=>{
+ let s=question(create());s=resolved(s,1);s=question(s,400);const current=s.current.questionId;assert(act(s,'END_MATCH').lastError);s=act(s,'END_MATCH',{confirmed:true,reason:'انتهى وقت الجلسة'});assert.equal(s.state,'MATCH_COMPLETE');assert(s.endedEarly);assert.equal(s.history.length,1);assert.equal(s.board.filter(t=>t.done).length,1);assert.deepEqual(s.teams.map(t=>t.score),[0,200]);assert.equal(s.winner,1);assert.equal(s.current,null);assert(E.validateState(s,bank));assert(E.validateState(JSON.parse(JSON.stringify(s)),bank));
+ s=act(s,'UNDO');assert.equal(s.state,'PAUSED');assert.equal(s.current.questionId,current);assert.equal(s.history.length,1);assert(!s.endedEarly);assert.equal(s.completedAt,null);assert(E.validateState(s,bank));s=act(s,'RESUME');assert.equal(s.state,'QUESTION_ACTIVE');
+});
+
+
+run('stale Undo rejects old revisions and cannot undo an intervening score correction',()=>{
+ let s=question(create());s=resolved(s,0);const expectedSerial=s.serial,resolutionId=s.lastResolution.id;s=act(s,'ADJUST_SCORE',{teamId:1,delta:200,reason:'تصحيح مستقل'});let rejected=act(s,'UNDO',{expectedSerial,resolutionId});assert(rejected.lastError);assert.deepEqual(rejected.teams.map(t=>t.score),[200,200]);
+ rejected=act(s,'UNDO',{resolutionId});assert(rejected.lastError);assert.deepEqual(rejected.teams.map(t=>t.score),[200,200]);
+ const currentSerial=s.serial;s=act(s,'UNDO',{expectedSerial:currentSerial});assert(s.serial>currentSerial);assert.deepEqual(s.teams.map(t=>t.score),[200,0]);rejected=act(s,'UNDO',{expectedSerial:currentSerial});assert(rejected.lastError);assert.equal(rejected.history.length,1);s=act(s,'UNDO',{resolutionId,expectedSerial:s.serial});assert.equal(s.state,'ANSWER_REVEAL');assert.deepEqual(s.teams.map(t=>t.score),[0,0]);assert(E.validateState(s,bank));
+});
+
+run('family12 preset uses exactly reviewed short age-suitable facts across six complete categories',()=>{
+ const c=config({contentPreset:'family',timer:false}),categories=[...new Set(bank.map(q=>q.category))].filter(category=>[200,400,600].every(value=>E.eligibleQuestions(bank,c,{category,value}).length>=1));
+ assert.equal(categories.length,6);c.teams.forEach((t,i)=>t.categories=categories.slice(i*3,i*3+3));
+ assert.deepEqual(E.validateConfig(c,bank),[]);const s=create(c);assert.equal(s.config.contentPreset,'family');assert.equal(s.board.length,18);
+ for(const q of Object.values(s.questions)){assert.equal(q.familyFriendly,true);assert(q.minAge<=12);assert(q.q.length<=180);assert.equal(q.familyReview.status,'editorial-suitability-reviewed');assert.equal(q.verification.status,'source-checked');}
+ assert(E.validateState(s,bank));assert(E.validateConfig({...c,board:'classic'},bank).length,'insufficient family tiers must not silently broaden selection');
+});
+run('family age text and attestation filters fail closed, visual filters never admit text questions',()=>{
+ const q=bank.find(q=>q.familyFriendly&&E.isEligible(q,{contentPreset:'family'}));assert(q);
+ for(const patch of [{familyFriendly:false},{familyReview:undefined},{minAge:13},{minAge:undefined},{q:'س'.repeat(181)},{verification:{...q.verification,status:'pending'}}])assert(!E.isEligible({...q,...patch},{contentPreset:'family'}));
+ assert(E.eligibleQuestions(bank,{contentPreset:'visual'}).every(q=>!!q.image));
+ const c=config({contentPreset:'unknown'});assert(E.validateConfig(c,bank).length);
+ const legacy=config();delete legacy.contentPreset;assert.deepEqual(E.validateConfig(legacy,bank),[]);assert.equal(create(legacy).config.contentPreset,'standard');
 });
 
 console.log(JSON.stringify({passed:count,failed:failures,questions:bank.length}));

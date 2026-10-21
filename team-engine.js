@@ -36,7 +36,9 @@ const TeamEngine = (() => {
   }
   function isEligible(q, config = {}) {
     config = config && typeof config === 'object' ? config : {};
-    if (!q || !validAnswerData(q, true) || !validSource(q.source) || !identifier(q.category,64) || q.disabled || q.unavailable || q.available === false || !identifier(q.id,120) || !contentText(q.q, 2000) || !q.q.trim() || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => !contentText(x,500) || !x.trim()) || !integer(q.answer, 0, 3)) return false;
+    if (!verifiedForPlay(q) || !q || !validAnswerData(q, true) || !validSource(q.source) || !identifier(q.category,64) || q.disabled || q.unavailable || q.available === false || !identifier(q.id,120) || !contentText(q.q, 2000) || !q.q.trim() || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => !contentText(x,500) || !x.trim()) || !integer(q.answer, 0, 3)) return false;
+    if (config.contentPreset === 'family' && (q.familyFriendly !== true || q.familyReview?.status !== 'editorial-suitability-reviewed' || !integer(q.minAge,0,12) || q.q.length > 180)) return false;
+    if (config.contentPreset === 'visual' && !q.image) return false;
     if (q.category !== 'anime') return !config.spoilerProtection || !q.spoiler;
     const id = franchiseId(q), a = config.anime;
     if (a && (!Array.isArray(a.selected) || !a.levels || typeof a.levels !== 'object' || !id || !a.selected.includes(id))) return false;
@@ -45,6 +47,15 @@ const TeamEngine = (() => {
     // old checkbox never overrides an explicitly configured franchise limit.
     const level = integer(q.spoilerLevel, 1, 3) ? q.spoilerLevel : q.spoiler ? 2 : 1;
     return level <= permitted;
+  }
+  // A URL alone is not evidence of a factual check. Keep legacy/editorial,
+  // pending and disputed material available to the library, never the allocator.
+  function verifiedForPlay(q) {
+    const v = q?.verification;
+    if (!v || v.status !== 'source-checked' || !contentText(v.referenceTitle,500) || !v.referenceTitle.trim() || !contentText(v.section,2000) || !v.section.trim() || !contentText(v.notes,4000) || !v.notes.trim() || typeof v.verifiedAt !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v.verifiedAt)) return false;
+    const date = new Date(v.verifiedAt + 'T00:00:00Z');
+    if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0,10) !== v.verifiedAt) return false;
+    return validSource({title:v.referenceTitle,reference:v.section,url:v.referenceUrl,bibliography:v.bibliography});
   }
   function eligibleQuestions(bank, config = {}, filter = {}) {
     if (!Array.isArray(bank)) return [];
@@ -103,7 +114,7 @@ const TeamEngine = (() => {
   }
   function defaults() {
     return {
-      mode: 'teams', board: 'classic', answerStyle: 'oral', choiceCount: 4,
+      mode: 'teams', board: 'classic', contentPreset: 'standard', answerStyle: 'oral', choiceCount: 4,
       timer: true, duration: 60, steal: true, stealDuration: 10, negative: false,
       bonus: false, sound: true, animations: true, explanations: true, hints: true,
       spoilerProtection: true, repetition: 'recent', anime: {selected: FRANCHISES.map(f => f.id), levels: Object.fromEntries(FRANCHISES.map(f => [f.id, 1]))}, transition: 'auto', starter: '0', assistSlots: 3,
@@ -119,6 +130,7 @@ const TeamEngine = (() => {
   function configErrors(config, bank) {
     const errors = [], c = config;
     if (!c || typeof c !== 'object' || Array.isArray(c)) return ['إعدادات المباراة غير صالحة.'];
+    if (c.contentPreset !== undefined && !['standard','family','visual'].includes(c.contentPreset)) errors.push('مرشح محتوى المباراة غير صالح.');
     for (const [key, allowed] of Object.entries({ mode: ['teams', 'presenter', 'party'], board: ['compact', 'classic'], answerStyle: ['oral', 'choice', 'typed'], choiceCount: [3, 4], transition: ['auto', 'host'], starter: ['0', '1', 'random'], trapSuccess: ['responder', 'none'] })) {
       if (!allowed.includes(c[key])) errors.push(`خيار ${ {mode:'نوع المباراة',board:'اللوحة',answerStyle:'الإجابة',choiceCount:'عدد الخيارات',transition:'الانتقال',starter:'البداية',trapSuccess:'الفخ'}[key] } غير صالح.`);
     }
@@ -143,7 +155,7 @@ const TeamEngine = (() => {
     if (Array.isArray(bank) && cats.length === 6) {
       const count = c.board === 'classic' ? 2 : 1;
       for (const cat of cats) for (const value of VALUES) {
-        if (eligibleQuestions(bank, c, {category:cat, value}).length < count) errors.push(`الفئة ${{anime:'الأنمي',football:'كرة القدم',prophets:'قصص الأنبياء',seerah:'السيرة النبوية',arabia:'التاريخ الجاهلي',islamic:'التاريخ الإسلامي',geo:'الجغرافيا',games:'ألعاب الفيديو'}[cat] || 'المحددة'} لا تضم ${count} سؤالًا متاحًا بقيمة ${value} بعد الفلترة.`);
+        if (eligibleQuestions(bank, c, {category:cat, value}).length < count) errors.push(`الفئة ${{anime:'الأنمي',football:'كرة القدم',prophets:'قصص الأنبياء',seerah:'السيرة النبوية',arabia:'التاريخ الجاهلي',islamic:'التاريخ الإسلامي',geo:'الجغرافيا',games:'ألعاب الفيديو',space:'الفضاء والفلك'}[cat] || 'المحددة'} لا تضم ${count} سؤالًا متاحًا بقيمة ${value} بعد الفلترة.`);
       }
     }
     return [...new Set(errors)];
@@ -187,10 +199,10 @@ const TeamEngine = (() => {
     }
     const startingTeam = c.starter === 'random' ? Math.floor(rng() * 2) : Number(c.starter);
     return {
-      version: VERSION, timing: {elapsedMs:0,lastActiveAt:now}, questions: freezeTree(questions), selectionWarnings: [...new Set(selectionWarnings)], statisticsVersion: 2, id: `match-${now}-${seed}`, state: 'BOARD', config: c, seed, createdAt: now,
+      version: VERSION, timing: {elapsedMs:0,lastActiveAt:now}, questions: freezeTree(questions), selectionWarnings: [...new Set(selectionWarnings)], statisticsVersion: 3, id: `match-${now}-${seed}`, state: 'BOARD', config: c, seed, createdAt: now,
       teams: c.teams.map((t, i) => ({ id: `team-${i}`, name: t.name, color: t.color, avatar: t.avatar, players: [...t.players], score: 0, correct: 0, incorrect: 0, steals: 0, assists: Object.fromEntries(t.assists.map(k => [k, c.assistLimits[k]])), assistHistory: [] })),
       categories, board, turn: startingTeam, startingTeam, current: null,
-      transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, winner: null, lastResolution: null
+      transactions: [], history: [], knownAnswers: [], undo: [], serial: 0, lastError: null, completedAt: null, endedEarly:false, endReason:null, winner: null, lastResolution: null
     };
   }
   function reject(s, message) { s.lastError = message; return s; }
@@ -208,7 +220,7 @@ const TeamEngine = (() => {
   }
   function reveal(s, now, pendingWinner = null) {
     const c = s.current; s.knownAnswers = [...new Set([...(s.knownAnswers || []), c.questionId])]; stopClock(c, now); c.closed = true; c.revealed = true;
-    c.pendingWinner = pendingWinner; c.assistance = null; refreshToken(s); s.state = 'ANSWER_REVEAL';
+    c.pendingWinner = pendingWinner; c.assistance = null; refreshToken(s); c.resolutionId = nextId(s, 'judgment'); s.state = 'ANSWER_REVEAL';
   }
   function failAttempt(s, now, forceFinal = false, reason = 'incorrect') {
     const c = s.current, team = c.responder;
@@ -223,11 +235,12 @@ const TeamEngine = (() => {
   function transaction(s, team, delta, reason, modifier, now, groupId, questionId, value) {
     const target = s.teams[team], before = target.score;
     const after = s.config.negative ? before + delta : Math.max(0, before + delta);
-    const tx = { id: nextId(s, 'score'), questionId, teamId: team, originalValue: value, reason, modifier, scoreBefore: before, scoreAfter: after, timestamp: now, groupId };
+    const tx = { id: nextId(s, 'score'), questionId, teamId: team, originalValue: value, delta, reason, modifier, scoreBefore: before, scoreAfter: after, timestamp: now, groupId };
     target.score = after; s.transactions.push(tx); return tx.id;
   }
   /* This pure preview is also the scoring plan used by adjudication. Deltas are
      actual changes after the configured zero floor, not promised deductions. */
+  function explicitFailures(c, winner = null) { return new Set((c.attempts || []).filter(a => a.correct === false && !['timeout','skip','delegation'].includes(a.reason) && a.teamId !== winner).map(a => a.teamId)); }
   function scoreOutcome(s, requestedWinner) {
     const c = s?.current;
     if (!c || (requestedWinner !== null && teamIndex(requestedWinner) === null)) return null;
@@ -237,13 +250,13 @@ const TeamEngine = (() => {
     const responder = implicitSteal ? 1 - c.selector : c.responder;
     const doubled = winner !== null && questionAssists(c).some(a => a.key === 'double' && a.teamId === winner);
     const earned = winner === null || phase === 'trap' && s.config.trapSuccess === 'none' ? 0 : c.value * (doubled ? 2 : 1) + (s.config.bonus && winner === c.selector ? 50 : 0);
-    const transactions = [];
+    const failed = explicitFailures(c, winner), transactions = [];
     const add = (teamId, delta, reason, modifier) => transactions.push({teamId, delta, reason, modifier});
     if (winner !== null && !(phase === 'trap' && s.config.trapSuccess === 'none')) add(winner, earned, phase === 'steal' && winner !== c.selector ? 'steal' : phase === 'trap' ? 'trap-correct' : 'correct', doubled ? 'double' : s.config.bonus && winner === c.selector ? 'bonus' : 'normal');
     if (c.pitTeam !== null && winner === c.pitTeam) add(1 - c.pitTeam, -c.value, 'pit', 'pit');
-    if (c.pitTeam !== null && winner !== c.pitTeam && s.config.pitFailPenalty) add(c.pitTeam, -c.value, 'pit-failed', 'pit');
-    if (phase === 'trap' && winner !== responder) add(responder, -c.value, 'trap-failed', 'trap');
-    if (phase === 'steal' && winner !== responder && s.config.stealPenalty) add(responder, -c.value, 'steal-failed', 'steal');
+    if (c.pitTeam !== null && failed.has(c.pitTeam) && s.config.pitFailPenalty) add(c.pitTeam, -c.value, 'pit-failed', 'pit');
+    if (phase === 'trap' && failed.has(responder)) add(responder, -c.value, 'trap-failed', 'trap');
+    if (phase === 'steal' && failed.has(responder) && s.config.stealPenalty) add(responder, -c.value, 'steal-failed', 'steal');
     const after = s.teams.map(t => t.score);
     for (const tx of transactions) after[tx.teamId] = s.config.negative ? after[tx.teamId] + tx.delta : Math.max(0, after[tx.teamId] + tx.delta);
     return {winner, earned, awarded:earned, deltas:after.map((n,i) => n - s.teams[i].score), transactions, phase, responder, steal:phase === 'steal' && winner !== null && winner !== c.selector};
@@ -311,19 +324,20 @@ const TeamEngine = (() => {
     if (!tile || tile.done || c.resolved) return reject(s, 'حُسم هذا السؤال بالفعل.');
     if (!pendingAssistsValid(s)) return reject(s, 'تعذر إعادة اعتماد المساعدات المحفوظة؛ لم تتغير النقاط.');
     const outcome = scoreOutcome(s, winner);
+    if (c.resolutionId && (s.history.some(h => h.resolutionId === c.resolutionId) || s.transactions.some(tx => tx.groupId === c.resolutionId))) return reject(s, 'سبق تطبيق نتيجة هذا السؤال.');
     if (atomic) resolutionCheckpoint(s); else checkpoint(s);
     consumePendingAssists(s);
-    const group = nextId(s, 'resolution'), ids = [], earned = outcome.earned;
+    const group = c.resolutionId || nextId(s, 'resolution'), ids = [], earned = outcome.earned;
     winner = outcome.winner; c.phase = outcome.phase; c.responder = outcome.responder;
     for (const tx of outcome.transactions) ids.push(transaction(s, tx.teamId, tx.delta, tx.reason, tx.modifier, now, group, c.questionId, c.value));
     // Delegation, reveal, skip and clock transitions are not wrong answers.
     // A team's final host-approved success overrides its earlier rejected attempt.
-    const failed = new Set(c.attempts.filter(a => !['timeout', 'skip', 'delegation'].includes(a.reason)).map(a => a.teamId));
+    const failed = explicitFailures(c, winner);
     if (winner !== null) failed.delete(winner);
     for (const i of failed) if (i !== winner) s.teams[i].incorrect++;
     if (winner !== null) { s.teams[winner].correct++; if (c.phase === 'steal' && winner !== c.selector) s.teams[winner].steals++; }
     tile.done = true; c.resolved = true; c.winner = winner; c.earned = earned; c.transactionIds = ids; c.closed = true;
-    const q = { attempts: clone(c.attempts), incorrectTeams: [...failed], questionId: c.questionId, tileId: c.tileId, value: c.value, selector: c.selector, responder: c.responder, winner, phase: c.phase, correct: winner !== null, transactionIds: ids, at: now, assists: clone(c.usedAssists) };
+    const q = { attemptAccounting:3, resolutionId:group, attempts: clone(c.attempts), incorrectTeams: [...failed], questionId: c.questionId, tileId: c.tileId, value: c.value, selector: c.selector, responder: c.responder, winner, phase: c.phase, correct: winner !== null, transactionIds: ids, at: now, assists: clone(c.usedAssists) };
     s.history.push(q); s.turn = 1 - c.selector; s.state = 'TURN_COMPLETE';
     s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1;
     if (atomic) {
@@ -348,7 +362,7 @@ const TeamEngine = (() => {
     if (c && s.knownAnswers.includes(c.questionId) && !c.revealed && !c.resolved) {
       stopClock(c, now); c.revealed = true; c.closed = true; c.pendingWinner = null;
       c.assistance = null; c.knowledgeLocked = true; delete s.pausedFrom;
-      refreshToken(s); s.state = 'ANSWER_REVEAL';
+      refreshToken(s); c.resolutionId = nextId(s, 'judgment'); s.state = 'ANSWER_REVEAL';
     }
     return s;
   }
@@ -405,21 +419,37 @@ const TeamEngine = (() => {
     if (s.timing && s.timing.lastActiveAt !== null && s.state !== 'PAUSED' && s.state !== 'MATCH_COMPLETE' && integer(now, 0, 1e14)) { s.timing.elapsedMs += Math.max(0, now - s.timing.lastActiveAt); s.timing.lastActiveAt = now; }
     if (!action || typeof action.type !== 'string' || !integer(now, 0, 1e14)) return reject(s, 'إجراء المباراة غير صالح.');
     const c = s.current, q = c ? getQuestion(s, c.questionId, bank) : null;
+    const questionActions = ['START_QUESTION','START_TIMER','START_STEAL','PASS','DECLARE_INCORRECT','STEAL','REVEAL','ANSWER','ASSIST','RETURN_ASSISTANCE','BEGIN_ADJUDICATION'];
+    if (questionActions.includes(action.type) && ((action.token !== undefined && action.token !== c?.token) || (action.questionId !== undefined && action.questionId !== c?.questionId) || (action.tileId !== undefined && action.tileId !== c?.tileId))) return reject(s, 'انتهت صلاحية إجراء السؤال.');
     if (action.type === 'UNDO') {
       if (!s.undo.length) return reject(s, 'لا توجد خطوة قابلة للتراجع.');
-      const undo = s.undo.slice(), restored = undo.pop(); restored.undo = undo; restored.serial = Math.max(s.serial, restored.serial); restored.lastError = null; restored.questions = s.questions; restored.timing = s.timing ? {...s.timing, lastActiveAt:now} : null;
+      if (action.expectedSerial !== undefined && action.expectedSerial !== s.serial || action.resolutionId !== undefined && (action.resolutionId !== s.lastResolution?.id || s.undo[s.undo.length-1]?.undoAction !== 'question-resolution')) return reject(s, 'انتهت صلاحية التراجع؛ راجع آخر إجراء في سجل المباراة.');
+      const undo = s.undo.slice(), restored = undo.pop(); restored.undo = undo; restored.serial = Math.max(s.serial, restored.serial) + 1; restored.lastError = null; restored.questions = s.questions; restored.timing = s.timing ? {...s.timing, lastActiveAt:now} : null;
       const resolutionUndo = restored.undoAction === 'question-resolution'; delete restored.undoAction;
       restored.knownAnswers = [...new Set([...knowledge(s), ...knowledge(restored)])];
       preserveKnowledge(restored, now);
-      if (resolutionUndo && restored.current) refreshToken(restored);
+      if (restored.current && (resolutionUndo || restored.current.revealed && !restored.current.resolved)) { refreshToken(restored); restored.current.resolutionId = nextId(restored, 'judgment'); }
       if (restored.current && PLAY_STATES.includes(restored.state)) { stopClock(restored.current, now); restored.pausedFrom = restored.state; restored.state = 'PAUSED'; }
       if (restored.timing && ['PAUSED','MATCH_COMPLETE'].includes(restored.state)) restored.timing.lastActiveAt = null;
       return restored;
     }
     if (action.type === 'ADJUST_SCORE') {
       const team = teamIndex(action.teamId);
-      if (team === null || !integer(action.delta, -100000, 100000) || !action.delta || !safeText(action.reason || '', 160)) return reject(s, 'تصحيح النقاط غير صالح.');
-      checkpoint(s); const group = nextId(s, 'correction'); transaction(s, team, action.delta, 'host-correction', cleanText(action.reason, 'تصحيح المضيف', 160), now, group, c?.questionId || null, c?.value || 0);
+      if (team === null || !integer(action.delta, -100000, 100000) || !action.delta || !safeText(action.reason || '', 160) || !String(action.reason || '').trim()) return reject(s, 'تصحيح النقاط غير صالح.');
+      if (action.operationId !== undefined && !identifier(action.operationId)) return reject(s, 'معرّف تصحيح النقاط غير صالح.');
+      if (action.operationId && s.transactions.some(tx => tx.groupId === action.operationId)) return reject(s, 'سبق تطبيق هذا التصحيح.');
+      checkpoint(s); const group = action.operationId || nextId(s, 'correction'); transaction(s, team, action.delta, 'host-correction', cleanText(action.reason, 'تصحيح المضيف', 160), now, group, c?.questionId || null, c?.value || 0);
+      s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; return s;
+    }
+    if (action.type === 'SET_TIMER') {
+      if (s.state !== 'PAUSED' || !c || c.revealed || !PLAY_STATES.includes(s.pausedFrom) || !integer(action.seconds,5,600)) return reject(s, 'أوقف محاولة السؤال أولًا، ثم اختر زمنًا بين 5 و600 ثانية.');
+      checkpoint(s); c.remainingMs = action.seconds * 1000; c.deadline = null; c.timed = true; c.timerStarted = true; refreshToken(s); return s;
+    }
+    if (action.type === 'END_MATCH') {
+      if (!action.confirmed || s.state === 'MATCH_COMPLETE' || action.reason !== undefined && (!safeText(action.reason,160) || !action.reason.trim())) return reject(s, 'أكد إنهاء المباراة قبل اعتماد النتيجة الحالية.');
+      checkpoint(s); if (c) stopClock(c,now);
+      s.current = null; s.state = 'MATCH_COMPLETE'; delete s.pausedFrom; s.completedAt = now; s.endedEarly = true; s.endReason = action.reason || 'أنهى المضيف المباراة بالنتيجة الحالية.';
+      if (s.timing) s.timing.lastActiveAt = null;
       s.winner = s.teams[0].score === s.teams[1].score ? null : s.teams[0].score > s.teams[1].score ? 0 : 1; return s;
     }
     if (action.type === 'PAUSE') {
@@ -509,13 +539,14 @@ const TeamEngine = (() => {
     if (action.type === 'BEGIN_ADJUDICATION') { if (s.state === 'ANSWER_REVEAL') s.state = 'SCORE_ADJUDICATION'; else reject(s, 'لم تُكشف الإجابة بعد.'); return s; }
     if (action.type === 'RESOLVE_QUESTION') {
       if (!['ANSWER_REVEAL', 'SCORE_ADJUDICATION'].includes(s.state) || !c?.revealed || c.resolved) return reject(s, 'حُسم السؤال أو لم تُكشف إجابته بعد.');
-      if (action.tileId !== c.tileId || action.questionId !== c.questionId || action.token !== c.token) return reject(s, 'انتهت صلاحية هذا الاختيار؛ استخدم خيارات السؤال الحالي.');
+      if (action.tileId !== c.tileId || action.questionId !== c.questionId || action.token !== c.token || action.resolutionId !== undefined && action.resolutionId !== c.resolutionId) return reject(s, 'انتهت صلاحية هذا الاختيار؛ استخدم خيارات السؤال الحالي.');
       const winner = action.teamId === null ? null : teamIndex(action.teamId);
       if (action.teamId !== null && winner === null) return reject(s, 'حدد الفريق الصحيح أو اختر محد جاوب صح.');
       return adjudicate(s, c.skip ? null : winner, now, true);
     }
     if (action.type === 'ADJUDICATE') {
       if (!['ANSWER_REVEAL', 'SCORE_ADJUDICATION'].includes(s.state) || !c || !c.revealed) return reject(s, 'اكشف الإجابة قبل تسجيل النتيجة.');
+      if (action.tileId !== c.tileId || action.questionId !== c.questionId || action.token !== c.token || action.resolutionId !== undefined && action.resolutionId !== c.resolutionId) return reject(s, 'انتهت صلاحية اعتماد هذا السؤال.');
       const winner = action.teamId === null ? null : teamIndex(action.teamId);
       if (action.teamId !== null && winner === null) return reject(s, 'حدد الفريق الصحيح أو اختر لا أحد.');
       return adjudicate(s, c.skip ? null : winner, now);
@@ -557,7 +588,7 @@ const TeamEngine = (() => {
       if (raw?.version === 2) { raw = migrateLegacy(raw, bank); if (!raw) return null; }
       if (!raw || raw.version !== VERSION || !Array.isArray(bank) || configErrors(raw.config, null).length || !STATES.includes(raw.state) || !identifier(raw.id,100) || !integer(raw.seed, 0, 4294967295) || !integer(raw.serial) || !integer(raw.createdAt, 0, 1e14) || !integer(raw.turn, 0, 1)) return null;
       if (raw.timing !== undefined && raw.timing !== null && (!integer(raw.timing.elapsedMs, 0, 1e14) || (raw.timing.lastActiveAt !== null && !integer(raw.timing.lastActiveAt, 0, 1e14)))) return null;
-      if (![1,2].includes(raw.statisticsVersion) || !Array.isArray(raw.selectionWarnings) || raw.selectionWarnings.length > 10 || raw.selectionWarnings.some(t => !safeText(t,1000))) return null;
+      if (![1,2,3].includes(raw.statisticsVersion) || !Array.isArray(raw.selectionWarnings) || raw.selectionWarnings.length > 10 || raw.selectionWarnings.some(t => !safeText(t,1000))) return null;
       const c = cleanConfig(raw.config), expected = c.board === 'classic' ? 36 : 18;
       if (!raw.questions || typeof raw.questions !== 'object' || Array.isArray(raw.questions) || Object.keys(raw.questions).length !== expected || Object.entries(raw.questions).some(([id,q]) => id !== q?.id || !validQuestion(q))) return null;
       const qmap = new Map(Object.entries(raw.questions));
@@ -566,10 +597,12 @@ const TeamEngine = (() => {
       for (const cat of raw.categories) for (const value of VALUES) if (raw.board.filter(t => t.category === cat && t.value === value).length !== (c.board === 'classic' ? 2 : 1)) return null;
       if (raw.board.some(t => !identifier(t.id,120) || !qmap.has(t.questionId) || qmap.get(t.questionId).category !== t.category || (!raw.board.every(tile => tile.done) && pointValue(qmap.get(t.questionId)) !== t.value) || !integer(t.slot, 0, c.board === 'classic' ? 1 : 0) || typeof t.done !== 'boolean')) return null;
       if (!Array.isArray(raw.teams) || raw.teams.length !== 2 || !Array.isArray(raw.transactions) || raw.transactions.length > 1000 || !Array.isArray(raw.history) || raw.history.length > expected || !Array.isArray(raw.undo) || raw.undo.length > 24) return null;
+      if (raw.endedEarly !== undefined && typeof raw.endedEarly !== 'boolean' || raw.endedEarly && (raw.state !== 'MATCH_COMPLETE' || !safeText(raw.endReason,160) || !raw.endReason.trim() || !integer(raw.completedAt,0,1e14))) return null;
       if ((raw.winner !== null && !integer(raw.winner, 0, 1)) || (raw.completedAt !== null && !integer(raw.completedAt, 0, 1e14))) return null;
       const scores = [0, 0], ids = new Set();
       for (const tx of raw.transactions) {
         if (!tx || !identifier(tx.id) || ids.has(tx.id) || !integer(tx.teamId, 0, 1) || !integer(tx.originalValue, 0, 600) || !safeText(tx.reason, 80) || !safeText(tx.modifier, 160) || !integer(tx.scoreBefore, -1e8, 1e8) || !integer(tx.scoreAfter, c.negative ? -1e8 : 0, 1e8) || scores[tx.teamId] !== tx.scoreBefore || !integer(tx.timestamp, 0, 1e14) || !identifier(tx.groupId) || (tx.questionId !== null && !qmap.has(tx.questionId))) return null;
+        if (tx.delta !== undefined && (!integer(tx.delta,-200000,200000) || tx.scoreAfter !== (c.negative ? tx.scoreBefore + tx.delta : Math.max(0,tx.scoreBefore + tx.delta)))) return null;
         scores[tx.teamId] = tx.scoreAfter; ids.add(tx.id);
       }
       for (let i = 0; i < 2; i++) {
@@ -580,16 +613,19 @@ const TeamEngine = (() => {
       }
       const startingTeam = raw.startingTeam ?? (c.starter === '0' ? 0 : c.starter === '1' ? 1 : raw.history[0]?.selector ?? raw.current?.selector ?? raw.turn);
       if (!integer(startingTeam, 0, 1) || raw.turn !== (startingTeam ^ raw.history.length % 2)) return null;
-      const historyIds = new Set();
+      const historyIds = new Set(), resolutionIds = new Set();
       for (const [historyIndex,h] of raw.history.entries()) {
         const tile = raw.board.find(t => t.id === h.tileId);
-        if (h.value !== tile?.value || h.correct !== (h.winner !== null) || h.selector !== (startingTeam ^ historyIndex % 2) || !tile || !tile.done || tile.questionId !== h.questionId || historyIds.has(h.tileId) || !integer(h.selector, 0, 1) || !integer(h.responder, 0, 1) || (h.winner !== null && !integer(h.winner, 0, 1)) || !Array.isArray(h.transactionIds) || h.transactionIds.some(id => !ids.has(id)) || !Array.isArray(h.assists) || h.assists.some(a => !a || !ASSISTS.includes(a.key) || !integer(a.teamId, 0, 1) || !raw.teams[a.teamId].assistHistory.some(record => record.id === a.id && record.key === a.key && record.questionId === h.questionId)) || !integer(h.at, 0, 1e14) || !['first', 'steal', 'trap'].includes(h.phase)) return null;
+        if (h.value !== tile?.value || h.correct !== (h.winner !== null) || h.selector !== (startingTeam ^ historyIndex % 2) || !tile || !tile.done || tile.questionId !== h.questionId || historyIds.has(h.tileId) || !integer(h.selector, 0, 1) || !integer(h.responder, 0, 1) || (h.winner !== null && !integer(h.winner, 0, 1)) || !Array.isArray(h.transactionIds) || new Set(h.transactionIds).size !== h.transactionIds.length || h.transactionIds.some(id => !ids.has(id) || raw.transactions.find(tx => tx.id === id).questionId !== h.questionId || raw.transactions.find(tx => tx.id === id).originalValue !== h.value) || !Array.isArray(h.assists) || h.assists.some(a => !a || !ASSISTS.includes(a.key) || !integer(a.teamId, 0, 1) || !raw.teams[a.teamId].assistHistory.some(record => record.id === a.id && record.key === a.key && record.questionId === h.questionId)) || !integer(h.at, 0, 1e14) || !['first', 'steal', 'trap'].includes(h.phase)) return null;
+        if (h.resolutionId !== undefined && (!identifier(h.resolutionId) || resolutionIds.has(h.resolutionId) || h.transactionIds.some(id => raw.transactions.find(tx => tx.id === id)?.groupId !== h.resolutionId))) return null;
+        if (h.attemptAccounting !== undefined && h.attemptAccounting !== 3) return null;
+        if (h.resolutionId !== undefined) resolutionIds.add(h.resolutionId);
         historyIds.add(h.tileId);
       }
       if (raw.undoAction !== undefined && !['assist', 'question-resolution'].includes(raw.undoAction)) return null;
       if (raw.lastResolution !== undefined && raw.lastResolution !== null) {
         const result = raw.lastResolution, h = raw.history.find(h => h.tileId === result?.tileId);
-        if (!h || !identifier(result.id) || result.questionId !== h.questionId || result.winner !== h.winner || result.phase !== h.phase || !identifier(result.token) || !integer(result.at,0,1e14) || result.at !== h.at || !integer(result.earned,0,1250) || !Array.isArray(result.deltas) || result.deltas.length !== 2 || result.deltas.some(n => !integer(n,-1e8,1e8)) || JSON.stringify(result.transactionIds) !== JSON.stringify(h.transactionIds) || result.steal !== (h.phase === 'steal' && h.winner !== null && h.winner !== h.selector)) return null;
+        if (!h || h.resolutionId !== undefined && h.resolutionId !== result.id || !identifier(result.id) || result.questionId !== h.questionId || result.winner !== h.winner || result.phase !== h.phase || !identifier(result.token) || !integer(result.at,0,1e14) || result.at !== h.at || !integer(result.earned,0,1250) || !Array.isArray(result.deltas) || result.deltas.length !== 2 || result.deltas.some(n => !integer(n,-1e8,1e8)) || JSON.stringify(result.transactionIds) !== JSON.stringify(h.transactionIds) || result.steal !== (h.phase === 'steal' && h.winner !== null && h.winner !== h.selector)) return null;
         const deltas = [0,0]; let earned = 0;
         for (const id of result.transactionIds) {
           const tx = raw.transactions.find(tx => tx.id === id);
@@ -599,11 +635,11 @@ const TeamEngine = (() => {
         }
         if (JSON.stringify(deltas) !== JSON.stringify(result.deltas) || earned !== result.earned) return null;
       }
-      if (raw.statisticsVersion === 2) {
+      if ([2,3].includes(raw.statisticsVersion)) {
         const correct = [0,0], incorrect = [0,0], steals = [0,0];
         for (const h of raw.history) {
           if (!Array.isArray(h.attempts) || h.attempts.length > 8 || h.attempts.some(a => !a || !integer(a.teamId,0,1) || typeof a.correct !== 'boolean' || !safeText(a.reason,32) || !integer(a.at,0,1e14)) || !Array.isArray(h.incorrectTeams)) return null;
-          const failed = [...new Set(h.attempts.filter(a => !['timeout','skip','delegation'].includes(a.reason) && a.teamId !== h.winner).map(a => a.teamId))];
+          const failed = raw.statisticsVersion === 3 || h.attemptAccounting === 3 ? [...explicitFailures(h, h.winner)] : [...new Set(h.attempts.filter(a => !['timeout','skip','delegation'].includes(a.reason) && a.teamId !== h.winner).map(a => a.teamId))];
           if (JSON.stringify(failed) !== JSON.stringify(h.incorrectTeams)) return null;
           failed.forEach(i => incorrect[i]++);
           if (h.winner !== null) {correct[h.winner]++; if (h.phase === 'steal' && h.winner !== h.selector) steals[h.winner]++;}
@@ -611,11 +647,12 @@ const TeamEngine = (() => {
         if (raw.teams.some((t,i) => t.correct !== correct[i] || t.incorrect !== incorrect[i] || t.steals !== steals[i])) return null;
       }
       if (raw.board.filter(t => t.done).length !== raw.history.length) return null;
-      if (raw.state === 'BOARD' && raw.current !== null || raw.state === 'MATCH_COMPLETE' && (raw.current !== null || raw.board.some(t => !t.done))) return null;
+      if (raw.state === 'BOARD' && raw.current !== null || raw.state === 'MATCH_COMPLETE' && (raw.current !== null || !raw.endedEarly && raw.board.some(t => !t.done))) return null;
       if (raw.state === 'PAUSED' && (!STATES.includes(raw.pausedFrom) || raw.pausedFrom === 'PAUSED')) return null;
       if (raw.current !== null) {
         const a = raw.current, tile = raw.board.find(t => t.id === a.tileId);
         if (!tile || a.questionId !== tile.questionId || a.value !== tile.value || !integer(a.selector, 0, 1) || !integer(a.responder, 0, 1) || !['first', 'steal', 'trap'].includes(a.phase) || !safeText(a.token, 180) || !Array.isArray(a.choices) || a.choices.length !== c.choiceCount || new Set(a.choices).size !== c.choiceCount || a.choices.some(n => !integer(n, 0, 3)) || !a.choices.includes(qmap.get(a.questionId).answer) || !integer(a.remainingMs, 0, 1000000) || (a.deadline !== null && !integer(a.deadline, 0, 1e14)) || ['timed', 'timerStarted', 'revealed', 'closed', 'resolved', 'twice', 'hint', 'lastAttemptIncorrect', 'skip'].some(k => typeof a[k] !== 'boolean')) return null;
+        if (a.resolutionId !== undefined && !identifier(a.resolutionId)) return null;
         if (!integer(a.earned) || a.usedAssists?.some(record => !record || !ASSISTS.includes(record.key) || !integer(record.teamId, 0, 1) || !raw.teams[record.teamId].assistHistory.some(item => item.id === record.id && item.key === record.key && item.questionId === a.questionId))) return null;
         if (a.sitout !== null && (!integer(a.sitout.teamId, 0, 1) || !raw.teams[a.sitout.teamId].players.includes(a.sitout.participant))) return null;
         if (['pitTeam', 'doubleTeam', 'twiceTeam', 'secondTeam', 'trapTeam', 'pendingWinner', 'winner'].some(k => a[k] !== null && !integer(a[k], 0, 1))) return null;
@@ -649,6 +686,6 @@ const TeamEngine = (() => {
       return preserveKnowledge(out, Date.now());
     } catch { return null; }
   }
-  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, scoreOutcome, validateState, restore, getQuestion, eligibleQuestions, isEligible, FRANCHISES, normalizeAnswer, pointValue });
+  return Object.freeze({ VERSION, VALUES: Object.freeze(VALUES), ASSISTS: Object.freeze(ASSISTS), STATES: Object.freeze(STATES), defaults, validateConfig: configErrors, create, dispatch, scoreOutcome, validateState, restore, getQuestion, eligibleQuestions, isEligible, verifiedForPlay, FRANCHISES, normalizeAnswer, pointValue });
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = TeamEngine;

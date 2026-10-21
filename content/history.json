@@ -58,7 +58,7 @@
     "category": "arabia",
     "sub": "الممالك العربية",
     "level": 1,
-    "q": "أي مدينة يمنية كانت مركزًا رئيسيًا لمملكة سبأ؟",
+    "q": "ما المدينة التي كانت العاصمة والمركز الإداري والاقتصادي لمملكة سبأ؟",
     "options": [
       "مأرب",
       "الحيرة",
@@ -78,7 +78,31 @@
     ],
     "version": 1,
     "hint": "اشتهرت المدينة بسد قديم.",
-    "points": 200
+    "points": 200,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "اليونسكو: معالم مملكة سبأ القديمة في مأرب",
+      "referenceUrl": "https://whc.unesco.org/en/list/1700/",
+      "section": "Outstanding Universal Value / Brief synthesis؛ مأرب عاصمة سبأ",
+      "notes": "قراءة مباشرة لوصف اليونسكو: مدينة مأرب المسورة كانت العاصمة والمركز الإداري والثقافي والاقتصادي لمملكة سبأ.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "الممالك العربية",
+    "familyFriendly": true,
+    "minAge": 12,
+    "ageRating": "all",
+    "familyReview": {
+      "status": "editorial-suitability-reviewed",
+      "reviewedAt": "2026-10-21",
+      "minimumAge": 12,
+      "notes": "مدن وعواصم أثرية دون روايات حروب؛ قُرئ السؤال والخيارات والشرح. مراجعة ملاءمة وصياغة لعمر12+، وليست تحققًا واقعيًا جديدًا أو اختبارًا ميدانيًا للصعوبة."
+    }
   },
   {
     "id": "arabia-004",
@@ -105,7 +129,22 @@
     ],
     "version": 1,
     "hint": "يتصل الغرض بالزراعة وإدارة السيول.",
-    "points": 200
+    "points": 200,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "اليونسكو: معالم مملكة سبأ القديمة في مأرب",
+      "referenceUrl": "https://whc.unesco.org/en/list/1700/",
+      "section": "Outstanding Universal Value / Brief synthesis؛ سد مأرب وقنوات الري",
+      "notes": "قراءة مباشرة لوصف اليونسكو: كان سد مأرب يغذي شبكة قنوات ري سمحت بزراعة مساحة كبيرة؛ طابقت وظيفة الري مع السؤال.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "الهندسة القديمة"
   },
   {
     "id": "arabia-005",
@@ -139,7 +178,7 @@
     "category": "arabia",
     "sub": "الأنباط",
     "level": 1,
-    "q": "ما المدينة الأشهر التي اتخذها الأنباط عاصمة لهم؟",
+    "q": "ما المدينة الأثرية التي تصفها اليونسكو بأنها عاصمة الأنباط المنحوتة في الصخر؟",
     "options": [
       "البتراء",
       "القاهرة",
@@ -159,7 +198,22 @@
     ],
     "version": 1,
     "hint": "تقع أطلالها في الأردن.",
-    "points": 200
+    "points": 200,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "اليونسكو: البتراء",
+      "referenceUrl": "https://whc.unesco.org/en/list/326/",
+      "section": "Outstanding Universal Value / Brief synthesis؛ عاصمة الأنباط",
+      "notes": "قراءة مباشرة لوصف اليونسكو الذي يصف البتراء بأنها عاصمة الأنباط المنحوتة في الصخر.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "الأنباط"
   },
   {
     "id": "arabia-007",
@@ -186,7 +240,22 @@
     ],
     "version": 1,
     "hint": "تستخدم العمارة الجبال الصخرية نفسها.",
-    "points": 200
+    "points": 200,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "اليونسكو: موقع الحِجر الأثري",
+      "referenceUrl": "https://whc.unesco.org/en/list/1293/",
+      "section": "Description / Outstanding Universal Value؛ المقابر النبطية",
+      "notes": "قراءة مباشرة لوصف اليونسكو للحجر ومقابره الأثرية؛ طابقت عمارة المقابر المنحوتة مع السؤال.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "الأنباط"
   },
   {
     "id": "arabia-008",

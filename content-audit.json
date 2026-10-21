@@ -1,10 +1,12 @@
 {
-  "checkedAt": "2026-10-20",
-  "scope": "تدقيق بنيوي آلي لجميع الأسئلة ومراجعة تحريرية لصياغة السؤال والجواب والأعلام المحتملة، مع إعادة قراءة التعليمات الرسمية العامة. لا يُعد فحصًا مستقلًا جديدًا لكل مرجع خارجي أو لكل حقيقة في البنك.",
+  "checkedAt": "2026-10-21",
+  "baselineCommit": "980d233",
+  "scope": "إعادة حساب جميع ملفات content/*.json وتدقيقها بنيويًا. تحقق مستقل جديد من 16 سؤالًا موجودًا و18 سؤالًا جديدًا بقراءة مراجع عامة أولية؛ لم يُنفذ فحص مستقل جديد لجميع حقائق البنك.",
   "baselineQuestions": 648,
+  "baselineCategories": 8,
   "baselineVisualQuestions": 63,
   "questionAudit": {
-    "questions": 648,
+    "questions": 666,
     "images": 63,
     "categories": {
       "anime": 106,
@@ -14,18 +16,112 @@
       "geo": 85,
       "islamic": 74,
       "prophets": 74,
-      "seerah": 74
+      "seerah": 74,
+      "space": 18
     },
     "points": {
-      "200": 262,
-      "400": 258,
-      "600": 128
+      "200": 269,
+      "400": 264,
+      "600": 133
     },
     "verification": {
       "disputed": 5,
-      "editorial": 400,
-      "pending": 88,
-      "source-checked": 155
+      "editorial": 389,
+      "pending": 83,
+      "source-checked": 189
+    },
+    "defaultEligibleQuestions": 179,
+    "defaultInventory": {
+      "anime": {
+        "eligibleByPoints": {
+          "200": 5,
+          "400": 20,
+          "600": 13
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "arabia": {
+        "eligibleByPoints": {
+          "200": 5,
+          "400": 4,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "football": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 14,
+          "600": 17
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "games": {
+        "eligibleByPoints": {
+          "200": 2,
+          "400": 3,
+          "600": 5
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "geo": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 5,
+          "600": 4
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "islamic": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 7,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "prophets": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 11,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "seerah": {
+        "eligibleByPoints": {
+          "200": 4,
+          "400": 7,
+          "600": 5
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "space": {
+        "eligibleByPoints": {
+          "200": 6,
+          "400": 6,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      }
     },
     "errors": [],
     "reviewCandidates": [
@@ -40,83 +136,377 @@
   },
   "defaultEligibleByCategoryAndPoints": {
     "anime": {
-      "200": 32,
-      "400": 27,
+      "200": 5,
+      "400": 20,
       "600": 13
     },
     "arabia": {
-      "200": 24,
-      "400": 27,
-      "600": 24
+      "200": 5,
+      "400": 4,
+      "600": 6
     },
     "football": {
-      "200": 32,
-      "400": 34,
-      "600": 26
-    },
-    "games": {
-      "200": 32,
-      "400": 24,
-      "600": 12
-    },
-    "geo": {
-      "200": 49,
-      "400": 26,
-      "600": 10
-    },
-    "islamic": {
-      "200": 22,
-      "400": 35,
+      "200": 3,
+      "400": 14,
       "600": 17
     },
+    "games": {
+      "200": 2,
+      "400": 3,
+      "600": 5
+    },
+    "geo": {
+      "200": 3,
+      "400": 5,
+      "600": 4
+    },
+    "islamic": {
+      "200": 3,
+      "400": 7,
+      "600": 6
+    },
     "prophets": {
-      "200": 35,
-      "400": 33,
+      "200": 3,
+      "400": 11,
       "600": 6
     },
     "seerah": {
-      "200": 32,
-      "400": 28,
-      "600": 14
+      "200": 4,
+      "400": 7,
+      "600": 5
+    },
+    "space": {
+      "200": 6,
+      "400": 6,
+      "600": 6
     }
   },
-  "classicPoolCheck": "لكل فئة 2 على الأقل من الأسئلة المؤهلة لكل قيمة؛ لا حاجة لاستبدال مستوى نقاط بمستوى آخر لبناء لوحة كلاسيكية.",
+  "defaultSelectionPolicy": "مدقق بالمصدر مع بيانات تحقق كاملة فقط، ودون حرق وفق الإعداد المحافظ؛ تُستبعد الحالات التحريرية والمنتظرة والمتنازع عليها. وجود رابط وحده لا يرفع حالة السؤال.",
+  "defaultEligibility": {
+    "eligible": 179,
+    "excluded": 487,
+    "excludedByVerificationStatus": {
+      "disputed": 5,
+      "editorial": 389,
+      "pending": 83
+    },
+    "checkedButExcludedBySpoilers": 10,
+    "eligibleVisualQuestions": 22
+  },
+  "classicPoolCheck": "تتوفر 2 على الأقل من الأسئلة المدققة المؤهلة لكل قيمة 200 و400 و600 في الفئات التسع. بعض الأرصدة ضيقة؛ الإعادة بعد استنفادها معلنة ولا يُستبدل مستوى نقاط بمستوى آخر.",
   "preservation": {
     "questionIdsChanged": 0,
-    "questionsAdded": 0,
+    "existingQuestionsRetained": 648,
+    "questionsAdded": 18,
     "questionsRemoved": 0,
     "mediaAdded": 0,
     "mediaRemoved": 0
   },
-  "editorialFindings": [
+  "independentVerificationThisExecution": {
+    "existingQuestionsReviewed": 16,
+    "existingEditorialPromoted": 11,
+    "existingPendingPromoted": 5,
+    "newQuestionsVerified": 18,
+    "existingQuestionIds": [
+      "exp-geo-008",
+      "arabia-003",
+      "arabia-004",
+      "arabia-006",
+      "arabia-007",
+      "games-030",
+      "games-038",
+      "football-033",
+      "football-035",
+      "exp-prophets-004",
+      "exp-prophets-007",
+      "exp-prophets-008",
+      "prophets-010",
+      "visual-020",
+      "geo-020",
+      "geo-047"
+    ],
+    "newQuestionIds": [
+      "v4-space-001",
+      "v4-space-002",
+      "v4-space-003",
+      "v4-space-004",
+      "v4-space-005",
+      "v4-space-006",
+      "v4-space-007",
+      "v4-space-008",
+      "v4-space-009",
+      "v4-space-010",
+      "v4-space-011",
+      "v4-space-012",
+      "v4-space-013",
+      "v4-space-014",
+      "v4-space-015",
+      "v4-space-016",
+      "v4-space-017",
+      "v4-space-018"
+    ],
+    "evidenceFile": "content-verification-evidence.json",
+    "method": "قراءة الفقرات المحددة في NASA وIFAB وUNESCO وValve وPlayStation وQuran.com ووزارة الآثار المصرية وTAAF وبعثة تنزانيا الحكومية؛ طوبقت الحقيقة والجواب مع المصدر فعليًا."
+  },
+  "contentExpansion": {
+    "newCategory": "space",
+    "newCategoryArabic": "الفضاء والفلك",
+    "questions": 18,
+    "points": {
+      "200": 6,
+      "400": 6,
+      "600": 6
+    },
+    "source": "NASA Science",
+    "target24CategoriesMet": false,
+    "limitation": "بقي هدف 24 فئة مؤهلة غير مكتمل؛ لم تُنشأ فئات صورية أو أسئلة غير مفحوصة لرفع العدد."
+  },
+  "confirmedDefectsAndFixes": [
+    {
+      "defect": "التقرير السابق عدّ المحتوى التحريري والمنتظر والمتنازع عليه ضمن الأرصدة الافتراضية.",
+      "fix": "حساب أهلية صارم منفصل عن صحة البنية ومطابق لتصفية المحرك؛ حصر الاختيار الافتراضي في المدقق بالمصدر."
+    },
+    {
+      "questionIds": [
+        "exp-geo-008"
+      ],
+      "defect": "اشتملت الصياغة على تخصيص كانايما غير المثبت في المرجع المحدد.",
+      "fix": "قُصرت الصياغة على شلال آنجل وهضبة أويان تيبوي في مرتفعات غيانا، وهي المعلومات المقروءة صراحة في وصف NASA/JPL."
+    },
+    {
+      "questionIds": [
+        "football-033",
+        "football-035"
+      ],
+      "defect": "تُذكر نسخة القوانين في المصدر فقط؛ صياغة السؤال لا تحدد النسخة.",
+      "fix": "أُضيف موسم 2025/26 إلى صياغة السؤال لمنع تعميم نسخة ثابتة إلى جميع الإصدارات."
+    },
+    {
+      "defect": "تدقيق المحتوى لا يعرض توفر كل قيمة نقاط حسب حالة التحقق.",
+      "fix": "أُضيف default_eligible وcategory_inventory وحالة توفر سريع/كلاسيكي مع النقص الدقيق لكل فئة."
+    },
+    {
+      "questionIds": [
+        "v4-space-010"
+      ],
+      "defect": "ملاحظة مراجعة ثانية للصياغة أو الصعوبة.",
+      "fix": "قُيد السؤال بالكواكب الصخرية؛ أورانوس يدور تراجعيًا أيضًا، ولا تكفي الاختيارات لحماية فرادة الجواب في النمط الشفهي."
+    },
+    {
+      "questionIds": [
+        "arabia-003"
+      ],
+      "defect": "ملاحظة مراجعة ثانية للصياغة أو الصعوبة.",
+      "fix": "قُيد السؤال بالعاصمة الإدارية والاقتصادية لتجنب إدراج صرواح بوصفها مركزًا آخر."
+    },
+    {
+      "questionIds": [
+        "arabia-006"
+      ],
+      "defect": "ملاحظة مراجعة ثانية للصياغة أو الصعوبة.",
+      "fix": "استُبدل التفضيل غير المقيس «الأشهر» بوصف اليونسكو المحدد."
+    },
+    {
+      "questionIds": [
+        "exp-geo-008"
+      ],
+      "defect": "ملاحظة مراجعة ثانية للصياغة أو الصعوبة.",
+      "fix": "أُضيف الارتفاع979مترًا المذكور صراحة في NASA لتمييز الشلال من شلالات الهضبة الأخرى."
+    },
+    {
+      "questionIds": [
+        "visual-020"
+      ],
+      "defect": "ملاحظة مراجعة ثانية للصياغة أو الصعوبة.",
+      "fix": "تصحيح الصعوبة من600إلى200؛ السؤال يسمّي الهرم الأكبر ويسأل عن خوفو، وهي معرفة أساسية."
+    }
+  ],
+  "disputedReview": {
+    "count": 5,
+    "ids": [
+      "v3-h-arabia-001",
+      "v3-h-arabia-002",
+      "v3-h-arabia-003",
+      "v3-h-arabia-007",
+      "v3-h-arabia-008"
+    ],
+    "outcome": "أُعيد فحص الصياغة والبيانات: الأسئلة الخمسة تقيد روايات أدبية أو نسبية بمصادر معينة؛ بقيت متنازعًا عليها ومستبعدة افتراضيًا، ولم تدّع هذه المراجعة تحققًا أثريًا جديدًا منها."
+  },
+  "pendingReview": {
+    "baseline": 88,
+    "remaining": 83,
+    "promotedAfterIndependentReading": [
+      "exp-geo-008",
+      "exp-prophets-004",
+      "exp-prophets-007",
+      "exp-prophets-008",
+      "visual-020"
+    ],
+    "outcome": "أُعيد فحص حالات الانتظار وبيانات الإحالة بنيويًا؛ لم تُرق بقية الأسئلة دون قراءة مستقلة لمصادرها."
+  },
+  "semanticDuplicateReview": [
     {
       "questionIds": [
         "seerah-008",
         "seerah-040"
       ],
-      "outcome": "مرشح تشابه غير مكرر: الأول يسأل عن العمر عند البعثة، والثاني عن العمر عند الوفاة."
-    },
-    {
-      "questionIds": [
-        "prophets-020"
-      ],
-      "outcome": "الكشف الآلي عن «مدين» ضمن «المدينة» تطابق جزئي مضلل، وليس كشفًا للإجابة."
-    },
-    {
-      "questionIds": [
-        "football-047"
-      ],
-      "outcome": "السؤال يذكر الدولة المضيفة ويسأل عن البطل؛ الاستضافة لا تعني الفوز بالضرورة، ولا يظهر ترميز لمفتاح الإجابة. لم يُحذف السؤال بوصفه تسريبًا آليًا مؤكدًا."
+      "outcome": "الأول يسأل عن العمر عند البعثة، والثاني عن العمر عند الوفاة؛ تشابه لفظي في قالب السؤال مع حقيقتين مختلفتين."
     }
   ],
-  "confirmedNewFactualDefects": [],
+  "mediaReview": {
+    "existingMediaRetained": true,
+    "newMedia": 0,
+    "unitCommand": "node tests/v3-media.spec.cjs",
+    "actualResult": {
+      "passed": 6,
+      "failed": 0
+    },
+    "scope": "فُحصت بيانات الرخص ومراجع الأصول وشفرة تضمين SVG والصور النقطية. تحقق اختبار البصمات من24رسمًا أصليًا. فحص فك الترميز المتصفحي يقع ضمن اختبار QA، ولا يدعي هذا التقرير تنفيذه هنا."
+  },
   "verificationNotes": [
-    "حالات التحقق الحالية: 155 مدققًا بالمصدر، 400 مراجعة تحريرية سابقة، 88 بانتظار إعادة التحقق، 5 روايات مؤطرة بوصفها محل خلاف.",
-    "لم يُرفع سؤال إلى حالة مدقق بالمصدر لمجرد وجود رابط. لم تُختلق مراجع أو تاريخ نشر.",
-    "لم تُضف فئات أو أسئلة شكلية لبلوغ حجم عددي؛ تُحفظ الفئات الثماني الحالية حتى تتوفر توسعة محررة ومفحوصة."
+    "155 حالة مدقق بالمصدر ورثت من main؛ لا تُعد قراءة مستقلة جديدة في هذه الجلسة. وصل الإجمالي إلى189 بعد34تحققًا فعليًا موثقًا هنا.",
+    "تواريخ verifiedAt هي تاريخ الاطلاع الفعلي في هذه الجلسة؛ لم تُختلق تواريخ نشر أو أرقام صفحات.",
+    "الصعوبة تصنيف تحريري؛ قياس صعوبة الأسئلة ميدانيًا مع لاعبين لم ينفذ.",
+    "الفحص البنيوي لا يكشف جميع التكرارات الدلالية أو الأخطاء الواقعية؛ لم يُدّع تحقق بشري/تخصصي كامل لجميع666سؤالًا."
   ],
   "publicRulesReferences": [
     "https://seenjeemkw.com/",
-    "https://seenjeemkw.com/start-game"
-  ]
+    "https://seenjeemkw.com/start-game/",
+    "https://hazerfazer.com/how-to-play",
+    "https://shahi.games/game/soj"
+  ],
+  "independentSecondReview": {
+    "scope": "راجع محرر ثان الأسئلة18الجديدة وأعاد فتح7صفحات NASA؛ وراجع المحرر الأصلي نصوص الأسئلة16المحدثة والاختيارات والتفسيرات مقابل المراجع المقروءة.",
+    "confirmedFixes": [
+      {
+        "questionId": "v4-space-010",
+        "fix": "قُيد السؤال بالكواكب الصخرية؛ أورانوس يدور تراجعيًا أيضًا، ولا تكفي الاختيارات لحماية فرادة الجواب في النمط الشفهي."
+      },
+      {
+        "questionId": "arabia-003",
+        "fix": "قُيد السؤال بالعاصمة الإدارية والاقتصادية لتجنب إدراج صرواح بوصفها مركزًا آخر."
+      },
+      {
+        "questionId": "arabia-006",
+        "fix": "استُبدل التفضيل غير المقيس «الأشهر» بوصف اليونسكو المحدد."
+      },
+      {
+        "questionId": "exp-geo-008",
+        "fix": "أُضيف الارتفاع979مترًا المذكور صراحة في NASA لتمييز الشلال من شلالات الهضبة الأخرى."
+      },
+      {
+        "questionId": "visual-020",
+        "fix": "تصحيح الصعوبة من600إلى200؛ السؤال يسمّي الهرم الأكبر ويسأل عن خوفو، وهي معرفة أساسية."
+      }
+    ],
+    "difficultyLimitation": "تصنيف تحريري، دون ادعاء اختبار معايرة ميداني مع لاعبين."
+  },
+  "familyPresetReview": {
+    "reviewedAt": "2026-10-21",
+    "age": "12+",
+    "scope": "مراجعة تحريرية مستقلة لملاءمة15سؤالًا موجودًا و18سؤال فضاء. قُرئت الصياغة والخيارات والتفسيرات؛ لم يتغير أي حكم للتحقق الواقعي بسبب هذه الملاءمة.",
+    "eligibleQuestions": 33,
+    "reviewedExistingQuestionIds": [
+      "football-033",
+      "v3-p-064",
+      "v3-p-071",
+      "v3-p-085",
+      "v3-p-087",
+      "geo-020",
+      "arabia-003",
+      "v3-h-arabia-009",
+      "v3-h-arabia-010",
+      "v3-h-prophets-016",
+      "v3-h-prophets-015",
+      "exp-prophets-008",
+      "v3-h-seerah-016",
+      "v3-h-seerah-011",
+      "v3-h-seerah-015"
+    ],
+    "inventory": {
+      "arabia": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "football": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "geo": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "prophets": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "seerah": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "space": {
+        "eligibleByPoints": {
+          "200": 6,
+          "400": 6,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      }
+    },
+    "quick18Available": true,
+    "classic36Available": false,
+    "limitation": "ست فئات فقط؛ فئات الأسئلة الموجودة تملك سؤالًا واحدًا لكل قيمة ضمن هذا الاختيار المحافظ. ليس وعدًا بملاءمة الأطفال الأصغر أو قياس صعوبة ميداني."
+  }
 }

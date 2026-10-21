@@ -1,0 +1,13 @@
+{"scenarios":10,"steps":1733,"restores":58,"undos":66,"rejections":10}
+{"scenarios":20,"steps":3452,"restores":115,"undos":111,"rejections":16}
+{"scenarios":30,"steps":5260,"restores":176,"undos":191,"rejections":17}
+{"scenarios":40,"steps":7008,"restores":234,"undos":257,"rejections":33}
+{"scenarios":50,"steps":8655,"restores":290,"undos":297,"rejections":47}
+{"scenarios":60,"steps":10438,"restores":352,"undos":368,"rejections":61}
+{"scenarios":70,"steps":12157,"restores":411,"undos":428,"rejections":67}
+{"scenarios":80,"steps":13883,"restores":468,"undos":480,"rejections":87}
+{"scenarios":90,"steps":15649,"restores":528,"undos":551,"rejections":99}
+{"scenarios":100,"steps":17414,"restores":588,"undos":607,"rejections":105}
+{"scenarios":110,"steps":19148,"restores":647,"undos":668,"rejections":124}
+{"scenarios":120,"steps":20871,"restores":705,"undos":717,"rejections":142}
+{"passed":120,"steps":20871,"restores":705,"undos":717,"rejections":142}

@@ -1,0 +1,209 @@
+{
+  "command": "npm test",
+  "artifact": {
+    "path": "index.html",
+    "bytes": 2488143,
+    "sha256": "f7b87869f54fff5d1a9541f161c554992edd4f5ed8c3e8a1f703d0b858b342ed",
+    "sourceInputsSynchronized": true
+  },
+  "suiteExecutions": {
+    "results": [
+      {
+        "name": "python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_*.py"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/team-engine.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/tournament.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/team-content.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/v3-media.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/one-tap.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/reliability.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/team-browser.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/v3-team-ui.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/tournament-browser.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/v3-build-browser.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/accessibility.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/team-accessibility.spec.cjs"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/team-content.spec.cjs",
+          "--browser"
+        ],
+        "code": 0
+      },
+      {
+        "name": "node",
+        "args": [
+          "tests/v3-media.spec.cjs",
+          "--browser"
+        ],
+        "code": 0
+      }
+    ],
+    "passed": 15,
+    "failed": 0
+  },
+  "uniquePassingChecks": 369,
+  "passingCheckInvocations": 396,
+  "failingCheckInvocations": 0,
+  "counts": [
+    {
+      "command": "python -m unittest discover -s tests -p test_*.py",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "command": "node tests/team-engine.spec.cjs",
+      "passed": 92,
+      "failed": 0
+    },
+    {
+      "command": "node tests/tournament.spec.cjs",
+      "passed": 12,
+      "failed": 0
+    },
+    {
+      "command": "node tests/team-content.spec.cjs",
+      "passed": 21,
+      "failed": 0
+    },
+    {
+      "command": "node tests/v3-media.spec.cjs",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "command": "node tests/one-tap.spec.cjs",
+      "passed": 16,
+      "failed": 0
+    },
+    {
+      "command": "node tests/reliability.spec.cjs",
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "command": "node tests/team-browser.spec.cjs",
+      "passed": 31,
+      "failed": 0
+    },
+    {
+      "command": "node tests/v3-team-ui.spec.cjs",
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "command": "node tests/tournament-browser.spec.cjs",
+      "passed": 10,
+      "failed": 0
+    },
+    {
+      "command": "node tests/v3-build-browser.spec.cjs",
+      "passed": 15,
+      "failed": 0
+    },
+    {
+      "command": "node tests/accessibility.spec.cjs",
+      "passed": 26,
+      "failed": 0
+    },
+    {
+      "command": "node tests/team-accessibility.spec.cjs",
+      "passed": 103,
+      "failed": 0
+    },
+    {
+      "command": "node tests/team-content.spec.cjs --browser",
+      "passed": 27,
+      "failed": 0
+    },
+    {
+      "command": "node tests/v3-media.spec.cjs --browser",
+      "passed": 7,
+      "failed": 0
+    }
+  ],
+  "environment": "Chromium touch/viewport emulation; no physical Samsung testing. Direct file:// navigation blocked by managed browser policy; actual built bytes booted and played with network disabled before startup."
+}

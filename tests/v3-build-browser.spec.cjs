@@ -20,13 +20,13 @@ async function layout(page,label){const data=await page.evaluate(()=>({width:inn
   const context=await browser.newContext({viewport:{width:412,height:915},hasTouch:true,isMobile:true});
   await context.setOffline(true);const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))network.push(r.url());});
   await page.setContent(await fs.readFile(path.join(root,'index.html'),'utf8'),{waitUntil:'load'});await page.waitForFunction(()=>window.SeenTeamUI?.ready());
-  await page.locator('[data-team-action="new"]').first().click();await page.evaluate(()=>{SeenTeamUI.draft.timer=false;render();});await page.locator('[data-team-action="step"][data-step="8"]').click();await page.locator('[data-team-action="start-match"]').click();
-  assert.equal(await page.locator('.match-tile').count(),36);assert.equal(await page.evaluate(()=>SeenDiagnostics.validateBank().length),0);await context.close();
+  await page.locator('[data-team-action="new"]').first().click();await page.evaluate(()=>{SeenTeamUI.draft.timer=false;render();});await page.locator('[data-team-action="start-match"]').click();
+  assert.equal(await page.locator('.match-tile').count(),36);assert.equal(await page.evaluate(()=>SeenDiagnostics.validateBank().length),0);await page.locator('[data-team-action="tile"]:not([disabled])').first().click();assert.equal(await page.evaluate(()=>SeenTeamUI.match.state),'QUESTION_ACTIVE');await page.locator('[data-team-action="reveal"]').click();assert.equal(await page.locator('[data-team-action="award"]').count(),3);await page.locator('[data-team-action="award"][data-team="0"]').click();await page.waitForFunction(()=>SeenTeamUI.match.state==='BOARD');assert.equal(await page.evaluate(()=>SeenTeamUI.match.teams[0].score),200);await context.close();
  });
  await check('malicious mixed-case script, comments and Unicode survive actual Python build without execution',async()=>{
   const dir=await fs.mkdtemp(path.join(os.tmpdir(),'seen-v3-build-'));
   try{
-   for(const file of ['build.py','content_tools.py','ui.css','team-ui.css','graphics.js','media-v2.js','team-engine.js','app.js','team-ui.js'])await fs.copyFile(path.join(root,file),path.join(dir,file));
+   for(const file of ['build.py','content_tools.py','ui.css','team-ui.css','tournament-ui.css','graphics.js','media-v2.js','team-engine.js','tournament.js','app.js','team-ui.js','tournament-ui.js'])await fs.copyFile(path.join(root,file),path.join(dir,file));
    for(const folder of ['content','assets'])await fs.cp(path.join(root,folder),path.join(dir,folder),{recursive:true});
    const pack=JSON.parse(await fs.readFile(path.join(root,'content','pop.json'),'utf8'));
    const hostile='نص اختبار سلامة </ScRiPt><script>globalThis.pwned=true</script><!-- --> " \\ \u2028\u2029 🎮';
@@ -47,7 +47,7 @@ async function layout(page,label){const data=await page.evaluate(()=>({width:inn
  const f=await fresh();const p=f.page;
  await check('long Arabic visual snapshot can open through actual team controls',async()=>{
   await p.locator('[data-team-action="new"]').first().click();
-  await p.evaluate(()=>{SeenTeamUI.draft.timer=false;render();});await p.locator('[data-team-action="step"][data-step="8"]').click();await p.locator('[data-team-action="start-match"]').click();
+  await p.evaluate(()=>{SeenTeamUI.draft.timer=false;render();});await p.locator('[data-team-action="start-match"]').click();
   // Fixture changes the library after generation. The match snapshot must retain it.
   await p.evaluate(()=>{const match=SeenTeamUI.match,tile=match.board[0],q=JSON.parse(JSON.stringify(TeamEngine.getQuestion(match,tile.questionId,QUESTION_BANK)));q.q='أي خيار يصف هذا الدليل البصري؟ '+('هذا نص عربي طويل لاختبار التفاف الكلمات ووضوح السؤال على شاشة الهاتف واللوح. '.repeat(8));q.image='map-kuwait';match.questions=Object.freeze({...match.questions,[q.id]:Object.freeze(q)});render();});
   await p.locator('[data-team-action="tile"]').first().click();assert.equal(await p.evaluate(()=>SeenTeamUI.match.state),'QUESTION_ACTIVE');await p.waitForFunction(()=>document.querySelector('.match-media img')?.naturalWidth>0);
@@ -63,7 +63,7 @@ async function layout(page,label){const data=await page.evaluate(()=>({width:inn
  await check('long visual answer exposes exactly three reachable scoring choices and completes without another screen',async()=>{
   await p.locator('[data-team-action="reveal"]').click();assert.equal(await p.locator('#dialog').evaluate(d=>d.open),false);assert.equal(await p.locator('[data-team-action="award"]').count(),3);await layout(p,'long visual scoring 320 text130');
   const choices=await p.locator('[data-team-action="award"]').evaluateAll(buttons=>buttons.map(b=>{const r=b.getBoundingClientRect();return {top:r.top,bottom:r.bottom,height:innerHeight};}));assert(choices.every(r=>r.top>=-1&&r.bottom<=r.height+1),'one-tap choices must remain in view after reveal, even with a long question');
-  await p.locator('[data-team-action="award"][data-team="0"]').click();assert.equal(await p.evaluate(()=>SeenTeamUI.match.state),'BOARD');assert.equal(await p.locator('#confirm-team-award').count(),0);
+  await p.locator('[data-team-action="award"][data-team="0"]').click();await p.waitForFunction(()=>SeenTeamUI.match.state==='BOARD');assert.equal(await p.evaluate(()=>SeenTeamUI.match.state),'BOARD');assert.equal(await p.locator('#confirm-team-award').count(),0);
  });
  await f.context.close();
  await check('no uncaught errors and no external runtime requests',async()=>{assert.deepEqual(errors,[]);assert.deepEqual(network,[]);});

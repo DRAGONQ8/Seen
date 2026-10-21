@@ -66,6 +66,37 @@ class BuildTests(unittest.TestCase):
             altered['source']['url'] = bad
             self.assertTrue(audit([altered])['errors'])
 
+    def test_multiplayer_distribution_has_no_removed_entry_points(self):
+        root = Path(__file__).resolve().parents[1]
+        page = (root / 'index.html').read_text()
+        for removed in ('function makeSetup(', 'function startGame(', 'function renderPlay(',
+                        'function soloStorageNotice(', 'const ACHIEVEMENTS=',
+                        'data-action="solo-export"', 'data-mode="solo"',
+                        'data-route="play"', 'data-team-action="next-step"'):
+            self.assertNotIn(removed, page)
+
+    def test_generated_document_has_no_runtime_urls(self):
+        import re
+        root = Path(__file__).resolve().parents[1]
+        page = (root / 'index.html').read_text()
+        self.assertNotRegex(page, r'<(?:script|iframe|img)[^>]+src=["\']https?:')
+        self.assertNotRegex(page, r'<link[^>]+(?:stylesheet|preload)[^>]+https?:')
+        self.assertIn("connect-src 'none'", page)
+
+
+    def test_generated_manifest_matches_sources_and_output(self):
+        import hashlib
+        root = Path(__file__).resolve().parents[1]
+        manifest = json.loads((root / 'build-manifest.json').read_text())
+        self.assertEqual(manifest['format'], 'seen-standalone-build')
+        self.assertEqual(manifest['runtimeDependencies'], [])
+        output = (root / manifest['output']).read_bytes()
+        self.assertEqual(hashlib.sha256(output).hexdigest(), manifest['sha256'])
+        self.assertEqual(len(output), manifest['bytes'])
+        for filename, expected in manifest['inputs'].items():
+            self.assertEqual(hashlib.sha256((root / filename).read_bytes()).hexdigest(), expected,
+                             filename + ' changed without rebuilding index.html')
+
 
 if __name__ == '__main__':
     unittest.main()
