@@ -421,6 +421,17 @@
     "branch": "main",
     "generatedArtifact": "index.html",
     "ci": ".github/workflows/validate.yml",
-    "gitPolicy": "Preserve existing history; normal fast-forward push only."
+    "gitPolicy": "Preserve existing history; normal fast-forward push only.",
+    "implementationCommit": "4834b68dc495c26440bb76d733958cefcffdcbcf",
+    "pushVerified": true,
+    "downloadURL": "https://github.com/DRAGONQ8/Seen/raw/refs/heads/main/index.html",
+    "githubPages": {
+      "status": "blocked-by-integration-permissions",
+      "attempt": "Create GitHub Pages from main/root after successful push",
+      "httpStatus": 403,
+      "reason": "Resource not accessible by integration",
+      "result": "No hosted play URL was created; the committed standalone HTML remains downloadable and playable offline."
+    },
+    "githubActionsRun": "https://github.com/DRAGONQ8/Seen/actions/runs/39560379911"
   }
 }
