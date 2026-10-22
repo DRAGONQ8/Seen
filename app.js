@@ -1,31 +1,22 @@
-"use strict";
-/* Shared offline host shell. All playable state and scoring belong to TeamEngine/TeamUI. */
-const APP_VERSION = 4;
-const STORAGE_KEY = 'seen-khaled-host-v4';
-const LEGACY_KEY = 'seen-khaled-v1';
-const $ = s => document.querySelector(s);
-const $$ = s => Array.from(document.querySelectorAll(s));
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const num = n => Math.round(Number(n) || 0).toLocaleString('en-US');
-const clamp = (v,min,max) => Math.min(max,Math.max(min,v));
-const localDate = () => {const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
-const AVATARS = ['🦁','🦉','🐉','🦅','🐺','🚀','🌙','🎮'];
-const DEFAULT_PREFS = Object.freeze({theme:'dark',accent:'violet',sound:45,music:0,motion:'subtle',reduced:false,textSize:100,repetition:'recent',questionHistoryResetAt:0});
-let prefs = {...DEFAULT_PREFS};
-// Only shared category preferences and repetition history remain from the old profile.
-let progress = {profile:{favorites:['anime','football','geo','games']},seen:{}};
-let preferencesIssue = '', route = 'home', storageAvailable = true, toastHandle = null, lastFocus = null;
-let audioContext = null, musicHandle = null, musicVoices = new Set();
-const QUESTION_MAP = new Map(QUESTION_BANK.map(q => [q.id,q]));
+'use strict';
+/* Multiplayer application shell. Rules and host state live in TeamEngine/TeamUI. */
+const APP_VERSION=4, STORAGE_KEY='seen-khaled-preferences-v4';
+const DEFAULT_PREFS={theme:'dark',accent:'gold',sound:0,music:0,motion:'subtle',reduced:false,images:true,textSize:100,repetition:'recent',questionHistoryResetAt:0};
+let prefs={...DEFAULT_PREFS},progress={profile:{favorites:['anime','football','geo','games']},seen:{}},route='home',storageAvailable=true,audioContext=null,musicHandle=null,musicVoices=new Set(),toastHandle=null,lastFocus=null;
+const QUESTION_MAP=new Map(QUESTION_BANK.map(q=>[q.id,q]));
+let migration={from:null,version:4},preferencesProtected=false;
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=n=>Math.round(Number(n)||0).toLocaleString('en-US');
+const clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
+const localDate=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
 function shuffled(items,rng=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function normalizeArabic(s){return String(s).normalize('NFKC').replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632)).replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
+const defaultAnime=()=>({selected:TeamEngine.FRANCHISES.map(f=>f.id),levels:Object.fromEntries(TeamEngine.FRANCHISES.map(f=>[f.id,1]))});
+function validateBank(bank){const errors=[],ids=new Set(),texts=new Set();for(const q of bank){if(!q.id||ids.has(q.id))errors.push('معرّف مكرر');ids.add(q.id);const text=normalizeArabic(q.q);if(texts.has(text))errors.push('سؤال مكرر');texts.add(text);if(!catById(q.category)||![1,2,3,4].includes(q.level)||!Array.isArray(q.options)||q.options.length!==4||new Set(q.options.map(normalizeArabic)).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||q.correctAnswer!==q.options[q.answer]||![200,400,600].includes(q.points)||!q.explanation||!q.source?.title||!q.source?.reference||(q.source?.url?safeURL(q.source.url)==='#':!q.source?.bibliography?.trim())||!q.sub||!q.tags||![1,2,3,4].includes(q.version))errors.push(`بيانات غير مكتملة: ${q.id}`);if(q.image&&!VISUALS[q.image])errors.push(`صورة غير موجودة: ${q.id}`);if(/[٠-٩۰-۹]/.test(q.q+q.options.join('')+q.explanation+q.source.reference))errors.push(`أرقام غير مدعومة: ${q.id}`);}return errors;}
 function parseSafeJSON(text,max=1500000){if(typeof text!=='string'||text.length>max)throw Error('الملف أكبر من الحجم المسموح.');return JSON.parse(text,(key,value)=>{if(['__proto__','constructor','prototype'].includes(key))throw Error('الملف يحتوي على مفاتيح غير آمنة.');return value;});}
-function validInt(n,max=1e9){return Number.isInteger(n)&&n>=0&&n<=max;}
-function cleanName(value,fallback='خالد'){return String(value||'').replace(/[\u0000-\u001f\u007f<>]/g,'').trim().slice(0,24)||fallback;}
-/* Portable host saves conceal incidental answer text; base64 is an encoding,
-   not encryption. The offline question bank is never a cryptographic secret. */
 function encodeMatchBackup(kind,data){
-if(kind !== 'teams')throw Error('نوع نسخة الاستئناف غير صالح.');
+if(!['teams'].includes(kind))throw Error('نوع نسخة الاستئناف غير صالح.');
 const text=JSON.stringify(data);parseSafeJSON(text,20000000);
 const bytes=new TextEncoder().encode(text);if(bytes.length>20000000)throw Error('نسخة الاستئناف أكبر من الحجم المسموح.');let binary='';
 for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));
@@ -33,79 +24,15 @@ const payload=btoa(binary);if(payload.length>28000000)throw Error('نسخة ال
 return {format:'seen-khaled-resume',version:1,kind,encoding:'base64-utf8',payload};
 }
 function decodeMatchBackup(envelope,expectedKind){
-if(!envelope||envelope.format!=='seen-khaled-resume'||envelope.version!==1||envelope.encoding!=='base64-utf8'||envelope.kind !== 'teams'||expectedKind&&envelope.kind!==expectedKind||Object.keys(envelope).some(key=>!['format','version','kind','encoding','payload'].includes(key))||typeof envelope.payload!=='string'||!envelope.payload.length||envelope.payload.length>28000000||envelope.payload.length%4||!/^[A-Za-z0-9+/]*={0,2}$/.test(envelope.payload))throw Error('نسخة الاستئناف غير صالحة أو لا تطابق هذا النمط.');
+if(!envelope||envelope.format!=='seen-khaled-resume'||envelope.version!==1||envelope.encoding!=='base64-utf8'||!['teams'].includes(envelope.kind)||expectedKind&&envelope.kind!==expectedKind||Object.keys(envelope).some(key=>!['format','version','kind','encoding','payload'].includes(key))||typeof envelope.payload!=='string'||!envelope.payload.length||envelope.payload.length>28000000||envelope.payload.length%4||!/^[A-Za-z0-9+/]*={0,2}$/.test(envelope.payload))throw Error('نسخة الاستئناف غير صالحة أو لا تطابق هذا النمط.');
 let text;try{const binary=atob(envelope.payload);if(btoa(binary)!==envelope.payload)throw Error();if(binary.length>20000000)throw Error();text=new TextDecoder('utf-8',{fatal:true}).decode(Uint8Array.from(binary,c=>c.charCodeAt(0)));}catch{throw Error('تعذّرت قراءة بيانات نسخة الاستئناف.');}
 return parseSafeJSON(text,20000000);
 }
-
-function hostRecord(data) {
-  if (!data || typeof data !== 'object' || Array.isArray(data)) throw Error('إعدادات غير صالحة.');
-  const s = data.prefs;
-  if (!s || typeof s !== 'object' || Array.isArray(s)) throw Error('الإعدادات غير مكتملة.');
-  const next = {...DEFAULT_PREFS};
-  for (const [key,values] of Object.entries({theme:['dark','light'],accent:['violet','gold'],motion:['none','subtle','full'],repetition:['recent','unseen','all']})) {
-    if (s[key] !== undefined && !values.includes(s[key])) throw Error('خيار إعداد غير صالح.');
-    if (s[key] !== undefined) next[key] = s[key];
-  }
-  for (const key of ['sound','music']) {
-    if (s[key] !== undefined && !validInt(s[key],100)) throw Error('مستوى الصوت غير صالح.');
-    if (s[key] !== undefined) next[key] = s[key];
-  }
-  for (const key of ['reduced']) {
-    if (s[key] !== undefined && typeof s[key] !== 'boolean') throw Error('إعداد عرض غير صالح.');
-    if (s[key] !== undefined) next[key] = s[key];
-  }
-  if (s.textSize !== undefined && ![90,100,115,130].includes(s.textSize)) throw Error('حجم النص غير صالح.');
-  if (s.textSize !== undefined) next.textSize = s.textSize;
-  if (s.questionHistoryResetAt !== undefined && !validInt(s.questionHistoryResetAt,1e14)) throw Error('تاريخ غير صالح.');
-  if (s.questionHistoryResetAt !== undefined) next.questionHistoryResetAt = s.questionHistoryResetAt;
-  const p = data.progress || {}, favorites = p.profile?.favorites;
-  if (favorites !== undefined && (!Array.isArray(favorites) || favorites.length > 100 || favorites.some(id => typeof id !== 'string'))) throw Error('الفئات المفضلة غير صالحة.');
-  const seen = {};
-  if (p.seen !== undefined && (!p.seen || typeof p.seen !== 'object' || Array.isArray(p.seen) || Object.keys(p.seen).length > 10000)) throw Error('سجل الأسئلة غير صالح.');
-  for (const [id,at] of Object.entries(p.seen || {})) if (QUESTION_MAP.has(id) && validInt(at,1e14)) seen[id] = at;
-  return {prefs:next,progress:{profile:{favorites:favorites ? [...new Set(favorites.filter(id=>catById(id)))] : [...progress.profile.favorites]},seen}};
-}
-function persist() {
-  try {
-    localStorage.setItem(STORAGE_KEY,JSON.stringify({version:APP_VERSION,prefs,progress}));
-    storageAvailable = true;
-    return true;
-  } catch {
-    if (storageAvailable) toast('تعذّر حفظ تفضيلات العرض؛ تبقى خياراتك متاحة في هذه الصفحة.');
-    storageAvailable = false;
-    return false;
-  }
-}
-function load() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const data = parseSafeJSON(saved,5000000);
-      if (data.version !== APP_VERSION) throw Error('إصدار إعدادات غير مدعوم.');
-      ({prefs,progress} = hostRecord(data));
-      return;
-    }
-    const legacy = localStorage.getItem(LEGACY_KEY);
-    if (!legacy) return;
-    const data = parseSafeJSON(legacy,5000000);
-    if (data.version !== 1) return;
-    ({prefs,progress} = hostRecord(data));
-    // Never delete the old save until the allowed preferences are safely written.
-    // Team match storage is independent and never touched by this migration.
-    if (persist()) {
-      localStorage.removeItem(LEGACY_KEY);
-      localStorage.removeItem(LEGACY_KEY+'-recovery');
-    }
-  } catch (error) {
-    const unavailable = ['SecurityError','QuotaExceededError'].includes(error?.name);
-    storageAvailable = !unavailable;
-    preferencesIssue = unavailable ? '' : 'تعذّرت قراءة تفضيلات سابقة؛ استُخدمت الخيارات الافتراضية وبقي حفظ المباراة مستقلًا.';
-  }
-}
-function applyPrefs(){document.documentElement.dataset.theme=prefs.theme;document.querySelector('meta[name=theme-color]').content=prefs.theme==='light'?'#f2f3f8':'#090d1e';document.documentElement.dataset.accent=prefs.accent;document.documentElement.dataset.motion=prefs.reduced||matchMedia('(prefers-reduced-motion: reduce)').matches?'none':prefs.motion;document.documentElement.style.setProperty('--text-scale',prefs.textSize/100);if(!prefs.music)stopMusic();}
+function validInt(n,max=1e9){return Number.isInteger(n)&&n>=0&&n<=max;}
+function cleanName(value,fallback='خالد'){return String(value||'').replace(/[\u0000-\u001f\u007f<>]/g,'').trim().slice(0,24)||fallback;}
+const AVATARS=['🦁','🦉','🐉','🦅','🐺','🚀','🌙','🎮'];
+function validatedAnime(value){const ids=TeamEngine.FRANCHISES.map(f=>f.id);if(!value||!Array.isArray(value.selected)||value.selected.some(id=>!ids.includes(id))||new Set(value.selected).size!==value.selected.length||!value.levels||ids.some(id=>![1,2,3].includes(value.levels[id])))throw Error('تفضيلات حرق الأنمي غير صالحة.');return {selected:[...value.selected],levels:Object.fromEntries(ids.map(id=>[id,value.levels[id]]))};}
 function toast(message){$('#toast').textContent=message;$('#toast').classList.add('show');clearTimeout(toastHandle);toastHandle=setTimeout(()=>$('#toast').classList.remove('show'),4200);}
-function unlockAudio(){try{if(!audioContext)audioContext=new(window.AudioContext||window.webkitAudioContext)();if(audioContext.state==='suspended')audioContext.resume().catch(()=>{});if(prefs.music&&!musicHandle){ambient();musicHandle=setInterval(ambient,6000);}}catch{}}
 function tone(freq,duration=.12,type='sine',volume=1,delay=0){if(!audioContext||!prefs.sound)return;const o=audioContext.createOscillator(),g=audioContext.createGain(),t=audioContext.currentTime+delay;o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.09*(prefs.sound/100)*volume,t+.015);g.gain.exponentialRampToValueAtTime(.001,t+duration);o.connect(g);g.connect(audioContext.destination);o.onended=()=>{o.disconnect();g.disconnect();};o.start(t);o.stop(t+duration+.02);}
 function sound(kind) {
   const melodies = {
@@ -125,69 +52,14 @@ function sound(kind) {
 function ambient(){if(!audioContext||!prefs.music||document.hidden)return;const t=audioContext.currentTime;[130.81,196,261.63,329.63].forEach(f=>{const o=audioContext.createOscillator(),g=audioContext.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.012*prefs.music/100,t+1);g.gain.linearRampToValueAtTime(0,t+5.5);o.connect(g);g.connect(audioContext.destination);const voice={o,g};musicVoices.add(voice);o.onended=()=>{o.disconnect();g.disconnect();musicVoices.delete(voice);};o.start(t);o.stop(t+6);});}
 function stopMusic(){clearInterval(musicHandle);musicHandle=null;for(const voice of musicVoices){try{voice.g.gain.cancelScheduledValues(audioContext.currentTime);voice.g.gain.setTargetAtTime(0,audioContext.currentTime,.03);voice.o.stop(audioContext.currentTime+.12);}catch{}}}
 function confetti(){if(document.documentElement.dataset.motion==='none')return;const el=$('#confetti');el.innerHTML=Array.from({length:prefs.motion==='full'?28:12},(_,i)=>`<span style="--x:${Math.random()*100}%;--delay:${i*.025}s;--color:${['#eac57e','#80cff5','#c5a8fb','#7cdec1'][i%4]};--rotate:${Math.random()*360}deg"></span>`).join('');setTimeout(()=>el.replaceChildren(),2400);}
-
-function shell() {
-  const nav = [['home','home','الرئيسية'],['categories','globe','الفئات'],['teamHistory','history','المباريات'],['settings','settings','الإعدادات']];
-  const links = () => nav.map(([id,ic,label])=>`<button class="nav-link ${route===id?'active':''}" data-action="nav" data-route="${id}" ${route===id?'aria-current="page"':''}>${icon(ic)}<span>${label}</span></button>`).join('');
-  $('#sidebar').innerHTML = `<div class="sidebar-label">معرفة تجمعنا</div>${links()}<div class="sidebar-bottom"><button class="nav-link" data-action="help">${icon('help')}<span>دليل اللعب</span></button><button class="nav-link" data-action="nav" data-route="library">${icon('book')}<span>مكتبة المقدم</span></button><button class="nav-link" data-action="about">${icon('shield')}<span>المحتوى والتراخيص</span></button><p class="footer-note">فريقان · منافسة واحدة<br>تعمل دون إنترنت</p></div>`;
-  $('#bottom-nav').innerHTML = links();
-  $('#header-actions').innerHTML = `<button class="icon-btn" data-action="fullscreen" aria-label="ملء الشاشة">${icon('expand')}</button><button class="icon-btn" data-action="theme" aria-label="تبديل المظهر">${prefs.theme==='dark'?'☀':'☾'}</button>`;
-}
-function navigate(to) {
-  const allowed = ['home','categories','settings','teamHistory','teamSetup','teamMatch','library'];
-  if (!allowed.includes(to)) to = 'home';
-  if (route === 'teamMatch' && to !== 'teamMatch') window.SeenTeamUI?.pause();
-  route = to;
-  render();
-  window.scrollTo({top:0,behavior:'instant'});
-  $('#main').focus({preventScroll:true});
-}
-function render() {
-  document.documentElement.dataset.teamPlay = route === 'teamMatch' ? 'true' : 'false';
-  document.documentElement.dataset.teamMotion = route === 'teamMatch' && window.SeenTeamUI?.match?.config.animations === false ? 'none' : 'auto';
-  const focusedId = document.activeElement?.id;
-  const details = $$('details[id][open]').map(el=>el.id);
-  shell();
-  const screens = {home:renderHome,categories:renderCategories,settings:renderSettings,teamSetup:()=>window.SeenTeamUI?.setupScreen() || '',teamMatch:()=>window.SeenTeamUI?.matchScreen() || '',teamHistory:()=>window.SeenTeamUI?.historyScreen() || '',library:()=>window.SeenTeamUI?.libraryScreen() || ''};
-  $('#main').innerHTML = `<div class="page">${(screens[route] || renderHome)()}</div>`;
-  for (const id of details) document.getElementById(id)?.setAttribute('open','');
-  if (route === 'teamMatch') window.SeenTeamUI?.startTicker();
-  const focus = focusedId && document.getElementById(focusedId);
-  if (focus && focusedId !== 'main' && !focus.disabled) focus.focus({preventScroll:true});
-}
 function title(eyebrow,heading,desc=''){return `<div class="section-heading page-heading"><div><span class="eyebrow">${eyebrow}</span><h1>${heading}</h1>${desc?`<p>${desc}</p>`:''}</div></div>`;}
 function stat(ic,value,label){return `<div class="stat-card"><span class="stat-icon">${icon(ic)}</span><div><strong>${value}</strong><small>${label}</small></div></div>`;}
-
-function renderHome() {
-  return `<section class="hero grid"><div class="hero-copy"><span class="pill gold">${icon('spark')} ليلة أسئلة… تستحق المنافسة</span><h1>اجمع فريقك.<br><em>والباقي معرفة.</em></h1><p>فريق أزرق وفريق ذهبي، وأسئلة تجمع الجميع. اختروا فئاتكم وابدأوا؛ كل إجابة لها لحظة.</p><div class="hero-actions"><button class="btn primary" data-team-action="new">ابدأ مباراة فريقين ${icon('arrow')}</button><button class="btn secondary" data-action="nav" data-route="categories">استكشف الفئات ${icon('globe')}</button></div><div class="hero-facts"><span><b>${CATEGORIES.length}</b> فئة</span><i></i><span><b>${num(QUESTION_BANK.length)}</b> سؤال في المكتبة</span><i></i><span>دون إنترنت</span></div></div><div class="hero-art">${HERO_ART}<span class="art-label">معرفة تجمعنا</span></div></section>${window.SeenTeamUI?.homeAddon() || ''}<div class="section-heading"><div><span class="eyebrow">اختياركم يصنع التحدي</span><h2>عوالم تستحق السؤال</h2></div><button class="text-btn" data-action="nav" data-route="categories">كل الفئات ${icon('arrow')}</button></div><section class="category-grid">${CATEGORIES.slice(0,4).map(categoryCard).join('')}</section><p class="footer-note">سين جيم خالد · تجربة عربية أصلية للفريقين.</p>`;
-}
-function categoryCard(c) {
-  const count = TeamEngine.eligibleQuestions(QUESTION_BANK,TeamEngine.defaults(),{category:c.id}).length;
-  return `<div class="category-card" style="--accent:${c.color}"><div class="category-art">${categoryArt(c.id)}</div><div class="category-info"><span class="category-kicker">${esc(c.label)}</span><h2>${esc(c.name)}</h2><small>${num(count)} سؤالًا مؤهلًا</small><button class="chip ${progress.profile.favorites.includes(c.id)?'selected':''}" data-action="favorite" data-id="${c.id}" aria-pressed="${progress.profile.favorites.includes(c.id)}" aria-label="${esc(c.name)}: المفضلة">${icon('star')} المفضلة</button></div></div>`;
-}
-function renderCategories() {
-  return `${title('اختر فضولك','فئات للجميع','يختار كل فريق 3 فئات في المباراة الكلاسيكية، ويستطيع الفريقان فتح أي خانة.')}<div class="hero-actions"><button class="btn primary" data-team-action="new">اختر فئات المباراة ${icon('arrow')}</button></div><div class="category-grid">${CATEGORIES.map(categoryCard).join('')}</div><p class="muted">العدد يعكس الأسئلة المؤهلة مع حماية الحرق الافتراضية. الأسئلة المعلّقة والمختلف فيها تبقى للمراجعة ولا تدخل مباراة جديدة.</p>`;
-}
-function hasActiveTrivia() { const team=window.SeenTeamUI?.match; return !!(team && team.state!=='MATCH_COMPLETE'); }
-function isAnswerProtected(id) { const team=window.SeenTeamUI?.match; return !!(team && team.state!=='MATCH_COMPLETE' && team.board.some(t=>t.questionId===id&&!t.done) && !(team.current?.questionId===id&&team.current.revealed)); }
 function questionAlt(q,revealed=false){return revealed?(VISUALS[q.image]?.alt||'دليل السؤال البصري'):'دليل بصري للسؤال؛ الوصف التعريفي متاح بعد الإجابة.';}
 function safeHint(q){const hint=q.hint||'',normalized=normalizeArabic(hint),answers=[q.correctAnswer||q.options[q.answer],...(q.acceptedAnswers||[])].map(normalizeArabic).filter(Boolean);return hint&&!answers.some(a=>a.length===1?normalized.split(' ').includes(a):normalized.includes(a))?hint:'فكّر في سياق السؤال واستبعد الخيارات التي تنتمي إلى موضوع مختلف.';}
 function safeURL(url){try{if(typeof url!=='string'||/[\u0000-\u0020\u007f]/.test(url))return '#';const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password?u.href:'#';}catch{return '#';}}
 function selectPref(id,label,options){return `<div class="field"><label for="pref-${id}">${label}</label><select id="pref-${id}" data-pref="${id}">${options.map(([value,text,disabled])=>`<option value="${value}" ${String(prefs[id])===String(value)?'selected':''} ${disabled?'disabled':''}>${text}</option>`).join('')}</select></div>`;}
 function togglePref(id,label){return `<label class="toggle-row" for="pref-${id}"><span>${label}</span><input id="pref-${id}" type="checkbox" data-pref="${id}" ${prefs[id]?'checked':''}></label>`;}
-
-function renderSettings() {
-  return `${title('على راحتك','إعدادات المقدم','خيارات العرض والصوت محفوظة على هذا الجهاز. قواعد المباراة تضبط عند الإنشاء.')}${preferencesIssue?`<p class="inline-note" role="status">${esc(preferencesIssue)}</p>`:''}<div class="settings-grid"><section class="panel stack"><h2>${icon('spark')} العرض والحركة</h2>${selectPref('theme','المظهر',[['dark','ليلي'],['light','نهاري']])}${selectPref('accent','اللمسة اللونية',[['violet','بنفسجي'],['gold','ذهبي']])}${selectPref('textSize','حجم النص',[[90,'90%'],[100,'100%'],[115,'115%'],[130,'130%']])}${selectPref('motion','كثافة الحركة',[['none','متوقفة'],['subtle','هادئة'],['full','كاملة']])}${togglePref('reduced','تقليل الحركة دائمًا')}<small class="muted">يُحترم خيار تقليل الحركة في نظام الجهاز تلقائيًا.</small></section><section class="panel stack"><h2>${icon('sound')} الصوت</h2><div class="field"><label for="pref-sound">المؤثرات الصوتية ${prefs.sound}%</label><input id="pref-sound" type="range" min="0" max="100" data-pref="sound" value="${prefs.sound}"></div><div class="field"><label for="pref-music">الموسيقى الهادئة ${prefs.music}%</label><input id="pref-music" type="range" min="0" max="100" data-pref="music" value="${prefs.music}"></div><button class="btn secondary" data-action="test-sound">تجربة الصوت ${icon('sound')}</button><p class="muted">أصوات أصلية داخل الملف، تبدأ بعد تفاعلك مع الصفحة.</p></section><section class="panel stack"><h2>${icon('shield')} الحفظ والمحتوى</h2><p class="muted">${storageAvailable?'تفضيلاتك محفوظة محليًا.':'تعذّر حفظ تفضيلاتك في هذا المتصفح.'} لحفظ المباراة أو استيرادها افتح سجل المباريات. نسخة المتابعة خاصة بالمقدم وتحتوي الحلول.</p><button class="btn secondary" data-action="nav" data-route="teamHistory">المباريات والنسخ الاحتياطية</button><button class="btn secondary" data-action="nav" data-route="library">مكتبة المقدم والتحرير</button><button class="btn secondary" data-action="reset-seen">بدء دورة جديدة للأسئلة</button><p class="muted">تبدأ تفضيل أسئلة جديدة دون تغيير اللوحة الحالية أو سجل النتائج.</p></section><section class="panel stack"><h2>${icon('help')} دليل الاستخدام</h2><button class="btn secondary" data-action="help">قواعد اللعب والمفاتيح</button><button class="btn secondary" data-action="about">المحتوى والمراجع والتراخيص</button><button class="btn secondary" data-action="fullscreen">ملء الشاشة ${icon('expand')}</button><p class="muted">احفظ index.html وافتحه دون إنترنت. على iPhone يمكنك استخدام العرض الحالي أو إضافة الصفحة إلى الشاشة الرئيسية وفق خيارات Safari.</p></section></div>`;
-}
 function openDialog(heading,body,actions=''){lastFocus=document.activeElement;const d=$('#dialog');d.innerHTML=`<div class="modal"><div class="dialog-head"><h2>${heading}</h2><button class="icon-btn" data-action="close-dialog" aria-label="إغلاق">${icon('close')}</button></div><div class="dialog-body">${body}</div>${actions?`<div class="dialog-actions">${actions}</div>`:''}</div>`;if(!d.open)d.showModal();d.querySelector('button, input')?.focus();}
-function closeDialog(){const d=$('#dialog');if(d.open)d.close();lastFocus?.focus?.();}
-
-function showHelp() { window.SeenTeamUI?.rules(); }
-function showAbout() {
-  window.SeenTeamUI?.pause();
-  const counts = Object.fromEntries(['source-checked','editorial','pending','disputed'].map(status=>[status,QUESTION_BANK.filter(q=>q.verification?.status===status).length]));
-  openDialog('سين جيم خالد · المحتوى والتراخيص',`<div class="stack"><p>الإصدار 4 · ${num(QUESTION_BANK.length)} سؤالًا في ${CATEGORIES.length} فئة.</p><p>حالات المحتوى: ${num(counts['source-checked'])} بمطابقة مصدر موثقة، ${num(counts.editorial)} بمراجعة تحريرية، ${num(counts.pending)} بانتظار التحقق، ${num(counts.disputed)} مختلف فيها. حفظنا أدلة التحقق السابقة؛ لا يعني وجود رابط أن السؤال تحقق منه أحد في هذا الإصدار.</p><p>تستبعد المباريات الجديدة الحالات المعلقة والمختلف فيها. المصادر اختيارية للقراءة بعد الكشف؛ لا تعتمد اللعبة على اتصال بها. يمكن للمقدم مراجعة المحتوى وتعطيله واستيراده وتصديره من مكتبته، خارج المباراة النشطة.</p><p>الرسوم الأصلية والأصوات وفق CC0-1.0. الخرائط والصور المرخصة وإسنادها محفوظة وتظهر بعد الإجابة. أسماء الأعمال والعلامات لأصحابها. لا توجد صور للأنبياء.</p><p>خط Noto Sans Arabic مضمّن بترخيص SIL Open Font License 1.1.</p><details><summary>رخصة الخط</summary><pre class="license-text" dir="ltr">${esc(FONT_LICENSE)}</pre></details><p>هذا ملف محلي للمقدم، دون حسابات أو خادم؛ أدوات التحرير تنظيمية ولا تحمي الحلول ممن يملك الملف أو أدوات المتصفح.</p></div>`);
-}
 async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else toast('الشاشة الكاملة غير متاحة هنا. يمكنك اللعب بالعرض الحالي.');}catch{toast('تعذّر تفعيل ملء الشاشة. اللعبة متاحة بالعرض الحالي.');}}
 function downloadLocalSave(data,filename){
 const text=typeof data==='string'?data:JSON.stringify(data,null,2);
@@ -207,58 +79,141 @@ const input=$('#paste-save-text'),button=$('#prepare-pasted-save');input.focus()
 button.addEventListener('click',async()=>{if(pending)return;const text=input.value;if(!text.trim()){toast('الصق بيانات نسخة الحفظ أولًا.');input.focus();return;}if(text.length>28100000){toast('بيانات الحفظ أكبر من الحجم المسموح.');return;}const size=new TextEncoder().encode(text).length;if(size>28100000){toast('بيانات الحفظ أكبر من الحجم المسموح.');return;}pending=true;button.disabled=true;try{await onFile({name:'seen-pasted-save.json',size,text:async()=>text});}catch{toast('تعذّر استيراد النص. تبقى الجولة الحالية دون تغيير.');}finally{pending=false;if(button.isConnected)button.disabled=false;}});
 }
 
-function resetQuestionHistory() { progress.seen={}; prefs.questionHistoryResetAt=Date.now(); persist(); }
-function requestQuestionHistoryReset() {
-  window.SeenTeamUI?.pause();
-  openDialog('بدء دورة جديدة للأسئلة؟','<p>يمكن ظهور الأسئلة السابقة مجددًا في المباريات الجديدة. تبقى اللوحة الحالية والنتائج وسجلات المباريات محفوظة.</p>','<button class="btn primary" id="confirm-reset-seen">ابدأ دورة جديدة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>');
-  $('#confirm-reset-seen').addEventListener('click',()=>{resetQuestionHistory();closeDialog();render();toast('بدأت دورة جديدة للأسئلة.');},{once:true});
+/* Versioned allowlist migration: the old envelope is retained untouched. Only
+   shared preferences, favorites and seen IDs are read. Removed game state and
+   statistics cannot be restored or imported into a team match. */
+function readPreferences(data,legacy=false){
+  if(!data||typeof data!=='object'||(!legacy&&data.version!==4))throw Error('إصدار التفضيلات غير مدعوم.');
+  const raw=data.prefs||{},next={...DEFAULT_PREFS};
+  for(const [key,allowed] of Object.entries({theme:['dark','light'],accent:['gold','violet'],motion:['none','subtle','full'],repetition:['recent','unseen','all']}))if(allowed.includes(raw[key]))next[key]=raw[key];
+  for(const key of ['sound','music'])if(validInt(raw[key],100))next[key]=raw[key];
+  if([90,100,115,130].includes(raw.textSize))next.textSize=raw.textSize;
+  for(const key of ['reduced','images'])if(typeof raw[key]==='boolean')next[key]=raw[key];
+  if(validInt(raw.questionHistoryResetAt,1e14))next.questionHistoryResetAt=raw.questionHistoryResetAt;
+  if(raw.anime){try{next.anime=validatedAnime(raw.anime);}catch{next.anime=defaultAnime();}}
+  const incoming=data.progress||{},favorites=incoming.profile?.favorites;
+  const seen={};
+  if(incoming.seen&&typeof incoming.seen==='object'&&!Array.isArray(incoming.seen))for(const [id,at]of Object.entries(incoming.seen))if(QUESTION_MAP.has(id)&&validInt(at,1e14))seen[id]=at;
+  return {prefs:next,progress:{profile:{favorites:Array.isArray(favorites)?[...new Set(favorites.filter(id=>catById(id)))]:[...progress.profile.favorites]},seen}};
 }
-function validateBank(bank) {
-  const errors=[],ids=new Set(),texts=new Set();
-  for(const q of bank) {
-    if(ids.has(q.id) || (!Array.isArray(q.options) || q.options.length!==4 || new Set(q.options.map(normalizeArabic)).size!==4 || !Number.isInteger(q.answer) || q.answer<0 || q.answer>3 || q.correctAnswer!==q.options[q.answer] || ![200,400,600].includes(q.points) || !q.explanation || !q.source?.title || !q.source?.reference || (q.source.url ? safeURL(q.source.url)==='#' : !q.source.bibliography)) || !catById(q.category)) errors.push(`بيانات سؤال غير صالحة: ${q.id}`);
-    ids.add(q.id);
-    const text=normalizeArabic(q.q);if(texts.has(text))errors.push(`سؤال مكرر: ${q.id}`);texts.add(text);
-    if(q.image && !VISUALS[q.image])errors.push(`صورة مفقودة: ${q.id}`);
-    if(/[٠-٩۰-۹]/.test(q.q+q.options.join('')+q.explanation))errors.push(`أرقام غير مدعومة: ${q.id}`);
+function load(){
+  let raw=null;
+  try{
+    raw=localStorage.getItem(STORAGE_KEY);
+    if(raw){const data=parseSafeJSON(raw,3000000),clean=readPreferences(data);prefs=clean.prefs;progress=clean.progress;migration=data.migration||migration;}
+    else{
+      const host=localStorage.getItem('seen-khaled-host-v4'),legacy=host||localStorage.getItem('seen-khaled-v1');
+      if(legacy){const clean=readPreferences(parseSafeJSON(legacy,5000000),!host);prefs=clean.prefs;progress=clean.progress;migration={from:host?'seen-khaled-host-v4':'seen-khaled-v1',version:4,legacyRetired:true};persist();}
+    }
+  }catch{
+    storageAvailable=false;
+    if(raw){
+      try{localStorage.setItem(STORAGE_KEY+'-recovery',raw);}catch{preferencesProtected=true;}
+    }
   }
-  return errors;
+  applyPrefs();
+}
+function persist(){
+  if(preferencesProtected)return false;
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify({version:4,prefs,progress,migration}));storageAvailable=true;return true;}
+  catch{storageAvailable=false;return false;}
+}
+function applyPrefs(){
+  const root=document.documentElement;
+  root.dataset.theme=prefs.theme;root.dataset.accent=prefs.accent;
+  root.dataset.motion=prefs.reduced||matchMedia('(prefers-reduced-motion: reduce)').matches?'none':prefs.motion;
+  root.style.setProperty('--text-scale',prefs.textSize/100);
+  if(!prefs.music)stopMusic();
+  document.querySelector('meta[name=theme-color]').content=prefs.theme==='light'?'#f2f3f8':'#090d1e';
+}
+function unlockAudio(){
+  if(!prefs.sound&&!prefs.music)return;
+  const Audio=window.AudioContext||window.webkitAudioContext;
+  if(!Audio)return;
+  try{if(!audioContext)audioContext=new Audio();if(audioContext.state==='suspended')audioContext.resume().catch(()=>toast('تعذّر تشغيل الصوت. يمكنك متابعة اللعب.'));}
+  catch{toast('الصوت غير متاح في هذا المتصفح.');}
+  if(audioContext&&prefs.music&&!musicHandle){ambient();musicHandle=setInterval(ambient,6000);}
+}
+function closeDialog(){const d=$('#dialog');if(d.open)d.close();if(lastFocus?.isConnected)lastFocus.focus();}
+function hasActiveTrivia(){const m=window.SeenTeamUI?.match;return !!(m&&m.state!=='MATCH_COMPLETE');}
+function isAnswerProtected(id){const m=window.SeenTeamUI?.match;return !!(m&&m.state!=='MATCH_COMPLETE'&&m.board.some(t=>t.questionId===id&&!t.done)&&!(m.current?.questionId===id&&m.current.revealed));}
+const ROUTES=new Set(['home','categories','settings','teamSetup','teamMatch','teamHistory','library','tournament']);
+function navigate(to){
+  if(route==='teamMatch'&&to!=='teamMatch')window.SeenTeamUI?.pause();
+  route=ROUTES.has(to)?to:'home';render();window.scrollTo({top:0,behavior:'instant'});$('#main').focus({preventScroll:true});
+}
+function shell(){
+  const nav=[['home','home','الرئيسية'],['categories','globe','الفئات'],['teamHistory','history','المباريات'],['settings','settings','الإعدادات']];
+  const links=()=>nav.map(([id,ic,label])=>`<button class="nav-link ${route===id?'active':''}" data-action="nav" data-route="${id}" ${route===id?'aria-current="page"':''}>${icon(ic)}<span>${label}</span></button>`).join('');
+  $('#sidebar').innerHTML=`<div class="sidebar-label">المعرفة تجمعنا</div>${links()}<button class="nav-link" data-action="nav" data-route="tournament">${icon('flag')}<span>البطولة</span></button><div class="sidebar-bottom"><span class="pill">${icon('shield')} دون إنترنت</span><button class="nav-link" data-action="help">${icon('help')}<span>دليل اللعب</span></button><button class="nav-link" data-action="about">${icon('book')}<span>المحتوى والتراخيص</span></button><p class="footer-note">سين جيم خالد<br>مواجهة جميلة، ومعرفة جديدة.</p></div>`;
+  $('#bottom-nav').innerHTML=links();
+  $('#header-actions').innerHTML=`<button class="icon-btn" data-action="mute" aria-label="${prefs.sound?'كتم الصوت':'تشغيل الصوت'}" aria-pressed="${!prefs.sound}">${prefs.sound?icon('sound'):'🔇'}</button><button class="icon-btn" data-action="fullscreen" aria-label="ملء الشاشة">${icon('expand')}</button><button class="icon-btn" data-action="theme" aria-label="تبديل المظهر">${prefs.theme==='dark'?'☀':'☾'}</button>`;
+}
+function render(){
+  if(!ROUTES.has(route))route='home';
+  document.documentElement.dataset.teamPlay=route==='teamMatch'?'true':'false';
+  document.documentElement.dataset.teamMotion=route==='teamMatch'&&window.SeenTeamUI?.match?.config.animations===false?'none':'auto';
+  const focused=document.activeElement?.id,open=$$('details[id][open]').map(el=>el.id);
+  shell();
+  const screens={home:renderHome,categories:renderCategories,settings:renderSettings,teamSetup:()=>window.SeenTeamUI?.setupScreen()||'',teamMatch:()=>window.SeenTeamUI?.matchScreen()||'',teamHistory:()=>window.SeenTeamUI?.historyScreen()||'',library:()=>window.SeenTeamUI?.libraryScreen()||'',tournament:()=>window.SeenTournamentUI?.screen()||'<p>تعذّر تحميل البطولة. أعد فتح الملف.</p>'};
+  $('#main').innerHTML=`<div class="page">${screens[route]()}</div>`;
+  for(const id of open)document.getElementById(id)?.setAttribute('open','');
+  if(route==='teamMatch')window.SeenTeamUI?.startTicker();
+  if(focused&&focused!=='main')document.getElementById(focused)?.focus({preventScroll:true});
+}
+function renderHome(){
+  return `<section class="multiplayer-hero"><div><span class="eyebrow">سين جيم خالد · المعرفة تجمعنا</span><h1>اجمع فريقك.<br><span>لحظة الفوز تبدأ هنا.</span></h1><p>اختاروا الفئات، افتحوا السؤال، واحسموا الإجابة بلمسة. منافسة عربية لفريقين على جهاز واحد، تعمل بالكامل دون إنترنت.</p><div class="hero-actions"><button class="btn primary" data-team-action="quick-start">ابدأ الآن ${icon('play')}</button><button class="btn secondary" data-team-action="new">اختيار الفرق والفئات</button></div><div class="hero-facts"><span>6 فئات</span><span>18 أو 36 سؤالًا</span><span>حفظ تلقائي</span></div></div><div class="hero-emblem" aria-hidden="true">${HERO_ART}</div></section>${window.SeenTeamUI?.homeAddon()||''}<section class="panel tournament-invite row"><div><span class="eyebrow">للمنافسة حكاية أطول</span><h2>بطولة الفرق</h2><p class="muted">مباريات متتابعة، تأهل واضح، وبطل واحد.</p></div><button class="btn secondary" data-action="nav" data-route="tournament">افتح البطولة ${icon('flag')}</button></section>`;
+}
+function renderCategories(){
+  const config=TeamEngine.defaults();
+  return `${title('اختيارات تستحق اللعب','عوالم المعرفة','الفئات المتاحة تحقق عدد الأسئلة المدققة المطلوب لكل مستوى. اختر ست فئات في ردهة المباراة.')}<div class="category-grid">${CATEGORIES.map(c=>{const pool=TeamEngine.eligibleQuestions(QUESTION_BANK,config,{category:c.id}),counts=[200,400,600].map(v=>pool.filter(q=>q.points===v).length),available=counts.every(n=>n>=2);return `<section class="category-card" style="--accent:${c.color}"><div class="category-art">${categoryArt(c.id)}</div><div class="category-info"><span class="category-kicker">${c.label}</span><h2>${c.name}</h2><p>${pool.length} سؤالًا مدققًا</p><small dir="auto">200: ${counts[0]} · 400: ${counts[1]} · 600: ${counts[2]}</small><p class="muted">${available?'متاحة للمباراة الكلاسيكية':'المخزون لا يكفي للوحة كلاسيكية بعد الفلترة'}</p><button class="btn secondary small" data-action="favorite" data-id="${c.id}" aria-pressed="${progress.profile.favorites.includes(c.id)}">${progress.profile.favorites.includes(c.id)?'★ ضمن المفضلة':'☆ أضف للمفضلة'}</button></div></section>`;}).join('')}</div><div class="row"><button class="btn primary" data-team-action="new">اختر فئات المباراة</button><button class="btn secondary" data-team-action="library">مكتبة الأسئلة والمصادر</button></div>`;
+}
+function renderSettings(){
+  return `${title('على راحتكم','الإعدادات','إعدادات المباراة والمساعدات متاحة من ردهة الفرق.')}<div class="settings-grid"><section class="panel stack"><h2>العرض والقراءة</h2>${selectPref('theme','المظهر',[['dark','ليلي'],['light','نهاري']])}${selectPref('textSize','حجم النص',[[90,'90%'],[100,'100%'],[115,'115%'],[130,'130%']])}${selectPref('motion','الحركة',[['none','متوقفة'],['subtle','هادئة'],['full','كاملة']])}${togglePref('reduced','تقليل الحركة دائمًا')}${togglePref('images','عرض صور الأسئلة')}<p class="muted">تحترم اللعبة إعداد تقليل الحركة في الجهاز.</p></section><section class="panel stack"><h2>الصوت والشاشة</h2><label for="pref-sound">المؤثرات الصوتية · ${prefs.sound}%</label><input id="pref-sound" type="range" min="0" max="100" data-pref="sound" value="${prefs.sound}"><label for="pref-music">الموسيقى الهادئة · ${prefs.music}%</label><input id="pref-music" type="range" min="0" max="100" data-pref="music" value="${prefs.music}"><button class="btn secondary" data-action="test-sound">تجربة الصوت</button><button class="btn secondary" data-action="fullscreen">ملء الشاشة</button><p class="muted">مؤثرات توليدية أصلية. يبدأ الصوت بعد تفاعلك فقط. ملء الشاشة بحسب دعم المتصفح.</p></section><section class="panel stack"><h2>الحفظ واستعادة المباريات</h2><p class="muted">${storageAvailable?'التفضيلات محفوظة محليًا على هذا الجهاز.':'تعذّر حفظ التفضيلات تلقائيًا. تبقى اللعبة متاحة في هذه الصفحة.'} لحماية تقدمك، صدّر نسخة متابعة قبل نقل الملف أو مسح بيانات المتصفح.</p><button class="btn secondary" data-team-action="backup">تصدير تقدم الفريقين</button><button class="btn secondary" data-team-action="restore">استيراد تقدم الفريقين</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button><button class="btn secondary" data-action="reset-seen">بدء دورة جديدة للأسئلة</button><p class="muted">دورة الأسئلة الجديدة تسمح بالتكرار دون حذف سجل المباريات أو النتائج أو تغيير اللوحة الجارية.</p></section><section class="panel stack"><h2>المحتوى والمساعدة</h2><button class="btn secondary" data-team-action="library">مكتبة الأسئلة</button><button class="btn secondary" data-action="help">دليل اللعب</button><button class="btn secondary" data-action="about">المصادر والتراخيص</button></section></div>`;
+}
+function showAbout(){
+  window.SeenTeamUI?.pause();
+  const checked=QUESTION_BANK.filter(q=>q.verification?.status==='source-checked').length;
+  openDialog('المحتوى والتراخيص',`<div class="stack"><p>سين جيم خالد · الإصدار 4 · ${QUESTION_BANK.length} سؤالًا في ${CATEGORIES.length} فئات؛ ${checked} سؤالًا يحمل توثيق مراجعة بمصدر. تستخدم المباريات الجديدة الأسئلة المدققة فقط، بحسب الفلاتر والمخزون.</p><p>المراجع اختيارية للقراءة على الإنترنت. لا تحتاج اللعبة إلى اتصال. لا تعني إحالة المصدر وحدها أنه جرت مراجعته؛ يبقى المحتوى غير المتحقق خارج المباريات الجديدة.</p><p>رسوم الفئات أصلية ورمزية. الخرائط من Natural Earth؛ تعرض رخصة كل صورة وإسنادها بعد كشف الإجابة. لا توجد صور للأنبياء. المؤثرات والرسوم الأصلية متاحة وفق CC0-1.0.</p><p>يحفظ التطبيق البيانات محليًا فقط. نسخة متابعة المقدم قد تستخدم Base64 للترميز، وهو ليس تشفيرًا؛ احتفظ بها للمقدم.</p><p>خط Noto Sans Arabic مضمن وفق SIL Open Font License 1.1.</p><details><summary>رخصة الخط</summary><pre class="license-text" dir="ltr">${esc(FONT_LICENSE)}</pre></details><p>المنتج النهائي هو ملف index.html. لا خادم ولا حساب ولا خدمة مطلوبة للعب.</p></div>`);
+}
+function requestQuestionHistoryReset(){
+  window.SeenTeamUI?.pause();
+  openDialog('بدء دورة جديدة للأسئلة؟','<p>يمكن ظهور الأسئلة السابقة مجددًا. تبقى نتائج الفريقين وسجل المباريات واللوحة الجارية محفوظة.</p>','<button class="btn primary" id="confirm-reset-seen">ابدأ دورة جديدة</button><button class="btn secondary" data-action="close-dialog">إلغاء</button>');
+  $('#confirm-reset-seen').addEventListener('click',()=>{progress.seen={};prefs.questionHistoryResetAt=Date.now();persist();closeDialog();render();toast('بدأت دورة جديدة؛ بقي سجل المباريات محفوظًا.');},{once:true});
 }
 document.addEventListener('click',event=>{
-  const b=event.target.closest('[data-action]');if(!b || b.disabled)return;
-  unlockAudio();sound('click');
+  const b=event.target.closest('[data-action]');if(!b||b.disabled)return;
   const action=b.dataset.action;
   if(action==='nav')navigate(b.dataset.route);
   else if(action==='close-dialog')closeDialog();
-  else if(action==='theme'){prefs.theme=prefs.theme==='dark'?'light':'dark';applyPrefs();persist();render();}
   else if(action==='fullscreen')fullscreen();
-  else if(action==='favorite'){
-    const id=b.dataset.id;if(!catById(id))return;
-    progress.profile.favorites=progress.profile.favorites.includes(id)?progress.profile.favorites.filter(x=>x!==id):[...progress.profile.favorites,id];persist();render();
-  }
-  else if(action==='test-sound')sound('correct');
-  else if(action==='help')showHelp();
+  else if(action==='theme'){prefs.theme=prefs.theme==='dark'?'light':'dark';applyPrefs();persist();render();}
+  else if(action==='mute'){prefs.sound=prefs.sound?0:45;persist();unlockAudio();render();}
+  else if(action==='test-sound'){unlockAudio();sound('correct');}
+  else if(action==='help')window.SeenTeamUI?.rules();
   else if(action==='about')showAbout();
-  else if(action==='copy-save')copyManualSave();
   else if(action==='reset-seen')requestQuestionHistoryReset();
+  else if(action==='copy-save')copyManualSave();
+  else if(action==='favorite'&&catById(b.dataset.id)){const id=b.dataset.id;progress.profile.favorites=progress.profile.favorites.includes(id)?progress.profile.favorites.filter(x=>x!==id):[...progress.profile.favorites,id];persist();render();}
 });
-document.addEventListener('change',e=>{
-  const t=e.target;if(!t.matches('[data-pref]'))return;
-  const key=t.dataset.pref;if(!Object.hasOwn(DEFAULT_PREFS,key))return;
-  const value=t.type==='checkbox'?t.checked:['sound','music','textSize'].includes(key)?Number(t.value):t.value;
-  try { prefs=hostRecord({prefs:{...prefs,[key]:value},progress}).prefs; applyPrefs();persist();unlockAudio();render(); } catch { toast('إعداد غير صالح.'); }
+document.addEventListener('change',event=>{
+  const t=event.target;if(!t.matches('[data-pref]'))return;
+  const k=t.dataset.pref;if(!Object.hasOwn(DEFAULT_PREFS,k))return;
+  const next=t.type==='checkbox'?t.checked:['sound','music','textSize'].includes(k)?Number(t.value):t.value;
+  const checked=readPreferences({version:4,prefs:{...prefs,[k]:next},progress});prefs=checked.prefs;applyPrefs();persist();unlockAudio();render();
 });
-document.addEventListener('visibilitychange',()=>{
-  if(document.hidden)stopMusic();
-  else if(audioContext?.state==='running' && prefs.music && !musicHandle){ambient();musicHandle=setInterval(ambient,6000);}
-});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopMusic();else if(audioContext?.state==='running'&&prefs.music&&!musicHandle){ambient();musicHandle=setInterval(ambient,6000);}});
 window.addEventListener('pagehide',stopMusic);
+document.addEventListener('error',event=>{if(event.target.tagName==='IMG'){event.target.classList.add('image-error');event.target.alt='تعذّر عرض الدليل البصري. يمكن للمقدم إلغاء السؤال أو الإبلاغ عنه من أدوات المقدم.';}},true);
+$('#dialog').addEventListener('click',event=>{if(event.target===$('#dialog'))closeDialog();});
+window.addEventListener('popstate',()=>{window.SeenTeamUI?.pause();render();});
 window.addEventListener('storage',event=>{
-  if(event.key===STORAGE_KEY && event.newValue){load();applyPrefs();if(route!=='teamMatch')render();}
+  if(event.key!==STORAGE_KEY||!event.newValue)return;
+  try{const data=readPreferences(parseSafeJSON(event.newValue,3000000));prefs=data.prefs;progress={profile:data.progress.profile,seen:{...progress.seen,...data.progress.seen}};applyPrefs();if(route!=='teamMatch')render();}
+  catch{toast('تعذّرت قراءة تفضيلات نافذة أخرى. بقيت المباراة محفوظة.');}
 });
-document.addEventListener('error',e=>{if(e.target.tagName==='IMG'){e.target.classList.add('image-error');e.target.alt='تعذّر عرض الصورة المحلية. يرجى مراجعة السؤال مع المقدم.';}},true);
-$('#dialog').addEventListener('click',e=>{if(e.target===$('#dialog'))closeDialog();});
-load();applyPrefs();
+load();
 const BANK_ERRORS=validateBank(QUESTION_BANK);
-if(BANK_ERRORS.length){$('#main').textContent='تعذّر التحقق من بنك الأسئلة. يرجى استخدام نسخة سليمة من اللعبة.';console.error(BANK_ERRORS);}else render();
+if(BANK_ERRORS.length){$('#main').textContent='تعذّر التحقق من بنك الأسئلة. استخدم نسخة سليمة من اللعبة.';console.error(BANK_ERRORS);}
+else render();
 window.SeenDiagnostics=Object.freeze({version:APP_VERSION,validateBank:()=>validateBank(QUESTION_BANK),questionCount:QUESTION_BANK.length,normalizeArabic,counts:()=>Object.fromEntries(CATEGORIES.map(c=>[c.id,QUESTION_BANK.filter(q=>q.category===c.id).length]))});

@@ -55,15 +55,49 @@ def https_url(value):
 
 
 def verification_complete(v):
+    if not isinstance(v, dict):
+        return False
     try:
         checked = datetime.date.fromisoformat(v.get('verifiedAt', ''))
         if checked > datetime.date.today():
             return False
     except (TypeError, ValueError):
         return False
-    return (bool(v.get('referenceTitle') and v.get('section') and v.get('notes'))
-            and all(isinstance(v.get(k), str) and v[k].strip() for k in ('referenceTitle', 'section', 'notes'))
-            and (https_url(v.get('referenceUrl')) or isinstance(v.get('bibliography'), str) and bool(v['bibliography'].strip())))
+    def meaningful(key):
+        return isinstance(v.get(key), str) and bool(v[key].strip())
+    return (all(meaningful(key) for key in ('referenceTitle', 'section', 'notes'))
+            and (https_url(v.get('referenceUrl')) or meaningful('bibliography')))
+
+
+def default_eligible(q):
+    """Release selection policy; structural validity alone never proves a fact.
+
+    This mirrors the standard engine's conservative spoiler policy. A checked
+    status is historical evidence, not a claim of a new independent recheck.
+    """
+    verification = q.get('verification', {})
+    if (verification.get('status') != 'source-checked'
+            or not verification_complete(verification)
+            or q.get('disabled') or q.get('unavailable') or q.get('available') is False
+            or q.get('publicEligible') is False):
+        return False
+    if q.get('category') == 'anime':
+        return q.get('spoilerLevel', 2 if q.get('spoiler') else 1) <= 1
+    return not q.get('spoiler')
+
+
+def category_inventory(bank):
+    """Advertise availability only when every exact point tier can be filled."""
+    result = {}
+    for category in sorted({q['category'] for q in bank}):
+        counts = {str(value): sum(q['category'] == category and q['points'] == value
+                                  and default_eligible(q) for q in bank)
+                  for value in POINTS}
+        result[category] = {'eligibleByPoints': counts,
+                            'quickAvailable': min(counts.values()) >= 1,
+                            'classicAvailable': min(counts.values()) >= 2,
+                            'classicShortages': [value for value, count in counts.items() if count < 2]}
+    return result
 
 
 def normalize_question(original):
@@ -157,6 +191,8 @@ def audit(bank):
             'categories': dict(sorted(Counter(q['category'] for q in bank).items())),
             'points': dict(sorted(Counter(q['points'] for q in bank).items())),
             'verification': dict(sorted(Counter(q['verification']['status'] for q in bank).items())),
+            'defaultEligibleQuestions': sum(default_eligible(q) for q in bank),
+            'defaultInventory': category_inventory(bank),
             'types': dict(sorted(Counter(q.get('type', 'text') for q in bank).items())),
             'publicEligible': sum(public_eligible(q) for q in bank),
             'excludedQuestions': [{'id': q['id'], 'status': q['verification']['status'],
@@ -243,7 +279,7 @@ def release_report(root):
     baseline_path = root / 'tests/fixtures/question-ids-v3.json'
     baseline = set(json.loads(baseline_path.read_text())['ids']) if baseline_path.exists() else set()
     current = {q['id'] for q in bank}
-    eligible = [q for q in bank if public_eligible(q) and not q.get('spoiler')]
+    eligible = [q for q in bank if default_eligible(q)]
     return {
         'checkedAt': datetime.date.today().isoformat(),
         'scope': 'تدقيق بنيوي آلي كامل. التحقق المصدري الجديد يقتصر على ادعاءات V4 ذات سجل الأدلة المحلي؛ حالات V3 موروثة ولم تعاد مراجعتها كلها.',

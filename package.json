@@ -1,15 +1,16 @@
 {
   "name": "seen",
   "version": "4.0.0",
-  "description": "Seen Game Khaled offline Arabic trivia — development tests only",
+  "description": "Seen Game Khaled offline Arabic trivia \u2014 development tests only",
   "scripts": {
     "build": "python build.py",
-    "test:unit": "python -m unittest discover -s tests -p \"test_*.py\" && node tests/team-engine.spec.cjs && node tests/v4-engine.spec.cjs && node tests/team-content.spec.cjs && node tests/v3-media.spec.cjs",
-    "test:browser": "node tests/one-tap.spec.cjs && node tests/team-browser.spec.cjs && node tests/v3-team-ui.spec.cjs && node tests/v3-build-browser.spec.cjs && node tests/v4-ui.spec.cjs && node tests/v4-browser.spec.cjs && node tests/team-content.spec.cjs --browser && node tests/v3-media.spec.cjs --browser",
-    "test:a11y": "SEEN_AXE_PATH=./node_modules/axe-core/axe.min.js node tests/team-accessibility.spec.cjs",
+    "test:unit": "python -m unittest discover -s tests -p \"test_*.py\" && node tests/team-engine.spec.cjs && node tests/v4-engine.spec.cjs && node tests/tournament.spec.cjs && node tests/team-content.spec.cjs && node tests/v3-media.spec.cjs",
+    "test:browser": "node tests/one-tap.spec.cjs && node tests/reliability.spec.cjs && node tests/team-browser.spec.cjs && node tests/v3-team-ui.spec.cjs && node tests/tournament-browser.spec.cjs && node tests/v3-build-browser.spec.cjs && node tests/v4-ui.spec.cjs && node tests/v4-browser.spec.cjs && node tests/team-content.spec.cjs --browser && node tests/v3-media.spec.cjs --browser",
+    "test:a11y": "SEEN_AXE_PATH=./node_modules/axe-core/axe.min.js node tests/accessibility.spec.cjs && SEEN_AXE_PATH=./node_modules/axe-core/axe.min.js node tests/team-accessibility.spec.cjs",
     "test": "python build.py && node tests/run.cjs",
     "test:one-tap": "python build.py && node tests/one-tap.spec.cjs",
-    "test:cross-browser": "node tests/v4-browser.spec.cjs"
+    "test:cross-browser": "node tests/v4-browser.spec.cjs",
+    "test:stress": "node tests/engine-fuzz.cjs"
   },
   "repository": {
     "type": "git",

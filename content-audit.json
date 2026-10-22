@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-21",
+  "checkedAt": "2026-10-22",
   "scope": "تدقيق بنيوي آلي كامل. التحقق المصدري الجديد يقتصر على ادعاءات V4 ذات سجل الأدلة المحلي؛ حالات V3 موروثة ولم تعاد مراجعتها كلها.",
   "baselineQuestions": 648,
   "questionAudit": {
-    "questions": 720,
+    "questions": 738,
     "images": 63,
     "categories": {
       "anime": 106,
@@ -16,18 +16,146 @@
       "logic": 24,
       "prophets": 74,
       "science": 24,
-      "seerah": 74
+      "seerah": 74,
+      "space": 18
     },
     "points": {
-      "200": 286,
-      "400": 282,
-      "600": 152
+      "200": 293,
+      "400": 288,
+      "600": 157
     },
     "verification": {
       "disputed": 5,
-      "editorial": 424,
-      "pending": 88,
-      "source-checked": 203
+      "editorial": 413,
+      "pending": 83,
+      "source-checked": 237
+    },
+    "defaultEligibleQuestions": 227,
+    "defaultInventory": {
+      "anime": {
+        "eligibleByPoints": {
+          "200": 5,
+          "400": 20,
+          "600": 13
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "arabia": {
+        "eligibleByPoints": {
+          "200": 5,
+          "400": 4,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "football": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 14,
+          "600": 17
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "games": {
+        "eligibleByPoints": {
+          "200": 2,
+          "400": 3,
+          "600": 5
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "geo": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 5,
+          "600": 4
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "islamic": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 7,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "kuwait": {
+        "eligibleByPoints": {
+          "200": 8,
+          "400": 8,
+          "600": 8
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "logic": {
+        "eligibleByPoints": {
+          "200": 0,
+          "400": 0,
+          "600": 0
+        },
+        "quickAvailable": false,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "prophets": {
+        "eligibleByPoints": {
+          "200": 3,
+          "400": 11,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "science": {
+        "eligibleByPoints": {
+          "200": 8,
+          "400": 8,
+          "600": 8
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "seerah": {
+        "eligibleByPoints": {
+          "200": 4,
+          "400": 7,
+          "600": 5
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      },
+      "space": {
+        "eligibleByPoints": {
+          "200": 6,
+          "400": 6,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      }
     },
     "types": {
       "clues": 2,
@@ -35,9 +163,9 @@
       "logic": 17,
       "multipart": 3,
       "ordering": 6,
-      "text": 629
+      "text": 647
     },
-    "publicEligible": 627,
+    "publicEligible": 650,
     "excludedQuestions": [
       {
         "id": "exp-anime-001",
@@ -135,27 +263,12 @@
         "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
       },
       {
-        "id": "exp-prophets-004",
-        "status": "pending",
-        "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
-      },
-      {
         "id": "exp-prophets-005",
         "status": "pending",
         "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
       },
       {
         "id": "exp-prophets-006",
-        "status": "pending",
-        "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
-      },
-      {
-        "id": "exp-prophets-007",
-        "status": "pending",
-        "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
-      },
-      {
-        "id": "exp-prophets-008",
         "status": "pending",
         "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
       },
@@ -311,11 +424,6 @@
       },
       {
         "id": "exp-geo-007",
-        "status": "pending",
-        "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
-      },
-      {
-        "id": "exp-geo-008",
         "status": "pending",
         "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
       },
@@ -480,11 +588,6 @@
         "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
       },
       {
-        "id": "visual-020",
-        "status": "pending",
-        "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
-      },
-      {
         "id": "visual-021",
         "status": "pending",
         "reason": "حُفظ ادعاء التحقق السابق في السجل التاريخي؛ يلزم فحص مستقل بالإحالة والتاريخ قبل اعتماده."
@@ -518,34 +621,34 @@
   },
   "defaultEligibleByCategoryAndPoints": {
     "anime": {
-      "200": 31,
-      "400": 27,
+      "200": 5,
+      "400": 20,
       "600": 13
     },
     "arabia": {
-      "200": 23,
-      "400": 22,
-      "600": 16
+      "200": 5,
+      "400": 4,
+      "600": 6
     },
     "football": {
-      "200": 30,
-      "400": 29,
-      "600": 23
+      "200": 3,
+      "400": 14,
+      "600": 17
     },
     "games": {
-      "200": 30,
-      "400": 19,
-      "600": 9
+      "200": 2,
+      "400": 3,
+      "600": 5
     },
     "geo": {
-      "200": 31,
-      "400": 19,
-      "600": 8
+      "200": 3,
+      "400": 5,
+      "600": 4
     },
     "islamic": {
-      "200": 21,
-      "400": 31,
-      "600": 14
+      "200": 3,
+      "400": 7,
+      "600": 6
     },
     "kuwait": {
       "200": 8,
@@ -553,14 +656,14 @@
       "600": 8
     },
     "logic": {
-      "200": 8,
-      "400": 8,
-      "600": 8
+      "200": 0,
+      "400": 0,
+      "600": 0
     },
     "prophets": {
-      "200": 35,
-      "400": 28,
-      "600": 3
+      "200": 3,
+      "400": 11,
+      "600": 6
     },
     "science": {
       "200": 8,
@@ -568,14 +671,19 @@
       "600": 8
     },
     "seerah": {
-      "200": 31,
-      "400": 23,
-      "600": 12
+      "200": 4,
+      "400": 7,
+      "600": 5
+    },
+    "space": {
+      "200": 6,
+      "400": 6,
+      "600": 6
     }
   },
   "preservation": {
     "questionIdsChanged": 0,
-    "questionsAdded": 72,
+    "questionsAdded": 90,
     "questionsRemoved": 0,
     "missingLegacyIds": []
   },

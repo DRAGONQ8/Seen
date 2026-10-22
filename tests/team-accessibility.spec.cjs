@@ -65,27 +65,23 @@ async function renderAudit(page, screen, width, theme) {
     if (AXE_PATH) await page.addScriptTag({ path: AXE_PATH });
     await renderAudit(page, 'home', width, theme);
     await page.locator('[data-team-action="new"]').first().click();
-    for (let step = 0; step < 9; step++) {
-      await page.locator(`[data-team-action="step"][data-step="${step}"]`).click();
-      await renderAudit(page, `wizard-${step + 1}`, width, theme);
-    }
-    await check(`wizard select retains keyboard focus / ${width} / ${theme}`, async () => {
-      await page.locator('[data-team-action="step"][data-step="5"]').click();
+    await renderAudit(page, 'lobby', width, theme);
+    await check(`lobby search retains keyboard focus / ${width} / ${theme}`, async () => {
+      const search = page.locator('#team-category-search');
+      await search.focus(); await search.fill('كرة');
+      assert.equal(await page.evaluate(() => document.activeElement.id), 'team-category-search');
+      await search.fill('');
+    });
+    await page.locator('#team-advanced-settings > summary').click();
+    await renderAudit(page, 'advanced-settings', width, theme);
+    await check(`advanced settings keyboard controls / ${width} / ${theme}`, async () => {
+      await page.locator('#team-advanced-5').evaluate(e=>e.open=true);
       const select = page.locator('#tc-transition');
-      await page.keyboard.press('Tab'); await select.focus();
-      await select.selectOption('host');
+      await select.focus(); await select.selectOption('host');
       assert.equal(await page.evaluate(() => document.activeElement.id), 'tc-transition');
       await select.selectOption('auto');
     });
-    await check(`wizard keyboard step keeps navigation context / ${width} / ${theme}`, async () => {
-      const step = page.locator('[data-team-action="step"][data-step="3"]');
-      await page.keyboard.press('Tab'); await step.focus(); await page.keyboard.press('Enter');
-      assert.equal(await page.locator('[aria-current="step"]').getAttribute('data-step'), '3');
-      const focused = await page.evaluate(() => ({ tag: document.activeElement.tagName, inside: !!document.activeElement.closest('#main'), id: document.activeElement.id }));
-      assert(focused.inside, `keyboard context lost to ${focused.tag}#${focused.id}`);
-    });
     await page.evaluate(() => { SeenTeamUI.draft.board = 'compact'; SeenTeamUI.draft.timer = false; });
-    await page.locator('[data-team-action="step"][data-step="8"]').click();
     await page.locator('[data-team-action="start-match"]').click();
     await renderAudit(page, 'match-compact', width, theme);
     // Legacy saved previews still require an accessible restoration view.
@@ -110,6 +106,7 @@ async function renderAudit(page, screen, width, theme) {
     await renderAudit(page, 'match-reveal', width, theme);
     await check(`reveal focuses canonical answer / ${width} / ${theme}`, async () => assert.equal(await page.evaluate(() => document.activeElement.classList.contains('canonical-answer')), true));
     await page.locator('[data-team-action="award"][data-team="1"]').click();
+    await page.waitForFunction(()=>SeenTeamUI.match.state==='BOARD');
     await renderAudit(page, 'match-one-tap-board', width, theme);
     await check(`one-tap result returns to board with no modal / ${width} / ${theme}`, async () => {
       assert.equal(await page.evaluate(() => SeenTeamUI.match.state), 'BOARD');
@@ -121,6 +118,7 @@ async function renderAudit(page, screen, width, theme) {
     await check(`board Undo is keyboard-operable in one action / ${width} / ${theme}`, async () => {
       const undo = page.locator('[data-team-action="undo"]:visible:not([disabled])').first();
       await undo.focus(); await page.keyboard.press('Enter');
+      await page.waitForFunction(()=>SeenTeamUI.match.state==='ANSWER_REVEAL');
       assert.equal(await page.evaluate(() => SeenTeamUI.match.state), 'ANSWER_REVEAL');
       assert.equal(await page.evaluate(() => SeenTeamUI.match.teams[1].score), 0);
       assert.equal(await page.locator('#dialog').evaluate(d => d.open), false);
@@ -129,6 +127,7 @@ async function renderAudit(page, screen, width, theme) {
     await renderAudit(page, 'match-undo-reveal', width, theme);
     await page.locator('[data-team-action="award"][data-team="1"]').focus();
     await page.keyboard.press('Enter');
+    await page.waitForFunction(()=>SeenTeamUI.match.state==='BOARD');
     await page.locator('[data-team-action="pause-menu"]').first().click();
     await renderAudit(page, 'presenter-menu-dialog', width, theme);
     await check(`optional presenter dialog keeps keyboard focus / ${width} / ${theme}`, async () => {
@@ -161,7 +160,6 @@ async function renderAudit(page, screen, width, theme) {
       assert.deepEqual(bad, []);
     });
     await page.evaluate(() => { SeenTeamUI.startSetup(); SeenTeamUI.draft.board = 'classic'; SeenTeamUI.draft.timer = false; });
-    await page.locator('[data-team-action="step"][data-step="8"]').click();
     await page.locator('[data-team-action="start-match"]').click();
     await renderAudit(page, 'match-classic', width, theme);
     await page.screenshot({ path: `/tmp/seen-team-axe-${width}-${theme}.png`, fullPage: true });

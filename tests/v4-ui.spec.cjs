@@ -9,17 +9,32 @@ const checks=[],errors=[],network=[];
 let browser;
 const action=(page,name,extra='')=>page.locator(`[data-team-action="${name}"]${extra}`).first();
 const state=page=>page.evaluate(()=>JSON.parse(JSON.stringify(SeenTeamUI.match)));
+// Web Locks/IndexedDB settle adjudication asynchronously; wait for the committed state.
+async function settled(page){await page.waitForFunction(()=>['BOARD','MATCH_COMPLETE'].includes(SeenTeamUI.match?.state));}
 async function check(name,fn){try{await fn();checks.push({name,ok:true});console.log('PASS',name);}catch(error){checks.push({name,ok:false,error:String(error)});console.error('FAIL',name,error.stack||error);}}
 async function fresh(){const context=await browser.newContext({viewport:{width:412,height:915},deviceScaleFactor:3,isMobile:true,hasTouch:true,reducedMotion:'reduce',acceptDownloads:true});const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>{if(/^https?:/.test(request.url())&&new globalThis.URL(request.url()).origin!==new globalThis.URL(URL).origin)network.push(request.url());});await page.goto(URL,{waitUntil:'load'});await page.waitForFunction(()=>window.SeenTeamUI?.ready());await page.evaluate(()=>{prefs.sound=0;prefs.music=0;prefs.reduced=true;applyPrefs();persist();});await context.setOffline(true);return{page,context};}
-async function step(page,n){await action(page,'step',`[data-step="${n}"]`).click();}
+// The merged host uses one lobby; advanced controls remain in expandable groups.
+async function step(page,n){
+ if(n<3||n===8)return;
+ const outer=page.locator('#team-advanced-settings');
+ if(!await outer.evaluate(detail=>detail.open))await outer.locator(':scope > summary').click();
+ const inner=page.locator(`#team-advanced-${n}`);
+ if(await inner.count()&&!await inner.evaluate(detail=>detail.open))await inner.locator(':scope > summary').click();
+}
 async function reload(page,context){await context.setOffline(false);await page.reload();await page.waitForFunction(()=>window.SeenTeamUI?.ready());await context.setOffline(true);}
-async function start(page,patch={}){await action(page,'new').click();await page.evaluate(patch=>{Object.assign(SeenTeamUI.draft,{board:'compact',timer:false},patch);render();},patch);await step(page,8);await action(page,'start-match').click();assert.equal((await state(page))?.state,'BOARD',await page.locator('#toast').innerText());}
+async function start(page,patch={}){await action(page,'new').click();await page.evaluate(patch=>{Object.assign(SeenTeamUI.draft,{board:'compact',timer:false},patch);render();},patch);await step(page,8);await action(page,'start-match').click();if(await page.locator('#team-confirm-start').isVisible())await page.locator('#team-confirm-start').click();assert.equal((await state(page))?.state,'BOARD',await page.locator('#toast').innerText());}
 async function startFormat(page,type){
  await action(page,'new').click();
  const chosen=await page.evaluate(type=>{
   const draft=SeenTeamUI.draft;Object.assign(draft,{board:'compact',timer:false,repetition:'all'});
   const question=TeamEngine.eligibleQuestions(QUESTION_BANK,draft).find(question=>question.type===type);
-  if(!question)throw Error('No eligible bundled format: '+type);
+  if(!question){
+   const retained=QUESTION_BANK.find(question=>question.type===type);
+   if(!retained)throw Error('No bundled format: '+type);
+   if(retained.verification?.status!=='editorial')throw Error('Missing checked bundled format: '+type);
+   if(TeamEngine.eligibleQuestions(QUESTION_BANK,draft).some(question=>question.id===retained.id))throw Error('Editorial question leaked into defaults');
+   render();return{retainedEditorial:retained};
+  }
   if(!draft.teams.some(team=>team.categories.includes(question.category)))draft.teams[0].categories[0]=question.category;
   const errors=TeamEngine.validateConfig(draft,QUESTION_BANK);if(errors.length)throw Error(errors.join('; '));
   const first=Date.now();for(let attempt=0;attempt<500;attempt++){
@@ -28,7 +43,17 @@ async function startFormat(page,type){
    if(tile){globalThis.__seenV4OriginalNow=Date.now;Date.now=()=>seed;render();return{tileId:tile.id,question:TeamEngine.getQuestion(candidate,tile.questionId,QUESTION_BANK)};}
   }throw Error('Could not select bundled format: '+type);
  },type);
- await step(page,8);await action(page,'start-match').click();assert.equal((await state(page))?.state,'BOARD');await page.evaluate(()=>{Date.now=globalThis.__seenV4OriginalNow;delete globalThis.__seenV4OriginalNow;});await action(page,'tile',`[data-id="${chosen.tileId}"]`).click();assert.equal((await state(page)).state,'QUESTION_ACTIVE');return chosen.question;
+ await step(page,8);await action(page,'start-match').click();if(await page.locator('#team-confirm-start').isVisible())await page.locator('#team-confirm-start').click();assert.equal((await state(page))?.state,'BOARD');await page.evaluate(()=>{if(globalThis.__seenV4OriginalNow){Date.now=globalThis.__seenV4OriginalNow;delete globalThis.__seenV4OriginalNow;}});
+ if(chosen.retainedEditorial){
+  const fixture=await page.evaluate(original=>{
+   // Test-only legacy-snapshot fixture: production content and verification stay unchanged.
+   const match=SeenTeamUI.match,tile=match.board[0],previous=TeamEngine.getQuestion(match,tile.questionId,QUESTION_BANK);
+   const question={...original,id:tile.questionId,category:tile.category,level:previous.level,points:tile.value};
+   match.questions=Object.freeze({...match.questions,[question.id]:Object.freeze(question)});
+   return{tileId:tile.id,question};
+  },chosen.retainedEditorial);Object.assign(chosen,fixture);
+ }
+ await action(page,'tile',`[data-id="${chosen.tileId}"]`).click();assert.equal((await state(page)).state,'QUESTION_ACTIVE');return chosen.question;
 }
 async function noOverflow(page,label){const size=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,rtl:document.documentElement.dir}));assert.equal(size.rtl,'rtl');assert(size.scroll<=size.width+1,`${label}: ${JSON.stringify(size)}`);}
 (async()=>{
@@ -61,26 +86,26 @@ async function noOverflow(page,label){const size=await page.evaluate(()=>({width
  await check('custom two-category match with selected point values scores, reloads, and fits mobile',async()=>{const{page,context}=await fresh();try{
   await action(page,'new').click();await action(page,'preset','[data-value="custom"]').click();await step(page,3);await action(page,'category-count','[data-value="2"]').click();await action(page,'choose','[data-key="board"][data-value="compact"]').click();await action(page,'point-value','[data-value="400"]').click();const draft=await page.evaluate(()=>SeenTeamUI.draft);assert.equal(draft.categoryCount,2);assert.deepEqual(draft.pointValues,[200,600]);assert.deepEqual(draft.teams.map(team=>team.categories.length),[1,1]);
   await step(page,8);await action(page,'start-match').click();let match=await state(page);assert.equal(match.state,'BOARD');assert.equal(match.board.length,4);assert.deepEqual([...new Set(match.board.map(tile=>tile.value))],[200,600]);await page.setViewportSize({width:320,height:780});await noOverflow(page,'custom two-category board');
-  await action(page,'tile',':not([disabled])').click();const points=(await state(page)).current.value;await action(page,'reveal').click();await action(page,'award','[data-team="1"]').click();assert.equal((await state(page)).teams[1].score,points);await reload(page,context);await action(page,'resume').click();if((await state(page)).state==='PAUSED')await action(page,'engine','[data-type="RESUME"]').click();match=await state(page);assert.equal(match.state,'BOARD');assert.equal(match.board.length,4);assert.equal(match.history.length,1);assert.equal(match.teams[1].score,points);await noOverflow(page,'custom restored board');
+  await action(page,'tile',':not([disabled])').click();const points=(await state(page)).current.value;await action(page,'reveal').click();await action(page,'award','[data-team="1"]').click();await settled(page);assert.equal((await state(page)).teams[1].score,points);await reload(page,context);await action(page,'resume').click();if((await state(page)).state==='PAUSED')await action(page,'engine','[data-type="RESUME"]').click();match=await state(page);assert.equal(match.state,'BOARD');assert.equal(match.board.length,4);assert.equal(match.history.length,1);assert.equal(match.teams[1].score,points);await noOverflow(page,'custom restored board');
  }finally{await context.close();}});
  await check('one-hand host controls remain usable in portrait/landscape and reveal exactly three awards',async()=>{const{page,context}=await fresh();try{
   await start(page);await action(page,'tile',':not([disabled])').click();assert.equal((await state(page)).state,'QUESTION_ACTIVE');
   for(const viewport of [{width:360,height:780},{width:412,height:915},{width:915,height:412},{width:800,height:1280},{width:1280,height:800}]){await page.setViewportSize(viewport);await noOverflow(page,`question ${viewport.width}x${viewport.height}`);const button=action(page,'reveal');await button.scrollIntoViewIfNeeded();const box=await button.boundingBox();assert(box&&box.width>=44&&box.height>=44);}
   await action(page,'reveal').click();assert.equal((await state(page)).state,'ANSWER_REVEAL');assert.equal(await page.locator('[data-team-action="award"]').count(),3);assert.equal(await page.locator('[data-type="NEXT_TURN"]').count(),0);assert.equal(await page.locator('#dialog').evaluate(dialog=>dialog.open),false);
-  await page.setViewportSize({width:360,height:780});await noOverflow(page,'answer portrait');await action(page,'award','[data-team="none"]').focus();await action(page,'award','[data-team="none"]').press('Enter');assert.equal((await state(page)).state,'BOARD');assert.equal((await state(page)).history.length,1);assert.deepEqual((await state(page)).teams.map(team=>team.score),[0,0]);assert(await action(page,'undo').isVisible());await action(page,'undo').click();assert.equal((await state(page)).state,'ANSWER_REVEAL');assert.equal((await state(page)).history.length,0);
+  await page.setViewportSize({width:360,height:780});await noOverflow(page,'answer portrait');await action(page,'award','[data-team="none"]').focus();await action(page,'award','[data-team="none"]').press('Enter');await settled(page);assert.equal((await state(page)).state,'BOARD');assert.equal((await state(page)).history.length,1);assert.deepEqual((await state(page)).teams.map(team=>team.score),[0,0]);assert(await action(page,'undo').isVisible());await action(page,'undo').click();await page.waitForFunction(()=>SeenTeamUI.match?.state==='ANSWER_REVEAL');assert.equal((await state(page)).state,'ANSWER_REVEAL');assert.equal((await state(page)).history.length,0);
  }finally{await context.close();}});
  await check('malformed structured question imports never change the local bank or edits',async()=>{const{page,context}=await fresh();try{
-  await action(page,'library').click();const before=await page.evaluate(()=>({ids:QUESTION_BANK.map(question=>question.id),edits:JSON.parse(JSON.stringify(SeenTeamUI.store.edits))}));
+  await page.locator('[data-action="nav"][data-route="settings"]:visible').first().click();await action(page,'library').click();const before=await page.evaluate(()=>({ids:QUESTION_BANK.map(question=>question.id),edits:JSON.parse(JSON.stringify(SeenTeamUI.store.edits))}));
   const question=await page.evaluate(()=>JSON.parse(JSON.stringify(QUESTION_BANK.find(question=>question.type==='ordering'))));assert(question,'bundled ordering fixture required');question.id='owner-v4-invalid-order';question.q+=' · فحص استيراد محلي';question.correctOrder[question.correctOrder.length-1]='عنصر غير موجود في السؤال';
   for(const [invalid,message] of [[question,'الترتيب الصحيح'],[{...question,id:'owner-v4-invalid-type',type:'unsupported-audio'},'غير مدعوم']]){const[chooser]=await Promise.all([page.waitForEvent('filechooser'),action(page,'import-pack').click()]);await chooser.setFiles({name:'invalid-format.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:2,questions:[invalid]}))});await page.waitForFunction(message=>document.querySelector('#toast').textContent.includes(message),message);assert.equal(await page.locator('#confirm-question-pack').count(),0);assert.deepEqual(await page.evaluate(()=>({ids:QUESTION_BANK.map(question=>question.id),edits:JSON.parse(JSON.stringify(SeenTeamUI.store.edits))})),before);}
  }finally{await context.close();}});
- await check('bundled ordering, multipart, and logic formats give explicit instructions, canonical answers, and judging',async()=>{
+ await check('checked structured formats and retained editorial logic snapshots give instructions, canonical answers, and judging',async()=>{
   for(const type of ['ordering','multipart','logic']){const{page,context}=await fresh();try{
    const question=await startFormat(page,type);assert((await page.locator('.question-instructions').innerText()).includes(question.instructions));
    if(type==='ordering')assert.deepEqual(await page.locator('.ordering-items li').allTextContents(),question.items);
    if(type==='multipart')assert.deepEqual(await page.locator('.multipart-parts li').allTextContents(),question.parts);
    await noOverflow(page,type+' portrait');await action(page,'reveal').click();assert.equal(await page.locator('.canonical-answer').innerText(),question.correctAnswer);assert((await page.locator('#main').innerText()).includes(question.judging));assert.equal(await page.locator('[data-team-action="award"]').count(),3);
-   await action(page,'award','[data-team="0"]').click();assert.equal((await state(page)).state,'BOARD');assert.equal((await state(page)).teams[0].score,question.points);
+   await action(page,'award','[data-team="0"]').click();await settled(page);assert.equal((await state(page)).state,'BOARD');assert.equal((await state(page)).teams[0].score,question.points);
   }finally{await context.close();}}
  });
  await check('progressive clue disclosure works by keyboard and survives reload without leaking the answer',async()=>{const{page,context}=await fresh();try{

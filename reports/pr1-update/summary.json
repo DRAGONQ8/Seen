@@ -1,0 +1,35 @@
+{
+  "artifact": {
+    "path": "index.html",
+    "bytes": 2630029,
+    "sha256": "7826527033615f1ec7635449cd03d7dedad9b46f3662fbeb4ad7bde04df1e3ba",
+    "sourceInputsSynchronized": true,
+    "manifest": "build-manifest.json",
+    "deterministicRebuildMatched": true,
+    "zipMatchesHTML": true
+  },
+  "suites": {
+    "passed": 18,
+    "failed": 0,
+    "basis": "16 suites passed in the full local run; two V4 test adapters changed and both targeted reruns passed. See validation-report.json for distinct executions."
+  },
+  "stress": {
+    "command": "npm run test:stress",
+    "passedMatches": 120,
+    "stateTransitions": 20871,
+    "restores": 705,
+    "undos": 717,
+    "expectedRejectedRandomActions": 142,
+    "invariantFailures": 0,
+    "log": "reports/pr1-update/stress.log"
+  },
+  "physicalSamsung": {
+    "status": "NOT TESTED",
+    "devices": [
+      "Galaxy S24 Ultra",
+      "Galaxy Tab S11 Ultra"
+    ],
+    "browser": "Samsung Internet",
+    "gate": "Record real-device results before merge; see docs/PR1_BRANCH_UPDATE.md"
+  }
+}

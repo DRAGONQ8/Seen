@@ -9,7 +9,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from content_tools import audit, load_bank, normalize_question, safe_json, script_json, validate_pack, public_eligible, verification_complete, format_errors
+from content_tools import audit, load_bank, normalize_question, safe_json, script_json, validate_pack, public_eligible, default_eligible, category_inventory, release_report, verification_complete, format_errors
 
 
 class BuildTests(unittest.TestCase):
@@ -69,8 +69,39 @@ class BuildTests(unittest.TestCase):
             altered['source']['url'] = bad
             self.assertTrue(audit([altered])['errors'])
 
+    def test_multiplayer_distribution_has_no_removed_entry_points(self):
+        root = Path(__file__).resolve().parents[1]
+        page = (root / 'index.html').read_text()
+        for removed in ('function makeSetup(', 'function startGame(', 'function renderPlay(',
+                        'function soloStorageNotice(', 'const ACHIEVEMENTS=',
+                        'data-action="solo-export"', 'data-mode="solo"',
+                        'data-route="play"', 'data-team-action="next-step"'):
+            self.assertNotIn(removed, page)
 
-    def test_public_gameplay_excludes_unresolved_and_disputed_content(self):
+    def test_generated_document_has_no_runtime_urls(self):
+        import re
+        root = Path(__file__).resolve().parents[1]
+        page = (root / 'index.html').read_text()
+        self.assertNotRegex(page, r'<(?:script|iframe|img)[^>]+src=["\']https?:')
+        self.assertNotRegex(page, r'<link[^>]+(?:stylesheet|preload)[^>]+https?:')
+        self.assertIn("connect-src 'none'", page)
+
+
+    def test_generated_manifest_matches_sources_and_output(self):
+        import hashlib
+        root = Path(__file__).resolve().parents[1]
+        manifest = json.loads((root / 'build-manifest.json').read_text())
+        self.assertEqual(manifest['format'], 'seen-standalone-build')
+        self.assertEqual(manifest['runtimeDependencies'], [])
+        output = (root / manifest['output']).read_bytes()
+        self.assertEqual(hashlib.sha256(output).hexdigest(), manifest['sha256'])
+        self.assertEqual(len(output), manifest['bytes'])
+        for filename, expected in manifest['inputs'].items():
+            self.assertEqual(hashlib.sha256((root / filename).read_bytes()).hexdigest(), expected,
+                             filename + ' changed without rebuilding index.html')
+
+
+    def test_owner_library_excludes_unresolved_and_disputed_content(self):
         question = load_bank(Path(__file__).resolve().parents[1])[0]
         for status in ('pending', 'disputed', 'unknown'):
             question['verification']['status'] = status
@@ -86,6 +117,29 @@ class BuildTests(unittest.TestCase):
         self.assertFalse(public_eligible(question))
         question['disabled'] = True
         self.assertFalse(public_eligible(question))
+
+    def test_merged_content_defaults_match_conservative_engine_policy(self):
+        root = Path(__file__).resolve().parents[1]
+        bank = load_bank(root)
+        self.assertEqual(len(bank), 738)
+        self.assertEqual(len({q['id'] for q in bank}), 738)
+        self.assertEqual(sum(q['category'] == 'space' for q in bank), 18)
+        for category in ('science', 'kuwait'):
+            self.assertEqual(sum(q['category'] == category and default_eligible(q) for q in bank), 24)
+        logic = [q for q in bank if q['category'] == 'logic']
+        self.assertEqual(len(logic), 24)
+        self.assertTrue(all(public_eligible(q) and not default_eligible(q) for q in logic))
+        self.assertFalse(category_inventory(bank)['logic']['quickAvailable'])
+        report = release_report(root)
+        self.assertEqual(report['defaultEligibleByCategoryAndPoints']['logic'], {'200': 0, '400': 0, '600': 0})
+        self.assertEqual(sum(sum(tiers.values()) for tiers in report['defaultEligibleByCategoryAndPoints'].values()),
+                         sum(default_eligible(q) for q in bank))
+        checked = copy.deepcopy(next(q for q in bank if default_eligible(q)))
+        checked['publicEligible'] = False
+        self.assertFalse(default_eligible(checked))
+        checked['publicEligible'] = True
+        checked['verification']['verifiedAt'] = '2999-01-01'
+        self.assertFalse(default_eligible(checked))
 
     def test_reference_url_does_not_create_source_verification(self):
         question = load_bank(Path(__file__).resolve().parents[1])[0]
@@ -123,7 +177,7 @@ class BuildTests(unittest.TestCase):
                 validate_pack(attack)
         self.assertEqual(question, original)
 
-    def test_new_categories_balanced_and_default_eligible(self):
+    def test_new_categories_balanced_and_publicly_reviewable(self):
         bank = load_bank(Path(__file__).resolve().parents[1])
         for category in ('science', 'kuwait', 'logic'):
             questions = [q for q in bank if q['category'] == category]

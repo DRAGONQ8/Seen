@@ -1,0 +1,52 @@
+RUN node tests/v4-ui.spec.cjs
+PASS solo has no navigation or executable setup path in the generated application
+PASS category favorites work by keyboard, filter correctly, and survive reload
+PASS team name presets and classic/enhanced assistance choices leave valid team configurations
+PASS challenge and visual variants use the shared match engine with explicit host rules
+PASS custom two-category match with selected point values scores, reloads, and fits mobile
+PASS one-hand host controls remain usable in portrait/landscape and reveal exactly three awards
+PASS malformed structured question imports never change the local bank or edits
+PASS checked structured formats and retained editorial logic snapshots give instructions, canonical answers, and judging
+PASS progressive clue disclosure works by keyboard and survives reload without leaking the answer
+PASS identical saved-storage notifications after reload do not block the host, while different writes still lock
+PASS V4 host UX has no uncaught runtime errors or external gameplay requests
+{"passed":11,"failed":0,"report":"/tmp/seen-v4-ui-report.json"}
+RUN node tests/v4-browser.spec.cjs
+PASS chromium removed individual-play APIs and UI cannot open a game
+PASS chromium legacy data remains intact while only display preferences, favorites and seen IDs migrate
+PASS chromium main V4 display preferences migrate without removing the original host envelope
+PASS chromium interrupted migration preserves the exact legacy save until new persistence succeeds
+PASS chromium corrupt legacy storage leaves the independently saved team match intact
+PASS chromium question reload, rapid award, persisted board and atomic undo preserve identity
+PASS chromium storage interruption during scoring retains usable in-memory game and a backup
+PASS chromium repeated storage events for an already loaded or written save do not lock the host
+PASS chromium a stale second host window cannot overwrite an awarded question
+PASS chromium malformed untrusted backups never mutate the active game or library
+PASS chromium long Arabic reveal and three scoring targets fit phone and tablet orientations
+PASS chromium touch hosting works at explicit phone and tablet viewport sizes and pixel ratios
+PASS chromium local HTML bytes boot and play with network disabled before startup
+PASS firefox removed individual-play APIs and UI cannot open a game
+PASS firefox legacy data remains intact while only display preferences, favorites and seen IDs migrate
+PASS firefox main V4 display preferences migrate without removing the original host envelope
+PASS firefox interrupted migration preserves the exact legacy save until new persistence succeeds
+PASS firefox corrupt legacy storage leaves the independently saved team match intact
+PASS firefox question reload, rapid award, persisted board and atomic undo preserve identity
+PASS firefox storage interruption during scoring retains usable in-memory game and a backup
+PASS firefox repeated storage events for an already loaded or written save do not lock the host
+PASS firefox a stale second host window cannot overwrite an awarded question
+PASS firefox malformed untrusted backups never mutate the active game or library
+PASS firefox long Arabic reveal and three scoring targets fit phone and tablet orientations
+PASS firefox touch hosting works at explicit phone and tablet viewport sizes and pixel ratios
+PASS firefox local HTML bytes boot and play with network disabled before startup
+PASS firefox actual file URL offline startup and scoring
+UNAVAILABLE webkit Error: browserType.launch: Executable doesn't exist at /home/agent/.cache/ms-playwright/webkit-2248/pw_run.sh
+╔═════════════════════════════════════════════════════════════════════════╗
+║ Looks like Playwright Test or Playwright was just installed or updated. ║
+║ Please run the following command to download new browsers:              ║
+║                                                                         ║
+║     npx playwright install                                              ║
+║                                                                         ║
+║ <3 Playwright Team                                                      ║
+╚═════════════════════════════════════════════════════════════════════════╝
+PASS all available engines no uncaught runtime errors or external requests
+{"passed":28,"failed":0,"unavailable":[{"browser":"chromium","feature":"file URL startup"},{"browser":"webkit"}],"report":"/tmp/seen-v4-browser-report.json"}

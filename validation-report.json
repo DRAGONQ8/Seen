@@ -1,301 +1,346 @@
 {
-  "project": "سين جيم خالد",
-  "release": "V4.0 — فريقان ومعرفة تجمعنا",
-  "checkedAt": "2026-10-21",
-  "baselineCommit": "980d2334a9236353c1e6b532b59ed0c148aa6c19",
-  "architecture": "Repository enhancement retaining the pure team reducer, UI adapter, embedded media, source content and deterministic Python single-file build. No framework, API or CDN dependency.",
-  "priorityOutcomes": [
-    "Removed every legacy individual/local-player game session, route, progression/achievement flow, timer, result screen and unsupported event handler. Removed five obsolete suites and obsolete solo cases; runner explicitly enumerates supported multiplayer suites.",
-    "Preserved BOARD → QUESTION → REVEAL → one of exactly three award actions → BOARD/MATCH_COMPLETE, with token validation, idempotent linked score transactions, deterministic turn advance and atomic Undo.",
-    "Restoration reconciles scoring formulas, transaction/history/helper identities, board slot identity, completion/winner metadata and monotonic serial high-watermarks, preventing corrupted saves from generating duplicate transaction IDs.",
-    "Authentic V2 historical scoring fixtures and known owner-reviewed editorial records remain recoverable without upgrading them to source-checked status.",
-    "Already observed queued storage events after reload are ignored; genuinely different saves still lock the stale host. Failed persistence keeps the live match and offers host backups."
-  ],
-  "gameplay": {
-    "teams": 2,
-    "classic": {
-      "categories": 6,
-      "categoriesPerTeam": 3,
-      "questions": 36,
-      "values": [
-        200,
-        400,
-        600
-      ],
-      "slotsPerValue": 2
-    },
-    "quick": {
-      "categories": 6,
-      "questions": 18,
-      "slotsPerValue": 1
-    },
-    "variants": [
-      "classic",
-      "quick",
-      "challenge (harder within equal repetition priority)",
-      "visual (eligible images preferred, explicit text fallback)",
-      "custom"
-    ],
-    "customLimits": {
-      "categoryCount": [
-        2,
-        4,
-        6
-      ],
-      "pointValues": "nonempty unique subset of 200/400/600",
-      "boardSlots": "classic two, compact one per value/category",
-      "durationSeconds": [
-        5,
-        600
-      ],
-      "stealDurationSeconds": [
-        3,
-        120
-      ]
-    },
-    "sharedFeatures": [
-      "category search/favorites/random distribution",
-      "team name and rule presets",
-      "Classic/Enhanced assistance presets",
-      "oral/choice/typed host judging",
-      "pause/resume",
-      "manual score transactions and history",
-      "one-tap Undo",
-      "bounded progressive clues",
-      "RTL mobile layouts and large touch targets",
-      "original local sounds, mute/reduced-motion controls",
-      "validated backups and owner editorial import/export"
-    ]
+  "release": "4.0.0-reconciled-multiplayer",
+  "reviewDateUTC": "2026-10-22T23:23:40.029714+00:00",
+  "branch": "codex/multiplayer-reliability",
+  "status": "automated-validation-passed-physical-samsung-pending",
+  "mergeApproved": false,
+  "parents": {
+    "previousPR": "b87c4c8538b8f00e4ec087dfe2cf863582385d8c",
+    "main": "bfa6910dbb06f78811356342ca1050ac5b637a23",
+    "mergeBase": "980d2334a9236353c1e6b532b59ed0c148aa6c19"
+  },
+  "artifact": {
+    "path": "index.html",
+    "bytes": 2630029,
+    "sha256": "7826527033615f1ec7635449cd03d7dedad9b46f3662fbeb4ad7bde04df1e3ba",
+    "sourceInputsSynchronized": true,
+    "manifest": "build-manifest.json",
+    "deterministicRebuildMatched": true,
+    "zipMatchesHTML": true
   },
   "content": {
-    "questions": 720,
-    "originalQuestionsPreserved": 648,
-    "addedQuestions": 72,
-    "removedQuestions": 0,
-    "categories": {
-      "anime": 106,
-      "arabia": 75,
-      "football": 92,
-      "games": 68,
-      "geo": 85,
-      "islamic": 74,
-      "kuwait": 24,
-      "logic": 24,
-      "prophets": 74,
-      "science": 24,
-      "seerah": 74
-    },
-    "points": {
-      "200": 286,
-      "400": 282,
-      "600": 152
-    },
-    "verification": {
-      "disputed": 5,
-      "editorial": 424,
-      "pending": 88,
-      "source-checked": 203
-    },
-    "verificationScope": "48 new factual questions checked individually against institutional passages, including an attributed KUNA cross-check; 24 original logic questions carry editorial proofs. 155 previous source-checked labels are inherited evidence, not a fresh certification. All original questions/media preserved.",
-    "newCategories": [
-      "kuwait",
-      "science",
-      "logic"
-    ],
-    "types": {
-      "clues": 2,
-      "image": 63,
-      "logic": 17,
-      "multipart": 3,
-      "ordering": 6,
-      "text": 629
-    },
-    "editoriallyEligibleBeforeSpoilers": 627,
-    "supportedTypes": [
-      "text",
-      "image (including flags/maps/licensed objects and monuments)",
-      "ordering",
-      "clues",
-      "multipart",
-      "logic"
-    ],
-    "excludedFromNewPublicGames": "Explicit pending, disputed, public-disabled, malformed or spoiler-ineligible questions; existing valid saved snapshots remain intact.",
-    "auditableFiles": [
-      "content-audit.json",
-      "docs/CONTENT-EDITORIAL.md",
-      "docs/question-schema.json",
-      "docs/kuwait-source-evidence.json",
-      "docs/science-source-evidence.json"
-    ]
+    "questions": 738,
+    "categories": 12,
+    "sourceChecked": 237,
+    "editorial": 413,
+    "pending": 83,
+    "disputed": 5,
+    "defaultEligible": 227,
+    "missingIDsFromEitherTip": 0,
+    "freshFactCheckClaim": false,
+    "logicEditorialExcludedFromDefaults": true
   },
-  "validation": {
-    "command": "npm test",
-    "completedAt": "2026-10-21T07:10:38.691473+00:00",
-    "status": "passed",
-    "suiteCommands": {
-      "total": 14,
-      "passed": 14,
-      "failed": 0
+  "localExecution": {
+    "environment": "Managed Linux; Playwright browsers and touch/viewport/DPR emulation; no physical Samsung devices",
+    "command": "npm test; then targeted V4 UI/browser reruns after test-adapter fixes",
+    "initialFullRun": {
+      "results": [
+        {
+          "name": "python",
+          "args": [
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_*.py"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/tournament.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-content.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-media.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/one-tap.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/reliability.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-team-ui.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/tournament-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-build-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-ui.spec.cjs"
+          ],
+          "code": 1
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-browser.spec.cjs"
+          ],
+          "code": 1
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/accessibility.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-accessibility.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-content.spec.cjs",
+            "--browser"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-media.spec.cjs",
+            "--browser"
+          ],
+          "code": 0
+        }
+      ],
+      "passed": 16,
+      "failed": 2
     },
-    "suites": [
+    "targetedReruns": [
       {
-        "command": "python -m unittest discover -s tests -p test_*.py",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "unit",
-        "checks": {
-          "passed": 13,
-          "failed": 0
-        }
+        "name": "node",
+        "args": [
+          "tests/v4-ui.spec.cjs"
+        ],
+        "code": 0
       },
       {
-        "command": "node tests/team-engine.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "unit",
-        "checks": {
-          "passed": 79,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/v4-engine.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "unit",
-        "checks": {
-          "passed": 18,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/team-content.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "unit",
-        "checks": {
-          "passed": 27,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/v3-media.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "unit",
-        "checks": {
-          "passed": 5,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/one-tap.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 16,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/team-browser.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 30,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/v3-team-ui.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 8,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/v3-build-browser.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 15,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/v4-ui.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 11,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/v4-browser.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 26,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/team-accessibility.spec.cjs",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 131,
-          "failed": 0
-        }
-      },
-      {
-        "command": "node tests/team-content.spec.cjs --browser",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 7,
-          "failed": 0
-        },
-        "repeatedSourceChecks": {
-          "passed": 27,
-          "failed": 0
-        },
-        "countNote": "checks counts browser cases; the same invocation also repeats the content unit cases."
-      },
-      {
-        "command": "node tests/v3-media.spec.cjs --browser",
-        "exitCode": 0,
-        "status": "passed",
-        "kind": "browser",
-        "checks": {
-          "passed": 1,
-          "failed": 0
-        },
-        "repeatedSourceChecks": {
-          "passed": 5,
-          "failed": 0
-        },
-        "countNote": "checks counts the offline decode browser case; repeated source cases are listed separately."
+        "name": "node",
+        "args": [
+          "tests/v4-browser.spec.cjs"
+        ],
+        "code": 0
       }
     ],
-    "artifact": {
-      "path": "index.html",
-      "bytes": 2558651,
-      "sha256": "bfed1732dbb89a625a78040d626d4d4143ac0aaf8a08d83047ecd08dfe435d7f",
-      "sameAsBeforeNpmTestRebuild": true
+    "effectiveSuiteExecutions": {
+      "results": [
+        {
+          "name": "python",
+          "args": [
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_*.py"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/tournament.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-content.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-media.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/one-tap.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/reliability.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-team-ui.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/tournament-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-build-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-ui.spec.cjs"
+          ],
+          "code": 0,
+          "previousCode": 1,
+          "rerunLog": "reports/pr1-update/v4-rerun.log"
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-browser.spec.cjs"
+          ],
+          "code": 0,
+          "previousCode": 1,
+          "rerunLog": "reports/pr1-update/v4-rerun.log"
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/accessibility.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-accessibility.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-content.spec.cjs",
+            "--browser"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-media.spec.cjs",
+            "--browser"
+          ],
+          "code": 0
+        }
+      ],
+      "passed": 18,
+      "failed": 0
     },
-    "browserEnginesExecuted": [
+    "aggregationNote": "The full run passed 16 suites; only the two V4 test adapters then changed to await serialized commits and use current library navigation. Both changed suites were rerun. All production source hashes stayed unchanged. This is not a claim that the earlier npm test exit code was zero.",
+    "namedPassLines": 452,
+    "pythonTests": 17,
+    "logs": [
+      "reports/pr1-update/test-run.log",
+      "reports/pr1-update/v4-rerun.log"
+    ],
+    "browserEngines": [
       {
         "name": "chromium",
         "version": "154.0.8037.57"
@@ -305,133 +350,65 @@
         "version": "146.0.1"
       }
     ],
-    "runtimeFindingsByReport": {
-      "one-tap.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
+    "browserChecks": {
+      "passed": 28,
+      "failed": 0
+    },
+    "unavailable": [
+      {
+        "browser": "chromium",
+        "feature": "file URL startup",
+        "reason": "Error: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/Seen/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/Seen/index.html\", waiting until \"load\"\u001b[22m\n"
       },
-      "team-browser.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
-      },
-      "team-ui-v3.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
-      },
-      "build-browser.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
-      },
-      "team-ui-v4.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
-      },
-      "cross-browser.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
-      },
-      "accessibility.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
-      },
-      "content-browser.json": {
-        "runtimeErrors": 0,
-        "externalRuntimeRequests": 0
+      {
+        "browser": "webkit",
+        "reason": "Error: browserType.launch: Executable doesn't exist at /home/agent/.cache/ms-playwright/webkit-2248/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
       }
-    },
-    "runtimeErrors": [],
-    "externalRuntimeRequests": [],
-    "accessibility": {
-      "checksPassed": 131,
-      "checksFailed": 0,
-      "screenAudits": 92,
-      "violations": 0,
-      "contrastIncompleteRecords": 88
-    },
-    "limitations": {
-      "unavailableOrRestricted": [
-        {
-          "browser": "chromium",
-          "feature": "file URL startup",
-          "reason": "Error: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/Seen/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/Seen/index.html\", waiting until \"load\"\u001b[22m\n"
-        },
-        {
-          "browser": "webkit",
-          "reason": "Error: browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libmanette-0.2.so.0                              ║\n║     libhyphen.so.0                                   ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝"
-        }
-      ],
-      "physicalDevices": "No physical Samsung, iPhone, or tablet testing was performed. Recorded viewport, DPR and touch behavior are browser emulation.",
-      "contrast": "axe could not fully determine contrast for some gradients/illustrations; incomplete records are retained in accessibility.json and are not counted as passed contrast determinations.",
-      "filePlayback": "Firefox actually loaded file:// and scored offline; Chromium file navigation was blocked by managed browser policy. Both executed offline startup/gameplay from local HTML bytes.",
-      "verification": "These automated tests validate game behavior and content schemas; they do not independently fact-check every question."
-    },
-    "evidence": [
-      "suites.json",
-      "one-tap.json",
-      "team-browser.json",
-      "team-ui-v3.json",
-      "build-browser.json",
-      "team-ui-v4.json",
-      "cross-browser.json",
-      "accessibility.json",
-      "content-browser.json",
-      "test-run.log"
-    ],
-    "priorAttempt": {
-      "path": "attempt-1",
-      "status": "failed and superseded",
-      "artifactSha256": "27a2a0e49843d662f3a20b3c4e777fc9fb2302566378e03fe2d5e873bcab2938",
-      "suiteCommandsPassed": 11,
-      "suiteCommandsFailed": 3,
-      "fixedDefects": [
-        "Compact tile width below 44px at 320px viewport",
-        "False storage conflict from a delayed event containing already loaded save text"
-      ],
-      "harnessFix": "File chooser promises are awaited together and browser contexts are closed in finally."
-    },
-    "countingNote": "Named cases are reported per invocation; repeated source checks in content/media browser invocations are identified separately. No unique grand-total assertion is made."
-  },
-  "supersededFailure": {
-    "evidence": "docs/validation/attempt-1/",
-    "status": "Resolved and clean full suite rerun completed",
-    "findings": [
-      "Compact tiles at320px were38.5px wide; removed a grid override and verified >=44px targets.",
-      "A deferred identical storage event after a1200-edit reload caused a false cross-window lock; compare already observed raw saves.",
-      "Content file-chooser helper had an unhandled promise rejection; use Promise.all and preserve per-case cleanup/reporting."
     ]
   },
-  "build": {
-    "artifact": "index.html",
-    "bytes": 2558651,
-    "sha256": "bfed1732dbb89a625a78040d626d4d4143ac0aaf8a08d83047ecd08dfe435d7f",
-    "deterministic": "Two rebuilds from the final unchanged sources produced identical bytes; checked after the complete test run.",
-    "runtimeDependencies": "None outside this file; font, artwork, licensed media, data, code and styles embedded."
+  "stress": {
+    "command": "npm run test:stress",
+    "passedMatches": 120,
+    "stateTransitions": 20871,
+    "restores": 705,
+    "undos": 717,
+    "expectedRejectedRandomActions": 142,
+    "invariantFailures": 0,
+    "log": "reports/pr1-update/stress.log"
   },
-  "remainingLimitations": [
-    "No physical Samsung, iPhone or tablet testing. Playwright viewport/touch emulation covers portrait/landscape and explicit device pixel ratios; it does not prove real Safari, virtual keyboard or hardware behavior.",
-    "WebKit could not launch because seven system shared libraries are unavailable; privileged dependency installation was unavailable. Chromium and Firefox executed. Managed Chromium blocks file:// navigation; actual Firefox file:// offline startup and scoring succeeded.",
-    "Automated axe reports zero violations in the clean run, but contrast evaluation is incomplete for some gradient/illustration elements; see the detailed accessibility report rather than interpreting it as complete contrast certification.",
-    "All720 questions were structurally audited, not all individually fact-checked anew.88pending and5disputed records remain for owner review and are excluded from new matches.",
-    "Visual matches can use an explicitly announced text fallback when an eligible image is unavailable in a requested category/value. No commercial recordings, audio-identification bank, silhouette/crop/comparison engine or other untested optional media formats were added.",
-    "The owner library is a local host tool, not server authentication or encryption. Anyone holding the HTML/host backup can inspect embedded answers. Advanced structured items can be edited through validated JSON import/export; the basic mobile editor preserves their metadata.",
-    "Storage denial cannot guarantee persistence across browser closure; the live memory state remains playable with visible manual backup guidance. Browser file and hosted origins may have independent local storage."
-  ],
-  "delivery": {
-    "repository": "https://github.com/DRAGONQ8/Seen",
-    "branch": "main",
-    "generatedArtifact": "index.html",
-    "ci": ".github/workflows/validate.yml",
-    "gitPolicy": "Preserve existing history; normal fast-forward push only.",
-    "implementationCommit": "4834b68dc495c26440bb76d733958cefcffdcbcf",
-    "pushVerified": true,
-    "downloadURL": "https://github.com/DRAGONQ8/Seen/raw/refs/heads/main/index.html",
-    "githubPages": {
-      "status": "blocked-by-integration-permissions",
-      "attempt": "Create GitHub Pages from main/root after successful push",
-      "httpStatus": 403,
-      "reason": "Resource not accessible by integration",
-      "result": "No hosted play URL was created; the committed standalone HTML remains downloadable and playable offline."
+  "githubEvidence": {
+    "initialPRTipHadNoActionsRunsOrStatusEntriesInAPI": true,
+    "previousCountsDescribeEarlierArtifactOnly": {
+      "suites": 15,
+      "uniqueChecks": 369,
+      "matches": 120,
+      "transitions": 20871
     },
-    "githubActionsRun": "https://github.com/DRAGONQ8/Seen/actions/runs/39560379911"
-  }
+    "updatedBranchActions": "Consult PR checks for the pushed merge commit; local runs are not GitHub Actions results."
+  },
+  "firstAttempt": {
+    "status": "stopped-after-real-CSS-regressions-found",
+    "log": "reports/pr1-update/attempt-1.log",
+    "fixed": [
+      "unclosed print media query suppressing team styles",
+      "scoring-button hover hit-test oscillation"
+    ],
+    "regressionCheck": "scoring choices stay stable when a pointer enters the lower edge"
+  },
+  "physicalSamsung": {
+    "status": "NOT TESTED",
+    "devices": [
+      "Galaxy S24 Ultra",
+      "Galaxy Tab S11 Ultra"
+    ],
+    "browser": "Samsung Internet",
+    "gate": "Record real-device results before merge; see docs/PR1_BRANCH_UPDATE.md"
+  },
+  "limits": [
+    "Managed Chromium blocks direct file:// navigation; exact generated bytes booted without networking and local loads followed by offline gameplay are separate checks.",
+    "Successful file:// execution in Firefox applies only to that Linux engine, not Android/Samsung Internet.",
+    "WebKit availability is reported explicitly, never treated as a pass.",
+    "24-category goal, strict standalone visual preset capacity, true question replacement, and independent whole-bank fact verification remain outside this branch update."
+  ],
+  "review": "docs/PR1_BRANCH_UPDATE.md"
 }

@@ -1,0 +1,12 @@
+{
+  "passed": 120,
+  "steps": 20871,
+  "restores": 705,
+  "undos": 717,
+  "rejections": 142,
+  "command": "node tests/engine-fuzz.cjs",
+  "failed": 0,
+  "scope": "120 seeded pure-engine full-match state simulations; every transition validates state, with restore/Undo/powers/corrections",
+  "engineSha256": "ce2622169b5de36e1a3cefe9f4c9d044f34cfd4960ffba294cde584d59c575fa",
+  "scriptSha256": "56110cc6062a47aa548d70f089ab864ee99c3e6262743db2f9d43d9c5957d249"
+}

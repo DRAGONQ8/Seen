@@ -2657,7 +2657,22 @@
       "PlayStation"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "بلايستيشن: الجهاز الأصلي",
+      "referenceUrl": "https://www.playstation.com/en-us/playstation-history/1994-ps-one/",
+      "section": "Japanese release؛ December 3rd 1994",
+      "notes": "قراءة مباشرة لخط بلايستيشن الزمني الرسمي: إطلاق الجهاز الأول في اليابان في 3 ديسمبر 1994.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "PlayStation"
   },
   {
     "id": "games-031",
@@ -2873,7 +2888,22 @@
       "ألعاب الحاسوب"
     ],
     "version": 1,
-    "points": 400
+    "points": 400,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "فالف: نبذة رسمية",
+      "referenceUrl": "https://www.valvesoftware.com/en/about",
+      "section": "About Us؛ Our games / Our platform",
+      "notes": "قراءة مباشرة لصفحة فالف: Half-Life أول ألعاب الشركة عام 1998، وأنشأت Steam عام 2003؛ طابقت جزأي السؤال.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "ألعاب الحاسوب"
   },
   {
     "id": "games-039",

@@ -1,4 +1,4 @@
-/* V3 media provenance, byte integrity, answer concealment and offline SVG decoding.
+/* V3 media provenance, byte integrity, answer concealment and offline SVG/raster decoding.
    node tests/v3-media.spec.cjs [--browser]
    Browser tooling is development-only; the released HTML needs no dependencies. */
 'use strict';
@@ -72,6 +72,15 @@ test('each diagram belongs to a unique question in its intended category', () =>
   }
 });
 
+test('entire embedded image library supports licensed SVG and raster assets', () => {
+  for(const [key,m] of Object.entries(visuals)) {
+    assert(m.alt && m.credit && m.license,key);
+    const src=context.src(key);
+    assert(/^data:image\/(?:svg\+xml|jpeg|png|webp)(?:;|,)/.test(src),key);
+    if(m.data)assert(/^data:image\/(?:jpeg|png|webp);base64,[a-zA-Z0-9+/=]+$/.test(m.data),key);
+  }
+});
+
 async function browserTest() {
   if (!process.argv.includes('--browser')) return;
   const { chromium } = require('playwright');
@@ -80,15 +89,16 @@ async function browserTest() {
     const page = await browser.newPage({ viewport: { width: 320, height: 915 } });
     await page.context().setOffline(true);
     const errors = []; page.on('pageerror', e => errors.push(e.message));
-    await page.setContent('<html lang="ar" dir="rtl"><meta charset="utf-8"><style>body{margin:0;background:#10182e}img{display:block;width:100%;height:auto;max-width:720px}</style>' + manifest.items.map(m => '<img width="720" height="432" alt="' + m.alt.replaceAll('"', '&quot;') + '" src="' + context.src(m.key) + '">').join('') + '</html>');
+    const all=Object.entries(visuals);
+    await page.setContent('<html lang="ar" dir="rtl"><meta charset="utf-8"><style>body{margin:0;background:#10182e}img{display:block;width:100%;height:auto;max-width:720px}</style>' + all.map(([key,m]) => '<img alt="' + m.alt.replaceAll('"', '&quot;') + '" src="' + context.src(key) + '">').join('') + '</html>');
     await page.waitForFunction(() => [...document.images].every(i => i.complete));
-    const images = await page.locator('img').evaluateAll(a => a.map(i => ({ ok: i.complete && i.naturalWidth === 720 && i.naturalHeight === 432, w: i.getBoundingClientRect().width, h: i.getBoundingClientRect().height })));
-    assert.equal(images.filter(i => i.ok).length, 24);
-    assert(images.every(i => i.w === 320 && i.h === 192), 'mobile image proportions');
+    const images = await page.locator('img').evaluateAll(a => a.map(i => ({ ok: i.complete && i.naturalWidth>0 && i.naturalHeight>0, w: i.getBoundingClientRect().width })));
+    assert.equal(images.filter(i => i.ok).length,all.length,'every embedded SVG and licensed raster must decode');
+    assert(images.every(i => i.w===320),'responsive mobile image widths');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 320);
     assert.deepEqual(errors, []);
-    passed++; console.log('PASS all 24 SVGs decode offline and retain proportions at 320 pixels');
-  } catch (e) { failed++; console.error('FAIL offline SVG decoding:', e.stack); }
+    passed++; console.log('PASS all embedded SVG and licensed raster images decode offline at 320 pixels');
+  } catch (e) { failed++; console.error('FAIL offline SVG/raster decoding:', e.stack); }
   finally { await browser.close(); }
 }
 browserTest().finally(() => { console.log(JSON.stringify({ passed, failed, skipped: 0, newImages: manifest.items.length })); if (failed) process.exitCode = 1; });

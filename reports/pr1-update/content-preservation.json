@@ -1,0 +1,43 @@
+{
+  "refs": {
+    "previousPR": "b87c4c8538b8f00e4ec087dfe2cf863582385d8c",
+    "main": "bfa6910dbb06f78811356342ca1050ac5b637a23"
+  },
+  "previousPRIDs": 666,
+  "mainIDs": 720,
+  "mergedIDs": 738,
+  "missingPRIDs": [],
+  "missingMainIDs": [],
+  "changedPRPayloads": [],
+  "changedMainNewPayloads": [],
+  "sharedMainVsPRPayloadDifferences": [
+    "arabia-003",
+    "arabia-004",
+    "arabia-006",
+    "arabia-007",
+    "exp-geo-008",
+    "exp-prophets-004",
+    "exp-prophets-007",
+    "exp-prophets-008",
+    "football-033",
+    "football-035",
+    "games-030",
+    "games-038",
+    "geo-020",
+    "geo-047",
+    "prophets-010",
+    "v3-h-arabia-009",
+    "v3-h-arabia-010",
+    "v3-h-prophets-015",
+    "v3-h-prophets-016",
+    "v3-h-seerah-011",
+    "v3-h-seerah-015",
+    "v3-h-seerah-016",
+    "v3-p-064",
+    "v3-p-071",
+    "v3-p-085",
+    "v3-p-087",
+    "visual-020"
+  ],
+  "policy": "Preserve PR corrections on shared original content and all main additions; no fresh factual verification performed."
+}

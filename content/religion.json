@@ -268,7 +268,7 @@
     "source": {
       "title": "القرآن الكريم",
       "url": "https://quran.com/29/26",
-      "reference": "سورة العنكبوت، الآية 26"
+      "reference": "سورة العنكبوت؛ الآية 26 وسياق قصة إبراهيم"
     },
     "spoiler": false,
     "tags": [
@@ -277,7 +277,22 @@
     ],
     "version": 1,
     "hint": "ارتبطت رسالته بقوم اشتهروا بفاحشة أنكرها عليهم.",
-    "points": 600
+    "points": 600,
+    "verificationHistory": [
+      {
+        "status": "editorial"
+      }
+    ],
+    "verification": {
+      "status": "source-checked",
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "القرآن الكريم",
+      "referenceUrl": "https://quran.com/29/26",
+      "section": "سورة العنكبوت؛ الآية 26 وسياق قصة إبراهيم",
+      "notes": "قراءة مستقلة للآية العربية وسياقها: تذكر إيمان لوط لإبراهيم دون إضافة تفاصيل نسب غير لازمة.",
+      "method": "independent-public-source-reading"
+    },
+    "subcategory": "لوط عليه السلام"
   },
   {
     "id": "prophets-011",

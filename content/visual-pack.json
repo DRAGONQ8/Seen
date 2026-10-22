@@ -733,8 +733,8 @@
     "id": "visual-020",
     "category": "geo",
     "sub": "معالم العالم",
-    "level": 2,
-    "points": 600,
+    "level": 1,
+    "points": 200,
     "q": "تُظهر الصورة الهرم الأكبر في الجيزة. إلى أي ملك مصري يُنسب هذا الهرم؟",
     "options": [
       "خوفو",
@@ -751,7 +751,7 @@
     "source": {
       "title": "وزارة السياحة والآثار المصرية",
       "url": "https://egymonuments.gov.eg/en/monuments/the-great-pyramid",
-      "reference": "الهرم الأكبر — مقبرة الملك خوفو"
+      "reference": "The Great Pyramid؛ الوصف الافتتاحي"
     },
     "image": "photo-pyramid",
     "imageAttribution": "تصوير: Wknight94؛ Wikimedia Commons؛ CC BY-SA 3.0. أُعيد التحجيم وضُغطت الصورة فقط، دون تغيير محتواها.",
@@ -764,10 +764,24 @@
     "type": "image",
     "verification": {
       "status": "source-checked",
-      "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20؛ مطابقة الشرح مع المرجع التعليمي أو الأثري المدرج"
+      "verifiedAt": "2026-10-20",
+      "referenceTitle": "وزارة السياحة والآثار المصرية",
+      "referenceUrl": "https://egymonuments.gov.eg/en/monuments/the-great-pyramid",
+      "section": "The Great Pyramid؛ الوصف الافتتاحي",
+      "notes": "قراءة مستقلة لصفحة وزارة السياحة والآثار المصرية، التي تنسب الهرم الأكبر إلى الملك خوفو.",
+      "method": "independent-public-source-reading",
+      "difficultyRationale": "سؤال تعرف أساسي إلى أشهر أهرام الجيزة، وقد سمّت الصياغة الهرم الأكبر؛ صُحح من600إلى200 لتجنب تضخيم الصعوبة."
     },
     "version": 1,
-    "hint": "ليس الهرم الأوسط ولا أصغر أهرامات المجموعة."
+    "hint": "ليس الهرم الأوسط ولا أصغر أهرامات المجموعة.",
+    "verificationHistory": [
+      {
+        "status": "source-checked",
+        "reference": "مطابقة الموضوع والوصف واسم المصور والرخصة من واجهة بيانات ويكيميديا كومنز؛ مراجعة الصورة بصريًا 2026-10-20؛ مطابقة الشرح مع المرجع التعليمي أو الأثري المدرج"
+      }
+    ],
+    "subcategory": "معالم العالم",
+    "difficulty": "easy"
   },
   {
     "id": "visual-021",

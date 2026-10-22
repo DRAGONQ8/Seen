@@ -1,0 +1,364 @@
+{
+  "checkedAt": "2026-10-20",
+  "method": "Independent reading of primary public pages in this execution; no question was promoted from URL presence alone.",
+  "existingQuestionsReviewed": 16,
+  "checks": [
+    {
+      "questionId": "exp-geo-008",
+      "previousStatus": "pending",
+      "source": "https://www.jpl.nasa.gov/images/pia03396-guiana-highlands-shaded-relief-and-colored-height/",
+      "section": "Guiana Highlands؛ الفقرة التي تصف Angel Falls وAuyan Tebuy",
+      "finding": "قراءة مباشرة لوصف NASA/JPL للصورة PIA03396: شلال Angel Falls ينحدر من Auyan Tebuy. حُذفت إضافة موقع كانايما غير المدعومة في هذا المرجع من السؤال، دون تغيير الجواب."
+    },
+    {
+      "questionId": "arabia-003",
+      "previousStatus": "editorial",
+      "source": "https://whc.unesco.org/en/list/1700/",
+      "section": "Outstanding Universal Value / Brief synthesis؛ مأرب عاصمة سبأ",
+      "finding": "قراءة مباشرة لوصف اليونسكو: مدينة مأرب المسورة كانت العاصمة والمركز الإداري والثقافي والاقتصادي لمملكة سبأ."
+    },
+    {
+      "questionId": "arabia-004",
+      "previousStatus": "editorial",
+      "source": "https://whc.unesco.org/en/list/1700/",
+      "section": "Outstanding Universal Value / Brief synthesis؛ سد مأرب وقنوات الري",
+      "finding": "قراءة مباشرة لوصف اليونسكو: كان سد مأرب يغذي شبكة قنوات ري سمحت بزراعة مساحة كبيرة؛ طابقت وظيفة الري مع السؤال."
+    },
+    {
+      "questionId": "arabia-006",
+      "previousStatus": "editorial",
+      "source": "https://whc.unesco.org/en/list/326/",
+      "section": "Outstanding Universal Value / Brief synthesis؛ عاصمة الأنباط",
+      "finding": "قراءة مباشرة لوصف اليونسكو الذي يصف البتراء بأنها عاصمة الأنباط المنحوتة في الصخر."
+    },
+    {
+      "questionId": "arabia-007",
+      "previousStatus": "editorial",
+      "source": "https://whc.unesco.org/en/list/1293/",
+      "section": "Description / Outstanding Universal Value؛ المقابر النبطية",
+      "finding": "قراءة مباشرة لوصف اليونسكو للحجر ومقابره الأثرية؛ طابقت عمارة المقابر المنحوتة مع السؤال."
+    },
+    {
+      "questionId": "games-030",
+      "previousStatus": "editorial",
+      "source": "https://www.playstation.com/en-us/playstation-history/1994-ps-one/",
+      "section": "Japanese release؛ December 3rd 1994",
+      "finding": "قراءة مباشرة لخط بلايستيشن الزمني الرسمي: إطلاق الجهاز الأول في اليابان في 3 ديسمبر 1994."
+    },
+    {
+      "questionId": "games-038",
+      "previousStatus": "editorial",
+      "source": "https://www.valvesoftware.com/en/about",
+      "section": "About Us؛ Our games / Our platform",
+      "finding": "قراءة مباشرة لصفحة فالف: Half-Life أول ألعاب الشركة عام 1998، وأنشأت Steam عام 2003؛ طابقت جزأي السؤال."
+    },
+    {
+      "questionId": "football-033",
+      "previousStatus": "editorial",
+      "source": "https://www.theifab.com/laws/2025-26/the-players/",
+      "section": "قانون 3.1؛ عدد اللاعبين؛ إصدار 2025/26",
+      "finding": "قراءة مباشرة لقانون IFAB: الحد الأقصى للفريق 11 لاعبًا، أحدهم حارس مرمى. طابقت السؤال عن الفريق مكتمل العدد مع هذا النص."
+    },
+    {
+      "questionId": "football-035",
+      "previousStatus": "editorial",
+      "source": "https://www.theifab.com/laws/2025-26/the-field-of-play/",
+      "section": "قانون 1.6؛ منطقة الجزاء؛ إصدار 2025/26",
+      "finding": "قراءة مباشرة لقانون IFAB: علامة الجزاء على بعد 11 مترًا من منتصف المسافة بين القائمين؛ طابقت القيمة والوحدة مع الإجابة."
+    },
+    {
+      "questionId": "exp-prophets-004",
+      "previousStatus": "pending",
+      "source": "https://quran.com/21/85",
+      "section": "سورة الأنبياء؛ الآية 85",
+      "finding": "قراءة مستقلة للآية العربية: ورد اسما إسماعيل وإدريس مع ذي الكفل، ووُصفوا بالصابرين."
+    },
+    {
+      "questionId": "exp-prophets-007",
+      "previousStatus": "pending",
+      "source": "https://quran.com/21/78",
+      "section": "سورة الأنبياء؛ الآية 78 وسياقها في 79",
+      "finding": "قراءة مستقلة للآية وترجمتها: حكم داود وسليمان في حرث نفشت فيه غنم القوم؛ الترجمة المقروءة توضح الرعي ليلًا."
+    },
+    {
+      "questionId": "exp-prophets-008",
+      "previousStatus": "pending",
+      "source": "https://quran.com/19/54-55",
+      "section": "سورة مريم؛ الآيتان 54 و55",
+      "finding": "قراءة الآيتين معًا؛ تسمي الأولى إسماعيل، وتذكر التالية أمر أهله بالصلاة والزكاة."
+    },
+    {
+      "questionId": "prophets-010",
+      "previousStatus": "editorial",
+      "source": "https://quran.com/29/26",
+      "section": "سورة العنكبوت؛ الآية 26 وسياق قصة إبراهيم",
+      "finding": "قراءة مستقلة للآية العربية وسياقها: تذكر إيمان لوط لإبراهيم دون إضافة تفاصيل نسب غير لازمة."
+    },
+    {
+      "questionId": "visual-020",
+      "previousStatus": "pending",
+      "source": "https://egymonuments.gov.eg/en/monuments/the-great-pyramid",
+      "section": "The Great Pyramid؛ الوصف الافتتاحي",
+      "finding": "قراءة مستقلة لصفحة وزارة السياحة والآثار المصرية، التي تنسب الهرم الأكبر إلى الملك خوفو."
+    },
+    {
+      "questionId": "geo-020",
+      "previousStatus": "editorial",
+      "source": "https://www.rw.tzembassy.go.tz/tanzania/about-tanzania",
+      "section": "About Tanzania؛ فقرة العاصمة والميناء التجاري",
+      "finding": "قراءة مستقلة لصفحة بعثة تنزانيا الحكومية: دودوما العاصمة ودار السلام العاصمة التجارية. طابقت التفريق الوارد في السؤال."
+    },
+    {
+      "questionId": "geo-047",
+      "previousStatus": "editorial",
+      "source": "https://taaf.fr/collectivites/presentation-des-territoires/les-iles-australes/",
+      "section": "Les îles Australes؛ الفقرة الافتتاحية وقسم Les îles Kerguelen",
+      "finding": "قراءة مستقلة لصفحة الإدارة الفرنسية TAAF؛ تضع كيرغولين وجزر الأراضي الجنوبية في جنوب المحيط الهندي."
+    }
+  ],
+  "newQuestionsVerified": 18,
+  "newChecks": [
+    {
+      "questionId": "v4-space-001",
+      "source": "https://science.nasa.gov/solar-system/planets/",
+      "section": "About the Planets / Introduction",
+      "finding": "يضم النظام الشمسي 8 كواكب؛ ويصنف بلوتو كوكبًا قزمًا."
+    },
+    {
+      "questionId": "v4-space-002",
+      "source": "https://science.nasa.gov/mercury/facts/",
+      "section": "Mercury Facts / Introduction",
+      "finding": "عطارد أول الكواكب ترتيبًا من الشمس."
+    },
+    {
+      "questionId": "v4-space-003",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "section": "Jupiter Facts / Introduction",
+      "finding": "المشتري أكبر كواكب النظام الشمسي حجمًا."
+    },
+    {
+      "questionId": "v4-space-004",
+      "source": "https://science.nasa.gov/solar-system/planets/",
+      "section": "Inner Planets / Earth Facts",
+      "finding": "تأتي الأرض بعد عطارد والزهرة."
+    },
+    {
+      "questionId": "v4-space-005",
+      "source": "https://science.nasa.gov/solar-system/planets/",
+      "section": "Outer Planets / Neptune Facts",
+      "finding": "نبتون الكوكب الثامن؛ ولا يدخل بلوتو ضمن الكواكب الثمانية."
+    },
+    {
+      "questionId": "v4-space-006",
+      "source": "https://science.nasa.gov/sun/facts/",
+      "section": "Our Sun: Facts / Introduction",
+      "finding": "الشمس نجم النظام الشمسي، وليست كوكبًا."
+    },
+    {
+      "questionId": "v4-space-007",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "section": "Introduction / Great Red Spot",
+      "finding": "البقعة الحمراء العظيمة عاصفة في غلاف المشتري الجوي."
+    },
+    {
+      "questionId": "v4-space-008",
+      "source": "https://science.nasa.gov/mercury/facts/",
+      "section": "Orbit and Rotation / orbital period",
+      "finding": "سنة عطارد نحو 88 يومًا أرضيًا."
+    },
+    {
+      "questionId": "v4-space-009",
+      "source": "https://science.nasa.gov/mars/facts/",
+      "section": "Moons / Phobos and Deimos",
+      "finding": "يدور فوبوس وديموس حول المريخ."
+    },
+    {
+      "questionId": "v4-space-010",
+      "source": "https://science.nasa.gov/venus/venus-facts/",
+      "section": "Orbit and Rotation / retrograde rotation",
+      "finding": "يدور الزهرة دورانًا تراجعيًا مقارنة بالأرض؛ لذا تشرق الشمس هناك من الغرب."
+    },
+    {
+      "questionId": "v4-space-011",
+      "source": "https://science.nasa.gov/sun/facts/",
+      "section": "Structure / nuclear reactions in the core",
+      "finding": "يندمج الهيدروجين لتكوين الهيليوم في قلب الشمس."
+    },
+    {
+      "questionId": "v4-space-012",
+      "source": "https://science.nasa.gov/solar-system/planets/",
+      "section": "Introduction / 2006 IAU definition",
+      "finding": "صدر تعريف الاتحاد الفلكي الدولي الذي غيّر تصنيف بلوتو عام 2006."
+    },
+    {
+      "questionId": "v4-space-013",
+      "source": "https://science.nasa.gov/mercury/facts/",
+      "section": "Orbit and Rotation / solar day",
+      "finding": "اليوم الشمسي لعطارد نحو 176 يومًا أرضيًا؛ وهو يختلف عن مدة دورانه حول محوره."
+    },
+    {
+      "questionId": "v4-space-014",
+      "source": "https://science.nasa.gov/venus/venus-facts/",
+      "section": "Orbit and Rotation / axial rotation",
+      "finding": "الدوران المحوري للزهرة نحو 243 يومًا أرضيًا؛ أما سنته فنحو 225 يومًا."
+    },
+    {
+      "questionId": "v4-space-015",
+      "source": "https://science.nasa.gov/uranus/facts/",
+      "section": "Orbit and Rotation / 97.77-degree tilt",
+      "finding": "ميل محور أورانوس 97.77 درجة تقريبًا، وهو سبب مظهر دورانه الجانبي."
+    },
+    {
+      "questionId": "v4-space-016",
+      "source": "https://science.nasa.gov/jupiter/jupiter-facts/",
+      "section": "Rings / Voyager 1 discovery",
+      "finding": "اكتشفت فوياجر 1 حلقات المشتري الخافتة عام 1979."
+    },
+    {
+      "questionId": "v4-space-017",
+      "source": "https://science.nasa.gov/sun/facts/",
+      "section": "Surface / photosphere",
+      "finding": "الغلاف الضوئي هو الطبقة المرئية التي يطلق عليها سطح الشمس، رغم أنه ليس صلبًا."
+    },
+    {
+      "questionId": "v4-space-018",
+      "source": "https://science.nasa.gov/uranus/facts/",
+      "section": "Moons / literary names",
+      "finding": "تستمد أقمار أورانوس أسماءها من شخصيات أدبية عند شكسبير وألكسندر بوب."
+    }
+  ],
+  "independentSecondReview": {
+    "scope": "راجع محرر ثان الأسئلة18الجديدة وأعاد فتح7صفحات NASA؛ وراجع المحرر الأصلي نصوص الأسئلة16المحدثة والاختيارات والتفسيرات مقابل المراجع المقروءة.",
+    "confirmedFixes": [
+      {
+        "questionId": "v4-space-010",
+        "fix": "قُيد السؤال بالكواكب الصخرية؛ أورانوس يدور تراجعيًا أيضًا، ولا تكفي الاختيارات لحماية فرادة الجواب في النمط الشفهي."
+      },
+      {
+        "questionId": "arabia-003",
+        "fix": "قُيد السؤال بالعاصمة الإدارية والاقتصادية لتجنب إدراج صرواح بوصفها مركزًا آخر."
+      },
+      {
+        "questionId": "arabia-006",
+        "fix": "استُبدل التفضيل غير المقيس «الأشهر» بوصف اليونسكو المحدد."
+      },
+      {
+        "questionId": "exp-geo-008",
+        "fix": "أُضيف الارتفاع979مترًا المذكور صراحة في NASA لتمييز الشلال من شلالات الهضبة الأخرى."
+      },
+      {
+        "questionId": "visual-020",
+        "fix": "تصحيح الصعوبة من600إلى200؛ السؤال يسمّي الهرم الأكبر ويسأل عن خوفو، وهي معرفة أساسية."
+      }
+    ],
+    "difficultyLimitation": "تصنيف تحريري، دون ادعاء اختبار معايرة ميداني مع لاعبين."
+  },
+  "familySuitabilityReview": {
+    "reviewedAt": "2026-10-21",
+    "age": "12+",
+    "scope": "مراجعة تحريرية مستقلة لملاءمة15سؤالًا موجودًا و18سؤال فضاء. قُرئت الصياغة والخيارات والتفسيرات؛ لم يتغير أي حكم للتحقق الواقعي بسبب هذه الملاءمة.",
+    "eligibleQuestions": 33,
+    "reviewedExistingQuestionIds": [
+      "football-033",
+      "v3-p-064",
+      "v3-p-071",
+      "v3-p-085",
+      "v3-p-087",
+      "geo-020",
+      "arabia-003",
+      "v3-h-arabia-009",
+      "v3-h-arabia-010",
+      "v3-h-prophets-016",
+      "v3-h-prophets-015",
+      "exp-prophets-008",
+      "v3-h-seerah-016",
+      "v3-h-seerah-011",
+      "v3-h-seerah-015"
+    ],
+    "inventory": {
+      "arabia": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "football": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "geo": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "prophets": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "seerah": {
+        "eligibleByPoints": {
+          "200": 1,
+          "400": 1,
+          "600": 1
+        },
+        "quickAvailable": true,
+        "classicAvailable": false,
+        "classicShortages": [
+          "200",
+          "400",
+          "600"
+        ]
+      },
+      "space": {
+        "eligibleByPoints": {
+          "200": 6,
+          "400": 6,
+          "600": 6
+        },
+        "quickAvailable": true,
+        "classicAvailable": true,
+        "classicShortages": []
+      }
+    },
+    "quick18Available": true,
+    "classic36Available": false,
+    "limitation": "ست فئات فقط؛ فئات الأسئلة الموجودة تملك سؤالًا واحدًا لكل قيمة ضمن هذا الاختيار المحافظ. ليس وعدًا بملاءمة الأطفال الأصغر أو قياس صعوبة ميداني."
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "node",
+    "args": [
+      "tests/v4-ui.spec.cjs"
+    ],
+    "code": 0
+  },
+  {
+    "name": "node",
+    "args": [
+      "tests/v4-browser.spec.cjs"
+    ],
+    "code": 0
+  }
+]
