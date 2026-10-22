@@ -84,7 +84,7 @@ test('entire embedded image library supports licensed SVG and raster assets', ()
 async function browserTest() {
   if (!process.argv.includes('--browser')) return;
   const { chromium } = require('playwright');
-  const browser = await chromium.launch({ executablePath: process.env.SEEN_CHROMIUM || '/usr/bin/chromium', args: ['--no-sandbox'] });
+  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || process.env.SEEN_CHROMIUM || '/usr/bin/chromium', args: ['--no-sandbox'] });
   try {
     const page = await browser.newPage({ viewport: { width: 320, height: 915 } });
     await page.context().setOffline(true);

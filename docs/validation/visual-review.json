@@ -1,0 +1,16 @@
+{
+  "browser": "154.0.8037.57",
+  "context": "Headless desktop Chromium with emulated viewport412x915/DPR3.5 and1480x924; no physical device timings",
+  "readyMsIncludingAutomation": 1296,
+  "oneAwardSynchronousHandlerMs": 32.6,
+  "errors": [],
+  "visuallyReviewedScreens": [
+    "home",
+    "classic board",
+    "question",
+    "answer reveal",
+    "landscape tablet"
+  ],
+  "artifactSHA256": "bfed1732dbb89a625a78040d626d4d4143ac0aaf8a08d83047ecd08dfe435d7f",
+  "timingScope": "One smoke sample while parallel regression tools ran, not a mobile hardware benchmark or performance guarantee."
+}

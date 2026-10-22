@@ -1,0 +1,878 @@
+{
+  "checks": [
+    {
+      "name": "generated HTML starts from local bytes with network disabled before startup",
+      "ok": true
+    },
+    {
+      "name": "malicious mixed-case script, comments and Unicode survive actual Python build without execution",
+      "ok": true
+    },
+    {
+      "name": "long Arabic visual snapshot can open through actual team controls",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 412x915 text 100%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 915x412 text 100%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 1024x1536 text 100%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 1536x1024 text 100%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 320x780 text 100%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 412x915 text 130%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 915x412 text 130%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 1024x1536 text 130%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 1536x1024 text 130%",
+      "ok": true
+    },
+    {
+      "name": "long visual interaction 320x780 text 130%",
+      "ok": true
+    },
+    {
+      "name": "long visual answer exposes exactly three reachable scoring choices and completes without another screen",
+      "ok": true
+    },
+    {
+      "name": "no uncaught errors and no external runtime requests",
+      "ok": true
+    }
+  ],
+  "passed": 15,
+  "failed": 0,
+  "skipped": 0,
+  "errors": [],
+  "network": [],
+  "layouts": [
+    {
+      "label": "question 412x915 100",
+      "width": 412,
+      "scroll": 412,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 54
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 44
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 46
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 46
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 209.5,
+          "right": 380,
+          "width": 170.5,
+          "height": 60.265625
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 32,
+          "right": 202.5,
+          "width": 170.5,
+          "height": 60.265625
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 344
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 412x915 100",
+      "width": 412,
+      "scroll": 412,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 37,
+          "right": 81,
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 355.390625,
+        "viewport": 915
+      }
+    },
+    {
+      "label": "question 915x412 100",
+      "width": 915,
+      "scroll": 915,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 331.125,
+          "right": 874,
+          "width": 542.875,
+          "height": 150
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 331.125,
+          "right": 874,
+          "width": 542.875,
+          "height": 44
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 609.0625,
+          "right": 874,
+          "width": 264.9375,
+          "height": 44
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 331.125,
+          "right": 596.0625,
+          "width": 264.9375,
+          "height": 44
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 36,
+          "right": 277.125,
+          "width": 241.125,
+          "height": 44
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 36,
+          "right": 277.125,
+          "width": 241.125,
+          "height": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 540.875
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 915x412 100",
+      "width": 915,
+      "scroll": 915,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 216.5,
+          "right": 262.5,
+          "width": 46,
+          "height": 46
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 364,
+        "viewport": 412
+      }
+    },
+    {
+      "label": "question 1024x1536 100",
+      "width": 1024,
+      "scroll": 1024,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 287,
+          "right": 973,
+          "width": 686,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 287,
+          "right": 973,
+          "width": 686,
+          "height": 44.84375
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 636.5,
+          "right": 973,
+          "width": 336.5,
+          "height": 46
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 287,
+          "right": 623.5,
+          "width": 336.5,
+          "height": 46
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 46,
+          "right": 230,
+          "width": 184,
+          "height": 44
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 46,
+          "right": 230,
+          "width": 184,
+          "height": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 684
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 1024x1536 100",
+      "width": 1024,
+      "scroll": 1024,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 271,
+          "right": 317,
+          "width": 46,
+          "height": 46
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 463.390625,
+        "viewport": 1536
+      }
+    },
+    {
+      "label": "question 1536x1024 100",
+      "width": 1536,
+      "scroll": 1536,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 337,
+          "right": 1230,
+          "width": 893,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 337,
+          "right": 1230,
+          "width": 893,
+          "height": 44.84375
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 790,
+          "right": 1230,
+          "width": 440,
+          "height": 46
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 337,
+          "right": 777,
+          "width": 440,
+          "height": 46
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 63,
+          "right": 277,
+          "width": 214,
+          "height": 44
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 63,
+          "right": 277,
+          "width": 214,
+          "height": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 891
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 1536x1024 100",
+      "width": 1536,
+      "scroll": 1536,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 527,
+          "right": 573,
+          "width": 46,
+          "height": 46
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 463.390625,
+        "viewport": 1024
+      }
+    },
+    {
+      "label": "question 320x780 100",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 54
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 44
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 46
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 46
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 163.5,
+          "right": 288,
+          "width": 124.5,
+          "height": 60.265625
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 32,
+          "right": 156.5,
+          "width": 124.5,
+          "height": 60.265625
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 252
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 320x780 100",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 37,
+          "right": 81,
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 325.03125,
+        "viewport": 780
+      }
+    },
+    {
+      "label": "question 412x915 130",
+      "width": 412,
+      "scroll": 412,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 54
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 44
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 46
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 33,
+          "right": 379,
+          "width": 346,
+          "height": 46
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 209.5,
+          "right": 380,
+          "width": 170.5,
+          "height": 60.265625
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 32,
+          "right": 202.5,
+          "width": 170.5,
+          "height": 60.265625
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 344
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 412x915 130",
+      "width": 412,
+      "scroll": 412,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 41.203125,
+          "right": 85.203125,
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 393.546875,
+        "viewport": 915
+      }
+    },
+    {
+      "label": "question 915x412 130",
+      "width": 915,
+      "scroll": 915,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 331.125,
+          "right": 874,
+          "width": 542.875,
+          "height": 150
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 331.125,
+          "right": 874,
+          "width": 542.875,
+          "height": 44.5
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 609.0625,
+          "right": 874,
+          "width": 264.9375,
+          "height": 44.5
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 331.125,
+          "right": 596.0625,
+          "width": 264.9375,
+          "height": 44.5
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 36,
+          "right": 277.125,
+          "width": 241.125,
+          "height": 47.09375
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 36,
+          "right": 277.125,
+          "width": 241.125,
+          "height": 47.09375
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 540.875
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 915x412 130",
+      "width": 915,
+      "scroll": 915,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 216.5,
+          "right": 262.5,
+          "width": 46,
+          "height": 46
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 364,
+        "viewport": 412
+      }
+    },
+    {
+      "label": "question 1024x1536 130",
+      "width": 1024,
+      "scroll": 1024,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 287,
+          "right": 973,
+          "width": 686,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 287,
+          "right": 973,
+          "width": 686,
+          "height": 51.6875
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 636.5,
+          "right": 973,
+          "width": 336.5,
+          "height": 51.6875
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 287,
+          "right": 623.5,
+          "width": 336.5,
+          "height": 51.6875
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 46,
+          "right": 230,
+          "width": 184,
+          "height": 76.4375
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 46,
+          "right": 230,
+          "width": 184,
+          "height": 76.4375
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 684
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 1024x1536 130",
+      "width": 1024,
+      "scroll": 1024,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 271,
+          "right": 317,
+          "width": 46,
+          "height": 46
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 471.53125,
+        "viewport": 1536
+      }
+    },
+    {
+      "label": "question 1536x1024 130",
+      "width": 1536,
+      "scroll": 1536,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 337,
+          "right": 1230,
+          "width": 893,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 337,
+          "right": 1230,
+          "width": 893,
+          "height": 51.6875
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 790,
+          "right": 1230,
+          "width": 440,
+          "height": 51.6875
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 337,
+          "right": 777,
+          "width": 440,
+          "height": 51.6875
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 63,
+          "right": 277,
+          "width": 214,
+          "height": 49.21875
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 63,
+          "right": 277,
+          "width": 214,
+          "height": 49.21875
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 891
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 1536x1024 130",
+      "width": 1536,
+      "scroll": 1536,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 527,
+          "right": 573,
+          "width": 46,
+          "height": 46
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 471.53125,
+        "viewport": 1024
+      }
+    },
+    {
+      "label": "question 320x780 130",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 54.875
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 48.5
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 47.8125
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "left": 33,
+          "right": 287,
+          "width": 254,
+          "height": 47.8125
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "left": 163.5,
+          "right": 288,
+          "width": 124.5,
+          "height": 70.5625
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "left": 32,
+          "right": 156.5,
+          "width": 124.5,
+          "height": 70.5625
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 252
+        }
+      ],
+      "dialog": null
+    },
+    {
+      "label": "zoom 320x780 130",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "",
+          "left": 41.203125,
+          "right": 85.203125,
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "images": [],
+      "dialog": {
+        "height": 336.046875,
+        "viewport": 780
+      }
+    },
+    {
+      "label": "long visual scoring 320 text130",
+      "width": 320,
+      "scroll": 320,
+      "dir": "rtl",
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق أجاب إجابة صحيحة+200",
+          "left": 164,
+          "right": 272,
+          "width": 108,
+          "height": 117.53125
+        },
+        {
+          "text": "🏆 الفريق الذهبي أجاب إجابة صحيحة+200",
+          "left": 48,
+          "right": 156,
+          "width": 108,
+          "height": 117.53125
+        },
+        {
+          "text": "⚪ محد جاوب صح0",
+          "left": 48,
+          "right": 272,
+          "width": 224,
+          "height": 52.28125
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "width": 258
+        }
+      ],
+      "dialog": null
+    }
+  ],
+  "environment": "Chromium touch emulation; no physical Samsung hardware"
+}

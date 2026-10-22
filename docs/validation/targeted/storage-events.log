@@ -1,0 +1,17 @@
+PASS chromium repeated storage events for an already loaded or written save do not lock the host
+PASS chromium a stale second host window cannot overwrite an awarded question
+PASS firefox repeated storage events for an already loaded or written save do not lock the host
+PASS firefox a stale second host window cannot overwrite an awarded question
+UNAVAILABLE webkit Error: browserType.launch:
+╔══════════════════════════════════════════════════════╗
+║ Host system is missing dependencies to run browsers. ║
+║ Missing libraries:                                   ║
+║     libgtk-4.so.1                                    ║
+║     libgraphene-1.0.so.0                             ║
+║     libharfbuzz-icu.so.0                             ║
+║     libmanette-0.2.so.0                              ║
+║     libhyphen.so.0                                   ║
+║     libwoff2dec.so.1.0.2                             ║
+║     libGLESv2.so.2                                   ║
+╚══════════════════════════════════════════════════════╝
+{"passed":4,"failed":0,"unavailable":[{"browser":"chromium","feature":"file URL startup"},{"browser":"webkit"}],"report":"/tmp/seen-v4-browser-focused-report.json"}

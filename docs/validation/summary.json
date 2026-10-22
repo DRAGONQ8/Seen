@@ -1,0 +1,263 @@
+{
+  "command": "npm test",
+  "completedAt": "2026-10-21T07:10:38.691473+00:00",
+  "status": "passed",
+  "suiteCommands": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0
+  },
+  "suites": [
+    {
+      "command": "python -m unittest discover -s tests -p test_*.py",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "unit",
+      "checks": {
+        "passed": 13,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/team-engine.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "unit",
+      "checks": {
+        "passed": 79,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/v4-engine.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "unit",
+      "checks": {
+        "passed": 18,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/team-content.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "unit",
+      "checks": {
+        "passed": 27,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/v3-media.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "unit",
+      "checks": {
+        "passed": 5,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/one-tap.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 16,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/team-browser.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 30,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/v3-team-ui.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 8,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/v3-build-browser.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 15,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/v4-ui.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 11,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/v4-browser.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 26,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/team-accessibility.spec.cjs",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 131,
+        "failed": 0
+      }
+    },
+    {
+      "command": "node tests/team-content.spec.cjs --browser",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 7,
+        "failed": 0
+      },
+      "repeatedSourceChecks": {
+        "passed": 27,
+        "failed": 0
+      },
+      "countNote": "checks counts browser cases; the same invocation also repeats the content unit cases."
+    },
+    {
+      "command": "node tests/v3-media.spec.cjs --browser",
+      "exitCode": 0,
+      "status": "passed",
+      "kind": "browser",
+      "checks": {
+        "passed": 1,
+        "failed": 0
+      },
+      "repeatedSourceChecks": {
+        "passed": 5,
+        "failed": 0
+      },
+      "countNote": "checks counts the offline decode browser case; repeated source cases are listed separately."
+    }
+  ],
+  "artifact": {
+    "path": "index.html",
+    "bytes": 2558651,
+    "sha256": "bfed1732dbb89a625a78040d626d4d4143ac0aaf8a08d83047ecd08dfe435d7f",
+    "sameAsBeforeNpmTestRebuild": true
+  },
+  "browserEnginesExecuted": [
+    {
+      "name": "chromium",
+      "version": "154.0.8037.57"
+    },
+    {
+      "name": "firefox",
+      "version": "146.0.1"
+    }
+  ],
+  "runtimeFindingsByReport": {
+    "one-tap.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "team-browser.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "team-ui-v3.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "build-browser.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "team-ui-v4.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "cross-browser.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "accessibility.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    },
+    "content-browser.json": {
+      "runtimeErrors": 0,
+      "externalRuntimeRequests": 0
+    }
+  },
+  "runtimeErrors": [],
+  "externalRuntimeRequests": [],
+  "accessibility": {
+    "checksPassed": 131,
+    "checksFailed": 0,
+    "screenAudits": 92,
+    "violations": 0,
+    "contrastIncompleteRecords": 88
+  },
+  "limitations": {
+    "unavailableOrRestricted": [
+      {
+        "browser": "chromium",
+        "feature": "file URL startup",
+        "reason": "Error: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/Seen/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/Seen/index.html\", waiting until \"load\"\u001b[22m\n"
+      },
+      {
+        "browser": "webkit",
+        "reason": "Error: browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libmanette-0.2.so.0                              ║\n║     libhyphen.so.0                                   ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝"
+      }
+    ],
+    "physicalDevices": "No physical Samsung, iPhone, or tablet testing was performed. Recorded viewport, DPR and touch behavior are browser emulation.",
+    "contrast": "axe could not fully determine contrast for some gradients/illustrations; incomplete records are retained in accessibility.json and are not counted as passed contrast determinations.",
+    "filePlayback": "Firefox actually loaded file:// and scored offline; Chromium file navigation was blocked by managed browser policy. Both executed offline startup/gameplay from local HTML bytes.",
+    "verification": "These automated tests validate game behavior and content schemas; they do not independently fact-check every question."
+  },
+  "evidence": [
+    "suites.json",
+    "one-tap.json",
+    "team-browser.json",
+    "team-ui-v3.json",
+    "build-browser.json",
+    "team-ui-v4.json",
+    "cross-browser.json",
+    "accessibility.json",
+    "content-browser.json",
+    "test-run.log"
+  ],
+  "priorAttempt": {
+    "path": "attempt-1",
+    "status": "failed and superseded",
+    "artifactSha256": "27a2a0e49843d662f3a20b3c4e777fc9fb2302566378e03fe2d5e873bcab2938",
+    "suiteCommandsPassed": 11,
+    "suiteCommandsFailed": 3,
+    "fixedDefects": [
+      "Compact tile width below 44px at 320px viewport",
+      "False storage conflict from a delayed event containing already loaded save text"
+    ],
+    "harnessFix": "File chooser promises are awaited together and browser contexts are closed in finally."
+  },
+  "countingNote": "Named cases are reported per invocation; repeated source checks in content/media browser invocations are identified separately. No unique grand-total assertion is made."
+}

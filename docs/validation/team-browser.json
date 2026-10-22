@@ -1,0 +1,1736 @@
+{
+  "testURL": "http://127.0.0.1:8765/index.html",
+  "filter": null,
+  "fileWorkflow": "Not executed: managed browser blocks file:// navigation",
+  "environment": "Chromium touch/viewport emulation; no actual Samsung hardware",
+  "passed": 30,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "initial Arabic launch, self-contained bank and defaults",
+      "ok": true
+    },
+    {
+      "name": "nine-step wizard, custom teams, manual three categories each, compact 18",
+      "ok": true
+    },
+    {
+      "name": "automatic category selection, Classic 36 unique six tiles each",
+      "ok": true
+    },
+    {
+      "name": "oral question hides solution; one winner tap scores once and returns directly to board",
+      "ok": true
+    },
+    {
+      "name": "wrong first attempt opens hidden-answer 10-second steal; awards opposing team once",
+      "ok": true
+    },
+    {
+      "name": "stealing disabled, timer disabled, no unavailable assistance",
+      "ok": true
+    },
+    {
+      "name": "real configurable timer expires to steal then reveal, never runs on explanations",
+      "ok": true
+    },
+    {
+      "name": "host-controlled steal waits before timer start",
+      "ok": true
+    },
+    {
+      "name": "presenter explicitly starts and pauses the timer without exposing the answer",
+      "ok": true
+    },
+    {
+      "name": "Pit can be armed or cancelled on board; next question consumes it and resolves 500/900 to 900/500",
+      "ok": true
+    },
+    {
+      "name": "Pit deduction respects zero floor and assistance exhaustion",
+      "ok": true
+    },
+    {
+      "name": "Trap transfer once, negative deduction, no further steal or turn loop",
+      "ok": true
+    },
+    {
+      "name": "Answer Twice permits two proposals, hides solution after first wrong, consumes once",
+      "ok": true
+    },
+    {
+      "name": "Call a Friend, extra time, hints, double points and sit out are actionable",
+      "ok": true
+    },
+    {
+      "name": "Skip and Second Chance are distinct confirmed consumable actions",
+      "ok": true
+    },
+    {
+      "name": "3-option question contains exactly one correct answer and awards only after the host selects the result",
+      "ok": true
+    },
+    {
+      "name": "4-option question contains exactly one correct answer and awards only after the host selects the result",
+      "ok": true
+    },
+    {
+      "name": "typed Arabic matching, manual host override, and distinct Arabic letters",
+      "ok": true
+    },
+    {
+      "name": "score correction and undo preserve original turn and reopen only adjudication",
+      "ok": true
+    },
+    {
+      "name": "undo after Skip preserves known answer and never restores a stealable hidden attempt",
+      "ok": true
+    },
+    {
+      "name": "save, refresh during active question, resume paused, completed tiles/config remain locked",
+      "ok": true
+    },
+    {
+      "name": "complete all 18 tiles, winner, history and rematch",
+      "ok": true
+    },
+    {
+      "name": "complete all 18 tiles, tie, history and rematch",
+      "ok": true
+    },
+    {
+      "name": "encoded host backup round trip and malformed restore rejection preserve the match and host preferences",
+      "ok": true
+    },
+    {
+      "name": "owner question editor, local report, disable/re-enable and pack round trip validate safely",
+      "ok": true
+    },
+    {
+      "name": "all embedded visual clues load offline and zoom has no solution leakage",
+      "ok": true
+    },
+    {
+      "name": "responsive board/question/reveal at portrait, landscape/tablets and 130% text, no action overlap",
+      "ok": true
+    },
+    {
+      "name": "supported navigation works and no removed solo gameplay entry remains",
+      "ok": true
+    },
+    {
+      "name": "no uncaught browser errors",
+      "ok": true
+    },
+    {
+      "name": "no outbound network requests in offline gameplay",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "screens": [
+    {
+      "label": "compact custom teams",
+      "width": 1470,
+      "scroll": 1470,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 1016.671875,
+          "right": 1177,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 1016.671875,
+          "right": 1177,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 1016.671875,
+          "right": 1177,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 824.34375,
+          "right": 984.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 824.34375,
+          "right": 984.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 824.34375,
+          "right": 984.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 632.015625,
+          "right": 792.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 632.015625,
+          "right": 792.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 632.015625,
+          "right": 792.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 439.671875,
+          "right": 600.015625,
+          "width": 160.34375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 439.671875,
+          "right": 600.015625,
+          "width": 160.34375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 439.671875,
+          "right": 600.015625,
+          "width": 160.34375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 247.34375,
+          "right": 407.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 247.34375,
+          "right": 407.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 247.34375,
+          "right": 407.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 55.015625,
+          "right": 215.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 55.015625,
+          "right": 215.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 55.015625,
+          "right": 215.34375,
+          "width": 160.328125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 320",
+      "width": 320,
+      "scroll": 320,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 412",
+      "width": 412,
+      "scroll": 412,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 282.34375,
+          "right": 391,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 282.34375,
+          "right": 391,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 282.34375,
+          "right": 391,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 151.671875,
+          "right": 260.34375,
+          "width": 108.671875,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 151.671875,
+          "right": 260.34375,
+          "width": 108.671875,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 151.671875,
+          "right": 260.34375,
+          "width": 108.671875,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21.015625,
+          "right": 129.671875,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21.015625,
+          "right": 129.671875,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21.015625,
+          "right": 129.671875,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 282.34375,
+          "right": 391,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 282.34375,
+          "right": 391,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 282.34375,
+          "right": 391,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 151.671875,
+          "right": 260.34375,
+          "width": 108.671875,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 151.671875,
+          "right": 260.34375,
+          "width": 108.671875,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 151.671875,
+          "right": 260.34375,
+          "width": 108.671875,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21.015625,
+          "right": 129.671875,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21.015625,
+          "right": 129.671875,
+          "width": 108.65625,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21.015625,
+          "right": 129.671875,
+          "width": 108.65625,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 915",
+      "width": 915,
+      "scroll": 915,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 764.171875,
+          "right": 890,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 764.171875,
+          "right": 890,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 764.171875,
+          "right": 890,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 616.34375,
+          "right": 742.171875,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 616.34375,
+          "right": 742.171875,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 616.34375,
+          "right": 742.171875,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 468.515625,
+          "right": 594.34375,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 468.515625,
+          "right": 594.34375,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 468.515625,
+          "right": 594.34375,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 320.671875,
+          "right": 446.515625,
+          "width": 125.84375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 320.671875,
+          "right": 446.515625,
+          "width": 125.84375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 320.671875,
+          "right": 446.515625,
+          "width": 125.84375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 172.84375,
+          "right": 298.671875,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 172.84375,
+          "right": 298.671875,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 172.84375,
+          "right": 298.671875,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 25.015625,
+          "right": 150.84375,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 25.015625,
+          "right": 150.84375,
+          "width": 125.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 25.015625,
+          "right": 150.84375,
+          "width": 125.828125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 800",
+      "width": 800,
+      "scroll": 800,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 543,
+          "right": 761,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 543,
+          "right": 761,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 543,
+          "right": 761,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 291,
+          "right": 509,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 291,
+          "right": 509,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 291,
+          "right": 509,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 39,
+          "right": 257,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 39,
+          "right": 257,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 39,
+          "right": 257,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 543,
+          "right": 761,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 543,
+          "right": 761,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 543,
+          "right": 761,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 291,
+          "right": 509,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 291,
+          "right": 509,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 291,
+          "right": 509,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 39,
+          "right": 257,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 39,
+          "right": 257,
+          "width": 218,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 39,
+          "right": 257,
+          "width": 218,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 1024",
+      "width": 1024,
+      "scroll": 1024,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 850.171875,
+          "right": 988,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 850.171875,
+          "right": 988,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 850.171875,
+          "right": 988,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 687.34375,
+          "right": 825.171875,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 687.34375,
+          "right": 825.171875,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 687.34375,
+          "right": 825.171875,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 524.515625,
+          "right": 662.34375,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 524.515625,
+          "right": 662.34375,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 524.515625,
+          "right": 662.34375,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 361.671875,
+          "right": 499.515625,
+          "width": 137.84375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 361.671875,
+          "right": 499.515625,
+          "width": 137.84375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 361.671875,
+          "right": 499.515625,
+          "width": 137.84375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 198.84375,
+          "right": 336.671875,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 198.84375,
+          "right": 336.671875,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 198.84375,
+          "right": 336.671875,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 36.015625,
+          "right": 173.84375,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 36.015625,
+          "right": 173.84375,
+          "width": 137.828125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 36.015625,
+          "right": 173.84375,
+          "width": 137.828125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 1536",
+      "width": 1536,
+      "scroll": 1536,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 1071.671875,
+          "right": 1243,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 1071.671875,
+          "right": 1243,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 1071.671875,
+          "right": 1243,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 868.34375,
+          "right": 1039.671875,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 868.34375,
+          "right": 1039.671875,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 868.34375,
+          "right": 1039.671875,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 665.015625,
+          "right": 836.34375,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 665.015625,
+          "right": 836.34375,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 665.015625,
+          "right": 836.34375,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 461.671875,
+          "right": 633.015625,
+          "width": 171.34375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 461.671875,
+          "right": 633.015625,
+          "width": 171.34375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 461.671875,
+          "right": 633.015625,
+          "width": 171.34375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 258.34375,
+          "right": 429.671875,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 258.34375,
+          "right": 429.671875,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 258.34375,
+          "right": 429.671875,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 55.015625,
+          "right": 226.34375,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 55.015625,
+          "right": 226.34375,
+          "width": 171.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 55.015625,
+          "right": 226.34375,
+          "width": 171.328125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 1470",
+      "width": 1470,
+      "scroll": 1470,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 1016.671875,
+          "right": 1177,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 1016.671875,
+          "right": 1177,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 1016.671875,
+          "right": 1177,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 824.34375,
+          "right": 984.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 824.34375,
+          "right": 984.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 824.34375,
+          "right": 984.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 632.015625,
+          "right": 792.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 632.015625,
+          "right": 792.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 632.015625,
+          "right": 792.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 439.671875,
+          "right": 600.015625,
+          "width": 160.34375,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 439.671875,
+          "right": 600.015625,
+          "width": 160.34375,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 439.671875,
+          "right": 600.015625,
+          "width": 160.34375,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 247.34375,
+          "right": 407.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 247.34375,
+          "right": 407.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 247.34375,
+          "right": 407.671875,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 55.015625,
+          "right": 215.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 55.015625,
+          "right": 215.34375,
+          "width": 160.328125,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 55.015625,
+          "right": 215.34375,
+          "width": 160.328125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "board 320 text130",
+      "width": 320,
+      "scroll": 320,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "200نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 171.5,
+          "right": 299,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "200نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "400نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        },
+        {
+          "text": "600نقطة",
+          "x": 21,
+          "right": 148.5,
+          "width": 127.5,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "label": "question 320 text130",
+      "width": 320,
+      "scroll": 320,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 33,
+          "right": 287,
+          "width": 254,
+          "height": 54.875
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 33,
+          "right": 287,
+          "width": 254,
+          "height": 48.5
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 33,
+          "right": 287,
+          "width": 254,
+          "height": 47.8125
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 33,
+          "right": 287,
+          "width": 254,
+          "height": 47.8125
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 163.5,
+          "right": 288,
+          "width": 124.5,
+          "height": 70.5625
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 32,
+          "right": 156.5,
+          "width": 124.5,
+          "height": 70.5625
+        }
+      ]
+    },
+    {
+      "label": "question 412 text130",
+      "width": 412,
+      "scroll": 412,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 33,
+          "right": 379,
+          "width": 346,
+          "height": 54.875
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 33,
+          "right": 379,
+          "width": 346,
+          "height": 48.5
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 33,
+          "right": 379,
+          "width": 346,
+          "height": 47.8125
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 33,
+          "right": 379,
+          "width": 346,
+          "height": 47.8125
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 209.5,
+          "right": 380,
+          "width": 170.5,
+          "height": 70.5625
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 32,
+          "right": 202.5,
+          "width": 170.5,
+          "height": 70.5625
+        }
+      ]
+    },
+    {
+      "label": "question 915 text130",
+      "width": 915,
+      "scroll": 915,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 331.125,
+          "right": 874,
+          "width": 542.875,
+          "height": 150
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 331.125,
+          "right": 874,
+          "width": 542.875,
+          "height": 44.5
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 609.0625,
+          "right": 874,
+          "width": 264.9375,
+          "height": 44.5
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 331.125,
+          "right": 596.0625,
+          "width": 264.9375,
+          "height": 44.5
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 36,
+          "right": 277.125,
+          "width": 241.125,
+          "height": 47.09375
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 36,
+          "right": 277.125,
+          "width": 241.125,
+          "height": 47.09375
+        }
+      ]
+    },
+    {
+      "label": "question 800 text130",
+      "width": 800,
+      "scroll": 800,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 51,
+          "right": 749,
+          "width": 698,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 51,
+          "right": 749,
+          "width": 698,
+          "height": 51.6875
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 406.5,
+          "right": 749,
+          "width": 342.5,
+          "height": 51.6875
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 51,
+          "right": 393.5,
+          "width": 342.5,
+          "height": 51.6875
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 523.34375,
+          "right": 754,
+          "width": 230.65625,
+          "height": 47.4375
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 284.671875,
+          "right": 515.34375,
+          "width": 230.671875,
+          "height": 47.4375
+        }
+      ]
+    },
+    {
+      "label": "question 1024 text130",
+      "width": 1024,
+      "scroll": 1024,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 287,
+          "right": 973,
+          "width": 686,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 287,
+          "right": 973,
+          "width": 686,
+          "height": 51.6875
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 636.5,
+          "right": 973,
+          "width": 336.5,
+          "height": 51.6875
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 287,
+          "right": 623.5,
+          "width": 336.5,
+          "height": 51.6875
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 46,
+          "right": 230,
+          "width": 184,
+          "height": 76.4375
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 46,
+          "right": 230,
+          "width": 184,
+          "height": 76.4375
+        }
+      ]
+    },
+    {
+      "label": "question 1536 text130",
+      "width": 1536,
+      "scroll": 1536,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 337,
+          "right": 1230,
+          "width": 893,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 337,
+          "right": 1230,
+          "width": 893,
+          "height": 51.6875
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 790,
+          "right": 1230,
+          "width": 440,
+          "height": 51.6875
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 337,
+          "right": 777,
+          "width": 440,
+          "height": 51.6875
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 63,
+          "right": 277,
+          "width": 214,
+          "height": 49.21875
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 63,
+          "right": 277,
+          "width": 214,
+          "height": 49.21875
+        }
+      ]
+    },
+    {
+      "label": "question 1470 text130",
+      "width": 1470,
+      "scroll": 1470,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "كشف الإجابة",
+          "x": 337,
+          "right": 1164,
+          "width": 827,
+          "height": 170
+        },
+        {
+          "text": "إيقاف مؤقت",
+          "x": 337,
+          "right": 1164,
+          "width": 827,
+          "height": 51.6875
+        },
+        {
+          "text": "إجابة خاطئة · فرصة السرقة",
+          "x": 757,
+          "right": 1164,
+          "width": 407,
+          "height": 51.6875
+        },
+        {
+          "text": "بلا إجابة · تمرير للمنافس",
+          "x": 337,
+          "right": 744,
+          "width": 407,
+          "height": 51.6875
+        },
+        {
+          "text": "اتصال بصديق1 متبقية",
+          "x": 63,
+          "right": 277,
+          "width": 214,
+          "height": 49.21875
+        },
+        {
+          "text": "جاوب جوابين1 متبقية",
+          "x": 63,
+          "right": 277,
+          "width": 214,
+          "height": 49.21875
+        }
+      ]
+    },
+    {
+      "label": "reveal320 text130",
+      "width": 320,
+      "scroll": 320,
+      "rtl": "rtl",
+      "bottomVisible": false,
+      "buttons": [
+        {
+          "text": "🔷 الفريق الأزرق أجاب إجابة صحيحة+200",
+          "x": 164,
+          "right": 272,
+          "width": 108,
+          "height": 117.53125
+        },
+        {
+          "text": "🏆 الفريق الذهبي أجاب إجابة صحيحة+200",
+          "x": 48,
+          "right": 156,
+          "width": 108,
+          "height": 117.53125
+        },
+        {
+          "text": "⚪ محد جاوب صح0",
+          "x": 48,
+          "right": 272,
+          "width": 224,
+          "height": 52.28125
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "version": 2,
+  "id": "match-1792560000000-75",
+  "state": "BOARD",
+  "config": {
+    "mode": "teams",
+    "board": "compact",
+    "answerStyle": "oral",
+    "choiceCount": 4,
+    "timer": false,
+    "duration": 60,
+    "steal": true,
+    "stealDuration": 10,
+    "negative": false,
+    "bonus": false,
+    "sound": true,
+    "animations": true,
+    "explanations": true,
+    "hints": true,
+    "spoilerProtection": true,
+    "transition": "auto",
+    "starter": "0",
+    "assistSlots": 3,
+    "assistEnabled": {
+      "call": true,
+      "twice": true,
+      "pit": true,
+      "sitout": true,
+      "trap": true,
+      "time": true,
+      "hint": true,
+      "double": true,
+      "skip": true,
+      "second": true
+    },
+    "assistLimits": {
+      "call": 1,
+      "twice": 1,
+      "pit": 1,
+      "sitout": 1,
+      "trap": 1,
+      "time": 1,
+      "hint": 1,
+      "double": 1,
+      "skip": 1,
+      "second": 1
+    },
+    "callDuration": 60,
+    "callPause": true,
+    "trapSuccess": "responder",
+    "pitFailPenalty": false,
+    "stealPenalty": false,
+    "teams": [
+      {
+        "name": "الفريق الأزرق",
+        "color": "#55b9f3",
+        "avatar": "🔷",
+        "players": [],
+        "categories": [
+          "anime",
+          "football",
+          "prophets"
+        ],
+        "assists": [
+          "double"
+        ]
+      },
+      {
+        "name": "الفريق الذهبي",
+        "color": "#eac57e",
+        "avatar": "🏆",
+        "players": [],
+        "categories": [
+          "seerah",
+          "arabia",
+          "islamic"
+        ],
+        "assists": [
+          "double"
+        ]
+      }
+    ]
+  },
+  "seed": 75,
+  "createdAt": 1792560000000,
+  "teams": [
+    {
+      "id": "team-0",
+      "name": "الفريق الأزرق",
+      "color": "#55b9f3",
+      "avatar": "🔷",
+      "players": [],
+      "score": 600,
+      "correct": 2,
+      "incorrect": 0,
+      "steals": 0,
+      "assists": {
+        "double": 0
+      },
+      "assistHistory": [
+        {
+          "id": "match-1792560000000-75-assist-3",
+          "key": "double",
+          "teamId": 0,
+          "questionId": "anime-017",
+          "at": 1792560000015,
+          "participant": null
+        }
+      ]
+    },
+    {
+      "id": "team-1",
+      "name": "الفريق الذهبي",
+      "color": "#eac57e",
+      "avatar": "🏆",
+      "players": [],
+      "score": 0,
+      "correct": 0,
+      "incorrect": 1,
+      "steals": 0,
+      "assists": {
+        "double": 0
+      },
+      "assistHistory": [
+        {
+          "id": "match-1792560000000-75-assist-5",
+          "key": "double",
+          "teamId": 1,
+          "questionId": "anime-017",
+          "at": 1792560000025,
+          "participant": null
+        }
+      ]
+    }
+  ],
+  "categories": [
+    "anime",
+    "football",
+    "prophets",
+    "seerah",
+    "arabia",
+    "islamic"
+  ],
+  "board": [
+    {
+      "id": "anime-200-0",
+      "questionId": "anime-017",
+      "category": "anime",
+      "value": 200,
+      "slot": 0,
+      "done": true
+    },
+    {
+      "id": "anime-400-0",
+      "questionId": "v3-p-027",
+      "category": "anime",
+      "value": 400,
+      "slot": 0,
+      "done": true
+    },
+    {
+      "id": "anime-600-0",
+      "questionId": "v3-p-028",
+      "category": "anime",
+      "value": 600,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "football-200-0",
+      "questionId": "exp-football-007",
+      "category": "football",
+      "value": 200,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "football-400-0",
+      "questionId": "football-037",
+      "category": "football",
+      "value": 400,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "football-600-0",
+      "questionId": "v3-p-066",
+      "category": "football",
+      "value": 600,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "prophets-200-0",
+      "questionId": "prophets-048",
+      "category": "prophets",
+      "value": 200,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "prophets-400-0",
+      "questionId": "v3-h-prophets-003",
+      "category": "prophets",
+      "value": 400,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "prophets-600-0",
+      "questionId": "exp-prophets-008",
+      "category": "prophets",
+      "value": 600,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "seerah-200-0",
+      "questionId": "seerah-015",
+      "category": "seerah",
+      "value": 200,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "seerah-400-0",
+      "questionId": "exp-seerah-002",
+      "category": "seerah",
+      "value": 400,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "seerah-600-0",
+      "questionId": "seerah-028",
+      "category": "seerah",
+      "value": 600,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "arabia-200-0",
+      "questionId": "arabia-036",
+      "category": "arabia",
+      "value": 200,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "arabia-400-0",
+      "questionId": "v3-h-arabia-011",
+      "category": "arabia",
+      "value": 400,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "arabia-600-0",
+      "questionId": "v3-h-arabia-005",
+      "category": "arabia",
+      "value": 600,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "islamic-200-0",
+      "questionId": "v3-h-islamic-005",
+      "category": "islamic",
+      "value": 200,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "islamic-400-0",
+      "questionId": "v3-h-islamic-011",
+      "category": "islamic",
+      "value": 400,
+      "slot": 0,
+      "done": false
+    },
+    {
+      "id": "islamic-600-0",
+      "questionId": "exp-islamic-002",
+      "category": "islamic",
+      "value": 600,
+      "slot": 0,
+      "done": false
+    }
+  ],
+  "turn": 0,
+  "startingTeam": 0,
+  "current": null,
+  "transactions": [
+    {
+      "id": "match-1792560000000-75-score-8",
+      "questionId": "anime-017",
+      "teamId": 0,
+      "originalValue": 200,
+      "reason": "correct",
+      "modifier": "normal",
+      "scoreBefore": 0,
+      "scoreAfter": 200,
+      "timestamp": 1792560000035,
+      "groupId": "match-1792560000000-75-resolution-7"
+    },
+    {
+      "id": "match-1792560000000-75-score-13",
+      "questionId": "v3-p-027",
+      "teamId": 0,
+      "originalValue": 400,
+      "reason": "correct",
+      "modifier": "normal",
+      "scoreBefore": 200,
+      "scoreAfter": 600,
+      "timestamp": 1792560000060,
+      "groupId": "match-1792560000000-75-resolution-12"
+    }
+  ],
+  "history": [
+    {
+      "questionId": "anime-017",
+      "tileId": "anime-200-0",
+      "value": 200,
+      "selector": 0,
+      "responder": 1,
+      "winner": 0,
+      "phase": "steal",
+      "correct": true,
+      "transactionIds": [
+        "match-1792560000000-75-score-8"
+      ],
+      "at": 1792560000035,
+      "assists": [
+        {
+          "id": "match-1792560000000-75-assist-3",
+          "key": "double",
+          "teamId": 0,
+          "questionId": "anime-017",
+          "at": 1792560000015,
+          "participant": null
+        },
+        {
+          "id": "match-1792560000000-75-assist-5",
+          "key": "double",
+          "teamId": 1,
+          "questionId": "anime-017",
+          "at": 1792560000025,
+          "participant": null
+        }
+      ]
+    },
+    {
+      "questionId": "v3-p-027",
+      "tileId": "anime-400-0",
+      "value": 400,
+      "selector": 1,
+      "responder": 1,
+      "winner": 0,
+      "phase": "first",
+      "correct": true,
+      "transactionIds": [
+        "match-1792560000000-75-score-13"
+      ],
+      "at": 1792560000060,
+      "assists": []
+    }
+  ],
+  "knownAnswers": [
+    "anime-017",
+    "v3-p-027"
+  ],
+  "undo": [],
+  "serial": 13,
+  "lastError": null,
+  "completedAt": null,
+  "winner": 0
+}

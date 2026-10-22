@@ -1,0 +1,722 @@
+{
+  "environment": "Linux Playwright engines and touch/viewport emulation; no physical Samsung or iPhone testing",
+  "testURL": "http://127.0.0.1:8765/index.html",
+  "engines": [
+    {
+      "name": "chromium",
+      "version": "154.0.8037.57"
+    },
+    {
+      "name": "firefox",
+      "version": "146.0.1"
+    }
+  ],
+  "filter": null,
+  "checks": [
+    {
+      "browser": "chromium",
+      "name": "removed individual-play APIs and UI cannot open a game",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "legacy data migrates only display preferences, favorites and seen IDs after a safe write",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "interrupted migration preserves the exact legacy save until new persistence succeeds",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "corrupt legacy storage leaves the independently saved team match intact",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "question reload, rapid award, persisted board and atomic undo preserve identity",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "storage interruption during scoring retains usable in-memory game and a backup",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "repeated storage events for an already loaded or written save do not lock the host",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "a stale second host window cannot overwrite an awarded question",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "malformed untrusted backups never mutate the active game or library",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "long Arabic reveal and three scoring targets fit phone and tablet orientations",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "touch hosting works at explicit phone and tablet viewport sizes and pixel ratios",
+      "ok": true
+    },
+    {
+      "browser": "chromium",
+      "name": "local HTML bytes boot and play with network disabled before startup",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "removed individual-play APIs and UI cannot open a game",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "legacy data migrates only display preferences, favorites and seen IDs after a safe write",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "interrupted migration preserves the exact legacy save until new persistence succeeds",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "corrupt legacy storage leaves the independently saved team match intact",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "question reload, rapid award, persisted board and atomic undo preserve identity",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "storage interruption during scoring retains usable in-memory game and a backup",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "repeated storage events for an already loaded or written save do not lock the host",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "a stale second host window cannot overwrite an awarded question",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "malformed untrusted backups never mutate the active game or library",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "long Arabic reveal and three scoring targets fit phone and tablet orientations",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "touch hosting works at explicit phone and tablet viewport sizes and pixel ratios",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "local HTML bytes boot and play with network disabled before startup",
+      "ok": true
+    },
+    {
+      "browser": "firefox",
+      "name": "actual file URL offline startup and scoring",
+      "ok": true
+    },
+    {
+      "browser": "all available engines",
+      "name": "no uncaught runtime errors or external requests",
+      "ok": true
+    }
+  ],
+  "passed": 26,
+  "failed": 0,
+  "unavailable": [
+    {
+      "browser": "chromium",
+      "feature": "file URL startup",
+      "reason": "Error: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/Seen/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/Seen/index.html\", waiting until \"load\"\u001b[22m\n"
+    },
+    {
+      "browser": "webkit",
+      "reason": "Error: browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libmanette-0.2.so.0                              ║\n║     libhyphen.so.0                                   ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝"
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "layouts": [
+    {
+      "browser": "chromium",
+      "label": "320x780 text130",
+      "width": 320,
+      "scroll": 320,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 108,
+          "height": 117.53125,
+          "left": 164,
+          "right": 272
+        },
+        {
+          "width": 108,
+          "height": 117.53125,
+          "left": 48,
+          "right": 156
+        },
+        {
+          "width": 224,
+          "height": 52.28125,
+          "left": 48,
+          "right": 272
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "412x915 text130",
+      "width": 412,
+      "scroll": 412,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 154,
+          "height": 87.90625,
+          "left": 210,
+          "right": 364
+        },
+        {
+          "width": 154,
+          "height": 87.90625,
+          "left": 48,
+          "right": 202
+        },
+        {
+          "width": 316,
+          "height": 52.28125,
+          "left": 48,
+          "right": 364
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "915x412 text130",
+      "width": 915,
+      "scroll": 915,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 252.328125,
+          "height": 76.328125,
+          "left": 593.671875,
+          "right": 846
+        },
+        {
+          "width": 252.328125,
+          "height": 76.328125,
+          "left": 331.34375,
+          "right": 583.671875
+        },
+        {
+          "width": 252.328125,
+          "height": 76.328125,
+          "left": 69.015625,
+          "right": 321.34375
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "800x1280 text130",
+      "width": 800,
+      "scroll": 800,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 211.328125,
+          "height": 103.25,
+          "left": 515.671875,
+          "right": 727
+        },
+        {
+          "width": 211.328125,
+          "height": 103.25,
+          "left": 294.34375,
+          "right": 505.671875
+        },
+        {
+          "width": 211.328125,
+          "height": 103.25,
+          "left": 73.015625,
+          "right": 284.34375
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "1024x1536 text130",
+      "width": 1024,
+      "scroll": 1024,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 270,
+          "height": 103.25,
+          "left": 657,
+          "right": 927
+        },
+        {
+          "width": 270,
+          "height": 103.25,
+          "left": 377,
+          "right": 647
+        },
+        {
+          "width": 270,
+          "height": 103.25,
+          "left": 97,
+          "right": 367
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "1536x1024 text130",
+      "width": 1536,
+      "scroll": 1536,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 270,
+          "height": 103.25,
+          "left": 794,
+          "right": 1064
+        },
+        {
+          "width": 270,
+          "height": 103.25,
+          "left": 514,
+          "right": 784
+        },
+        {
+          "width": 270,
+          "height": 103.25,
+          "left": 234,
+          "right": 504
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "Android phone emulation DPR3.5",
+      "width": 412,
+      "scroll": 412,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 154,
+          "height": 73.640625,
+          "left": 210,
+          "right": 364
+        },
+        {
+          "width": 154,
+          "height": 73.640625,
+          "left": 48,
+          "right": 202
+        },
+        {
+          "width": 316,
+          "height": 45,
+          "left": 48,
+          "right": 364
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "Android phone emulation landscape",
+      "width": 915,
+      "scroll": 915,
+      "rtl": "rtl",
+      "buttons": [],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "iPhone-size emulation DPR3",
+      "width": 393,
+      "scroll": 393,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 144.5,
+          "height": 73.640625,
+          "left": 200.5,
+          "right": 345
+        },
+        {
+          "width": 144.5,
+          "height": 73.640625,
+          "left": 48,
+          "right": 192.5
+        },
+        {
+          "width": 297,
+          "height": 45,
+          "left": 48,
+          "right": 345
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "iPhone-size emulation landscape",
+      "width": 852,
+      "scroll": 852,
+      "rtl": "rtl",
+      "buttons": [],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "large tablet emulation DPR2",
+      "width": 924,
+      "scroll": 924,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 252.65625,
+          "height": 86.796875,
+          "left": 598.34375,
+          "right": 851
+        },
+        {
+          "width": 252.671875,
+          "height": 86.796875,
+          "left": 335.671875,
+          "right": 588.34375
+        },
+        {
+          "width": 252.671875,
+          "height": 86.796875,
+          "left": 73,
+          "right": 325.671875
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "chromium",
+      "label": "large tablet emulation landscape",
+      "width": 1480,
+      "scroll": 1480,
+      "rtl": "rtl",
+      "buttons": [],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "320x780 text130",
+      "width": 320,
+      "scroll": 320,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 108,
+          "height": 117.56666564941406,
+          "left": 164,
+          "right": 272
+        },
+        {
+          "width": 108,
+          "height": 117.56666564941406,
+          "left": 48,
+          "right": 156
+        },
+        {
+          "width": 224,
+          "height": 52.30000305175781,
+          "left": 48,
+          "right": 272
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "412x915 text130",
+      "width": 412,
+      "scroll": 412,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 154,
+          "height": 87.93333435058594,
+          "left": 210,
+          "right": 364
+        },
+        {
+          "width": 154,
+          "height": 87.93333435058594,
+          "left": 48,
+          "right": 202
+        },
+        {
+          "width": 316,
+          "height": 52.30000305175781,
+          "left": 48,
+          "right": 364
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "915x412 text130",
+      "width": 915,
+      "scroll": 915,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 252.3333282470703,
+          "height": 76.33332824707031,
+          "left": 593.6666870117188,
+          "right": 846.0000152587891
+        },
+        {
+          "width": 252.33334350585938,
+          "height": 76.33332824707031,
+          "left": 331.33331298828125,
+          "right": 583.6666564941406
+        },
+        {
+          "width": 252.3333282470703,
+          "height": 76.33332824707031,
+          "left": 69,
+          "right": 321.3333282470703
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "800x1280 text130",
+      "width": 800,
+      "scroll": 800,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 211.3333282470703,
+          "height": 103.28334045410156,
+          "left": 515.6666870117188,
+          "right": 727.0000152587891
+        },
+        {
+          "width": 211.33334350585938,
+          "height": 103.28334045410156,
+          "left": 294.33331298828125,
+          "right": 505.6666564941406
+        },
+        {
+          "width": 211.3333282470703,
+          "height": 103.28334045410156,
+          "left": 73,
+          "right": 284.3333282470703
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "1024x1536 text130",
+      "width": 1024,
+      "scroll": 1024,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 270,
+          "height": 103.28334045410156,
+          "left": 657,
+          "right": 927
+        },
+        {
+          "width": 270,
+          "height": 103.28334045410156,
+          "left": 377,
+          "right": 647
+        },
+        {
+          "width": 270,
+          "height": 103.28334045410156,
+          "left": 97,
+          "right": 367
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "1536x1024 text130",
+      "width": 1536,
+      "scroll": 1536,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 270,
+          "height": 103.2833251953125,
+          "left": 794,
+          "right": 1064
+        },
+        {
+          "width": 270,
+          "height": 103.2833251953125,
+          "left": 514,
+          "right": 784
+        },
+        {
+          "width": 270,
+          "height": 103.2833251953125,
+          "left": 234,
+          "right": 504
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "Android phone emulation DPR3.5",
+      "width": 412,
+      "scroll": 412,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 154,
+          "height": 73.63333129882812,
+          "left": 210,
+          "right": 364
+        },
+        {
+          "width": 154,
+          "height": 73.63333129882812,
+          "left": 48,
+          "right": 202
+        },
+        {
+          "width": 316,
+          "height": 45,
+          "left": 48,
+          "right": 364
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "Android phone emulation landscape",
+      "width": 915,
+      "scroll": 915,
+      "rtl": "rtl",
+      "buttons": [],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "iPhone-size emulation DPR3",
+      "width": 393,
+      "scroll": 393,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 144.5,
+          "height": 73.63333129882812,
+          "left": 200.5,
+          "right": 345
+        },
+        {
+          "width": 144.5,
+          "height": 73.63333129882812,
+          "left": 48,
+          "right": 192.5
+        },
+        {
+          "width": 297,
+          "height": 45,
+          "left": 48,
+          "right": 345
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "iPhone-size emulation landscape",
+      "width": 852,
+      "scroll": 852,
+      "rtl": "rtl",
+      "buttons": [],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "large tablet emulation DPR2",
+      "width": 924,
+      "scroll": 924,
+      "rtl": "rtl",
+      "buttons": [
+        {
+          "width": 252.6666717529297,
+          "height": 86.83332824707031,
+          "left": 598.3333129882812,
+          "right": 850.9999847412109
+        },
+        {
+          "width": 252.66665649414062,
+          "height": 86.83332824707031,
+          "left": 335.66668701171875,
+          "right": 588.3333435058594
+        },
+        {
+          "width": 252.6666717529297,
+          "height": 86.83332824707031,
+          "left": 73,
+          "right": 325.6666717529297
+        }
+      ],
+      "digits": false
+    },
+    {
+      "browser": "firefox",
+      "label": "large tablet emulation landscape",
+      "width": 1480,
+      "scroll": 1480,
+      "rtl": "rtl",
+      "buttons": [],
+      "digits": false
+    }
+  ]
+}

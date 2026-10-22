@@ -311,7 +311,9 @@ run('checked-only eligibility rejects editorial pending disputed and incomplete 
  const template=bank.find(q=>E.verifiedForPlay(q));assert(template);
  for(const status of ['editorial','pending','disputed'])assert(!E.isEligible({...template,verification:{...template.verification,status}},config()));
  for(const field of ['referenceTitle','section','notes','verifiedAt']){const verification={...template.verification};delete verification[field];assert(!E.isEligible({...template,verification},config()));}
- for(const verifiedAt of ['2026-02-30','invalid','2026-1-01'])assert(!E.isEligible({...template,verification:{...template.verification,verifiedAt}},config()));
+ const today=new Date().toISOString().slice(0,10),tomorrow=new Date(Date.now()+86400000).toISOString().slice(0,10);
+ assert(E.isEligible({...template,verification:{...template.verification,verifiedAt:today}},config()));
+ for(const verifiedAt of ['2026-02-30','invalid','2026-1-01',tomorrow]){const q={...template,verification:{...template.verification,verifiedAt}};assert(!E.verifiedForPlay(q));assert(!E.isEligible(q,config()));}
  assert(!E.isEligible({...template,verification:{status:'source-checked'},source:{title:'رابط فقط',url:'https://example.com/',reference:'صفحة'}},config()));
  const s=create(),saved=JSON.parse(JSON.stringify(s)),id=s.board[0].questionId; saved.questions[id].verification={status:'pending'};
  // An already assigned legacy team question remains resumable, without enabling

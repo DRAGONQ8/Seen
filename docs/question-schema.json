@@ -1,0 +1,381 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/DRAGONQ8/Seen/blob/main/docs/question-schema.json",
+  "title": "Seen V4 offline owner question pack",
+  "type": "object",
+  "required": [
+    "version",
+    "questions"
+  ],
+  "properties": {
+    "version": {
+      "enum": [
+        2,
+        3,
+        4
+      ]
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1200,
+      "items": {
+        "$ref": "#/$defs/question"
+      }
+    }
+  },
+  "$defs": {
+    "shortList": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "sub",
+        "level",
+        "points",
+        "q",
+        "options",
+        "answer",
+        "correctAnswer",
+        "acceptedAnswers",
+        "explanation",
+        "source",
+        "spoiler",
+        "tags",
+        "type",
+        "verification"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,70}$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "constructor",
+              "prototype"
+            ]
+          }
+        },
+        "category": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,64}$"
+        },
+        "sub": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "level": {
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "points": {
+          "enum": [
+            200,
+            400,
+            600
+          ]
+        },
+        "q": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 900
+        },
+        "options": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180
+          }
+        },
+        "answer": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "correctAnswer": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "acceptedAnswers": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180
+          }
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1600
+        },
+        "source": {
+          "type": "object",
+          "required": [
+            "title",
+            "reference"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "pattern": "^https://"
+            },
+            "bibliography": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "anyOf": [
+            {
+              "required": [
+                "url"
+              ]
+            },
+            {
+              "required": [
+                "bibliography"
+              ]
+            }
+          ]
+        },
+        "spoiler": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "enum": [
+            "text",
+            "image",
+            "ordering",
+            "clues",
+            "multipart",
+            "logic"
+          ]
+        },
+        "image": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,120}$"
+        },
+        "instructions": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 600
+        },
+        "judging": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 900
+        },
+        "items": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "correctOrder": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "clues": {
+          "$ref": "#/$defs/shortList"
+        },
+        "parts": {
+          "$ref": "#/$defs/shortList"
+        },
+        "verification": {
+          "type": "object",
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "source-checked",
+                "editorial",
+                "pending",
+                "disputed"
+              ]
+            },
+            "verifiedAt": {
+              "type": "string",
+              "format": "date"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "referenceTitle": {
+              "type": "string"
+            },
+            "referenceUrl": {
+              "type": "string",
+              "pattern": "^https://"
+            },
+            "section": {
+              "type": "string"
+            },
+            "bibliography": {
+              "type": "string"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "source-checked"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "referenceTitle",
+                  "section",
+                  "verifiedAt",
+                  "notes"
+                ],
+                "anyOf": [
+                  {
+                    "required": [
+                      "referenceUrl"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "bibliography"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "ordering",
+                  "clues",
+                  "multipart",
+                  "logic"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "instructions",
+              "judging"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ordering"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "items",
+              "correctOrder"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "clues"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "clues"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "multipart"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "parts"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "image"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "image"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

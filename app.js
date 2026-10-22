@@ -2,7 +2,7 @@
 /* Multiplayer application shell. Rules and host state live in TeamEngine/TeamUI. */
 const APP_VERSION=4, STORAGE_KEY='seen-khaled-preferences-v4';
 const DEFAULT_PREFS={theme:'dark',accent:'gold',sound:0,music:0,motion:'subtle',reduced:false,images:true,textSize:100,repetition:'recent',questionHistoryResetAt:0};
-let prefs={...DEFAULT_PREFS},progress={profile:{favorites:['anime','football','geo','games']},seen:{}},route='home',storageAvailable=true,audioContext=null,toastHandle=null,lastFocus=null;
+let prefs={...DEFAULT_PREFS},progress={profile:{favorites:['anime','football','geo','games']},seen:{}},route='home',storageAvailable=true,audioContext=null,musicHandle=null,musicVoices=new Set(),toastHandle=null,lastFocus=null;
 const QUESTION_MAP=new Map(QUESTION_BANK.map(q=>[q.id,q]));
 let migration={from:null,version:4},preferencesProtected=false;
 const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
@@ -13,7 +13,7 @@ const localDate=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.ge
 function shuffled(items,rng=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function normalizeArabic(s){return String(s).normalize('NFKC').replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632)).replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');}
 const defaultAnime=()=>({selected:TeamEngine.FRANCHISES.map(f=>f.id),levels:Object.fromEntries(TeamEngine.FRANCHISES.map(f=>[f.id,1]))});
-function validateBank(bank){const errors=[],ids=new Set(),texts=new Set();for(const q of bank){if(!q.id||ids.has(q.id))errors.push('معرّف مكرر');ids.add(q.id);const text=normalizeArabic(q.q);if(texts.has(text))errors.push('سؤال مكرر');texts.add(text);if(!catById(q.category)||![1,2,3,4].includes(q.level)||!Array.isArray(q.options)||q.options.length!==4||new Set(q.options.map(normalizeArabic)).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||!q.explanation||!q.source?.title||!q.source?.reference||(q.source?.url?safeURL(q.source.url)==='#':!q.source?.bibliography?.trim())||!q.sub||!q.tags||![1,2,3,4].includes(q.version))errors.push(`بيانات غير مكتملة: ${q.id}`);if(q.image&&!VISUALS[q.image])errors.push(`صورة غير موجودة: ${q.id}`);if(/[٠-٩۰-۹]/.test(q.q+q.options.join('')+q.explanation+q.source.reference))errors.push(`أرقام غير مدعومة: ${q.id}`);}return errors;}
+function validateBank(bank){const errors=[],ids=new Set(),texts=new Set();for(const q of bank){if(!q.id||ids.has(q.id))errors.push('معرّف مكرر');ids.add(q.id);const text=normalizeArabic(q.q);if(texts.has(text))errors.push('سؤال مكرر');texts.add(text);if(!catById(q.category)||![1,2,3,4].includes(q.level)||!Array.isArray(q.options)||q.options.length!==4||new Set(q.options.map(normalizeArabic)).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||q.correctAnswer!==q.options[q.answer]||![200,400,600].includes(q.points)||!q.explanation||!q.source?.title||!q.source?.reference||(q.source?.url?safeURL(q.source.url)==='#':!q.source?.bibliography?.trim())||!q.sub||!q.tags||![1,2,3,4].includes(q.version))errors.push(`بيانات غير مكتملة: ${q.id}`);if(q.image&&!VISUALS[q.image])errors.push(`صورة غير موجودة: ${q.id}`);if(/[٠-٩۰-۹]/.test(q.q+q.options.join('')+q.explanation+q.source.reference))errors.push(`أرقام غير مدعومة: ${q.id}`);}return errors;}
 function parseSafeJSON(text,max=1500000){if(typeof text!=='string'||text.length>max)throw Error('الملف أكبر من الحجم المسموح.');return JSON.parse(text,(key,value)=>{if(['__proto__','constructor','prototype'].includes(key))throw Error('الملف يحتوي على مفاتيح غير آمنة.');return value;});}
 function encodeMatchBackup(kind,data){
 if(!['teams'].includes(kind))throw Error('نوع نسخة الاستئناف غير صالح.');
@@ -34,7 +34,23 @@ const AVATARS=['🦁','🦉','🐉','🦅','🐺','🚀','🌙','🎮'];
 function validatedAnime(value){const ids=TeamEngine.FRANCHISES.map(f=>f.id);if(!value||!Array.isArray(value.selected)||value.selected.some(id=>!ids.includes(id))||new Set(value.selected).size!==value.selected.length||!value.levels||ids.some(id=>![1,2,3].includes(value.levels[id])))throw Error('تفضيلات حرق الأنمي غير صالحة.');return {selected:[...value.selected],levels:Object.fromEntries(ids.map(id=>[id,value.levels[id]]))};}
 function toast(message){$('#toast').textContent=message;$('#toast').classList.add('show');clearTimeout(toastHandle);toastHandle=setTimeout(()=>$('#toast').classList.remove('show'),4200);}
 function tone(freq,duration=.12,type='sine',volume=1,delay=0){if(!audioContext||!prefs.sound)return;const o=audioContext.createOscillator(),g=audioContext.createGain(),t=audioContext.currentTime+delay;o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.09*(prefs.sound/100)*volume,t+.015);g.gain.exponentialRampToValueAtTime(.001,t+duration);o.connect(g);g.connect(audioContext.destination);o.onended=()=>{o.disconnect();g.disconnect();};o.start(t);o.stop(t+duration+.02);}
-function sound(kind){if(kind==='correct'){tone(523,.17);tone(659,.22,'sine',1,.1);tone(784,.3,'sine',1,.2);}else if(kind==='wrong'){tone(220,.2,'triangle');tone(165,.3,'triangle',.7,.13);}else if(kind==='tick')tone(440,.05,'sine',.3);else tone(560,.045,'sine',.2);}
+function sound(kind) {
+  const melodies = {
+    select:[[440,.09],[660,.1,.07]],
+    reveal:[[392,.12],[587,.2,.1]],
+    correct:[[523,.17],[659,.22,.1],[784,.3,.2]],
+    steal:[[494,.12],[740,.18,.1],[988,.25,.2]],
+    assist:[[330,.12],[495,.18,.09]],
+    complete:[[523,.18],[659,.2,.12],[784,.22,.24],[1046,.4,.36]],
+    achievement:[[523,.18],[659,.2,.12],[784,.22,.24],[1046,.4,.36]],
+    wrong:[[220,.2],[165,.3,.13]],
+    tick:[[440,.05]],
+    click:[[560,.045]]
+  };
+  for(const [frequency,duration,delay=0] of melodies[kind] || melodies.click) tone(frequency,duration,'sine',kind==='tick'?.3:.8,delay);
+}
+function ambient(){if(!audioContext||!prefs.music||document.hidden)return;const t=audioContext.currentTime;[130.81,196,261.63,329.63].forEach(f=>{const o=audioContext.createOscillator(),g=audioContext.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.012*prefs.music/100,t+1);g.gain.linearRampToValueAtTime(0,t+5.5);o.connect(g);g.connect(audioContext.destination);const voice={o,g};musicVoices.add(voice);o.onended=()=>{o.disconnect();g.disconnect();musicVoices.delete(voice);};o.start(t);o.stop(t+6);});}
+function stopMusic(){clearInterval(musicHandle);musicHandle=null;for(const voice of musicVoices){try{voice.g.gain.cancelScheduledValues(audioContext.currentTime);voice.g.gain.setTargetAtTime(0,audioContext.currentTime,.03);voice.o.stop(audioContext.currentTime+.12);}catch{}}}
 function confetti(){if(document.documentElement.dataset.motion==='none')return;const el=$('#confetti');el.innerHTML=Array.from({length:prefs.motion==='full'?28:12},(_,i)=>`<span style="--x:${Math.random()*100}%;--delay:${i*.025}s;--color:${['#eac57e','#80cff5','#c5a8fb','#7cdec1'][i%4]};--rotate:${Math.random()*360}deg"></span>`).join('');setTimeout(()=>el.replaceChildren(),2400);}
 function title(eyebrow,heading,desc=''){return `<div class="section-heading page-heading"><div><span class="eyebrow">${eyebrow}</span><h1>${heading}</h1>${desc?`<p>${desc}</p>`:''}</div></div>`;}
 function stat(ic,value,label){return `<div class="stat-card"><span class="stat-icon">${icon(ic)}</span><div><strong>${value}</strong><small>${label}</small></div></div>`;}
@@ -70,7 +86,7 @@ function readPreferences(data,legacy=false){
   if(!data||typeof data!=='object'||(!legacy&&data.version!==4))throw Error('إصدار التفضيلات غير مدعوم.');
   const raw=data.prefs||{},next={...DEFAULT_PREFS};
   for(const [key,allowed] of Object.entries({theme:['dark','light'],accent:['gold','violet'],motion:['none','subtle','full'],repetition:['recent','unseen','all']}))if(allowed.includes(raw[key]))next[key]=raw[key];
-  if(validInt(raw.sound,100))next.sound=raw.sound;
+  for(const key of ['sound','music'])if(validInt(raw[key],100))next[key]=raw[key];
   if([90,100,115,130].includes(raw.textSize))next.textSize=raw.textSize;
   for(const key of ['reduced','images'])if(typeof raw[key]==='boolean')next[key]=raw[key];
   if(validInt(raw.questionHistoryResetAt,1e14))next.questionHistoryResetAt=raw.questionHistoryResetAt;
@@ -86,8 +102,8 @@ function load(){
     raw=localStorage.getItem(STORAGE_KEY);
     if(raw){const data=parseSafeJSON(raw,3000000),clean=readPreferences(data);prefs=clean.prefs;progress=clean.progress;migration=data.migration||migration;}
     else{
-      const legacy=localStorage.getItem('seen-khaled-v1');
-      if(legacy){const clean=readPreferences(parseSafeJSON(legacy,5000000),true);prefs=clean.prefs;progress=clean.progress;migration={from:'seen-khaled-v1',version:4,legacyRetired:true};persist();}
+      const host=localStorage.getItem('seen-khaled-host-v4'),legacy=host||localStorage.getItem('seen-khaled-v1');
+      if(legacy){const clean=readPreferences(parseSafeJSON(legacy,5000000),!host);prefs=clean.prefs;progress=clean.progress;migration={from:host?'seen-khaled-host-v4':'seen-khaled-v1',version:4,legacyRetired:true};persist();}
     }
   }catch{
     storageAvailable=false;
@@ -107,14 +123,16 @@ function applyPrefs(){
   root.dataset.theme=prefs.theme;root.dataset.accent=prefs.accent;
   root.dataset.motion=prefs.reduced||matchMedia('(prefers-reduced-motion: reduce)').matches?'none':prefs.motion;
   root.style.setProperty('--text-scale',prefs.textSize/100);
+  if(!prefs.music)stopMusic();
   document.querySelector('meta[name=theme-color]').content=prefs.theme==='light'?'#f2f3f8':'#090d1e';
 }
 function unlockAudio(){
-  if(!prefs.sound)return;
+  if(!prefs.sound&&!prefs.music)return;
   const Audio=window.AudioContext||window.webkitAudioContext;
   if(!Audio)return;
   try{if(!audioContext)audioContext=new Audio();if(audioContext.state==='suspended')audioContext.resume().catch(()=>toast('تعذّر تشغيل الصوت. يمكنك متابعة اللعب.'));}
   catch{toast('الصوت غير متاح في هذا المتصفح.');}
+  if(audioContext&&prefs.music&&!musicHandle){ambient();musicHandle=setInterval(ambient,6000);}
 }
 function closeDialog(){const d=$('#dialog');if(d.open)d.close();if(lastFocus?.isConnected)lastFocus.focus();}
 function hasActiveTrivia(){const m=window.SeenTeamUI?.match;return !!(m&&m.state!=='MATCH_COMPLETE');}
@@ -151,7 +169,7 @@ function renderCategories(){
   return `${title('اختيارات تستحق اللعب','عوالم المعرفة','الفئات المتاحة تحقق عدد الأسئلة المدققة المطلوب لكل مستوى. اختر ست فئات في ردهة المباراة.')}<div class="category-grid">${CATEGORIES.map(c=>{const pool=TeamEngine.eligibleQuestions(QUESTION_BANK,config,{category:c.id}),counts=[200,400,600].map(v=>pool.filter(q=>q.points===v).length),available=counts.every(n=>n>=2);return `<section class="category-card" style="--accent:${c.color}"><div class="category-art">${categoryArt(c.id)}</div><div class="category-info"><span class="category-kicker">${c.label}</span><h2>${c.name}</h2><p>${pool.length} سؤالًا مدققًا</p><small dir="auto">200: ${counts[0]} · 400: ${counts[1]} · 600: ${counts[2]}</small><p class="muted">${available?'متاحة للمباراة الكلاسيكية':'المخزون لا يكفي للوحة كلاسيكية بعد الفلترة'}</p><button class="btn secondary small" data-action="favorite" data-id="${c.id}" aria-pressed="${progress.profile.favorites.includes(c.id)}">${progress.profile.favorites.includes(c.id)?'★ ضمن المفضلة':'☆ أضف للمفضلة'}</button></div></section>`;}).join('')}</div><div class="row"><button class="btn primary" data-team-action="new">اختر فئات المباراة</button><button class="btn secondary" data-team-action="library">مكتبة الأسئلة والمصادر</button></div>`;
 }
 function renderSettings(){
-  return `${title('على راحتكم','الإعدادات','إعدادات المباراة والمساعدات متاحة من ردهة الفرق.')}<div class="settings-grid"><section class="panel stack"><h2>العرض والقراءة</h2>${selectPref('theme','المظهر',[['dark','ليلي'],['light','نهاري']])}${selectPref('textSize','حجم النص',[[90,'90%'],[100,'100%'],[115,'115%'],[130,'130%']])}${selectPref('motion','الحركة',[['none','متوقفة'],['subtle','هادئة'],['full','كاملة']])}${togglePref('reduced','تقليل الحركة دائمًا')}${togglePref('images','عرض صور الأسئلة')}<p class="muted">تحترم اللعبة إعداد تقليل الحركة في الجهاز.</p></section><section class="panel stack"><h2>الصوت والشاشة</h2><label for="pref-sound">المؤثرات الصوتية · ${prefs.sound}%</label><input id="pref-sound" type="range" min="0" max="100" data-pref="sound" value="${prefs.sound}"><button class="btn secondary" data-action="test-sound">تجربة الصوت</button><button class="btn secondary" data-action="fullscreen">ملء الشاشة</button><p class="muted">مؤثرات توليدية أصلية. يبدأ الصوت بعد تفاعلك فقط. ملء الشاشة بحسب دعم المتصفح.</p></section><section class="panel stack"><h2>الحفظ واستعادة المباريات</h2><p class="muted">${storageAvailable?'التفضيلات محفوظة محليًا على هذا الجهاز.':'تعذّر حفظ التفضيلات تلقائيًا. تبقى اللعبة متاحة في هذه الصفحة.'} لحماية تقدمك، صدّر نسخة متابعة قبل نقل الملف أو مسح بيانات المتصفح.</p><button class="btn secondary" data-team-action="backup">تصدير تقدم الفريقين</button><button class="btn secondary" data-team-action="restore">استيراد تقدم الفريقين</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button><button class="btn secondary" data-action="reset-seen">بدء دورة جديدة للأسئلة</button><p class="muted">دورة الأسئلة الجديدة تسمح بالتكرار دون حذف سجل المباريات أو النتائج أو تغيير اللوحة الجارية.</p></section><section class="panel stack"><h2>المحتوى والمساعدة</h2><button class="btn secondary" data-team-action="library">مكتبة الأسئلة</button><button class="btn secondary" data-action="help">دليل اللعب</button><button class="btn secondary" data-action="about">المصادر والتراخيص</button></section></div>`;
+  return `${title('على راحتكم','الإعدادات','إعدادات المباراة والمساعدات متاحة من ردهة الفرق.')}<div class="settings-grid"><section class="panel stack"><h2>العرض والقراءة</h2>${selectPref('theme','المظهر',[['dark','ليلي'],['light','نهاري']])}${selectPref('textSize','حجم النص',[[90,'90%'],[100,'100%'],[115,'115%'],[130,'130%']])}${selectPref('motion','الحركة',[['none','متوقفة'],['subtle','هادئة'],['full','كاملة']])}${togglePref('reduced','تقليل الحركة دائمًا')}${togglePref('images','عرض صور الأسئلة')}<p class="muted">تحترم اللعبة إعداد تقليل الحركة في الجهاز.</p></section><section class="panel stack"><h2>الصوت والشاشة</h2><label for="pref-sound">المؤثرات الصوتية · ${prefs.sound}%</label><input id="pref-sound" type="range" min="0" max="100" data-pref="sound" value="${prefs.sound}"><label for="pref-music">الموسيقى الهادئة · ${prefs.music}%</label><input id="pref-music" type="range" min="0" max="100" data-pref="music" value="${prefs.music}"><button class="btn secondary" data-action="test-sound">تجربة الصوت</button><button class="btn secondary" data-action="fullscreen">ملء الشاشة</button><p class="muted">مؤثرات توليدية أصلية. يبدأ الصوت بعد تفاعلك فقط. ملء الشاشة بحسب دعم المتصفح.</p></section><section class="panel stack"><h2>الحفظ واستعادة المباريات</h2><p class="muted">${storageAvailable?'التفضيلات محفوظة محليًا على هذا الجهاز.':'تعذّر حفظ التفضيلات تلقائيًا. تبقى اللعبة متاحة في هذه الصفحة.'} لحماية تقدمك، صدّر نسخة متابعة قبل نقل الملف أو مسح بيانات المتصفح.</p><button class="btn secondary" data-team-action="backup">تصدير تقدم الفريقين</button><button class="btn secondary" data-team-action="restore">استيراد تقدم الفريقين</button><button class="btn secondary" data-team-action="paste-backup">استيراد من نص</button><button class="btn secondary" data-action="reset-seen">بدء دورة جديدة للأسئلة</button><p class="muted">دورة الأسئلة الجديدة تسمح بالتكرار دون حذف سجل المباريات أو النتائج أو تغيير اللوحة الجارية.</p></section><section class="panel stack"><h2>المحتوى والمساعدة</h2><button class="btn secondary" data-team-action="library">مكتبة الأسئلة</button><button class="btn secondary" data-action="help">دليل اللعب</button><button class="btn secondary" data-action="about">المصادر والتراخيص</button></section></div>`;
 }
 function showAbout(){
   window.SeenTeamUI?.pause();
@@ -181,9 +199,11 @@ document.addEventListener('click',event=>{
 document.addEventListener('change',event=>{
   const t=event.target;if(!t.matches('[data-pref]'))return;
   const k=t.dataset.pref;if(!Object.hasOwn(DEFAULT_PREFS,k))return;
-  const next=t.type==='checkbox'?t.checked:['sound','textSize'].includes(k)?Number(t.value):t.value;
+  const next=t.type==='checkbox'?t.checked:['sound','music','textSize'].includes(k)?Number(t.value):t.value;
   const checked=readPreferences({version:4,prefs:{...prefs,[k]:next},progress});prefs=checked.prefs;applyPrefs();persist();unlockAudio();render();
 });
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopMusic();else if(audioContext?.state==='running'&&prefs.music&&!musicHandle){ambient();musicHandle=setInterval(ambient,6000);}});
+window.addEventListener('pagehide',stopMusic);
 document.addEventListener('error',event=>{if(event.target.tagName==='IMG'){event.target.classList.add('image-error');event.target.alt='تعذّر عرض الدليل البصري. يمكن للمقدم إلغاء السؤال أو الإبلاغ عنه من أدوات المقدم.';}},true);
 $('#dialog').addEventListener('click',event=>{if(event.target===$('#dialog'))closeDialog();});
 window.addEventListener('popstate',()=>{window.SeenTeamUI?.pause();render();});

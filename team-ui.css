@@ -713,6 +713,8 @@ html[data-team-motion="none"] .confetti { display: none !important; }
 .scoring-actions .award-team { background:linear-gradient(130deg,color-mix(in srgb,var(--team-color) 16%,var(--panel)),var(--panel));border:1px solid color-mix(in srgb,var(--team-color) 65%,var(--line));color:var(--text);box-shadow:inset 0 3px color-mix(in srgb,var(--team-color) 50%,transparent); }
 .scoring-actions .award-team:hover:not(:disabled) { border-color:var(--team-color);background:color-mix(in srgb,var(--team-color) 22%,var(--panel)); }
 .scoring-actions .scoring-nobody { grid-column:auto;background:var(--panel-raised);border-color:var(--line);color:var(--text); }
+/* A scoring target must stay under the pointer through reveal and touch taps. */
+.scoring-actions .btn:hover:not(:disabled),.scoring-actions .btn:active:not(:disabled) { transform:none; }
 .scoring-team-name { overflow-wrap:anywhere;font-size:.88rem; }
 .scoring-points { font-size:1.3rem;font-variant-numeric:tabular-nums;line-height:1.35; }
 .answer-reference,.original-question,.attempt-controls { padding:0;border-top:1px solid var(--line); }
@@ -814,3 +816,44 @@ html[data-team-play="true"] #toast.toast { bottom:max(16px,env(safe-area-inset-b
   .scoring-actions .scoring-nobody:has(.scoring-preview) { flex-wrap:wrap;gap:4px 10px; }
   .scoring-actions .scoring-nobody .scoring-preview { flex-basis:100%;font-size:.68rem; }
 }
+/* V4: clear, reachable setup tools and meaningful offline question formats. */
+.category-option { position:relative;min-width:0; }
+.category-option .team-category-card { width:100%;height:100%;padding-block-start:42px; }
+.category-option .category-favorite { position:absolute;inset-block-start:7px;inset-inline-end:7px;display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted);cursor:pointer;touch-action:manipulation; }
+.category-favorite svg { width:20px;height:20px; }
+.category-favorite.selected { color:var(--gold);border-color:var(--gold);background:color-mix(in srgb,var(--gold) 13%,var(--panel)); }
+.category-favorite.selected svg { fill:color-mix(in srgb,var(--gold) 24%,transparent); }
+.category-option .team-category-card:disabled { opacity:.6;cursor:not-allowed; }
+.category-favorite:focus-visible,.team-name-presets .chip:focus-visible { outline:3px solid var(--gold);outline-offset:3px; }
+.assist-presets { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px; }
+.assist-presets .team-choice { min-width:0;text-align:start;align-items:flex-start; }
+.assist-advanced > summary { min-height:48px;display:flex;align-items:center;cursor:pointer;font-weight:600; }
+.assist-advanced[open] > summary { margin-bottom:12px; }
+.question-instructions { margin:0;padding:12px 16px;border-inline-start:3px solid var(--gold);background:color-mix(in srgb,var(--gold) 6%,var(--panel));border-radius:10px;color:var(--text);font-size:.9rem;line-height:1.9; }
+.ordering-items { display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none; }
+.ordering-items li { padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel-raised);line-height:1.8;overflow-wrap:anywhere; }
+.multipart-parts,.progressive-clues ol { margin:0;padding-inline-start:26px;display:grid;gap:12px;line-height:1.95; }
+.multipart-parts li,.progressive-clues li { padding-inline-start:4px;overflow-wrap:anywhere; }
+.progressive-clues { display:grid;gap:16px;padding:16px;border:1px solid var(--line);border-radius:16px; }
+.progressive-clues .btn { justify-self:start;min-height:48px; }
+.full-credit-judging { margin:0;font-size:.85rem;line-height:1.95;padding:10px 14px;border:1px solid color-mix(in srgb,var(--gold) 30%,var(--line));border-radius:10px; }
+.format-label { align-self:start; }
+.team-page .preset-grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+.team-name-presets .chip { min-height:44px;white-space:normal; }
+@media(max-width:600px) {
+ .assist-presets { grid-template-columns:1fr; }
+ .question-instructions { padding:10px 12px;font-size:.83rem; }
+ .progressive-clues { padding:12px; }
+ .ordering-items { gap:8px; }
+ .ordering-items li { padding:8px 12px; }
+ .team-page .preset-grid { grid-template-columns:1fr; }
+}
+@media(orientation:landscape) and (max-height:560px) {
+ .team-page .preset-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .match-question-text { line-height:1.75; }
+}
+.match-board[data-category-count="2"] { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.match-board[data-category-count="4"] { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.custom-board-options { padding:14px;border:1px solid var(--line);border-radius:14px; }
+.custom-board-options .chip { min-height:44px; }
+@media(max-width:900px) { .match-board[data-category-count="4"] { grid-template-columns:repeat(2,minmax(0,1fr)); } }

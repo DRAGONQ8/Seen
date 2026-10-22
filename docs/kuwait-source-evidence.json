@@ -1,0 +1,348 @@
+{
+  "scope": "24 original Arabic Kuwait questions. Each selected factual claim read in a primary institutional source; this report does not certify the existing bank. No source imagery, music recordings or commercial media is redistributed.",
+  "retrievedAt": "2026-10-21",
+  "questions": [
+    {
+      "questionId": "v4-kwt-001",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+          "section": "Currency",
+          "excerpt": "The currency in the State of Kuwait is the Kuwaiti Dinar."
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-002",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+          "section": "Capital City",
+          "excerpt": "Capital City: Kuwait City"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-003",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+          "section": "National Day",
+          "excerpt": "National Day: 25 February"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-004",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+          "section": "Religion and Language",
+          "excerpt": "The official language is Arabic."
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-005",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+          "section": "Telephone Code",
+          "excerpt": "Telephone Code: +965"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-006",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/kuwait-factsheet.html",
+          "section": "Administrative Distribution",
+          "excerpt": "The State of Kuwait is distributed into six governorates"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-007",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+          "section": "The National Anthem",
+          "excerpt": "The music was composed by Ibrahim Al-Soula"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-008",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+          "section": "Introduction",
+          "excerpt": "The unit of currency in Kuwait is the Kuwaiti Dinar (KD), divided into one thousand Fils."
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-009",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+          "section": "First Issue",
+          "excerpt": "replacing the then circulating \"Indian rupee\""
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-010",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kockw.com/sites/AR/Pages/Profile/whoAreWe/KOC-History.aspx",
+          "section": "تاريخنا",
+          "excerpt": "في عام 1938، تم العثور على النفط بكميات تجارية في حقل برقان"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-011",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kockw.com/sites/AR/Pages/Profile/whoAreWe/KOC-History.aspx",
+          "section": "تاريخنا",
+          "excerpt": "وتحديداً في يونيو من عام 1946"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-012",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/about-un.html",
+          "section": "General Assembly Membership",
+          "excerpt": "on 14th May 1963, adopted resolution 1872 admitting the State of Kuwait"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-013",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+          "section": "The National Anthem",
+          "excerpt": "was broadcast for the first time on 25 February 1978"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-014",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+          "section": "First Issue",
+          "excerpt": "on the first day of April 1961, the first issue was put into circulation"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-015",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+          "section": "Introduction",
+          "excerpt": "The sixth issue was released into circulation on 29 June 2014."
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-016",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kpc.com.kw/OilHistory",
+          "section": "1934 / 1938 / 1946",
+          "excerpt": "Kuwait Oil Company (KOC) traces its beginnings to 1934"
+        },
+        {
+          "url": "https://www.kpc.com.kw/OilHistory",
+          "section": "1938 / 1946",
+          "excerpt": "first successful well in 1938 at Burgan field"
+        },
+        {
+          "url": "https://www.kpc.com.kw/OilHistory",
+          "section": "1938 / 1946",
+          "excerpt": "\"British Fusilier\" in 1946"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-017",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.cbk.gov.kw/en/about-cbk/mission-and-objectives",
+          "section": "Mission & Objectives",
+          "excerpt": "CBK commenced operation on the 1st of April 1969"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-018",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kpc.com.kw/OilHistory",
+          "section": "1949",
+          "excerpt": "Mina Al-Ahmadi, the first refinery in Kuwait, was built and established in 1949"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-019",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kpc.com.kw/OilHistory",
+          "section": "1946",
+          "excerpt": "\"British Fusilier\" in 1946"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-020",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/about-un.html",
+          "section": "General Assembly Membership",
+          "excerpt": "the State of Kuwait became the 111th member state of the United Nations."
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-021",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/about-un.html",
+          "section": "Security Council",
+          "excerpt": "the first time for the term 1978 - 1979"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-022",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/introduction",
+          "section": "Introduction",
+          "excerpt": "The sixth issue was released into circulation on 29 June 2014."
+        },
+        {
+          "url": "https://www.cbk.gov.kw/en/banknotes-and-coins/banknotes/first-issue",
+          "section": "First Issue / Mission & Objectives",
+          "excerpt": "on the first day of April 1961, the first issue was put into circulation"
+        },
+        {
+          "url": "https://www.cbk.gov.kw/en/about-cbk/mission-and-objectives",
+          "section": "First Issue / Mission & Objectives",
+          "excerpt": "CBK commenced operation on the 1st of April 1969"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-023",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kpc.com.kw/OilHistory",
+          "section": "1946",
+          "excerpt": "Shaikh Ahmed Al-Jaber Al-Sabah, turned the silver wheel"
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    },
+    {
+      "questionId": "v4-kwt-024",
+      "retrievedAt": "2026-10-21",
+      "evidence": [
+        {
+          "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+          "section": "The National Anthem",
+          "excerpt": "the Kuwait national anthem was written by the poet Meshari Al-Adwani"
+        },
+        {
+          "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+          "section": "The National Anthem",
+          "excerpt": "was broadcast for the first time on 25 February 1978"
+        },
+        {
+          "url": "https://www.kuwaitmissionun.org/the-national-anthem.html",
+          "section": "The National Anthem",
+          "excerpt": "The music was composed by Ibrahim Al-Soula"
+        },
+        {
+          "url": "https://www.alraimedia.com/article/248663/محليات/الأمير-منح-الصولة-والعدواني-وسام-الكويت-لمناسبة-الأعياد-الوطنية",
+          "section": "خبر 19 أبريل 2011؛ الفقرة الأولى المنسوبة لكونا",
+          "excerpt": "ماجد احمد مشاري العدواني نجل مؤلف النشيد الوطني احمد مشاري العدواني",
+          "method": "Read the full Arabic news report attributed to the Kuwait News Agency and reproduced by Al Rai; confirms the complete name omitted from mission transliteration."
+        }
+      ],
+      "method": "Read the exact factual passages in the primary institutional HTTPS page body and compared the Arabic claim; only historical stable facts used."
+    }
+  ],
+  "excludedSources": [
+    {
+      "url": "https://www.nccal.gov.kw/",
+      "reason": "HTTP 403; no question depends on it."
+    },
+    {
+      "url": "https://ich.unesco.org/en/RL/al-sadu-traditional-weaving-skills-in-kuwait-01879",
+      "reason": "Bot challenge instead of factual body; no verification claim made."
+    },
+    {
+      "url": "https://www.cpd.gov.kw/anthem",
+      "reason": "Request Rejected page instead of the factual body; not used as verification."
+    }
+  ],
+  "editorialNotes": [
+    "Kuwait factsheet island count and area text contain apparent inconsistencies; no new question uses those statements.",
+    "The mission abbreviates the anthem writer name as Meshari Al-Adwani. The canonical complete Arabic name أحمد مشاري العدواني was cross-checked against the read KUNA report reproduced by Al Rai; the shorter form is an accepted alias."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "skipped": 0,
+  "checks": [
+    {
+      "name": "quick/classic presets preserve identity and custom timers; named preset survives reload",
+      "ok": true
+    },
+    {
+      "name": "independent anime levels and exact preview counts persist without silently widening an insufficient pool",
+      "ok": true
+    },
+    {
+      "name": "active host backups use an encoded envelope and library solutions remain hidden; pass records no invented incorrect attempt",
+      "ok": true
+    },
+    {
+      "name": "question snapshots remain unchanged in actual question UI when the library changes",
+      "ok": true
+    },
+    {
+      "name": "failed legacy restore preserves the exact original and unrelated owner edits, then permits a new match",
+      "ok": true
+    },
+    {
+      "name": "new source-check editor cannot certify a URL alone, and supports bibliography, spoiler and local image attribution fields",
+      "ok": true
+    },
+    {
+      "name": "new setup and presenter interactions fit required mobile/tablet orientations and text130",
+      "ok": true
+    },
+    {
+      "name": "new UI produces no uncaught browser exceptions",
+      "ok": true
+    }
+  ],
+  "errors": []
+}

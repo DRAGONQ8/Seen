@@ -1,0 +1,391 @@
+
+> seen@4.0.0 test
+> python build.py && node tests/run.cjs
+
+Built index.html: 738 questions, 2,642,305 bytes; all fonts, images and logic embedded.
+
+RUN python -m unittest discover -s tests -p test_*.py
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.444s
+
+OK
+
+RUN node tests/team-engine.spec.cjs
+PASS default rules: classic36, values200400600, exactlythreecategorieseach
+PASS classic36 has six independentquestions percategory, eachvaluetwice
+PASS strict configuration rejects repeatedteamcategories, disabledpool and unfitrules
+PASS custom teamnames/colors/participants persist; allcategories selectable bybothteams
+PASS questionpreview hides answer andclock, thenquestionstarts
+PASS normal award touches onlycorrectteam, isidempotent andadvancesscheduledturnonce
+PASS stealing preserveshiddenanswer and awardsopponent withoutdoubleturn
+PASS stealdisabled ends firstfailedattempt; nobodycorrect awardsnopoints
+PASS revealing answer permanentlyclosesattempts and preventslatesteal
+PASS timers: expiredfirstopens10ssteal, staleclockcannotmodifynewphase
+PASS disabledtimer neverexpires; hosttransition waitsmanualstealstart
+PASS lateanswer/reveal cannotwintimer race
+PASS presenter revealsquestionwithoutstartingclockuntilmanualSTART_TIMER
+PASS presenter extra-timebeforemanualclock ispreserved
+PASS pause/resume preservesremainingtime and rotates token
+PASS assistancefullydisabled is notusable andconsumesnothing
+PASS pit mustbeconfirmedbeforequestion; correct addsownbaseanddeductsopponent
+PASS pit failednormallydeductsnothing; optionalfailurepenaltyandnegativepolicies
+PASS trap transfersonce, failswithdeduction, nofurthersteal; nextselectorunchanged
+PASS trap success configurable: respondentpoints ornone
+PASS answertwice oral permits2attempts, preservesclock, cannotbereused
+PASS three/fouroptionquestions containoneanswer andcorrectauto-suggestswithoutscoring
+PASS choiceanswertwice acceptstwoverifiedproposalsandrequiresadjudication
+PASS typednormalization preservesdistinctletters andacceptsverifiedaliasesonly
+PASS callfriend pausesconfigurablemainclock andreturnswithoutfakecall
+PASS callwithoutpause respectsmainexpiration; completedassistancecannotreturnagain
+PASS sitout requiresrealnominatedopponent+hostconfirmation andlogsparticipant
+PASS extra-time adds15seconds; hint/double/second/skip haveindependentrules
+PASS assistanceusage limitsallow0..5butneverreuseconsumeditem
+PASS transactionscontainfullaudit andimmutableinputs
+PASS undo reversescompletepitresolution,turnstatsandbothtransactions atomically
+PASS manualscorecorrection clamp/negative policies andundo
+PASS fullcompactmatch completes18uniquequestions,winnerandtiecorrect
+PASS fullclassicmatch completes36uniquequestions andstablealternatingturns
+PASS repetitionprotectionprefersunseenwithinexactdifficultybucket
+PASS configuration snapshotlocked againstexternalobjectmutations
+PASS savedboard/questionrestorevalidated,paused,completedtilesremainclosed
+PASS corruptedrestore rejectsduplicatetiles,scores,config,assistsandunsafesnapshots
+PASS skip thenUNDO cannotmakealreadyrevealedquestion stealableagain
+PASS multi-levelUNDO afterhelper/reveal/scoring retainsdurableanswerknowledge
+PASS deepUNDOtoboard reopeningknownquestion opensonlyadjudication
+PASS revealknowledge survivesrefreshandlegacyledger migration
+PASS storedknownanswer cannotbehiddenagainandoldcallbacks cannotreopenattempt
+PASS V3 manualsteal extra-time survives start pause reload resume withoutduplication
+PASS V3 trapdelegation neverrecordsincorrect fordelegator onsuccess orfailure
+PASS V3 doubleentitlement survives bothteams activating andhostcorrectingwinner
+PASS V3 revealwithoutattempt skip timeout andpass donotfabricateincorrectanswers
+PASS V3 finalhostdecision overrides automaticcorrectness withoutinventingattempts
+PASS V3 questionsnapshots survive library edits removal sourceandmedia changes
+PASS V3 snapshot input isdetached fromownerbank includingnestedmetadata
+PASS V3 legacyversion2 migratesprogress scoresassists andundowithoutduplicatedsnapshots
+PASS V3 failedmigration preservesbackupanddoesnotresetunrelateduserdata
+PASS V3 threespoilerlevels independent franchise filters alwaysstrict
+PASS V3 sharedeligibility drives preview validation andgeneration withoutspoilerfallback
+PASS V3 recentselectionavoids30daysandlastthreematcheswithdeterministicoldestfallback
+PASS V3 measuredtime excludes pausesandundodoesnotrollbackorstopduration
+PASS V3 invalidfranchisepreferencesrejectwithoutthrowingandlegacytimerbonusmigrates
+PASS V3 dangerousquestionidentifiersandsnapshotssourcesrejected
+PASS V3 legacymigrationpreservesassignedpointsevenwhenlibrarypointswerelateredited
+PASS V3 selectorprefersvariedanswersandsubtopicswithineligiblepriority
+PASS V3 snapshotansweraliasesandexplicitpointsrejectcontradictionswithoutrepair
+PASS V3 missinglegacylibraryanswerfieldsnormalizedbutinvalidexplicitvaluesrejected
+PASS one-tap resolution awards200400600 andreturnsboard atomicallywithoutmutatinginput
+PASS one-tap opposingwinner usesexplicitdefaultstealconvention onlywhenenabled
+PASS one-tap nobodycompleteswithnoinventedattempts andUndo reversescompletion
+PASS one-tap duplicate andstaleresolutions cannot score afterreloadornewquestion
+PASS one-tap requiresfreshcompletequestionidentity andUndo invalidatesoldbuttons
+PASS one-tap sharedpreview matchesDoubleBonusPit transactionsandzerofloor
+PASS one-tap trap successfailure andUndo retainconfiguredruleswithoutsteal
+PASS one-tap configuredPitandstealpenalties runonce andUndo restoresbothteams
+PASS one-tap Doubleentitlement surviveswrongwinnerUndoreloadandcorrection foreachteam
+PASS one-tap Undo refundsallquestionhelpers andreadjudication consumesexactlyonce
+PASS one-tap Skip remainsanunscorablequestion andrefundshelperonUndo
+PASS one-tap Undo preservesinterleavedmanualadjustments anddoesnotresurrecthelperusage
+PASS one-tap pendinghelpersandresultmetadatarejectcorruptionwithoutlosingbackup
+PASS one-tap timeoutrecordsnoinventedwronganswers andcanresolvewithoutanextraaction
+PASS one-tap completeClassic36 supportsfinalwinner tiesandlastquestionUndo
+PASS one-tap postresolutionmanualadjustUndo preserveshelpercostuntilquestionUndo
+PASS one-tap restorationrejectsunearnedmodifiers withoutconsumedordeferredhelperledger
+PASS checked-only eligibility rejects editorial pending disputed and incomplete evidence without mutating snapshots
+PASS exact-tier shortages reject before allocating any broken or substituted board slot
+PASS attempt-specific penalties require explicit wrong answers rather than winner inference pass or expiration
+PASS correct automatic answer overridden by host never becomes an invented wrong attempt
+PASS resolution identifiers are question-specific persisted and invalidated by correction
+PASS legacy adjudication and stale question handlers cannot bypass current question identity
+PASS score corrections require reason reject duplicate operation and validate ledger deltas
+PASS complete one-tap compact matches support either winner nobody and mid-question reload
+PASS presenter timer changes require pause preserve hidden question and undo clock configuration safely
+PASS explicit end-match preserves true partial results no invented tiles and can be undone or resumed from save
+PASS stale Undo rejects old revisions and cannot undo an intervening score correction
+PASS family12 preset uses exactly reviewed short age-suitable facts across six complete categories
+PASS family age text and attestation filters fail closed, visual filters never admit text questions
+{"passed":92,"failed":0,"questions":738}
+
+RUN node tests/v4-engine.spec.cjs
+PASS restoration rejects forged award amounts even when score chains and summary agree
+PASS every resolved transaction belongs to exactly one matching question and history group
+PASS board slot identities are unique and points stay bound to the saved question
+PASS completion and winner metadata cannot contradict the board and scores
+PASS helper identity and question linkage cannot be duplicated across histories
+PASS pending disputed excluded and verification requires actual structured evidence
+PASS editorial disable after match creation never discards immutable saved questions
+PASS visual variant preferentially chooses images without relaxing eligibility and reports fallback
+PASS progressive clues persist bounded progress and stale rapid taps cannot skip clues
+PASS all helper outcome and floor combinations restore after award undo and corrected award
+PASS correction ceiling preserves room for all remaining scoring transactions
+PASS challenge selects harder eligible questions within the same point and repetition bucket
+PASS custom two four and six category boards share atomic scoring recovery and final undo
+PASS custom limits reject malformed point and category selection before any match is built
+PASS historical V2 fixture retains prior double ownership and opposite-team award semantics
+PASS ordering restore rejects permutations that contradict the canonical answer
+PASS restored serial cannot fall below minted score helper clock resolution and undo identities
+PASS extreme imported serial fails safely before any state or score mutation
+PASS older main penalty ledgers keep their policy while newly resolved questions use explicit failures
+PASS ending a question with consumed or deferred helpers preserves restorable inventory and Undo
+PASS every judgment remains bound to the serial ledger even without score transactions
+PASS clamped penalty deltas still match their question scoring plan exactly
+{"passed":22,"failed":0,"questions":738}
+
+RUN node tests/tournament.spec.cjs
+PASS 2/4/8-team bracket dimensions and isolated names
+PASS invalid counts, duplicate or unsafe names rejected
+PASS full eight-team tournament advances winners across every round
+PASS Team B wins tournament using the same bracket rules
+PASS ties never advance a team; repeated complete matches decide qualification
+PASS match binding is idempotent and stale or foreign bindings rejected
+PASS result replay is idempotent; changed result cannot award qualification twice
+PASS cannot advance partial, duplicate-question, foreign-team or invalid-score matches
+PASS accepted result undo restores eligibility but never changes match questions
+PASS downstream match start prevents changing prior qualifications
+PASS safe abandoned match can restart without counting result
+PASS save/restore survives mid-match, tie, completed bracket and rejects tampering
+{"suite":"tournament","passed":12,"failed":0}
+
+RUN node tests/team-content.spec.cjs
+PASS original400questionIDs all preserved
+PASS unique question IDs and normalized question text
+PASS every question has four distinct choices and exactlyone canonical key
+PASS source-checked categories have enough200400600 questions forclassic with spoilerprotection
+PASS merged V4 categories retain all questions without silently upgrading editorial logic
+PASS source URLs and metadata complete without fabricated verification claim
+PASS Westerndigits in question content
+PASS accepted spelling aliases never make a distractor correct
+PASS meaningful offline media all resolved and imagealtdoesnotrevealanswer
+PASS 24expandedclues retain source/license metadata
+PASS licensedphotos eachunder100KB andJPEG files match embeddedbytes
+PASS HTML is singlefile with no external script/stylesheet/font
+PASS importJSON rejects prototype pollution keys and sizeabuse
+PASS safeQuestion rejects incorrect choices points media and duplicate IDs
+PASS safeQuestion rejects normalized duplicate question text
+PASS unsafeURLs rejected and invalidhttpscannotbeasource
+PASS acceptedaliases conflictingwithwrongchoices rejected atimport
+PASS malformedhistorytransactions rejected before rendering
+PASS untrustedHTML stays escaped text
+PASS preferrednullteams rejected with localized validation error
+PASS importedteamemblems are escaped in renderedscoreboard
+PASS Arabic normalization preserves distinct letters while accepting diacritics/hamza
+PASS every implemented structured format survives owner validation
+PASS unplayable and malformed formats rejected before import
+PASS source checked importer rejects impossible and future verification dates
+PASS owner import never silently certifies unknown verification status
+PASS authentic legacy owner review migrates without a factual verification upgrade
+PASS unknown legacy verification states remain rejected
+{"passed":28,"failed":0,"questions":738,"mediaQuestions":63}
+
+RUN node tests/v3-media.spec.cjs
+PASS 24 new meaningful diagrams retain the approved category distribution
+PASS every visual retains its offline source bytes and SHA-256 provenance
+PASS all original SVGs have explicit license, authorship and stable source paths
+PASS SVGs contain no executable content, network references or hidden answer metadata
+PASS each diagram belongs to a unique question in its intended category
+PASS entire embedded image library supports licensed SVG and raster assets
+{"passed":6,"failed":0,"skipped":0,"newImages":24}
+
+RUN node tests/one-tap.spec.cjs
+PASS Classic defaults to 36 unique positions and tile selection immediately opens the question
+PASS Blue 200, Gold 400 and Nobody 600 each resolve in one tap without a result screen
+PASS opposing-team award after ordinary reveal is a steal only when enabled, without an invented wrong attempt
+PASS one-tap Undo reverses Blue, Gold and Nobody outcomes, tile completion and turn progression
+PASS rapid double taps and stale result tokens cannot award twice, including after reload and Undo
+PASS double-points preview and one-tap settlement are exactly 400 for a 200 question
+PASS double-points preview and one-tap settlement are exactly 800 for a 400 question
+PASS double-points preview and one-tap settlement are exactly 1200 for a 600 question
+PASS Pit prearming resolves award and deduction atomically; Undo refunds helper and reverses both teams
+PASS Trap judgment without an explicit failed attempt applies no deduction; Undo refunds delegation
+PASS timer expiry is nonblocking and Nobody completes the expired question without fabricated incorrect answers
+PASS storage denial retains a live scored match and exports/imports a base64 UTF8 encoded host resume file
+PASS complete all 36 questions with direct settlement: winner
+FAIL complete all 36 questions with direct settlement: tie locator.click: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-team-action="award"][data-team="none"]')[22m
+[2m    - locator resolved to <button data-team="none" data-team-action="award" class="btn scoring-nobody" data-tile-id="islamic-200-0" data-question-id="v3-h-islamic-001" data-token="match-1792710627286-1709264853-clock-123" data-resolution-id="match-1792710627286-1709264853-judgment-124">…</button>[22m
+[2m  - attempting click action[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not stable[22m
+[2m    - retrying click action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not stable[22m
+[2m    - retrying click action[22m
+[2m      - waiting 100ms[22m
+[2m    19 × waiting for element to be visible, enabled and stable[22m
+[2m       - element is not stable[22m
+[2m     - retrying click action[22m
+[2m       - waiting 500ms[22m
+
+    at score (/workspace/Seen/tests/one-tap.spec.cjs:34:72)
+    at /workspace/Seen/tests/one-tap.spec.cjs:62:374
+    at async check (/workspace/Seen/tests/one-tap.spec.cjs:14:137)
+    at async /workspace/Seen/tests/one-tap.spec.cjs:62:36
+PASS three result choices remain readable and keyboard-operable across phone/tablet orientations and 130% text
+PASS no uncaught runtime errors or external runtime requests
+{"passed":15,"failed":1,"report":"/tmp/seen-one-tap-report.json"}
+
+RUN node tests/reliability.spec.cjs
+PASS legacy individual data is retired; preferences migrate without score conversion and team save survives
+PASS corrupt team JSON is recoverable and a new match remains playable
+PASS malformed and unsafe backups cannot overwrite a valid match
+PASS storage denial retains scoring in memory with understandable recovery export
+PASS quota failure does not corrupt the previous durable snapshot or duplicate live points
+PASS revealed-answer reload keeps answer known and one judgment can settle it only once
+PASS two tabs lock stale controls and cannot overwrite the latest result
+PASS synchronous stale-save guard works before a storage event can be delivered
+PASS default allocations contain only checked facts, unique IDs and exact difficulty
+PASS IndexedDB fallback serializes scoring and Undo when Web Locks is unavailable
+PASS rejected Web Locks acquisition safely falls back before scoring and never duplicates a result
+PASS Family 12+ is a complete two-team 18-question match using only reviewed short checked questions
+PASS no uncaught exceptions or external runtime requests
+{"passed":13,"failed":0}
+
+RUN node tests/team-browser.spec.cjs
+FILE WORKFLOW Not executed: managed browser blocks file:// navigation
+PASS initial Arabic launch, self-contained bank and defaults
+FAIL single-page lobby names, six unique categories and Quick 18 AssertionError [ERR_ASSERTION]: quick lobby: small target 200نقطة: 66.203125x31.5
+    at layout (/workspace/Seen/tests/team-browser.spec.cjs:30:932)
+    at async /workspace/Seen/tests/team-browser.spec.cjs:35:821
+    at async check (/workspace/Seen/tests/team-browser.spec.cjs:16:130)
+    at async /workspace/Seen/tests/team-browser.spec.cjs:35:2
+PASS fair automatic category selection and Classic 36 exact slots
+PASS oral question hides solution; one winner tap scores once and returns directly to board
+PASS wrong first attempt opens hidden-answer 10-second steal; awards opposing team once
+PASS stealing disabled, timer disabled, no unavailable assistance
+PASS real configurable timer expires to steal then reveal, never runs on explanations
+PASS host-controlled steal waits before timer start
+PASS presenter explicitly starts and pauses the timer without exposing the answer
+PASS Pit can be armed or cancelled on board; next question consumes it and resolves 500/900 to 900/500
+PASS Pit deduction respects zero floor and assistance exhaustion
+PASS Trap transfer once, negative deduction, no further steal or turn loop
+PASS Answer Twice permits two proposals, hides solution after first wrong, consumes once
+PASS Call a Friend, extra time, hints, double points and sit out are actionable
+PASS Skip and Second Chance are distinct confirmed consumable actions
+PASS 3-option question contains exactly one correct answer and awards only after the host selects the result
+PASS 4-option question contains exactly one correct answer and awards only after the host selects the result
+PASS typed Arabic matching, manual host override, and distinct Arabic letters
+PASS score correction and undo preserve original turn and reopen only adjudication
+PASS undo after Skip preserves known answer and never restores a stealable hidden attempt
+PASS save, refresh during active question, resume paused, completed tiles/config remain locked
+PASS complete all 18 tiles, winner, history and rematch
+PASS complete all 18 tiles, tie, history and rematch
+PASS encoded host backup round trip and malformed restore rejection preserve the match and preferences
+PASS owner question editor, local report, disable/re-enable and pack round trip validate safely
+PASS all embedded visual clues load offline and zoom has no solution leakage
+FAIL responsive board/question/reveal at portrait, landscape/tablets and 130% text, no action overlap AssertionError [ERR_ASSERTION]: board 320: small target 200نقطة: 64.484375x29.796875
+    at layout (/workspace/Seen/tests/team-browser.spec.cjs:30:932)
+    at async /workspace/Seen/tests/team-browser.spec.cjs:58:441
+    at async check (/workspace/Seen/tests/team-browser.spec.cjs:16:130)
+    at async /workspace/Seen/tests/team-browser.spec.cjs:58:2
+PASS multiplayer navigation is complete and removed mode entry points stay absent
+PASS new results show current attempt accounting while legacy results retain their warning
+PASS no uncaught browser errors
+PASS no outbound network requests in offline gameplay
+{"passed":29,"failed":2,"report":"/tmp/seen-team-browser-report.json"}
+
+RUN node tests/v3-team-ui.spec.cjs
+PASS quick/classic presets preserve identity and custom timers; named preset survives reload
+PASS independent anime levels and exact preview counts persist without silently widening an insufficient pool
+PASS active host backups use an encoded envelope and library solutions remain hidden; pass records no invented incorrect attempt
+PASS question snapshots remain unchanged in actual question UI when the library changes
+PASS failed legacy restore preserves the exact original and unrelated owner edits, then permits a new match
+PASS new source-check editor cannot certify a URL alone, and supports bibliography, spoiler and local image attribution fields
+PASS new setup and presenter interactions fit required mobile/tablet orientations and text130
+PASS new UI produces no uncaught browser exceptions
+{"passed":8,"failed":0,"skipped":0,"checks":[{"name":"quick/classic presets preserve identity and custom timers; named preset survives reload","ok":true},{"name":"independent anime levels and exact preview counts persist without silently widening an insufficient pool","ok":true},{"name":"active host backups use an encoded envelope and library solutions remain hidden; pass records no invented incorrect attempt","ok":true},{"name":"question snapshots remain unchanged in actual question UI when the library changes","ok":true},{"name":"failed legacy restore preserves the exact original and unrelated owner edits, then permits a new match","ok":true},{"name":"new source-check editor cannot certify a URL alone, and supports bibliography, spoiler and local image attribution fields","ok":true},{"name":"new setup and presenter interactions fit required mobile/tablet orientations and text130","ok":true},{"name":"new UI produces no uncaught browser exceptions","ok":true}],"errors":[]}
+
+RUN node tests/tournament-browser.spec.cjs
+PASS real four-team tournament: tie, quick replay, both-team victories, final champion and standings
+PASS classic tournament tie produces an 18-question additional match
+PASS mid-question save/reload preserves bracket binding, scores and match progression
+PASS Undo of accepted final judgment rolls bracket back before next match starts
+PASS accepted previous-round results are protected after a subsequent match starts
+PASS second tab cannot overwrite tournament progression from a stale bracket
+PASS invalid tournament import leaves valid current bracket unchanged
+PASS storage denial keeps tournament playable and exports valid encoded-free JSON
+PASS tournament bracket fits phone and tablet orientations and 130% text
+PASS no tournament runtime errors or external runtime dependencies
+{"passed":10,"failed":0}
+
+RUN node tests/v3-build-browser.spec.cjs
+PASS generated HTML starts from local bytes with network disabled before startup
+PASS malicious mixed-case script, comments and Unicode survive actual Python build without execution
+PASS long Arabic visual snapshot can open through actual team controls
+FAIL long visual interaction 412x915 text 100% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":215,"right":374,"width":159,"height":30.375}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 915x412 text 100% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":696.40625,"right":861,"width":164.59375,"height":31.5}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 1024x1536 text 100% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":781.40625,"right":946,"width":164.59375,"height":31.5}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 1536x1024 text 100% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":1058.40625,"right":1223,"width":164.59375,"height":31.5}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 320x780 text 100% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":127,"right":286,"width":159,"height":30.375}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 412x915 text 130% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":215,"right":374,"width":159,"height":30.375}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 915x412 text 130% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":696.40625,"right":861,"width":164.59375,"height":31.5}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 1024x1536 text 130% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":743.40625,"right":946,"width":202.59375,"height":39.140625}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 1536x1024 text 130% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":1020.40625,"right":1223,"width":202.59375,"height":39.140625}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+FAIL long visual interaction 320x780 text 130% AssertionError [ERR_ASSERTION]: {"text":"اتصال بصديق1 متبقية","left":90.75,"right":286,"width":195.25,"height":36.9375}
+    at layout (/workspace/Seen/tests/v3-build-browser.spec.cjs:16:1025)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:58:115
+    at async check (/workspace/Seen/tests/v3-build-browser.spec.cjs:14:35)
+    at async /workspace/Seen/tests/v3-build-browser.spec.cjs:57:3
+PASS long visual answer exposes exactly three reachable scoring choices and completes without another screen
+PASS no uncaught errors and no external runtime requests
+{"passed":5,"failed":10}
+
+RUN node tests/v4-ui.spec.cjs
+PASS solo has no navigation or executable setup path in the generated application
+PASS category favorites work by keyboard, filter correctly, and survive reload
+PASS team name presets and classic/enhanced assistance choices leave valid team configurations
+PASS challenge and visual variants use the shared match engine with explicit host rules
+FAIL custom two-category match with selected point values scores, reloads, and fits mobile AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 200
+
+    at /workspace/Seen/tests/v4-ui.spec.cjs:87:199
+    at async check (/workspace/Seen/tests/v4-ui.spec.cjs:12:35)
+    at async /workspace/Seen/tests/v4-ui.spec.cjs:84:2
+FAIL one-hand host controls remain usable in portrait/landscape and reveal exactly three awards AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'ANSWER_REVEAL'
+- 'BOARD'
+
+    at /workspace/Seen/tests/v4-ui.spec.cjs:93:221
+    at async check (/workspace/Seen/tests/v4-ui.spec.cjs:12:35)
+    at async /workspace/Seen/tests/v4-ui.spec.cjs:89:2
+Terminated

@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "v4-sci-001",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما التصنيف الفلكي للشمس؟",
+    "options": [
+      "كويكب",
+      "نجم",
+      "كوكب صخري",
+      "قمر"
+    ],
+    "answer": 1,
+    "correctAnswer": "نجم",
+    "acceptedAnswers": [
+      "نجم قزم أصفر"
+    ],
+    "explanation": "الشمس نجم، وهي النجم الوحيد في مجموعتنا الشمسية.",
+    "source": {
+      "title": "NASA Science — Sun Facts",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Sun Facts",
+      "referenceUrl": "https://science.nasa.gov/sun/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-001"
+    }
+  },
+  {
+    "id": "v4-sci-002",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما أقرب كواكب المجموعة الشمسية إلى الشمس؟",
+    "options": [
+      "الأرض",
+      "المريخ",
+      "عطارد",
+      "الزهرة"
+    ],
+    "answer": 2,
+    "correctAnswer": "عطارد",
+    "acceptedAnswers": [
+      "Mercury"
+    ],
+    "explanation": "عطارد هو أقرب الكواكب إلى الشمس.",
+    "source": {
+      "title": "NASA Science — Mercury Facts",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Mercury Facts",
+      "referenceUrl": "https://science.nasa.gov/mercury/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-002"
+    }
+  },
+  {
+    "id": "v4-sci-003",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما أشد كواكب المجموعة الشمسية حرارة عند سطحه؟",
+    "options": [
+      "عطارد",
+      "المريخ",
+      "المشتري",
+      "الزهرة"
+    ],
+    "answer": 3,
+    "correctAnswer": "الزهرة",
+    "acceptedAnswers": [
+      "Venus"
+    ],
+    "explanation": "الزهرة أشد الكواكب حرارة؛ غلافه الجوي الكثيف يحبس الحرارة بتأثير الاحتباس الحراري.",
+    "source": {
+      "title": "NASA Science — Venus Facts",
+      "url": "https://science.nasa.gov/venus/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Venus Facts",
+      "referenceUrl": "https://science.nasa.gov/venus/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-003"
+    }
+  },
+  {
+    "id": "v4-sci-004",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما ترتيب الأرض بين الكواكب عند العد من الشمس إلى الخارج؟",
+    "options": [
+      "الثالث",
+      "الثاني",
+      "الرابع",
+      "الخامس"
+    ],
+    "answer": 0,
+    "correctAnswer": "الثالث",
+    "acceptedAnswers": [
+      "3",
+      "الثالثة"
+    ],
+    "explanation": "الأرض هي الكوكب الثالث من الشمس، بعد عطارد والزهرة.",
+    "source": {
+      "title": "NASA Science — Earth Facts",
+      "url": "https://science.nasa.gov/earth/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Earth Facts",
+      "referenceUrl": "https://science.nasa.gov/earth/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-004"
+    }
+  },
+  {
+    "id": "v4-sci-005",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "أي كوكب يُعرف بلقب الكوكب الأحمر؟",
+    "options": [
+      "عطارد",
+      "المريخ",
+      "نبتون",
+      "أورانوس"
+    ],
+    "answer": 1,
+    "correctAnswer": "المريخ",
+    "acceptedAnswers": [
+      "Mars"
+    ],
+    "explanation": "يُعرف المريخ بالكوكب الأحمر بسبب تأكسد معادن الحديد في تربته.",
+    "source": {
+      "title": "NASA Science — Mars Facts",
+      "url": "https://science.nasa.gov/mars/facts/",
+      "reference": "Namesake"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Mars Facts",
+      "referenceUrl": "https://science.nasa.gov/mars/facts/",
+      "section": "Namesake",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-005"
+    }
+  },
+  {
+    "id": "v4-sci-006",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما أكبر كواكب المجموعة الشمسية حجمًا؟",
+    "options": [
+      "نبتون",
+      "الأرض",
+      "المشتري",
+      "زحل"
+    ],
+    "answer": 2,
+    "correctAnswer": "المشتري",
+    "acceptedAnswers": [
+      "Jupiter"
+    ],
+    "explanation": "المشتري أكبر كواكب المجموعة الشمسية.",
+    "source": {
+      "title": "NASA Science — Jupiter Facts",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Jupiter Facts",
+      "referenceUrl": "https://science.nasa.gov/jupiter/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-006"
+    }
+  },
+  {
+    "id": "v4-sci-007",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما أبعد الكواكب الثمانية المعترف بها في المجموعة الشمسية عن الشمس؟",
+    "options": [
+      "أورانوس",
+      "زحل",
+      "المشتري",
+      "نبتون"
+    ],
+    "answer": 3,
+    "correctAnswer": "نبتون",
+    "acceptedAnswers": [
+      "Neptune"
+    ],
+    "explanation": "نبتون هو الكوكب الثامن والأبعد ضمن الكواكب الثمانية؛ بلوتو مصنّف كوكبًا قزمًا.",
+    "source": {
+      "title": "NASA Science — Neptune Facts",
+      "url": "https://science.nasa.gov/neptune/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Neptune Facts",
+      "referenceUrl": "https://science.nasa.gov/neptune/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-007"
+    }
+  },
+  {
+    "id": "v4-sci-008",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 1,
+    "difficulty": "easy",
+    "points": 200,
+    "q": "ما التابع الطبيعي الوحيد للأرض؟",
+    "options": [
+      "القمر",
+      "فوبوس",
+      "تيتان",
+      "أوروبا"
+    ],
+    "answer": 0,
+    "correctAnswer": "القمر",
+    "acceptedAnswers": [
+      "قمر الأرض"
+    ],
+    "explanation": "القمر هو التابع الطبيعي الوحيد للأرض.",
+    "source": {
+      "title": "NASA Science — Moon Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "reference": "Size and Distance"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Moon Facts",
+      "referenceUrl": "https://science.nasa.gov/moon/facts/",
+      "section": "Size and Distance",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-008"
+    }
+  },
+  {
+    "id": "v4-sci-009",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما الغاز الذي يشكل النسبة الأكبر من الغلاف الجوي للأرض قرب سطحها؟",
+    "options": [
+      "الأرجون",
+      "النيتروجين",
+      "الأكسجين",
+      "ثاني أكسيد الكربون"
+    ],
+    "answer": 1,
+    "correctAnswer": "النيتروجين",
+    "acceptedAnswers": [
+      "نتروجين",
+      "N2"
+    ],
+    "explanation": "يشكل النيتروجين نحو 78% من الغلاف الجوي قرب سطح الأرض، مقابل نحو 21% للأكسجين.",
+    "source": {
+      "title": "NASA Science — Earth Facts",
+      "url": "https://science.nasa.gov/earth/facts/",
+      "reference": "Atmosphere"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Earth Facts",
+      "referenceUrl": "https://science.nasa.gov/earth/facts/",
+      "section": "Atmosphere",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-009"
+    }
+  },
+  {
+    "id": "v4-sci-010",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما الغاز الذي يشكل معظم الغلاف الجوي لكوكب الزهرة؟",
+    "options": [
+      "الأكسجين",
+      "الهيدروجين",
+      "ثاني أكسيد الكربون",
+      "النيتروجين"
+    ],
+    "answer": 2,
+    "correctAnswer": "ثاني أكسيد الكربون",
+    "acceptedAnswers": [
+      "CO2"
+    ],
+    "explanation": "يتكون معظم الغلاف الجوي للزهرة من ثاني أكسيد الكربون، وتوجد فيه سحب من حمض الكبريتيك.",
+    "source": {
+      "title": "NASA Science — Venus Facts",
+      "url": "https://science.nasa.gov/venus/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Venus Facts",
+      "referenceUrl": "https://science.nasa.gov/venus/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-010"
+    }
+  },
+  {
+    "id": "v4-sci-011",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "فوبوس وديموس هما قمران طبيعيان لأي كوكب؟",
+    "options": [
+      "الأرض",
+      "الزهرة",
+      "عطارد",
+      "المريخ"
+    ],
+    "answer": 3,
+    "correctAnswer": "المريخ",
+    "acceptedAnswers": [
+      "Mars"
+    ],
+    "explanation": "فوبوس وديموس هما قمرا المريخ، وفوبوس أكبرهما.",
+    "source": {
+      "title": "NASA Science — Mars Facts",
+      "url": "https://science.nasa.gov/mars/facts/",
+      "reference": "Moons"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Mars Facts",
+      "referenceUrl": "https://science.nasa.gov/mars/facts/",
+      "section": "Moons",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-011"
+    }
+  },
+  {
+    "id": "v4-sci-012",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما أكبر قمر طبيعي في المجموعة الشمسية؟",
+    "options": [
+      "غانيميد",
+      "تيتان",
+      "قمر الأرض",
+      "إنسيلادوس"
+    ],
+    "answer": 0,
+    "correctAnswer": "غانيميد",
+    "acceptedAnswers": [
+      "جانيميد",
+      "Ganymede"
+    ],
+    "explanation": "غانيميد، أحد أقمار المشتري، أكبر قمر طبيعي في المجموعة الشمسية.",
+    "source": {
+      "title": "NASA Science — Jupiter Facts",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "reference": "Moons"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Jupiter Facts",
+      "referenceUrl": "https://science.nasa.gov/jupiter/facts/",
+      "section": "Moons",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-012"
+    }
+  },
+  {
+    "id": "v4-sci-013",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "أي كوكب متوسط كثافته أقل من كثافة الماء؟",
+    "options": [
+      "نبتون",
+      "زحل",
+      "الأرض",
+      "المريخ"
+    ],
+    "answer": 1,
+    "correctAnswer": "زحل",
+    "acceptedAnswers": [
+      "Saturn"
+    ],
+    "explanation": "زحل هو الكوكب الوحيد في مجموعتنا الشمسية الذي يقل متوسط كثافته عن كثافة الماء.",
+    "source": {
+      "title": "NASA Science — Saturn Facts",
+      "url": "https://science.nasa.gov/saturn/facts/",
+      "reference": "Structure"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Saturn Facts",
+      "referenceUrl": "https://science.nasa.gov/saturn/facts/",
+      "section": "Structure",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-013"
+    }
+  },
+  {
+    "id": "v4-sci-014",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "أي كوكب يميل محور دورانه بنحو 98 درجة، فيبدو كأنه يدور على جانبه؟",
+    "options": [
+      "المريخ",
+      "عطارد",
+      "أورانوس",
+      "زحل"
+    ],
+    "answer": 2,
+    "correctAnswer": "أورانوس",
+    "acceptedAnswers": [
+      "Uranus"
+    ],
+    "explanation": "يميل محور أورانوس بنحو 97.77 درجة، وهو ما يميز دورانه وفصوله.",
+    "source": {
+      "title": "NASA Science — Uranus Facts",
+      "url": "https://science.nasa.gov/uranus/facts/",
+      "reference": "Orbit and Rotation"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Uranus Facts",
+      "referenceUrl": "https://science.nasa.gov/uranus/facts/",
+      "section": "Orbit and Rotation",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-014"
+    }
+  },
+  {
+    "id": "v4-sci-015",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "في أي حزام يقع الكوكب القزم بلوتو؟",
+    "options": [
+      "حزام الكويكبات الرئيسي",
+      "أحزمة فان آلن",
+      "حزام غولد",
+      "حزام كايبر"
+    ],
+    "answer": 3,
+    "correctAnswer": "حزام كايبر",
+    "acceptedAnswers": [
+      "حزام كويبر",
+      "Kuiper Belt"
+    ],
+    "explanation": "يقع بلوتو في حزام كايبر، وهي منطقة بعيدة وراء مدار نبتون.",
+    "source": {
+      "title": "NASA Science — Pluto Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Pluto Facts",
+      "referenceUrl": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-015"
+    }
+  },
+  {
+    "id": "v4-sci-016",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 2,
+    "difficulty": "medium",
+    "points": 400,
+    "q": "ما العملية النووية التي تجري في قلب الشمس وتنتج طاقتها؟",
+    "options": [
+      "الاندماج النووي",
+      "الانشطار النووي",
+      "التحلل الإشعاعي وحده",
+      "احتراق الفحم"
+    ],
+    "answer": 0,
+    "correctAnswer": "الاندماج النووي",
+    "acceptedAnswers": [
+      "اندماج نووي"
+    ],
+    "explanation": "تسمح حرارة قلب الشمس بحدوث الاندماج النووي، وهو العملية المنتجة للطاقة في القلب.",
+    "source": {
+      "title": "NASA Science — Sun Facts",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "reference": "Structure"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Sun Facts",
+      "referenceUrl": "https://science.nasa.gov/sun/facts/",
+      "section": "Structure",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-016"
+    }
+  },
+  {
+    "id": "v4-sci-017",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "كم يومًا أرضيًا يستغرق اليوم الشمسي الكامل على عطارد، من شروق إلى الشروق التالي تقريبًا؟",
+    "options": [
+      "365 يومًا",
+      "176 يومًا",
+      "88 يومًا",
+      "24 يومًا"
+    ],
+    "answer": 1,
+    "correctAnswer": "176 يومًا",
+    "acceptedAnswers": [
+      "176",
+      "176 يوما"
+    ],
+    "explanation": "اليوم الشمسي على عطارد، أي دورة النهار والليل الكاملة، يساوي نحو 176 يومًا أرضيًا. وهو يختلف عن مدة دورانه حول محوره.",
+    "source": {
+      "title": "NASA Science — Mercury Facts",
+      "url": "https://science.nasa.gov/mercury/facts/",
+      "reference": "Orbit and Rotation"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Mercury Facts",
+      "referenceUrl": "https://science.nasa.gov/mercury/facts/",
+      "section": "Orbit and Rotation",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-017"
+    }
+  },
+  {
+    "id": "v4-sci-018",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما اسم أكبر أقمار بلوتو؟",
+    "options": [
+      "أوروبا",
+      "فوبوس",
+      "شارون",
+      "تريتون"
+    ],
+    "answer": 2,
+    "correctAnswer": "شارون",
+    "acceptedAnswers": [
+      "كارون",
+      "Charon"
+    ],
+    "explanation": "شارون هو أكبر أقمار بلوتو، ويبلغ حجمه نحو نصف حجم بلوتو.",
+    "source": {
+      "title": "NASA Science — Pluto Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "reference": "Introduction"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Pluto Facts",
+      "referenceUrl": "https://science.nasa.gov/dwarf-planets/pluto/facts/",
+      "section": "Introduction",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-018"
+    }
+  },
+  {
+    "id": "v4-sci-019",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما أول كوكب حُدد موقعه بواسطة تنبؤات رياضية قبل رصده للتعرف إليه؟",
+    "options": [
+      "أورانوس",
+      "زحل",
+      "المريخ",
+      "نبتون"
+    ],
+    "answer": 3,
+    "correctAnswer": "نبتون",
+    "acceptedAnswers": [
+      "Neptune"
+    ],
+    "explanation": "قاد تأثير كوكب مجهول في مدار أورانوس إلى تنبؤات رياضية بموقع نبتون، ثم رُصد للتعرف إليه عام 1846.",
+    "source": {
+      "title": "NASA Science — Neptune Facts",
+      "url": "https://science.nasa.gov/neptune/facts/",
+      "reference": "Discovery and Namesake"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Neptune Facts",
+      "referenceUrl": "https://science.nasa.gov/neptune/facts/",
+      "section": "Discovery and Namesake",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-019"
+    }
+  },
+  {
+    "id": "v4-sci-020",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما الشكل الهندسي للتيار النفاث الشهير حول القطب الشمالي لزحل؟",
+    "options": [
+      "سداسي الأضلاع",
+      "خماسي الأضلاع",
+      "مثلث",
+      "مربع"
+    ],
+    "answer": 0,
+    "correctAnswer": "سداسي الأضلاع",
+    "acceptedAnswers": [
+      "سداسي",
+      "مسدس",
+      "6 أضلاع"
+    ],
+    "explanation": "يظهر حول القطب الشمالي لزحل نمط سداسي الأضلاع تشكله رياح تيار نفاث.",
+    "source": {
+      "title": "NASA Science — Saturn Facts",
+      "url": "https://science.nasa.gov/saturn/facts/",
+      "reference": "Atmosphere"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Saturn Facts",
+      "referenceUrl": "https://science.nasa.gov/saturn/facts/",
+      "section": "Atmosphere",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-020"
+    }
+  },
+  {
+    "id": "v4-sci-021",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "لماذا نرى من الأرض الوجه نفسه للقمر تقريبًا؟",
+    "options": [
+      "لأن الأرض تدور حول القمر كل يوم",
+      "لأن مدة دورانه حول نفسه تساوي مدة دورانه حول الأرض",
+      "لأنه لا يدور حول نفسه مطلقًا",
+      "لأن نصفه الآخر لا تصله الشمس أبدًا"
+    ],
+    "answer": 1,
+    "correctAnswer": "لأن مدة دورانه حول نفسه تساوي مدة دورانه حول الأرض",
+    "acceptedAnswers": [
+      "الدوران المتزامن",
+      "التقييد المدي",
+      "تساوي مدة الدوران حول نفسه وحول الأرض"
+    ],
+    "explanation": "يتزامن دوران القمر حول نفسه مع دورانه حول الأرض، فيواجهنا نصف الكرة نفسه تقريبًا؛ وهذا لا يعني أن الجانب البعيد مظلم دائمًا.",
+    "source": {
+      "title": "NASA Science — Moon Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "reference": "Orbit and Rotation"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Moon Facts",
+      "referenceUrl": "https://science.nasa.gov/moon/facts/",
+      "section": "Orbit and Rotation",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-021"
+    }
+  },
+  {
+    "id": "v4-sci-022",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "ما اسم الطبقة المرئية من الشمس التي نسميها عادة سطحها؟",
+    "options": [
+      "الكروموسفير",
+      "النواة",
+      "الفوتوسفير",
+      "الإكليل"
+    ],
+    "answer": 2,
+    "correctAnswer": "الفوتوسفير",
+    "acceptedAnswers": [
+      "الغلاف الضوئي",
+      "الكرة الضوئية",
+      "Photosphere"
+    ],
+    "explanation": "الفوتوسفير، أو الغلاف الضوئي، هو الطبقة المرئية التي يُشار إليها عادة بسطح الشمس، مع أن الشمس لا تمتلك سطحًا صلبًا.",
+    "source": {
+      "title": "NASA Science — Sun Facts",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "reference": "Surface"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Sun Facts",
+      "referenceUrl": "https://science.nasa.gov/sun/facts/",
+      "section": "Surface",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-022"
+    }
+  },
+  {
+    "id": "v4-sci-023",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "في أي عام رصد غاليليو الأقمار الأربعة الكبيرة للمشتري لأول مرة؟",
+    "options": [
+      "1543",
+      "1687",
+      "1846",
+      "1610"
+    ],
+    "answer": 3,
+    "correctAnswer": "1610",
+    "acceptedAnswers": [
+      "عام 1610"
+    ],
+    "explanation": "رصد غاليليو آيو وأوروبا وغانيميد وكاليستو عام 1610 باستخدام تلسكوب مبكر.",
+    "source": {
+      "title": "NASA Science — Jupiter Facts",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "reference": "Moons"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Jupiter Facts",
+      "referenceUrl": "https://science.nasa.gov/jupiter/facts/",
+      "section": "Moons",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-023"
+    }
+  },
+  {
+    "id": "v4-sci-024",
+    "category": "science",
+    "sub": "العلوم والفلك",
+    "subcategory": "العلوم والفلك",
+    "level": 3,
+    "difficulty": "hard",
+    "points": 600,
+    "q": "أي غاز يمنح أورانوس لونه الأزرق المميز بحسب وصف ناسا لغلافه الجوي؟",
+    "options": [
+      "الميثان",
+      "الأكسجين",
+      "ثاني أكسيد الكربون",
+      "الأرجون"
+    ],
+    "answer": 0,
+    "correctAnswer": "الميثان",
+    "acceptedAnswers": [
+      "CH4"
+    ],
+    "explanation": "يساهم الميثان الموجود في الغلاف الجوي لأورانوس في لونه الأزرق؛ يذكر المرجع أن الميثان يمنحه هذا اللون.",
+    "source": {
+      "title": "NASA Science — Uranus Facts",
+      "url": "https://science.nasa.gov/uranus/facts/",
+      "reference": "Atmosphere"
+    },
+    "spoiler": false,
+    "tags": [
+      "العلوم والفلك",
+      "توسعة V4"
+    ],
+    "version": 4,
+    "type": "text",
+    "verification": {
+      "status": "source-checked",
+      "referenceTitle": "NASA Science — Uranus Facts",
+      "referenceUrl": "https://science.nasa.gov/uranus/facts/",
+      "section": "Atmosphere",
+      "verifiedAt": "2026-10-21",
+      "notes": "قورنت الدعوى المحددة في السؤال والجواب بالنص المقروء من صفحة ناسا في هذه الجلسة. مرجع سجل الدليل: docs/science-source-evidence.json#v4-sci-024"
+    }
+  }
+]

@@ -1,0 +1,31 @@
+PASS original400questionIDs all preserved
+PASS unique question IDs and normalized question text
+PASS every question has four distinct choices and exactlyone canonical key
+PASS all categories have enough200400600 questions forclassic with spoilerprotection
+PASS source URLs and metadata complete without fabricated verification claim
+PASS Westerndigits in question content
+PASS accepted spelling aliases never make a distractor correct
+PASS meaningful offline media all resolved and imagealtdoesnotrevealanswer
+PASS 24expandedclues retain source/license metadata
+PASS licensedphotos eachunder100KB andJPEG files match embeddedbytes
+PASS HTML is singlefile with no external script/stylesheet/font
+PASS importJSON rejects prototype pollution keys and sizeabuse
+PASS safeQuestion rejects incorrect choices points media and duplicate IDs
+PASS safeQuestion rejects normalized duplicate question text
+PASS unsafeURLs rejected and invalidhttpscannotbeasource
+PASS acceptedaliases conflictingwithwrongchoices rejected atimport
+PASS malformedhistorytransactions rejected before rendering
+PASS untrustedHTML stays escaped text
+PASS preferrednullteams rejected with localized validation error
+PASS importedteamemblems are escaped in renderedscoreboard
+PASS Arabic normalization preserves distinct letters while accepting diacritics/hamza
+PASS every implemented structured format survives owner validation
+PASS unplayable and malformed formats rejected before import
+PASS source checked importer rejects impossible and future verification dates
+PASS owner import never silently certifies unknown verification status
+{"passed":25,"failed":0,"questions":720,"mediaQuestions":63}
+FAIL mergedpackandeditor1200capacitydonotdropquestiondata page.waitForEvent: Timeout 30000ms exceeded while waiting for event "filechooser"
+=========================== logs ===========================
+waiting for event "filechooser"
+============================================================
+{"passed":0,"failed":1,"errors":[],"network":[]}

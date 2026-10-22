@@ -1,36 +1,39 @@
 {
-  "release": "4.0.0-multiplayer",
-  "reviewDateUTC": "2026-10-21",
-  "baseCommit": "980d2334a9236353c1e6b532b59ed0c148aa6c19",
+  "release": "4.0.0-reconciled-multiplayer",
+  "reviewDateUTC": "2026-10-22T23:23:40.029714+00:00",
   "branch": "codex/multiplayer-reliability",
-  "status": "passed-scoped-multiplayer-release",
-  "entireMissionComplete": false,
+  "status": "automated-validation-passed-physical-samsung-pending",
+  "mergeApproved": false,
+  "parents": {
+    "previousPR": "b87c4c8538b8f00e4ec087dfe2cf863582385d8c",
+    "main": "bfa6910dbb06f78811356342ca1050ac5b637a23",
+    "mergeBase": "980d2334a9236353c1e6b532b59ed0c148aa6c19"
+  },
   "artifact": {
     "path": "index.html",
-    "bytes": 2488143,
-    "sha256": "f7b87869f54fff5d1a9541f161c554992edd4f5ed8c3e8a1f703d0b858b342ed",
-    "sourceInputsSynchronized": true
-  },
-  "build": {
-    "command": "python build.py",
-    "passed": true,
-    "repeatedBuilds": 2,
-    "identicalOutputHashes": [
-      "f7b87869f54fff5d1a9541f161c554992edd4f5ed8c3e8a1f703d0b858b342ed",
-      "f7b87869f54fff5d1a9541f161c554992edd4f5ed8c3e8a1f703d0b858b342ed"
-    ],
+    "bytes": 2630029,
+    "sha256": "7826527033615f1ec7635449cd03d7dedad9b46f3662fbeb4ad7bde04df1e3ba",
+    "sourceInputsSynchronized": true,
     "manifest": "build-manifest.json",
-    "runtimeDependencies": []
+    "deterministicRebuildMatched": true,
+    "zipMatchesHTML": true
   },
-  "tests": {
-    "command": "npm test",
-    "artifact": {
-      "path": "index.html",
-      "bytes": 2488143,
-      "sha256": "f7b87869f54fff5d1a9541f161c554992edd4f5ed8c3e8a1f703d0b858b342ed",
-      "sourceInputsSynchronized": true
-    },
-    "suiteExecutions": {
+  "content": {
+    "questions": 738,
+    "categories": 12,
+    "sourceChecked": 237,
+    "editorial": 413,
+    "pending": 83,
+    "disputed": 5,
+    "defaultEligible": 227,
+    "missingIDsFromEitherTip": 0,
+    "freshFactCheckClaim": false,
+    "logicEditorialExcludedFromDefaults": true
+  },
+  "localExecution": {
+    "environment": "Managed Linux; Playwright browsers and touch/viewport/DPR emulation; no physical Samsung devices",
+    "command": "npm test; then targeted V4 UI/browser reruns after test-adapter fixes",
+    "initialFullRun": {
       "results": [
         {
           "name": "python",
@@ -49,6 +52,13 @@
           "name": "node",
           "args": [
             "tests/team-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-engine.spec.cjs"
           ],
           "code": 0
         },
@@ -118,6 +128,20 @@
         {
           "name": "node",
           "args": [
+            "tests/v4-ui.spec.cjs"
+          ],
+          "code": 1
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-browser.spec.cjs"
+          ],
+          "code": 1
+        },
+        {
+          "name": "node",
+          "args": [
             "tests/accessibility.spec.cjs"
           ],
           "code": 0
@@ -146,219 +170,245 @@
           "code": 0
         }
       ],
-      "passed": 15,
-      "failed": 0
+      "passed": 16,
+      "failed": 2
     },
-    "uniquePassingChecks": 369,
-    "passingCheckInvocations": 396,
-    "failingCheckInvocations": 0,
-    "counts": [
+    "targetedReruns": [
       {
-        "command": "python -m unittest discover -s tests -p test_*.py",
-        "passed": 9,
-        "failed": 0
+        "name": "node",
+        "args": [
+          "tests/v4-ui.spec.cjs"
+        ],
+        "code": 0
       },
       {
-        "command": "node tests/team-engine.spec.cjs",
-        "passed": 92,
-        "failed": 0
-      },
-      {
-        "command": "node tests/tournament.spec.cjs",
-        "passed": 12,
-        "failed": 0
-      },
-      {
-        "command": "node tests/team-content.spec.cjs",
-        "passed": 21,
-        "failed": 0
-      },
-      {
-        "command": "node tests/v3-media.spec.cjs",
-        "passed": 6,
-        "failed": 0
-      },
-      {
-        "command": "node tests/one-tap.spec.cjs",
-        "passed": 16,
-        "failed": 0
-      },
-      {
-        "command": "node tests/reliability.spec.cjs",
-        "passed": 13,
-        "failed": 0
-      },
-      {
-        "command": "node tests/team-browser.spec.cjs",
-        "passed": 31,
-        "failed": 0
-      },
-      {
-        "command": "node tests/v3-team-ui.spec.cjs",
-        "passed": 8,
-        "failed": 0
-      },
-      {
-        "command": "node tests/tournament-browser.spec.cjs",
-        "passed": 10,
-        "failed": 0
-      },
-      {
-        "command": "node tests/v3-build-browser.spec.cjs",
-        "passed": 15,
-        "failed": 0
-      },
-      {
-        "command": "node tests/accessibility.spec.cjs",
-        "passed": 26,
-        "failed": 0
-      },
-      {
-        "command": "node tests/team-accessibility.spec.cjs",
-        "passed": 103,
-        "failed": 0
-      },
-      {
-        "command": "node tests/team-content.spec.cjs --browser",
-        "passed": 27,
-        "failed": 0
-      },
-      {
-        "command": "node tests/v3-media.spec.cjs --browser",
-        "passed": 7,
-        "failed": 0
+        "name": "node",
+        "args": [
+          "tests/v4-browser.spec.cjs"
+        ],
+        "code": 0
       }
     ],
-    "environment": "Chromium touch/viewport emulation; no physical Samsung testing. Direct file:// navigation blocked by managed browser policy; actual built bytes booted and played with network disabled before startup."
+    "effectiveSuiteExecutions": {
+      "results": [
+        {
+          "name": "python",
+          "args": [
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_*.py"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-engine.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/tournament.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-content.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-media.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/one-tap.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/reliability.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-team-ui.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/tournament-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-build-browser.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-ui.spec.cjs"
+          ],
+          "code": 0,
+          "previousCode": 1,
+          "rerunLog": "reports/pr1-update/v4-rerun.log"
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v4-browser.spec.cjs"
+          ],
+          "code": 0,
+          "previousCode": 1,
+          "rerunLog": "reports/pr1-update/v4-rerun.log"
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/accessibility.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-accessibility.spec.cjs"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/team-content.spec.cjs",
+            "--browser"
+          ],
+          "code": 0
+        },
+        {
+          "name": "node",
+          "args": [
+            "tests/v3-media.spec.cjs",
+            "--browser"
+          ],
+          "code": 0
+        }
+      ],
+      "passed": 18,
+      "failed": 0
+    },
+    "aggregationNote": "The full run passed 16 suites; only the two V4 test adapters then changed to await serialized commits and use current library navigation. Both changed suites were rerun. All production source hashes stayed unchanged. This is not a claim that the earlier npm test exit code was zero.",
+    "namedPassLines": 452,
+    "pythonTests": 17,
+    "logs": [
+      "reports/pr1-update/test-run.log",
+      "reports/pr1-update/v4-rerun.log"
+    ],
+    "browserEngines": [
+      {
+        "name": "chromium",
+        "version": "154.0.8037.57"
+      },
+      {
+        "name": "firefox",
+        "version": "146.0.1"
+      }
+    ],
+    "browserChecks": {
+      "passed": 28,
+      "failed": 0
+    },
+    "unavailable": [
+      {
+        "browser": "chromium",
+        "feature": "file URL startup",
+        "reason": "Error: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/Seen/index.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/Seen/index.html\", waiting until \"load\"\u001b[22m\n"
+      },
+      {
+        "browser": "webkit",
+        "reason": "Error: browserType.launch: Executable doesn't exist at /home/agent/.cache/ms-playwright/webkit-2248/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+      }
+    ]
   },
-  "supplementaryEngineStress": {
-    "passed": 120,
-    "steps": 20871,
+  "stress": {
+    "command": "npm run test:stress",
+    "passedMatches": 120,
+    "stateTransitions": 20871,
     "restores": 705,
     "undos": 717,
-    "rejections": 142,
-    "command": "node tests/engine-fuzz.cjs",
-    "failed": 0,
-    "scope": "120 seeded pure-engine full-match state simulations; every transition validates state, with restore/Undo/powers/corrections",
-    "engineSha256": "ce2622169b5de36e1a3cefe9f4c9d044f34cfd4960ffba294cde584d59c575fa",
-    "scriptSha256": "56110cc6062a47aa548d70f089ab864ee99c3e6262743db2f9d43d9c5957d249"
+    "expectedRejectedRandomActions": 142,
+    "invariantFailures": 0,
+    "log": "reports/pr1-update/stress.log"
   },
-  "javaScriptSyntax": {
-    "modules": 7,
-    "passed": 7,
-    "failed": 0
-  },
-  "content": {
-    "existingQuestionsRetained": 648,
-    "questionsAdded": 18,
-    "questionsRemoved": 0,
-    "categories": {
-      "anime": 106,
-      "arabia": 75,
-      "football": 92,
-      "games": 68,
-      "geo": 85,
-      "islamic": 74,
-      "prophets": 74,
-      "seerah": 74,
-      "space": 18
+  "githubEvidence": {
+    "initialPRTipHadNoActionsRunsOrStatusEntriesInAPI": true,
+    "previousCountsDescribeEarlierArtifactOnly": {
+      "suites": 15,
+      "uniqueChecks": 369,
+      "matches": 120,
+      "transitions": 20871
     },
-    "questions": 666,
-    "visualQuestions": 63,
-    "mediaAddedThisRelease": 0,
-    "historicalV3DiagramPackImages": 24,
-    "verification": {
-      "disputed": 5,
-      "editorial": 389,
-      "pending": 83,
-      "source-checked": 189
-    },
-    "independentlyCheckedExistingThisExecution": 16,
-    "independentlyCheckedNewThisExecution": 18,
-    "inheritedSourceChecked": 155,
-    "defaultEligible": 179,
-    "excludedByStatus": 477,
-    "checkedExcludedByConservativeSpoilers": 10,
-    "eligibleVisual": 22,
-    "completeQuickVisualCategories": 2,
-    "family12Eligible": 33,
-    "family12CompleteCategories": 6,
-    "family12SuitabilityReviewIsNotNewFactVerification": true,
-    "auditErrors": []
+    "updatedBranchActions": "Consult PR checks for the pushed merge commit; local runs are not GitHub Actions results."
   },
-  "releaseGates": {
-    "productionBuild": "passed",
-    "unitSuites": "passed",
-    "browserSuites": "passed",
-    "contentSchemaAndTierInventories": "passed",
-    "duplicateScoringAndStaleResolutionRegression": "passed",
-    "noPendingOrDisputedInNewDefaultMatches": "passed",
-    "soloImplementationAndReachableRoutesRemoved": "passed",
-    "existingTeamMigrationAndHistoryPreservation": "passed",
-    "sourceOutputSynchronized": "passed",
-    "offlineDocumentStartupWithoutNetwork": "passed",
-    "requiredExternalRuntimeRequests": 0,
-    "touchLayoutsTextScalingReducedMotionAndAxe": "passed",
-    "storageFailureAndMalformedBackupRecovery": "passed",
-    "tournamentProgressionAndTieReplay": "passed",
-    "knownUnresolvedHighSeverityDefects": 0,
-    "directFileSchemePhysicalDeviceVerification": "unavailable-in-this-environment"
+  "firstAttempt": {
+    "status": "stopped-after-real-CSS-regressions-found",
+    "log": "reports/pr1-update/attempt-1.log",
+    "fixed": [
+      "unclosed print media query suppressing team styles",
+      "scoring-button hover hit-test oscillation"
+    ],
+    "regressionCheck": "scoring choices stay stable when a pointer enters the lower edge"
   },
-  "implementedFormats": [
-    "Classic36",
-    "Quick18",
-    "Party18",
-    "Family12+18",
-    "Tournament2/4/8teams"
-  ],
-  "powersImplemented": [
-    "Phone a Friend",
-    "Two Answers",
-    "Pit",
-    "Trap",
-    "Sit Out",
-    "Double Points",
-    "Extra Time",
-    "Hint",
-    "Skip",
-    "Second Chance"
-  ],
-  "removedComponents": [
-    "Legacy individual engine and sessions",
-    "daily challenges and survival/practice/individual tournament routes",
-    "individual XP/levels/streaks/achievements/scoreboards/statistics/profile/recovery",
-    "individual imports/exports and setup/play/result handlers",
-    "team wizard individual routing and nine mandatory setup screens",
-    "419 retired-only CSS selectors",
-    "tests/game.spec.cjs",
-    "tests/solo-v3.spec.cjs",
-    "tests/solo-v3-browser.spec.cjs"
-  ],
-  "fixedDefectsReport": "docs/ENGINEERING_AUDIT.md",
-  "powerRules": "docs/POWER_RULES.md",
-  "factualEvidence": "content-verification-evidence.json",
-  "rulesResearch": "rules-research.json",
-  "testHarnessCorrections": [
-    "Replaced obsolete navigation selectors with the new real shell/lobby routes without removing feature assertions.",
-    "The 1200-edit restore fixture now seeds storage before boot; its previous out-of-band runtime write/reload correctly triggered the conflict guard intermittently. All import/editor/reload capacity assertions remain, with an initial-dialog-closed assertion."
-  ],
+  "physicalSamsung": {
+    "status": "NOT TESTED",
+    "devices": [
+      "Galaxy S24 Ultra",
+      "Galaxy Tab S11 Ultra"
+    ],
+    "browser": "Samsung Internet",
+    "gate": "Record real-device results before merge; see docs/PR1_BRANCH_UPDATE.md"
+  },
   "limits": [
-    "9 categories rather than the longer-term target of24.",
-    "Dedicated visual-only preset is unavailable: only2categories have checked visual questions at all three values; no empty slots or lower-tier substitution is permitted.",
-    "True question replacement is unimplemented; Skip is explicitly distinct.",
-    "189checked includes155 inherited statuses. This execution independently read sources for34 facts; whole-bank independent verification remains unfinished.",
-    "Family12+ is editorial suitability review; no claim of suitability for younger children or of player-tested difficulty.",
-    "Direct file:// navigation returned ERR_BLOCKED_BY_ADMINISTRATOR in managed Chromium. Exact generated bytes booted and played with networking disabled; offline play after local HTTP load also passed.",
-    "No physical Galaxy S24 Ultra/Tab S11 Ultra or Samsung Internet execution was available.",
-    "Moving an active tournament requires its bracket backup plus its team-match backup.",
-    "Local browser storage can be denied; memory-only play requires manual export before closing."
+    "Managed Chromium blocks direct file:// navigation; exact generated bytes booted without networking and local loads followed by offline gameplay are separate checks.",
+    "Successful file:// execution in Firefox applies only to that Linux engine, not Android/Samsung Internet.",
+    "WebKit availability is reported explicitly, never treated as a pass.",
+    "24-category goal, strict standalone visual preset capacity, true question replacement, and independent whole-bank fact verification remain outside this branch update."
   ],
-  "evidenceFiles": [
-    "reports/release-tests.log",
-    "reports/qa-summary.json",
-    "reports/engine-stress.json",
-    "reports/engine-stress.log",
-    "build-manifest.json",
-    "content-audit.json"
-  ]
+  "review": "docs/PR1_BRANCH_UPDATE.md"
 }
